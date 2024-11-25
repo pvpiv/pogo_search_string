@@ -48,9 +48,9 @@ season_start = date(2024, 9, 3)
 
 # Set GitHub API URL based on 'show_custom' flag
 if not st.session_state['show_custom']:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pvpogo/commits?path=pvp_data.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pvpogo/commits?path=pvp_data_willpower.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_willpower.csv"
 
 # Load data
 if st.session_state['show_custom'] and not st.session_state['show_custom1']:
