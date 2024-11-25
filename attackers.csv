@@ -1,0 +1,122 @@
+﻿ID,Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next,,,Evo_Fam,,,
+639,Terrakion,Terrakion,FALSE,,,,1,,,,,,,,,,,,,,,,"Smack Down, Sacred Sword",639,639,,,639,,,639
+248,Tyranitar (Shadow),Larvitar,TRUE,,,,2,,,,,,,,,,,,,,,,"Smack Down, Stone Edge",246;247;248,246;247;248,,,246,247,248,246;247;248
+373,Salamence (Shadow),Bagon,TRUE,,,,3,,,,,,,,,,,,,,,,"Dragon Tail, Outrage",371;372;373,371;372;373,,,371,372,373,371;372;373
+464,Rhyperior (Shadow),Rhyhorn,TRUE,,,,4,,,,,,,,,,,,,,,,"Smack Down, Rock Wrecker",111;112;464,111;112;464,,,111,112,464,111;112;464
+409,Rampardos (Shadow),Cranidos,TRUE,,,,5,,,,,,,,,,,,,,,,"Smack Down, Rock Slide",408;409,408;409,,,408,409,,408;409
+150,Mewtwo (Shadow),Mewtwo,TRUE,,,,6,,,,,,,,,,,,,,,,"Psycho Cut, Psystrike",150,150,,,150,,,150
+376,Metagross (Shadow),Beldum,TRUE,,,,7,,,,,,,,,,,,,,,,"Bullet Punch, Meteor Mash",374;375;376,374;375;376,,,374,375,376,374;375;376
+473,Mamoswine (Shadow),Swinub,TRUE,,,,8,,,,,,,,,,,,,,,,"Powder Snow, Avalanche",220;221;473,220;221;473,,,220,221,473,220;221;473
+383,Groudon (Shadow),Groudon,TRUE,,,,9,,,,,,,,,,,,,,,,"Mud Shot, Precipice Blades",383,383,,,383,,,383
+445,Garchomp (Shadow),Gible,TRUE,,,,10,,,,,,,,,,,,,,,,"Mud Shot, Earth Power",443;444;445,443;444;445,,,443,444,445,443;444;445
+149,Dragonite (Shadow),Dratini,TRUE,,,,11,,,,,,,,,,,,,,,,"Dragon Tail, Outrage",147;148;149,147;148;149,,,147,148,149,147;148;149
+534,Conkeldurr (Shadow),Timburr,TRUE,,,,12,,,,,,,,,,,,,,,,"Counter, Dynamic Punch",532;533;534,532;533;534,,,532,533,534,532;533;534
+609,Chandelure (Shadow),Litwick,TRUE,,,,13,,,,,,,,,,,,,,,,"Fire Spin, Overheat",607;608;609,607;608;609,,,607,608,609,607;608;609
+382,Kyogre (Primal),Kyogre,FALSE,,,,14,,,,,,,,,,,,,,,,"Waterfall, Origin Pulse",382,382,,,382,,,382
+383,Groudon (Primal),Groudon,FALSE,,,,15,,,,,,,,,,,,,,,,"Mud Shot, Precipice Blades",383,383,,,383,,,383
+484,Palkia (Origin Forme),Palkia,FALSE,,,,16,,,,,,,,,,,,,,,,"Dragon Tail, Draco Meteor",484,484,,,484,,,484
+248,Tyranitar (Mega),Larvitar,FALSE,,,,17,,,,,,,,,,,,,,,,"Smack Down, Stone Edge",246;247;248,246;247;248,,,246,247,248,246;247;248
+254,Sceptile (Mega),Treecko,FALSE,,,,18,,,,,,,,,,,,,,,,"Bullet Seed, Frenzy Plant",252;253;254,252;253;254,,,252,253,254,252;253;254
+384,Rayquaza (Mega),Rayquaza,FALSE,,,,19,,,,,,,,,,,,,,,,"Dragon Tail, Outrage",384,384,,,384,,,384
+448,Lucario (Mega),Riolu,FALSE,,,,20,,,,,,,,,,,,,,,,"Counter, Aura Sphere",447;448,447;448,,,447,448,,447;448
+94,Gengar (Mega),Gastly,FALSE,,,,21,,,,,,,,,,,,,,,,"Shadow Claw, Shadow Ball",092;093;094,92;93;94,,,92,93,94,92;93;94
+719,Diancie (Mega),Diancie,FALSE,,,,22,,,,,,,,,,,,,,,,"Rock Throw, Rock Slide",719,719,,,719,,,719
+257,Blaziken (Mega),Torchic,FALSE,,,,23,,,,,,,,,,,,,,,,"Counter, Blast Burn",255;256;257,255;256;257,,,255,256,257,255;256;257
+798,Kartana,Kartana,FALSE,,,,24,,,,,,,,,,,,,,,,"Razor Leaf, Leaf Blade",798,798,,,798,,,798
+800,Necrozma (Dusk Mane),Necrozma,FALSE,,,,25,,,,,,,,,,,,,,,,"Metal Claw, Iron Head",800,800,,,800,,,800
+800,Necrozma (Dawn Wings),Necrozma,FALSE,,,,26,,,,,,,,,,,,,,,,"Confusion, Psychic",800,800,,,800,,,800
+644,Zekrom,Zekrom,FALSE,,,,27,,,,,,,,,,,,,,,,"Charge Beam, Fusion Bolt",644,644,,,644,,,644
+796,Xurkitree,Xurkitree,FALSE,,,,28,,,,,,,,,,,,,,,,"Thunder Shock, Discharge",796,796,,,796,,,796
+260,Swampert (Shadow),Mudkip,TRUE,,,,29,,,,,,,,,,,,,,,,"Mud Shot, Hydro Cannon",258;259;260,258;259;260,,,258,259,260,258;259;260
+243,Raikou (Shadow),Raikou,TRUE,,,,30,,,,,,,,,,,,,,,,"Thunder Shock, Wild Charge",243,243,,,243,,,243
+146,Moltres (Shadow),Moltres,TRUE,,,,31,,,,,,,,,,,,,,,,"Fire Spin, Overheat",146,146,,,146,,,146
+68,Machamp (Shadow),Machop,TRUE,,,,32,,,,,,,,,,,,,,,,"Counter, Dynamic Punch",066;067;068,66;67;68,,,66,67,68,66;67;68
+382,Kyogre (Shadow),Kyogre,TRUE,,,,33,,,,,,,,,,,,,,,,"Waterfall, Surf",382,382,,,382,,,382
+250,Ho-Oh (Shadow),Ho-Oh,TRUE,,,,34,,,,,,,,,,,,,,,,"Incinerate, Sacred Fire",250,250,,,250,,,250
+485,Heatran (Shadow),Heatran,TRUE,,,,35,,,,,,,,,,,,,,,,"Fire Spin, Flamethrower",485,485,,,485,,,485
+530,Excadrill (Shadow),Drilbur,TRUE,,,,36,,,,,,,,,,,,,,,,"Mud-Slap, Drill Run",529;530,529;530,,,529,530,,529;530
+466,Electivire (Shadow),Elekid,TRUE,,,,37,,,,,,,,,,,,,,,,"Thunder Shock, Wild Charge",239;125;466,239;125;466,,,239,125,466,239;125;466
+555,Darmanitan (Shadow),Darumaka,TRUE,,,,38,,,,,,,,,,,,,,,,"Fire Fang, Overheat",554;555,554;555,,,554,555,,554;555
+464,Rhyperior,Rhyhorn,FALSE,,,,39,,,,,,,,,,,,,,,,"Smack Down, Rock Wrecker",111;112;464,111;112;464,,,111,112,464,111;112;464
+643,Reshiram,Reshiram,FALSE,,,,40,,,,,,,,,,,,,,,,"Fire Fang, Fusion Flare",643,643,,,643,,,643
+384,Rayquaza,Rayquaza,FALSE,,,,41,,,,,,,,,,,,,,,,"Dragon Tail, Outrage",384,384,,,384,,,384
+260,Swampert (Mega),Mudkip,FALSE,,,,42,,,,,,,,,,,,,,,,"Mud Shot, Hydro Cannon",258;259;260,258;259;260,,,258,259,260,258;259;260
+373,Salamence (Mega),Bagon,FALSE,,,,43,,,,,,,,,,,,,,,,"Dragon Tail, Outrage",371;372;373,371;372;373,,,371,372,373,371;372;373
+310,Manectric (Mega),Electrike,FALSE,,,,44,,,,,,,,,,,,,,,,"Thunder Fang, Wild Charge",309;310,309;310,,,309,310,,309;310
+381,Latios (Mega),Latios,FALSE,,,,45,,,,,,,,,,,,,,,,"Dragon Breath, Dragon Claw",381,381,,,381,,,381
+362,Glalie (Mega),Snorunt,FALSE,,,,46,,,,,,,,,,,,,,,,"Frost Breath, Avalanche",361;362,361;362,,,361,362,,361;362
+282,Gardevoir (Mega),Ralts,FALSE,,,,47,,,,,,,,,,,,,,,,"Charm, Dazzling Gleam",280;281;282,280;281;282,,,280,281,282,280;281;282
+445,Garchomp (Mega),Gible,FALSE,,,,48,,,,,,,,,,,,,,,,"Mud Shot, Earth Power",443;444;445,443;444;445,,,443,444,445,443;444;445
+6,Charizard (Mega Y),Charmander,FALSE,,,,49,,,,,,,,,,,,,,,,"Fire Spin, Blast Burn",4;5;6,4;5;6,,,4,5,6,4;5;6
+142,Aerodactyl (Mega),Aerodactyl,FALSE,,,,50,,,,,,,,,,,,,,,,"Rock Throw, Rock Slide",142,142,,,142,,,142
+460,Abomasnow (Mega),Snover,FALSE,,,,51,,,,,,,,,,,,,,,,"Powder Snow, Weather Ball",459;460,459;460,,,459,460,,459;460
+473,Mamoswine,Swinub,FALSE,,,,52,,,,,,,,,,,,,,,,"Powder Snow, Avalanche",220;221;473,220;221;473,,,220,221,473,220;221;473
+448,Lucario,Riolu,FALSE,,,,53,,,,,,,,,,,,,,,,"Counter, Aura Sphere",447;448,447;448,,,447,448,,447;448
+483,Dialga (Origin Forme),Dialga,FALSE,,,,54,,,,,,,,,,,,,,,,"Dragon Breath, Draco Meteor",483,483,,,483,,,483
+806,Blacephalon,Blacephalon,FALSE,,,,55,,,,,,,,,,,,,,,,"Ember, Shadow Ball",806,806,,,806,,,806
+717,Yveltal,Yveltal,FALSE,,,,56,,,,,,,,,,,,,,,,"Snarl, Dark Pulse",717,717,,,717,,,717
+637,Volcarona,Larvesta,FALSE,,,,57,,,,,,,,,,,,,,,,"Fire Spin, Overheat",636;637,636;637,,,636,637,,636;637
+248,Tyranitar,Larvitar,FALSE,,,,58,,,,,,,,,,,,,,,,"Smack Down, Stone Edge",246;247;248,246;247;248,,,246,247,248,246;247;248
+642,Thundurus (Therian),Thundurus,FALSE,,,,59,,,,,,,,,,,,,,,,"Volt Switch, Thunderbolt",642,642,,,642,,,642
+145,Zapdos (Shadow),Zapdos,TRUE,,,,60,,,,,,,,,,,,,,,,"Thunder Shock, Thunderbolt",145,145,,,145,,,145
+461,Weavile (Shadow),Sneasel,TRUE,,,,61,,,,,,,,,,,,,,,,"Snarl, Avalanche",215;461,215;461,,,215,461,,215;461
+465,Tangrowth (Shadow),Tangela,TRUE,,,,62,,,,,,,,,,,,,,,,"Vine Whip, Power Whip",114;465,114;465,,,114,465,,114;465
+398,Staraptor (Shadow),Starly,TRUE,,,,63,,,,,,,,,,,,,,,,"Wing Attack, Brave Bird",396;397;398,396;397;398,,,396,397,398,396;397;398
+254,Sceptile (Shadow),Treecko,TRUE,,,,64,,,,,,,,,,,,,,,,"Bullet Seed, Frenzy Plant",252;253;254,252;253;254,,,252,253,254,252;253;254
+462,Magnezone (Shadow),Magnemite,TRUE,,,,65,,,,,,,,,,,,,,,,"Spark, Wild Charge",081;082;462,81;82;462,,,81,82,462,81;82;462
+381,Latios (Shadow),Latios,TRUE,,,,66,,,,,,,,,,,,,,,,"Dragon Breath, Dragon Claw",381,381,,,381,,,381
+430,Honchkrow (Shadow),Murkrow,TRUE,,,,67,,,,,,,,,,,,,,,,"Snarl, Dark Pulse",198;430,198;430,,,198,430,,198;430
+297,Hariyama (Shadow),Makuhita,TRUE,,,,68,,,,,,,,,,,,,,,,"Counter, Dynamic Punch",296;297,296;297,,,296,297,,296;297
+94,Gengar (Shadow),Gastly,TRUE,,,,69,,,,,,,,,,,,,,,,"Shadow Claw, Shadow Ball",092;093;094,92;93;94,,,92,93,94,92;93;94
+282,Gardevoir (Shadow),Ralts,TRUE,,,,70,,,,,,,,,,,,,,,,"Charm, Dazzling Gleam",280;281;282,280;281;282,,,280,281,282,280;281;282
+244,Entei (Shadow),Entei,TRUE,,,,71,,,,,,,,,,,,,,,,"Fire Fang, Overheat",244,244,,,244,,,244
+257,Blaziken (Shadow),Torchic,TRUE,,,,72,,,,,,,,,,,,,,,,"Counter, Blast Burn",255;256;257,255;256;257,,,255,256,257,255;256;257
+142,Aerodactyl (Shadow),Aerodactyl,TRUE,,,,73,,,,,,,,,,,,,,,,"Rock Throw, Rock Slide",142,142,,,142,,,142
+373,Salamence,Bagon,FALSE,,,,74,,,,,,,,,,,,,,,,"Dragon Tail, Outrage",371;372;373,371;372;373,,,371,372,373,371;372;373
+409,Rampardos,Cranidos,FALSE,,,,75,,,,,,,,,,,,,,,,"Smack Down, Rock Slide",408;409,408;409,,,408,409,,408;409
+150,Mewtwo,Mewtwo,FALSE,,,,76,,,,,,,,,,,,,,,,"Psycho Cut, Psystrike",150,150,,,150,,,150
+376,Metagross,Beldum,FALSE,,,,77,,,,,,,,,,,,,,,,"Bullet Punch, Meteor Mash",374;375;376,374;375;376,,,374,375,376,374;375;376
+3,Venusaur (Mega),Bulbasaur,FALSE,,,,78,,,,,,,,,,,,,,,,"Vine Whip, Frenzy Plant",1;2;3,1;2;3,,,1,2,3,1;2;3
+18,Pidgeot (Mega),Pidgey,FALSE,,,,79,,,,,,,,,,,,,,,,"Gust, Brave Bird",016;017;018,16;17;18,,,16,17,18,16;17;18
+380,Latias (Mega),Latias,FALSE,,,,80,,,,,,,,,,,,,,,,"Dragon Breath, Outrage",380,380,,,380,,,380
+229,Houndoom (Mega),Houndour,FALSE,,,,81,,,,,,,,,,,,,,,,"Snarl, Foul Play",228;229,228;229,,,228,229,,228;229
+214,Heracross (Mega),Heracross,FALSE,,,,82,,,,,,,,,,,,,,,,"Counter, Close Combat",214,214,,,214,,,214
+9,Blastoise (Mega),Squirtle,FALSE,,,,83,,,,,,,,,,,,,,,,"Water Gun, Hydro Cannon",7;8;9,7;8;9,,,7,8,9,7;8;9
+354,Banette (Mega),Shuppet,FALSE,,,,84,,,,,,,,,,,,,,,,"Shadow Claw, Shadow Ball",353;354,353;354,,,353,354,,353;354
+181,Ampharos (Mega),Mareep,FALSE,,,,85,,,,,,,,,,,,,,,,"Volt Switch, Zap Cannon",179;180;181,179;180;181,,,179,180,181,179;180;181
+65,Alakazam (Mega),Abra,FALSE,,,,86,,,,,,,,,,,,,,,,"Confusion, Psychic",063;064;065,63;64;65,,,63,64,65,63;64;65
+645,Landorus (Therian),Landorus,FALSE,,,,87,,,,,,,,,,,,,,,,"Mud Shot, Earth Power",645,645,,,645,,,645
+382,Kyogre,Kyogre,FALSE,,,,88,,,,,,,,,,,,,,,,"Waterfall, Surf",382,382,,,382,,,382
+647,Keldeo,Keldeo,FALSE,,,,89,,,,,,,,,,,,,,,,"Low Kick, Sacred Sword",647,647,,,647,,,647
+635,Hydreigon,Deino,FALSE,,,,90,,,,,,,,,,,,,,,,"Bite, Dark Pulse",633;634;635,633;634;635,,,633,634,635,633;634;635
+720,Hoopa (Unbound),Hoopa,FALSE,,,,91,,,,,,,,,,,,,,,,"Astonish, Shadow Ball",720,720,,,720,,,720
+485,Heatran,Heatran,FALSE,,,,92,,,,,,,,,,,,,,,,"Fire Spin, Flamethrower",485,485,,,485,,,485
+383,Groudon,Groudon,FALSE,,,,93,,,,,,,,,,,,,,,,"Mud Shot, Earthquake",383,383,,,383,,,383
+487,Giratina (Origin),Giratina,FALSE,,,,94,,,,,,,,,,,,,,,,"Shadow Claw, Shadow Ball",487,487,,,487,,,487
+445,Garchomp,Gible,FALSE,,,,95,,,,,,,,,,,,,,,,"Mud Shot, Earth Power",443;444;445,443;444;445,,,443,444,445,443;444;445
+905,Enamorus (Incarnate),Enamorus,FALSE,,,,96,,,,,,,,,,,,,,,,"Charm, Dazzling Gleam",905,905,,,905,,,905
+491,Darkrai,Darkrai,FALSE,,,,97,,,,,,,,,,,,,,,,"Snarl, Dark Pulse",491,491,,,491,,,491
+534,Conkeldurr,Timburr,FALSE,,,,98,,,,,,,,,,,,,,,,"Counter, Dynamic Punch",532;533;534,532;533;534,,,532,533,534,532;533;534
+609,Chandelure,Litwick,FALSE,,,,99,,,,,,,,,,,,,,,,"Fire Spin, Overheat",607;608;609,607;608;609,,,607,608,609,607;608;609
+997,Baxcalibur,Frigibax,FALSE,,,,100,,,,,,,,,,,,,,,,"Dragon Breath, Outrage",996;997;998,996;997;998,,,996,997,998,996;997;998
+571,Zoroark,Zorua,FALSE,,,,101,,,,,,,,,,,,,,,,"Snarl, Foul Play",570;571,570;571,,,570,571,,570;571
+893,Zarude,Zarude,FALSE,,,,102,,,,,,,,,,,,,,,,"Vine Whip, Power Whip",893,893,,,893,,,893
+716,Xerneas,Xerneas,FALSE,,,,103,,,,,,,,,,,,,,,,"Tackle, Moonblast",716,716,,,716,,,716
+461,Weavile,Sneasel,FALSE,,,,104,,,,,,,,,,,,,,,,"Snarl, Avalanche",215;461,215;461,,,215,461,,215;461
+738,Vikavolt,Grubbin,FALSE,,,,105,,,,,,,,,,,,,,,,"Spark, Discharge",736;737;738,736;737;738,,,736,737,738,736;737;738
+697,Tyrantrum,Tyrunt,FALSE,,,,106,,,,,,,,,,,,,,,,"Dragon Tail, Outrage",696;697,696;697,,,696,697,,696;697
+260,Swampert,Mudkip,FALSE,,,,107,,,,,,,,,,,,,,,,"Mud Shot, Hydro Cannon",258;259;260,258;259;260,,,258,259,260,258;259;260
+398,Staraptor,Starly,FALSE,,,,108,,,,,,,,,,,,,,,,"Wing Attack, Brave Bird",396;397;398,396;397;398,,,396,397,398,396;397;398
+492,Shaymin (Sky),Shaymin,FALSE,,,,109,,,,,,,,,,,,,,,,"Hidden Power, Grass Knot",492,492,,,492,,,492
+71,Victreebel (Shadow),Bellsprout,TRUE,,,,110,,,,,,,,,,,,,,,,"Razor Leaf, Leaf Blade",069;070;071,69;70;71,,,69,70,71,69;70;71
+3,Venusaur (Shadow),Bulbasaur,TRUE,,,,111,,,,,,,,,,,,,,,,"Vine Whip, Frenzy Plant",1;2;3,1;2;3,,,1,2,3,1;2;3
+521,Unfezant (Shadow),Pidove,TRUE,,,,112,,,,,,,,,,,,,,,,"Air Slash, Sky Attack",519;520;521,519;520;521,,,519,520,521,519;520;521
+157,Typhlosion (Shadow),Cyndaquil,TRUE,,,,113,,,,,,,,,,,,,,,,"Incinerate, Blast Burn",155;156;157,155;156;157,,,155,156,157,155;156;157
+454,Toxicroak (Shadow),Croagunk,TRUE,,,,114,,,,,,,,,,,,,,,,"Counter, Dynamic Punch",453;454,453;454,,,453,454,,453;454
+389,Torterra (Shadow),Turtwig,TRUE,,,,115,,,,,,,,,,,,,,,,"Razor Leaf, Frenzy Plant",387;388;389,387;388;389,,,387,388,389,387;388;389
+127,Pinsir (Shadow),Pinsir,TRUE,,,,116,,,,,,,,,,,,,,,,"Bug Bite, X-Scissor",127,127,,,127,,,127
+310,Manectric (Shadow),Electrike,TRUE,,,,117,,,,,,,,,,,,,,,,"Thunder Fang, Wild Charge",309;310,309;310,,,309,310,,309;310
+405,Luxray (Shadow),Shinx,TRUE,,,,118,,,,,,,,,,,,,,,,"Spark, Wild Charge",403;404;405,403;404;405,,,403,404,405,403;404;405
+249,Lugia (Shadow),Lugia,TRUE,,,,119,,,,,,,,,,,,,,,,"Extrasensory, Aeroblast",249,249,,,249,,,249
+392,Infernape (Shadow),Chimchar,TRUE,,,,120,,,,,,,,,,,,,,,,"Fire Spin, Blast Burn",390;391;392,390;391;392,,,390,391,392,390;391;392
+130,Gyarados (Shadow),Magikarp,TRUE,,,,121,,,,,,,,,,,,,,,,Waterfall,129;130,129;130,,,129,130,,129;130

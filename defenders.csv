@@ -1,0 +1,27 @@
+﻿ID,Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next
+242,Blissey,Chansey,FALSE,,,,1,,,,,,,,,,,,,,,,"Zen Headbutt, Dazzling Gleam",113;242;440,242
+376,Metagross,Beldum,FALSE,,,,2,,,,,,,,,,,,,,,,"Zen Headbutt, Meteor Mash",374;375;376,376
+143,Snorlax,Munchlax,FALSE,,,,3,,,,,,,,,,,,,,,,"Zen Headbutt, Body Slam",143;446,143
+426,Drifblim,Drifloon,FALSE,,,,4,,,,,,,,,,,,,,,,"Hex, Shadow Ball",425;426,426
+468,Togekiss,Togepi,FALSE,,,,5,,,,,,,,,,,,,,,,"Charm, Dazzling Gleam",175;176;468,468
+350,Milotic,Feebas,FALSE,,,,6,,,,,,,,,,,,,,,,"Waterfall, Surf",349;350,350
+130,Gyarados,Magikarp,FALSE,,,,7,,,,,,,,,,,,,,,,"Waterfall, Crunch",129;130,130
+445,Garchomp,Gible,FALSE,,,,8,,,,,,,,,,,,,,,,"Mud Shot, Outrage",443;444;445,445
+149,Dragonite,Dratini,FALSE,,,,9,,,,,,,,,,,,,,,,"Dragon Tail, Outrage",147;148;149,149
+248,Tyranitar,Larvitar,FALSE,,,,10,,,,,,,,,,,,,,,,"Smack Down, Crunch",246;247;248,248
+282,Gardevoir,Ralts,FALSE,,,,11,,,,,,,,,,,,,,,,"Charm, Shadow Ball",280;281;282,282
+534,Conkeldurr,Timburr,FALSE,,,,12,,,,,,,,,,,,,,,,"Counter, Dynamic Punch",532;533;534,534
+462,Magnezone,Magnemite,FALSE,,,,13,,,,,,,,,,,,,,,,"Charge Beam, Wild Charge",81;82;462,462
+3,Venusaur,Bulbasaur,FALSE,,,,14,,,,,,,,,,,,,,,,"Razor Leaf, Frenzy Plant",1;2;3,3
+184,Azumarill,Marill,FALSE,,,,15,,,,,,,,,,,,,,,,"Bubble, Play Rough",183;184;298,184
+589,Escavalier,Karrablast,FALSE,,,,16,,,,,,,,,,,,,,,,"Counter, Drill Run",588;589,589
+373,Salamence,Bagon,FALSE,,,,17,,,,,,,,,,,,,,,,"Dragon Tail, Outrage",371;372;373,373
+260,Swampert,Mudkip,FALSE,,,,18,,,,,,,,,,,,,,,,"Mud Shot, Hydro Cannon",258;259;260,260
+809,Melmetal,Meltan,FALSE,,,,19,,,,,,,,,,,,,,,,"Thunder Shock, Superpower",808;809,809
+113,Chansey,Happiny,FALSE,,,,20,,,,,,,,,,,,,,,,"Zen Headbutt, Dazzling Gleam",113;242;440,113;242
+9,Blastoise,Squirtle,FALSE,,,,21,,,,,,,,,,,,,,,,"Water Gun, Hydro Cannon",7;8;9,9
+208,Steelix,Onix,FALSE,,,,22,,,,,,,,,,,,,,,,"Dragon Tail, Crunch",95;208,208
+411,Bastiodon,Shieldon,FALSE,,,,23,,,,,,,,,,,,,,,,"Smack Down, Flamethrower",410;411,411
+89,Muk (Alolan),Grimer (Alolan),FALSE,,,,24,,,,,,,,,,,,,,,,"Poison Jab, Dark Pulse",88;89,89
+464,Rhyperior,Rhyhorn,FALSE,,,,25,,,,,,,,,,,,,,,,"Mud Slap, Rock Wrecker",111;112;464,464
+289,Slaking,Slakoth,FALSE,,,,26,,,,,,,,,,,,,,,,"Yawn, Body Slam",287;288;289,289

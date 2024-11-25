@@ -1,0 +1,11 @@
+streamlit
+streamlit_analytics
+firebase_admin
+google.cloud
+streamlit-aggrid
+requests
+datetime
+pytz
+streamlit_extras
+streamlit_toggle 
+streamlit-toggle-switch
