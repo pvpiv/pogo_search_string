@@ -72,50 +72,61 @@ def filter_ids(row):
 
     return list(filtered_list)
 
-def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var = True, all=False):
+def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var=True, all=False):
     df_all = df.sort_values(by=rank_column)
     df_filtered = df.dropna(subset=[rank_column])
     df_filtered = df_filtered[df_filtered[rank_column] <= top_n]
+
     if not xl_var:
         df_all = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
         df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] <= 40]
+
     top_df = df_filtered.sort_values(by=rank_column).drop_duplicates(subset=['ID'])
-    seen = set()
+
     if fam:
         top_df['Filtered_Evo_next'] = top_df.apply(filter_ids, axis=1)
         all_ids_set = set([item for sublist in top_df['Filtered_Evo_next'] for item in sublist])
-        all_ids = df_all['ID'].astype(str).tolist()
-        all_ids = [element for element in all_ids_set if element in all_ids_set and not (element in seen or seen.add(element))]
     else:
-        all_ids = top_df['ID'].astype(str).tolist()
-    if all:
-        prefix = ''
-    else:
-        prefix = (
-            'cp-500&' if league == 'little' else 'cp-1500&' if league == 'great' else 'cp-2500&' if league == 'ultra' else ''
-        )
+        all_ids_set = set(top_df['ID'].astype(str).tolist())
+
+    all_ids = list(all_ids_set)
 
     if not all:
-        if inv_bool:
-            prefix = (
-                'cp501-&' if league == 'little' else 'cp1501-&' if league == 'great' else 'cp2501-&' if league == 'ultra' else ''
-            )
-            ids_string = prefix + '!' + '&!'.join(all_ids)
-        else:
-            ids_string = prefix + ','.join(all_ids)
+        prefix = (
+            'cp-500&' if league == 'little' else
+            'cp-1500&' if league == 'great' else
+            'cp-2500&' if league == 'ultra' else
+            ''
+        )
     else:
-        if inv_bool:
-            ids_string = prefix + '!' + '&!'.join(all_ids)
-        else:
-            ids_string = prefix + ','.join(all_ids)
+        prefix = ''
 
-    if iv_bool:
+    if inv_bool:
+        if not all:
+            cp_cap = (
+                '501' if league == 'little' else
+                '1501' if league == 'great' else
+                '2501' if league == 'ultra' else
+                ''
+            )
+            cp_threshold = f'cp{cp_cap}-'
+        else:
+            cp_threshold = ''
+
+        # Build the inverted search string
+        ids_strings_list = [f'!{id_},{cp_threshold}' for id_ in all_ids]
+        ids_string = '&'.join(ids_strings_list)
+    else:
+        ids_string = prefix + ','.join(all_ids)
+
+    if iv_bool and not inv_bool:
         if league != 'master':
             ids_string += "&0-1attack&3-4defense,3-4hp&2-4defense&2-4hp"
         else:
             ids_string += "&3*,4*"
 
     return ids_string.replace("&,", "&")
+
 
 def make_search_string(df, league, top_n, fam, iv_b, inv_b,sho_xl_val, all_pre=False):
     if league == 'little':
