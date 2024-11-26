@@ -119,7 +119,7 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
     else:
         ids_string = prefix + ','.join(all_ids)
 
-    if iv_bool:
+    if iv_bool and not inv_bool:
         if league != 'master':
             ids_string += "&0-1attack&3-4defense,3-4hp&2-4defense&2-4hp"
         else:
