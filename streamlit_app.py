@@ -261,11 +261,9 @@ with cols[1]:
             elif st.session_state['gym_bool']: 
                 attackers = pd.read_csv('attackers.csv')
                 defenders = pd.read_csv('defenders.csv')
-		if iv_box:
-		    iv_box = False
                 try:
                     st.write(f'Defenders Search String:')
-                    st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
                     lab_def = "Show Defenders Table"
                     if st.session_state['master_clicked']:
                         lab_def = "Hide Defenders Table"
@@ -280,7 +278,7 @@ with cols[1]:
                     pass
                 try:
                     st.write(f'Attackers Search String:')
-                    st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
                     lab_att = "Show Attackers Table"
                     if st.session_state['ultra_clicked']:
                         lab_att = "Hide Attackers Table"
