@@ -261,7 +261,8 @@ with cols[1]:
             elif st.session_state['gym_bool']: 
                 attackers = pd.read_csv('attackers.csv')
                 defenders = pd.read_csv('defenders.csv')
-
+		if iv_box:
+		    iv_box = False
                 try:
                     st.write(f'Defenders Search String:')
                     st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
