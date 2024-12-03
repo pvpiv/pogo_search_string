@@ -373,6 +373,12 @@ with cols[1]:
 
             except:
                 pass
+    st.divider()
+    st.text_input(label="Feedback", key="fstring")
+    save_to_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
+    streamlit_analytics.stop_tracking(unsafe_password=st.secrets['pass'])
+
+    load_from_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
     last_updated = get_last_updated_date(GITHUB_API_URL)
     st.write(f"Last updated: {last_updated} (EST)")
 # Custom CSS for mobile view and table fit
