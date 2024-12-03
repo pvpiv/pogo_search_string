@@ -379,18 +379,13 @@ with cols[1]:
         col3, col4 = st.columns([3,1]) 
 
     # Use the first column for text input
-	    with col3:
-	            prompt = st.text_input(
-	            instr,
-	            value=instr,
-	            placeholder=instr,
-	            label_visibility='collapsed'
-	            )
+        with col3:
+	            prompt = st.text_input("test", value="test", placeholder="test", label_visibility='collapsed')
 		    # Use the second column for the submit button
-	    with col4:
+        with col4:
 	        submitted = st.form_submit_button('Chat')
 		    
-	    if prompt and submitted:
+        if prompt and submitted:
 			# Do something with the inputted text here
 	        st.write(f"You said: {prompt}")
     st.divider()
