@@ -83,15 +83,15 @@ with cols[0]:
         popover = st.popover('Settings' ,use_container_width =True)
         if not st.session_state['table_string_butt']:
 
-            show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-            show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust, key='sho_cust')
+           # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
+           # show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust, key='sho_cust')
             #show_custom_boxz2 = popover.checkbox('Halloween Cup', on_change=upd_cust1, key='sho_cust1')
             show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
 
         else:
-            show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-            show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust, key='sho_cust')
+           # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
+         #   show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust, key='sho_cust')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
             topstrin = str(st.session_state.top_num)
@@ -261,10 +261,9 @@ with cols[1]:
             elif st.session_state['gym_bool']: 
                 attackers = pd.read_csv('attackers.csv')
                 defenders = pd.read_csv('defenders.csv')
-
                 try:
                     st.write(f'Defenders Search String:')
-                    st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
                     lab_def = "Show Defenders Table"
                     if st.session_state['master_clicked']:
                         lab_def = "Hide Defenders Table"
@@ -279,7 +278,7 @@ with cols[1]:
                     pass
                 try:
                     st.write(f'Attackers Search String:')
-                    st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
                     lab_att = "Show Attackers Table"
                     if st.session_state['ultra_clicked']:
                         lab_att = "Hide Attackers Table"
