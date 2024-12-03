@@ -379,13 +379,13 @@ with cols[1]:
         col3, col4 = st.columns([3,1]) 
 
     # Use the first column for text input
-        with col3:
-	    prompt = st.text_input(
-		    instr,
-		    value=instr,
-		    placeholder=instr,
-		    label_visibility='collapsed'
-	    )
+    with col3:
+        prompt = st.text_input(
+	instr,
+	value=instr,
+	placeholder=instr,
+	label_visibility='collapsed'
+	)
     # Use the second column for the submit button
         with col4:
 	    submitted = st.form_submit_button('Chat')
