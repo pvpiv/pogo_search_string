@@ -50,11 +50,11 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_willpower.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fantasy.csv"
 
 # Load data
 if st.session_state['show_custom'] and not st.session_state['show_custom1']:
-    df = pd.read_csv('pvp_data_willpower.csv')
+    df = pd.read_csv('pvp_data_fantasy.csv')
 elif st.session_state['show_custom1']:
     df = pd.read_csv('pvp_data_retro.csv')
 else:
@@ -84,14 +84,14 @@ with cols[0]:
         if not st.session_state['table_string_butt']:
 
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-           # show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust, key='sho_cust')
+            show_custom_boxz = popover.checkbox('Fantasy Cup', on_change=upd_cust, key='sho_cust')
             #show_custom_boxz2 = popover.checkbox('Halloween Cup', on_change=upd_cust1, key='sho_cust1')
             show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
 
         else:
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-         #   show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust, key='sho_cust')
+            show_custom_boxz = popover.checkbox('Fantasy Cup', on_change=upd_cust, key='sho_cust')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
             topstrin = str(st.session_state.top_num)
