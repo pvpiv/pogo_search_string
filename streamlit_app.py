@@ -329,21 +329,21 @@ with cols[1]:
                     key="sstring"
                 )
                 st.divider()
-		        with st.form('chat_input_form',clear_on_submit =True):
+                with st.form('chat_input_form',clear_on_submit =True):
     # Create two columns; adjust the ratio to your liking
-        			col3, col4 = st.columns([3,1]) 
+                    col3, col4 = st.columns([3,1]) 
 
     # Use the first column for text input
-        			with col3:
-            			prompt = st.text_input(label="Feedback", key="fstring") #, label_visibility='collapsed')
-		    # Use the second column for the submit button
-        			with col4:
-            			submitted = st.form_submit_button('Submit')
+                    with col3:
+                        prompt = st.text_input(label="Feedback", key="fstring") #, label_visibility='collapsed')
+                # Use the second column for the submit button
+                    with col4:
+                        submitted = st.form_submit_button('Submit')
 
-       				 if prompt and submitted:
-			# Do something with the inputted text here
-           				 st.write(f"Submitted: {prompt}")
-                st.text_input()
+                    if prompt and submitted:
+                # Do something with the inputted text here
+                        st.write(f"Submitted: {prompt}")
+                #st.text_input()
                 save_to_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
                 streamlit_analytics.stop_tracking(unsafe_password=st.secrets['pass'])
         
