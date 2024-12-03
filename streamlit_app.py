@@ -335,7 +335,7 @@ with cols[1]:
 
     # Use the first column for text input
                     with col3:
-                        prompt = st.text_input(label="Feedback", key="fstring") #, label_visibility='collapsed')
+                        prompt = st.text_input(label="Feedback", key="fstring", label_visibility='collapsed')
                 # Use the second column for the submit button
                     with col4:
                         submitted = st.form_submit_button('Submit')
