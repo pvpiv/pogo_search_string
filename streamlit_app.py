@@ -380,15 +380,15 @@ with cols[1]:
 
     # Use the first column for text input
         with col3:
-	            prompt = st.text_input("test", value="test", placeholder="test", label_visibility='collapsed')
+            prompt = st.text_input("test", value="test", placeholder="test", label_visibility='collapsed')
 		    # Use the second column for the submit button
         with col4:
-	        submitted = st.form_submit_button('Chat')
-		    
+            submitted = st.form_submit_button('Chat')
+
         if prompt and submitted:
 			# Do something with the inputted text here
-	        st.write(f"Submitted: {prompt}")
-		    prompt = st.empty()
+            st.write(f"Submitted: {prompt}")
+            prompt = st.empty()
     st.divider()
     st.text_input(label="Feedback", key="fstring")
     save_to_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
