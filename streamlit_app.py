@@ -387,8 +387,8 @@ with cols[1]:
 	label_visibility='collapsed'
 	)
     # Use the second column for the submit button
-        with col4:
-	    submitted = st.form_submit_button('Chat')
+    with col4:
+        submitted = st.form_submit_button('Chat')
     
         if prompt and submitted:
 	# Do something with the inputted text here
