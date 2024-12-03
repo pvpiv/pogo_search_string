@@ -374,13 +374,13 @@ with cols[1]:
             except:
                 pass
 
-    with st.form('chat_input_form'):
+    with st.form('chat_input_form',clear_on_submit =True):
     # Create two columns; adjust the ratio to your liking
         col3, col4 = st.columns([3,1]) 
 
     # Use the first column for text input
         with col3:
-            prompt = st.text_input("test", value="test", key="feedbekk", label_visibility='collapsed')
+            prompt = st.text_input(label = 'Feedback', key="feedbekk", label_visibility='collapsed')
 		    # Use the second column for the submit button
         with col4:
             submitted = st.form_submit_button('Chat')
@@ -388,7 +388,7 @@ with cols[1]:
         if prompt and submitted:
 			# Do something with the inputted text here
             st.write(f"Submitted: {prompt}")
-            st.session_state["feedbekk"] = ""
+           # st.session_state["feedbekk"] = ""
     st.divider()
     st.text_input(label="Feedback", key="fstring")
     save_to_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
