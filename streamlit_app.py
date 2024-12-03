@@ -387,7 +387,8 @@ with cols[1]:
 		    
         if prompt and submitted:
 			# Do something with the inputted text here
-	        st.write(f"You said: {prompt}")
+	        st.write(f"Submitted: {prompt}")
+		prompt = st.empty()
     st.divider()
     st.text_input(label="Feedback", key="fstring")
     save_to_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
