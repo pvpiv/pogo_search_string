@@ -185,22 +185,7 @@ with cols[1]:
             #tables_pop = st.popover("League Tables")
             
             if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['gym_bool']):
-                try:
-                    st.write(f'Little League Top {st.session_state.top_num} Search String:')
-                    st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
-                    lab_lit = "Show Little Table"
-                    if st.session_state['little_clicked']:
-                        lab_lit = "Hide Little Table"
-                        st.button(lab_lit,on_click = little_but)
-                        family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
-                        df_display_Little = pd.DataFrame(family_data_Little)
-                        df_display_Little.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_Little)   
-                    else: 
-                        st.button(lab_lit,on_click = little_but)     
-                    
-                except:
-                    pass
+                
         
                 try:
                     st.write(f'Great League Top {st.session_state.top_num} Search String:')
@@ -252,7 +237,22 @@ with cols[1]:
                     
                 except:
                     pass
-        
+		try:
+		                    st.write(f'Little League Top {st.session_state.top_num} Search String:')
+		                    st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+		                    lab_lit = "Show Little Table"
+		                    if st.session_state['little_clicked']:
+		                        lab_lit = "Hide Little Table"
+		                        st.button(lab_lit,on_click = little_but)
+		                        family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
+		                        df_display_Little = pd.DataFrame(family_data_Little)
+		                        df_display_Little.set_index(['Pokemon'], inplace=True)
+		                        st.table(df_display_Little)   
+		                    else: 
+		                        st.button(lab_lit,on_click = little_but)     
+		                    
+		                except:
+		                    pass
                 try:
                     st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
                     st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,True))
