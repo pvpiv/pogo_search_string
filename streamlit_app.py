@@ -50,11 +50,11 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fantasy.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_holiday.csv"
 
 # Load data
 if st.session_state['show_custom'] and not st.session_state['show_custom1']:
-    df = pd.read_csv('pvp_data_fantasy.csv')
+    df = pd.read_csv('pvp_data_holiday.csv')
 elif st.session_state['show_custom1']:
     df = pd.read_csv('pvp_data_retro.csv')
 else:
@@ -297,17 +297,17 @@ with cols[1]:
                     days_since_date = calculate_days_since(season_start)
                     age_string = f"age0-{days_since_date}&"
                     st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
-                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
-                    lab_gre = "Show Custom Table"
-                    if st.session_state['great_clicked']:
-                        lab_gre = "Hide Custom Table"
-                        st.button(lab_gre,on_click = great_but)
-                        family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                        df_display_Great = pd.DataFrame(family_data_Great)
-                        df_display_Great.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_Great)
+                    st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    lab_lit = "Show Custom Table"
+                    if st.session_state['little_clicked']:
+                        lab_lit = "Hide Custom Table"
+                        st.button(lab_lit,on_click = little_but)
+                        family_data_Great = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
+                        df_display_Little = pd.DataFrame(family_data_Little)
+                        df_display_Little.set_index(['Pokemon'], inplace=True)
+                        st.table(df_display_Little)   
                     else:
-                        st.button(lab_gre,on_click = great_but)
+                        st.button(lab_lit,on_click = little_but)
                     
                 except:
                     pass
