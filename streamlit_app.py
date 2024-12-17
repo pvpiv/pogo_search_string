@@ -302,7 +302,7 @@ with cols[1]:
                     if st.session_state['little_clicked']:
                         lab_lit = "Hide Custom Table"
                         st.button(lab_lit,on_click = little_but)
-                        family_data_Great = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
+                        family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
                         df_display_Little = pd.DataFrame(family_data_Little)
                         df_display_Little.set_index(['Pokemon'], inplace=True)
                         st.table(df_display_Little)   
