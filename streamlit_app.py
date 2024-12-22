@@ -57,7 +57,7 @@ else:
 if st.session_state['show_custom'] and not st.session_state['show_custom1']:
     df = pd.read_csv('pvp_data_holiday.csv')
 elif st.session_state['show_custom1']:
-    df = pd.read_csv('pvp_data_retro.csv')
+    df = pd.read_csv('comm_day.csv')
 else:
     df = pd.read_csv('pvp_data.csv')
 
@@ -86,7 +86,7 @@ with cols[0]:
 
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
             show_custom_boxz = popover.checkbox('Holiday Cup', on_change=upd_cust, key='sho_cust')
-            #show_custom_boxz2 = popover.checkbox('Halloween Cup', on_change=upd_cust1, key='sho_cust1')
+            show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust1, key='sho_cust1')
             show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
 
@@ -170,7 +170,7 @@ with cols[1]:
     else:
         # Section 2 - PVP Pokemon Search String
         
-        
+        show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust1, key='sho_cust1')
         st.subheader("PVP Poké Search Strings")
         if st.session_state.show_string:
             top_nbox = st.number_input(
