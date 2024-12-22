@@ -46,6 +46,10 @@ initialize_session_state()
 
 
 
+query_params = st.query_params  #st.experimental_get_query_params()
+
+if st.query_params["comm"] = True:
+	st.session_state['show_custom2'] = True
 season_start = date(2024, 9, 3)
 
 # Set GitHub API URL based on 'show_custom' flag
@@ -61,8 +65,6 @@ elif st.session_state['show_custom2']:
     df = pd.read_csv('comm_day.csv')
 else:
     df = pd.read_csv('pvp_data.csv')
-
-query_params = st.query_params  #st.experimental_get_query_params()
 
 cols = st.columns((2,8,1))
 
