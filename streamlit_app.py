@@ -329,11 +329,11 @@ with cols[1]:
             elif st.session_state['show_custom2']: 
 
                 st.write(f'Community Day Evolve Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
+                st.code(make_search_string(df, "master", st.session_state.top_num * 2, fam_box, False, inv_box,show_xl_boxz))
                 lab_mast = "Show Community Day Evolve Table"
                 if st.session_state['master_clicked']:
 	                lab_mast  = "Hide Community Day Evolve Table"
-	                family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
+	                family_data_master = format_data_top(df, 'Master', st.session_state.top_num* 2,True)
 	                df_display_master = pd.DataFrame(family_data_master)
 	                df_display_master.set_index(['Pokemon'], inplace=True)
 	                st.button(lab_mast, on_click = master_but)
