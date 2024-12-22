@@ -136,7 +136,7 @@ with cols[1]:
             if pokemon_choice != "Select a Pokemon" and pokemon_choice != "Select a Shadow Pokemon":
                 if st.session_state['get_dat'] and pokemon_choice:
                     if st.session_state['last_sel'] != pokemon_choice or st.session_state['last_sel'] is None:
-                        load_from_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
+                        load_from_firestore(streamlit_analytics2.counts, st.secrets["fb_col"])
                         streamlit_analytics.start_tracking()
         
                     st.session_state['last_sel'] = pokemon_choice
@@ -154,7 +154,7 @@ with cols[1]:
                         df_display.set_index(['Pokemon'], inplace=True)
                         st.table(df_display)
                         try:
-                            save_to_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
+                            save_to_firestore(streamlit_analytics2.counts, st.secrets["fb_col"])
                             streamlit_analytics.stop_tracking(unsafe_password=st.secrets['pass'])
                         except:
                             pass
@@ -162,7 +162,7 @@ with cols[1]:
                         st.session_state['get_dat'] = False
         else:
             try:
-                streamlit_analytics.stop_tracking(unsafe_password=st.secrets['pass'])
+                streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
             except:
                 pass
         
@@ -314,7 +314,7 @@ with cols[1]:
                     pass
         
             try:
-                load_from_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
+                load_from_firestore(streamlit_analytics2.counts, st.secrets["fb_col"])
                 streamlit_analytics.start_tracking()
                 if st.session_state['show_custom']:
                     copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Remix Cup into PokeGO*'
@@ -346,10 +346,10 @@ with cols[1]:
                         st.write(f"Submitted: {prompt}")
                 #st.text_input()
                 save_to_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
-                streamlit_analytics.stop_tracking(unsafe_password=st.secrets['pass'])
+                streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
         
                 load_from_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
-                streamlit_analytics.start_tracking()
+                streamlit_analytics2.start_tracking()
                 if st.session_state['little_clicked']:
                     st.text_input(
                         label=today.strftime("%m/%d/%y"),
@@ -382,7 +382,7 @@ with cols[1]:
                         disabled=True,
                         key="master_text"
                     )
-                streamlit_analytics.stop_tracking(unsafe_password=st.secrets['pass'])
+                streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
         
             # Get the last updated date
 
