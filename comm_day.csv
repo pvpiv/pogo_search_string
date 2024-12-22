@@ -1,19 +1,19 @@
 ﻿ID,Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next
 56,Mankey,Mankey,FALSE,,1,,,,15/15/15,,,,50,,,,1317,,,,"Karate Chop, Cross Chop, Return",,,56;57;979,56;57;979
-69,Bellsprout,Bellsprout,FALSE,,2,,,0/15/11,,,,19,,,,500,,,,"Vine Whip, Power Whip, Sludge Bomb",,,,69;70;71,69;70;71
+69,Bellsprout,Bellsprout,FALSE,,2,,,,0/15/11,,,,19,,,,500,,,,"Vine Whip, Power Whip, Sludge Bomb",,,69;70;71,69;70;71
 77,Ponyta,Ponyta,FALSE,,3,,,,0/15/14,,,,37.5,,,,1500,,,,"Ember, Flame Charge, Stomp",,,77;78,77;78
 77,Ponyta (Galarian),Ponyta,FALSE,,4,,,,0/15/14,,,,37.5,,,,1500,,,,"Psycho Cut, Swift, Play Rough",,,77;78,77;78
 79,Slowpoke,Slowpoke,FALSE,,5,,,,15/15/15,,,,50,,,,1386,,,,"Confusion, Psyshock, Water Pulse",,,79;80;199,79;80;199
 79,Slowpoke (Galarian),Slowpoke,FALSE,,6,,,,15/15/15,,,,50,,,,1386,,,,"Confusion, Psyshock, Surf",,,79;80;199,79;80;199
-113,Chansey,Chansey,FALSE,,7,,,,15/15/15,15/15/15,,,50,50,,,1418,1418,,,"Zen Headbutt, Hyper Beam, Psychic","Zen Headbutt, Psychic, Hyper Beam",,113;242;440,113;242;440
+113,Chansey,Chansey,FALSE,,7,,,,15/15/15,,,,50,,,,1418,,,,"Zen Headbutt, Hyper Beam, Psychic","Zen Headbutt, Psychic, Hyper Beam",,113;242;440,113;242;440
 137,Porygon,Porygon,FALSE,,8,,,,0/13/15,,,,37.5,,,,1500,,,,"Quick Attack, Discharge, Hyper Beam",,,137;233;474,137;233;474
 156,Quilava,Cyndaquil,FALSE,,9,,,,0/13/15,,,,40,,,,1496,,,,"Ember, Flame Charge, Dig",,,155;156;157,156;157
-175,Togepi,Togepi,FALSE,,10,,,1/15/2015,,,,34,,,,499,,,,"Hidden Power (Rock), Ancient Power, Psyshock",,,,175;176;468,175;176;468
-194,Wooper (Paldean),Wooper,FALSE,,11,,,0/15/15,,,,35.5,,,,500,,,,"Poison Jab, Dig, Body Slam",,,,194;195,194;195
+175,Togepi,Togepi,FALSE,,10,,,,1/15/2015,,,,34,,,,499,,,,"Hidden Power (Rock), Ancient Power, Psyshock",,,175;176;468,175;176;468
+194,Wooper (Paldean),Wooper,FALSE,,11,,,,0/15/15,,,,35.5,,,,500,,,,"Poison Jab, Dig, Body Slam",,,194;195,194;195
 532,Timburr,Timburr,FALSE,,12,,,,15/15/15,,,,50,,,,1487,,,,"Low Kick, Brick Break, Rock Tomb",,,532;533;534,532;533;534
-540,Sewaddle,Sewaddle,FALSE,,13,,,0/15/11,,,,21,,,,497,,,,"Bug Bite, Silver Wind, Seed Bomb",,,,540;541;542,540;541;542
+540,Sewaddle,Sewaddle,FALSE,,13,,,,0/15/11,,,,21,,,,497,,,,"Bug Bite, Silver Wind, Seed Bomb",,,540;541;542,540;541;542
 610,Axew,Axew,FALSE,,14,,,,10/15/2014,,,,50,,,,1498,,,,"Scratch, Dragon Claw, Aqua Tail",,,610;611;612,610;611;612
 650,Chespin,Chespin,FALSE,,15,,,,15/15/14,,,,50,,,,1239,,,,"Vine Whip, Body Slam, Seed Bomb",,,650;651;652,650;651;652
 722,Rowlet,Rowlet,FALSE,,16,,,,15/15/15,,,,50,,,,1196,,,,"Leafage, Seed Bomb, Energy Ball",,,722;723;724,722;723;724
 728,Popplio,Popplio,FALSE,,17,,,,15/15/15,,,,50,,,,1276,,,,"Water Gun, Aqua Tail, Water Pulse",,,728;729;730,728;729;730
-736,Grubbin,Grubbin,FALSE,,18,,,1/15/2014,,,,20,,,,499,,,,"Bug Bite, X-Scissor, Crunch",,,,736;737;738,736;737;738
+736,Grubbin,Grubbin,FALSE,,18,,,,1/15/2014,,,,20,,,,499,,,,"Bug Bite, X-Scissor, Crunch",,,736;737;738,736;737;738
