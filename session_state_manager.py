@@ -1,6 +1,7 @@
 # session_state_manager.py
 
 import streamlit as st
+import streamlit_analytics2
 
 def initialize_session_state():
     if 'get_dat' not in st.session_state:
@@ -39,6 +40,8 @@ def initialize_session_state():
         st.session_state['table_string_butt'] = True
     if 'gym_bool' not in st.session_state:
         st.session_state['gym_bool'] = False
+    if "state_dict" not in st.session_state:
+        st.session_state.state_dict = {}
 
         
 
