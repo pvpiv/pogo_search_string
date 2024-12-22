@@ -51,6 +51,7 @@ query_params = st.query_params  #st.experimental_get_query_params()
 try:
 	if st.query_params["comm"] == True:
 		st.session_state['show_custom2'] = True
+		upd_cust2()
 except:
 	pass
 	
