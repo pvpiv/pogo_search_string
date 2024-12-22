@@ -1,19 +1,27 @@
-﻿ID,Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next
-56,Mankey,Mankey,FALSE,,1,,,,15/15/15,,,,50,,,,1317,,,,"Karate Chop, Cross Chop, Return",,,56;57;979,56;57;979
-69,Bellsprout,Bellsprout,FALSE,,2,,,,0/15/11,,,,19,,,,500,,,,"Vine Whip, Power Whip, Sludge Bomb",,,69;70;71,69;70;71
-77,Ponyta,Ponyta,FALSE,,3,,,,0/15/14,,,,37.5,,,,1500,,,,"Ember, Flame Charge, Stomp",,,77;78,77;78
-77,Ponyta (Galarian),Ponyta,FALSE,,4,,,,0/15/14,,,,37.5,,,,1500,,,,"Psycho Cut, Swift, Play Rough",,,77;78,77;78
-79,Slowpoke,Slowpoke,FALSE,,5,,,,15/15/15,,,,50,,,,1386,,,,"Confusion, Psyshock, Water Pulse",,,79;80;199,79;80;199
-79,Slowpoke (Galarian),Slowpoke,FALSE,,6,,,,15/15/15,,,,50,,,,1386,,,,"Confusion, Psyshock, Surf",,,79;80;199,79;80;199
-113,Chansey,Chansey,FALSE,,7,,,,15/15/15,,,,50,,,,1418,,,,"Zen Headbutt, Hyper Beam, Psychic","Zen Headbutt, Psychic, Hyper Beam",,113;242;440,113;242;440
-137,Porygon,Porygon,FALSE,,8,,,,0/13/15,,,,37.5,,,,1500,,,,"Quick Attack, Discharge, Hyper Beam",,,137;233;474,137;233;474
-156,Quilava,Cyndaquil,FALSE,,9,,,,0/13/15,,,,40,,,,1496,,,,"Ember, Flame Charge, Dig",,,155;156;157,156;157
-175,Togepi,Togepi,FALSE,,10,,,,1/15/2015,,,,34,,,,499,,,,"Hidden Power (Rock), Ancient Power, Psyshock",,,175;176;468,175;176;468
-194,Wooper (Paldean),Wooper,FALSE,,11,,,,0/15/15,,,,35.5,,,,500,,,,"Poison Jab, Dig, Body Slam",,,194;195,194;195
-532,Timburr,Timburr,FALSE,,12,,,,15/15/15,,,,50,,,,1487,,,,"Low Kick, Brick Break, Rock Tomb",,,532;533;534,532;533;534
-540,Sewaddle,Sewaddle,FALSE,,13,,,,0/15/11,,,,21,,,,497,,,,"Bug Bite, Silver Wind, Seed Bomb",,,540;541;542,540;541;542
-610,Axew,Axew,FALSE,,14,,,,10/15/2014,,,,50,,,,1498,,,,"Scratch, Dragon Claw, Aqua Tail",,,610;611;612,610;611;612
-650,Chespin,Chespin,FALSE,,15,,,,15/15/14,,,,50,,,,1239,,,,"Vine Whip, Body Slam, Seed Bomb",,,650;651;652,650;651;652
-722,Rowlet,Rowlet,FALSE,,16,,,,15/15/15,,,,50,,,,1196,,,,"Leafage, Seed Bomb, Energy Ball",,,722;723;724,722;723;724
-728,Popplio,Popplio,FALSE,,17,,,,15/15/15,,,,50,,,,1276,,,,"Water Gun, Aqua Tail, Water Pulse",,,728;729;730,728;729;730
-736,Grubbin,Grubbin,FALSE,,18,,,,1/15/2014,,,,20,,,,499,,,,"Bug Bite, X-Scissor, Crunch",,,736;737;738,736;737;738
+﻿Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next
+ Poliwag, Poliwag,FALSE,,1,,,,0/0/0,,,,1,,,,1,,,, poliwhirl/counter|politoed/ice beam,,,60;61;62,60;61;62
+ Mankey, Mankey,FALSE,,2,,,,0/0/0,,,,1,,,,1,,,, primeape/rage fist|annihilape/rage fist,,,56;57;979,56;57;979
+ Bellsprout, Bellsprout,FALSE,,3,,,,0/0/0,,,,1,,,,1,,,, victreebel/magical leaf,,,69;70;71,69;70;71
+ Ponyta, Ponyta,FALSE,,4,,,,0/0/0,,,,1,,,,1,,,, rapidash/wild charge|rapidash (Galarian)/wild charge,,,77;78,77;78
+ Slowpoke, Slowpoke,FALSE,,5,,,,0/0/0,,,,1,,,,1,,,, slowbro/surf|slowbro (Galarian)/surf|slowking/surf|slowking (Galarian)/surf,,,79;80;199,79;80;199
+ Cyndaquil, Cyndaquil,FALSE,,6,,,,0/0/0,,,,1,,,,1,,,, typhlosion/blast burn|typhlosion (Hisuian)/blast burn,,,155;156;157,155;156;157
+ Chansey, Chansey,FALSE,,7,,,,0/0/0,,,,1,,,,1,,,, blissey/wild charge,,,113;242;440,113;242;440
+ Togepi, Togepi,FALSE,,8,,,,0/0/0,,,,1,,,,1,,,, toggekiss/aura sphere,,,175;176;468,175;176;468
+ Wooper, Wooper,FALSE,,9,,,,0/0/0,,,,1,,,,1,,,, quagsire/aqua tail|clodsire/mega horn,,,194;195,194;195
+ Bagon, Bagon,FALSE,,10,,,,0/0/0,,,,1,,,,1,,,, shelgon/outrage|salamence/outrage,,,371;372;373,371;372;373
+ Beldum, Beldum,FALSE,,11,,,,0/0/0,,,,1,,,,1,,,, metagross/meteor mash,,,374;375;376,375;376
+ Porygon, Porygon,FALSE,,12,,,,0/0/0,,,,1,,,,1,,,, porygon-z/tri attack,,,137;233;474,137;233;474
+ Timburr, Timburr,FALSE,,13,,,,0/0/0,,,,1,,,,1,,,, conkeldurr/brutal swing,,,532;533;534,532;533;534
+ Sewaddle, Sewaddle,FALSE,,14,,,,0/0/0,,,,1,,,,1,,,, leavanny/shadow claw,,,540;541;542,540;541;542
+ Tynamo, Tynamo,FALSE,,15,,,,0/0/0,,,,1,,,,1,,,, eelektross/volt switch,,,602;603;604,603;604
+ Axew, Axew,FALSE,,16,,,,0/0/0,,,,1,,,,1,,,, haxorus/breaking swipe,,,610;611;612,610;611;612
+ Chespin, Chespin,FALSE,,17,,,,0/0/0,,,,1,,,,1,,,, chesnaught/frenzy plant,,,650;651;652,650;651;652
+ Fennekin, Fennekin,FALSE,,18,,,,0/0/0,,,,1,,,,1,,,, delphox/blast burn,,,653;654;655,654;655
+ Froakie, Froakie,FALSE,,19,,,,0/0/0,,,,1,,,,1,,,, greninja/hydro cannon,,,656;657;658,657;658
+ Goomy, Goomy,FALSE,,20,,,,0/0/0,,,,1,,,,1,,,, goodra/thunder punch,,,704;705;706,705;706
+ Noibat, Noibat,FALSE,,21,,,,0/0/0,,,,1,,,,1,,,, noivern/boomburst,,,714;715,714;715
+ Rowlet, Rowlet,FALSE,,22,,,,0/0/0,,,,1,,,,1,,,, decidueye/frenzy plant,,,722;723;724,722;723;724
+ Litten, Litten,FALSE,,23,,,,0/0/0,,,,1,,,,1,,,, incineroar/blast burn,,,725;726;727,726;727
+ Popplio, Popplio,FALSE,,24,,,,0/0/0,,,,1,,,,1,,,, primarina/hydro cannon,,,728;729;730,728;729;730
+ Grubbin, Grubbin,FALSE,,25,,,,0/0/0,,,,1,,,,1,,,, charjabug/volt switch|vikavolt/volt switch,,,736;737;738,736;737;738
+ Bounsweet, Bounsweet,FALSE,,26,,,,0/0/0,,,,1,,,,1,,,, tsareena/high jump kick,,,761;762;763,763
