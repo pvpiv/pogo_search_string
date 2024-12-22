@@ -2,7 +2,7 @@
 from streamlit_extras.stylable_container import stylable_container
 import streamlit as st
 import pandas as pd
-import streamlit_analytics
+import streamlit_analytics2
 import json
 from datetime import date, datetime
 import requests
