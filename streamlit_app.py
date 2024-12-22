@@ -172,10 +172,10 @@ with cols[1]:
         # Section 2 - Pokemon Search String
         
         
-        if sho_cust2:
-		st.subheader("Comm Day Evolve Search Strings")
-	else:
-		st.subheader("PVP Poké Search Strings")
+        if st.session_state['show_custom2']:
+            st.subheader("Comm Day Evolve Search Strings")
+        else:
+            st.subheader("PVP Poké Search Strings")
 	show_custom_boxz3 =  st.checkbox('Community Day String', on_change=upd_cust2, key='sho_cust2')
         if st.session_state.show_string:
             top_nbox = st.number_input(
