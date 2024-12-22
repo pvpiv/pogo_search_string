@@ -93,7 +93,7 @@ with cols[0]:
 
         else:
             show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-            show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust2, key='sho_cust2')
+            #show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust2, key='sho_cust2')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
             topstrin = str(st.session_state.top_num)
@@ -171,7 +171,7 @@ with cols[1]:
     else:
         # Section 2 - PVP Pokemon Search String
         
-        show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust1, key='sho_cust2')
+        show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust2, key='sho_cust2')
         st.subheader("PVP Poké Search Strings")
         if st.session_state.show_string:
             top_nbox = st.number_input(
