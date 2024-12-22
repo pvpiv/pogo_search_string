@@ -48,7 +48,7 @@ initialize_session_state()
 
 query_params = st.query_params  #st.experimental_get_query_params()
 
-if st.query_params["comm"] = True:
+if st.query_params["comm"] == True:
 	st.session_state['show_custom2'] = True
 season_start = date(2024, 9, 3)
 
