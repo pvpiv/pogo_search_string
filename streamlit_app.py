@@ -172,7 +172,7 @@ with cols[1]:
         # Section 2 - Pokemon Search String
         
         
-        if st.session_state['show_custom2']:
+        if not st.session_state['show_custom2']:
             st.subheader("Comm Day Evolve Search Strings")
         else:
             st.subheader("PVP Poké Search Strings")
