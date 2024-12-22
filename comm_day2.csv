@@ -1,0 +1,51 @@
+﻿ID,Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next
+56,Mankey,Mankey,FALSE,,650,,1,,15/15/15,,,,50,,1,,1317,,,,,,primeape/rage fist|annihilape/rage fist,56;57;979,56;57;979
+57,Primeape,Mankey,FALSE,,5,2,2,,15-Jan,15-Jul,15/15/15,,24.5,50,1,,1497,2490,2586,,,,primeape/rage fist|annihilape/rage fist,56;57;979,57;979
+60,Poliwag,Poliwag,FALSE,,,,3,,,,,,,,1,,,,,,,,poliwhirl/counter|politoed/ice beam,60;61;62,60;61;62
+61,Poliwhirl,Poliwag,FALSE,,418,,4,,15-Jun,,,,49.5,,1,,1500,,,,,,poliwhirl/counter|politoed/ice beam,60;61;62,61;62
+69,Bellsprout,Bellsprout,FALSE,328,,,5,0/15/11,,,,19,,,1,500,,,,,,,victreebel/magical leaf,69;70;71,69;70;71
+70,Weepinbell,Bellsprout,FALSE,323,658,,6,0/13/13,15-Jan,,,12,40.5,,1,499,1493,,,,,,victreebel/magical leaf,69;70;71,70;71
+77,Ponyta,Ponyta,FALSE,,748,,7,,0/15/14,,,,37.5,,1,,1500,,,,,,rapidash/wild charge|rapidash (Galarian)/wild charge,77;78,77;78
+79,Slowpoke,Slowpoke,FALSE,,717,,9,,15/15/15,,,,50,,1,,1386,,,,,,slowbro/surf|slowbro (Galarian)/surf|slowking/surf|slowking (Galarian)/surf,79;80;199,79;80;199
+79,Slowpoke (Galarian),Slowpoke,FALSE,,739,,10,,15/15/15,,,,50,,1,,1386,,,,,,slowbro/surf|slowbro (Galarian)/surf|slowking/surf|slowking (Galarian)/surf,79;80;199,79;80;199
+80,Slowbro,Slowpoke,FALSE,,582,384,11,,0/13/15,0/14/14,15/15/15,,22.5,45.5,1,,1493,2499,2877,,,,slowbro/surf|slowbro (Galarian)/surf|slowking/surf|slowking (Galarian)/surf,79;80,80
+80,Slowbro (Galarian),Slowpoke,FALSE,84,384,194,12,0/14/8,0/14/11,15-Jan,15/15/15,8,23.5,48.5,1,496,1493,2495,2764,,,,slowbro/surf|slowbro (Galarian)/surf|slowking/surf|slowking (Galarian)/surf,79;80,80
+113,Chansey,Chansey,FALSE,,363,732,13,,15/15/15,15/15/15,,,50,50,1,,1418,1418,,,,,blissey/wild charge,113;242;440,113;242;440
+137,Porygon,Porygon,FALSE,,603,,14,,0/13/15,,,,37.5,,1,,1500,,,,,,porygon-z/tri attack,137;233;474,137;233;474
+155,Cyndaquil,Cyndaquil,FALSE,,,,15,,,,,,,,1,,,,,,,,typhlosion/blast burn|typhlosion (Hisuian)/blast burn,155;156;157,155;156;157
+156,Quilava,Cyndaquil,FALSE,,796,,16,,0/13/15,,,,40,,1,,1496,,,,,,typhlosion/blast burn|typhlosion (Hisuian)/blast burn,155;156;157,156;157
+175,Togepi,Togepi,FALSE,260,,,17,15-Jan,,,,34,,,1,499,,,,,,,toggekiss/aura sphere,175;176;468,175;176;468
+176,Togetic,Togepi,FALSE,54,64,601,18,0/15/11,0/14/14,15/15/15,,11.5,38.5,50,1,499,1496,1931,,,,,toggekiss/aura sphere,175;176;468,176;468
+194,Wooper (Paldean),Wooper,FALSE,17,,,19,0/15/15,,,,35.5,,,1,500,,,,,,,quagsire/aqua tail|clodsire/mega horn,194;195,194;195
+233,Porygon2,Porygon,FALSE,,708,438,20,,0/12/15,15-Jan,15/15/15,,21,39,1,,1500,2495,3065,,,,porygon-z/tri attack,137;233;474,233;474
+371,Bagon,Bagon,FALSE,,,,21,,,,,,,,1,,,,,,,,shelgon/outrage|salamence/outrage,371;372;373,371;372;373
+372,Shelgon,Bagon,FALSE,,486,588,22,,15-Jan,15/15/15,,,28,50,1,,1493,2296,,,,,shelgon/outrage|salamence/outrage,371;372;373,372;373
+374,Beldum,Beldum,FALSE,,,,23,,,,,,,,1,,,,,,,,metagross/meteor mash,374;375;376,374;375;376
+375,Metang,Beldum,FALSE,,414,700,24,,0/13/15,15/15/14,,,38,50,1,,1494,1946,,,,,metagross/meteor mash,374;375;376,375;376
+532,Timburr,Timburr,FALSE,,985,,25,,15/15/15,,,,50,,1,,1487,,,,,,conkeldurr/brutal swing,532;533;534,532;533;534
+533,Gurdurr,Timburr,FALSE,,587,521,26,,15-Jan,15/15/14,15/15/15,,26,50,1,,1491,2452,2452,,,,conkeldurr/brutal swing,532;533;534,533;534
+540,Sewaddle,Sewaddle,FALSE,288,,,27,0/15/11,,,,21,,,1,497,,,,,,,leavanny/shadow claw,540;541;542,540;541;542
+541,Swadloon,Sewaddle,FALSE,316,617,,28,0/15/14,15-Dec,,,14.5,49.5,,1,498,1500,,,,,,leavanny/shadow claw,540;541;542,541;542
+602,Tynamo,Tynamo,FALSE,,,,29,,,,,,,,1,,,,,,,,eelektross/volt switch,602;603;604,602;603;604
+603,Eelektrik,Tynamo,FALSE,,745,,30,,0/13/15,,,,37.5,,1,,1498,,,,,,eelektross/volt switch,602;603;604,603;604
+610,Axew,Axew,FALSE,,962,,31,,15-Oct,,,,50,,1,,1498,,,,,,haxorus/breaking swipe,610;611;612,610;611;612
+611,Fraxure,Axew,FALSE,,300,265,32,,15-Jan,15-Dec,,,25,50,1,,1499,2497,,,,,haxorus/breaking swipe,610;611;612,611;612
+650,Chespin,Chespin,FALSE,,813,,33,,15/15/14,,,,50,,1,,1239,,,,,,chesnaught/frenzy plant,650;651;652,650;651;652
+651,Quilladin,Chespin,FALSE,,370,,34,,0/14/15,,,,37.5,,1,,1495,,,,,,chesnaught/frenzy plant,650;651;652,651;652
+653,Fennekin,Fennekin,FALSE,,,,35,,,,,,,,1,,,,,,,,delphox/blast burn,653;654;655,653;654;655
+654,Braixen,Fennekin,FALSE,,809,,36,,0/15/14,,,,33,,1,,1497,,,,,,delphox/blast burn,653;654;655,654;655
+656,Froakie,Froakie,FALSE,,,,37,,,,,,,,1,,,,,,,,greninja/hydro cannon,656;657;658,656;657;658
+657,Frogadier,Froakie,FALSE,,620,,38,,15-Jan,,,,39.5,,1,,1500,,,,,,greninja/hydro cannon,656;657;658,657;658
+704,Goomy,Goomy,FALSE,,,,39,,,,,,,,1,,,,,,,,goodra/thunder punch,704;705;706,704;705;706
+705,Sliggoo,Goomy,FALSE,,725,673,40,,15-Jan,15/15/15,15/15/15,,28,50,1,,1499,2303,2303,,,,goodra/thunder punch,704;705;706,705;706
+714,Noibat,Noibat,FALSE,,,,41,,,,,,,,1,,,,,,,,noivern/boomburst,714;715,714;715
+722,Rowlet,Rowlet,FALSE,,951,,42,,15/15/15,,,,50,,1,,1196,,,,,,decidueye/frenzy plant,722;723;724,722;723;724
+723,Dartrix,Rowlet,FALSE,,323,666,43,,0/15/14,15/15/14,,,37.5,50,1,,1498,1950,,,,,decidueye/frenzy plant,722;723;724,723;724
+725,Litten,Litten,FALSE,,,,44,,,,,,,,1,,,,,,,,incineroar/blast burn,725;726;727,725;726;727
+726,Torracat,Litten,FALSE,,828,,45,,0/15/13,,,,37,,1,,1497,,,,,,incineroar/blast burn,725;726;727,726;727
+728,Popplio,Popplio,FALSE,,803,,46,,15/15/15,,,,50,,1,,1276,,,,,,primarina/hydro cannon,728;729;730,728;729;730
+729,Brionne,Popplio,FALSE,,782,710,47,,15-Jan,15/15/14,,,30.5,50,1,,1488,2131,,,,,primarina/hydro cannon,728;729;730,729;730
+736,Grubbin,Grubbin,FALSE,289,,,48,15-Jan,,,,20,,,1,499,,,,,,,charjabug/volt switch|vikavolt/volt switch,736;737;738,736;737;738
+737,Charjabug,Grubbin,FALSE,144,128,,49,0/11/15,0/13/15,,,11.5,38.5,,1,499,1500,,,,,,charjabug/volt switch|vikavolt/volt switch,736;737;738,737;738
+762,Steenee,Steenee,FALSE,,,,50,,,,,,,,1,,,,,,,,tsareena/high jump kick,761;762;763,762;763
+763,Tsareena,Bounsweet,FALSE,,609,455,51,,0/15/13,0/15/15,15/15/15,,19,33,1,,1499,2499,3351,,,,tsareena/high jump kick,761;762;763,763
