@@ -10,7 +10,7 @@
 137,Porygon,Porygon,FALSE,,,,12,,,,0/0/0,,,,1,,,,1,,,,porygon-z/tri attack,137;233;474,137;233;474
 532,Timburr,Timburr,FALSE,,,,13,,,,0/0/0,,,,1,,,,1,,,,conkeldurr/brutal swing,532;533;534,532;533;534
 540,Sewaddle,Sewaddle,FALSE,,,,14,,,,0/0/0,,,,1,,,,1,,,,leavanny/shadow claw,540;541;542,540;541;542
-602,Tynamo,Tynamo,FALSE,,,,15,,,,0/0/0,,,,1,,,,1,,,,eelektross/volt switch,602;603;604,603;604
+602,Tynamo,Tynamo,FALSE,,,,15,,,,0/0/0,,,,1,,,,1,,,,eelektross/volt switch,602;603;602,603;604
 610,Axew,Axew,FALSE,,,,16,,,,0/0/0,,,,1,,,,1,,,,haxorus/breaking swipe,610;611;612,610;611;612
 650,Chespin,Chespin,FALSE,,,,17,,,,0/0/0,,,,1,,,,1,,,,chesnaught/frenzy plant,650;651;652,650;651;652
 653,Fennekin,Fennekin,FALSE,,,,18,,,,0/0/0,,,,1,,,,1,,,,delphox/blast burn,653;654;655,654;655
@@ -36,10 +36,10 @@
 233,Porygon,Porygon,FALSE,,12,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,porygon-z/tri attack,137;233;474,137;233;474
 533,Timburr,Timburr,FALSE,,13,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,conkeldurr/brutal swing,532;533;534,532;533;534
 541,Sewaddle,Sewaddle,FALSE,,14,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,leavanny/shadow claw,540;541;542,540;541;542
-603,Tynamo,Tynamo,FALSE,,15,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,eelektross/volt switch,602;603;604,603;604
+603,Tynamo,Tynamo,FALSE,,15,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,eelektross/volt switch,602;603;602,603;604
 611,Axew,Axew,FALSE,,16,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,haxorus/breaking swipe,610;611;612,610;611;612
 651,Chespin,Chespin,FALSE,,17,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,chesnaught/frenzy plant,650;651;652,650;651;652
-654,Fennekin,Fennekin,FALSE,,18,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,delphox/blast burn,653;654;655,654;655
+654,Fennekin,Fennekin,FALSE,,18,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,delphox/blast burn,653;654;653,654;655
 657,Froakie,Froakie,FALSE,,19,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,greninja/hydro cannon,656;657;658,657;658
 705,Goomy,Goomy,FALSE,,20,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,goodra/thunder punch,704;705;706,705;706
 723,Rowlet,Rowlet,FALSE,,22,,,,,,0/0/0,,0/0/0,,1,,1,,1,,1,,decidueye/frenzy plant,722;723;724,722;723;724
