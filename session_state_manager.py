@@ -24,6 +24,8 @@ def initialize_session_state():
         st.session_state['show_custom'] = False
     if 'show_custom1' not in st.session_state:
         st.session_state['show_custom1'] = False
+   if 'show_custom2' not in st.session_state:
+        st.session_state['show_custom2'] = False
     if 'show_inverse' not in st.session_state:
         st.session_state['show_inverse'] = False
     if 'little_clicked' not in st.session_state:
@@ -63,6 +65,8 @@ def upd_cust():
     st.session_state.show_custom = st.session_state.sho_cust
 def upd_cust1():
     st.session_state.show_custom1 = st.session_state.sho_cust1
+def upd_cust2():
+    st.session_state.show_custom2 = st.session_state.sho_cust2
 def update_gym_bool():
     st.session_state['gym_bool'] = st.session_state['sho_gym']
 def upd_inv():
