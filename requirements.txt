@@ -1,5 +1,5 @@
 streamlit
-streamlit_analytics
+streamlit_analytics2
 firebase_admin
 google.cloud
 streamlit-aggrid
