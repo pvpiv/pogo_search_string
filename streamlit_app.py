@@ -61,7 +61,7 @@ elif st.session_state['show_custom1']:
 else:
     df = pd.read_csv('pvp_data.csv')
 
-query_params = st.experimental_get_query_params()
+query_params = st.query_params  #st.experimental_get_query_params()
 
 cols = st.columns((2,8,1))
 
