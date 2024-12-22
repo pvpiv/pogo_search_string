@@ -1,6 +1,6 @@
 ﻿ID,Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next
-56, Mankey, Mankey,FALSE,,2,,,,0/0/0,,,,1,,,,1,,,, primeape/rage fist|annihilape/rage fist,,,56;57;979,56;57;979
-60, Poliwag, Poliwag,FALSE,,1,,,,0/0/0,,,,1,,,,1,,,, poliwhirl/counter|politoed/ice beam,,,60;61;62,60;61;62
+56, Mankey, Mankey,FALSE,,1,,,,0/0/0,,,,1,,,,1,,,, primeape/rage fist|annihilape/rage fist,,,56;57;979,56;57;979
+60, Poliwag, Poliwag,FALSE,,2,,,,0/0/0,,,,1,,,,1,,,, poliwhirl/counter|politoed/ice beam,,,60;61;62,60;61;62
 69, Bellsprout, Bellsprout,FALSE,,3,,,,0/0/0,,,,1,,,,1,,,, victreebel/magical leaf,,,69;70;71,69;70;71
 77, Ponyta, Ponyta,FALSE,,4,,,,0/0/0,,,,1,,,,1,,,, rapidash/wild charge|rapidash (Galarian)/wild charge,,,77;78,77;78
 79, Slowpoke, Slowpoke,FALSE,,5,,,,0/0/0,,,,1,,,,1,,,, slowbro/surf|slowbro (Galarian)/surf|slowking/surf|slowking (Galarian)/surf,,,79;80;199,79;80;199
