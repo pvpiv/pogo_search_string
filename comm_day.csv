@@ -6,7 +6,7 @@
 155,Cyndaquil,Cyndaquil,FALSE,,,,6,,,,0/0/0,,,,1,,,,1,,,,typhlosion/blast burn|typhlosion (Hisuian)/blast burn,155;156;157,155;156;157
 175,Togepi,Togepi,FALSE,,,,8,,,,0/0/0,,,,1,,,,1,,,,toggekiss/aura sphere,175;176;468,175;176;468
 371,Bagon,Bagon,FALSE,,,,10,,,,0/0/0,,,,1,,,,1,,,,shelgon/outrage|salamence/outrage,371;372;373,371;372;373
-375,Beldum,Beldum,FALSE,,,,11,,,,0/0/0,,,,1,,,,1,,,,metagross/meteor mash,374;375;376,375;376
+374,Beldum,Beldum,FALSE,,,,11,,,,0/0/0,,,,1,,,,1,,,,metagross/meteor mash,374;375;374,375;376
 137,Porygon,Porygon,FALSE,,,,12,,,,0/0/0,,,,1,,,,1,,,,porygon-z/tri attack,137;233;474,137;233;474
 532,Timburr,Timburr,FALSE,,,,13,,,,0/0/0,,,,1,,,,1,,,,conkeldurr/brutal swing,532;533;534,532;533;534
 540,Sewaddle,Sewaddle,FALSE,,,,14,,,,0/0/0,,,,1,,,,1,,,,leavanny/shadow claw,540;541;542,540;541;542
@@ -14,8 +14,8 @@
 610,Axew,Axew,FALSE,,,,16,,,,0/0/0,,,,1,,,,1,,,,haxorus/breaking swipe,610;611;612,610;611;612
 650,Chespin,Chespin,FALSE,,,,17,,,,0/0/0,,,,1,,,,1,,,,chesnaught/frenzy plant,650;651;652,650;651;652
 654,Fennekin,Fennekin,FALSE,,,,18,,,,0/0/0,,,,1,,,,1,,,,delphox/blast burn,653;654;655,654;655
-657,Froakie,Froakie,FALSE,,,,19,,,,0/0/0,,,,1,,,,1,,,,greninja/hydro cannon,656;657;658,657;658
-705,Goomy,Goomy,FALSE,,,,20,,,,0/0/0,,,,1,,,,1,,,,goodra/thunder punch,704;705;706,705;706
+656,Froakie,Froakie,FALSE,,,,19,,,,0/0/0,,,,1,,,,1,,,,greninja/hydro cannon,656;657;658,657;658
+704,Goomy,Goomy,FALSE,,,,20,,,,0/0/0,,,,1,,,,1,,,,goodra/thunder punch,704;705;706,705;706
 722,Rowlet,Rowlet,FALSE,,,,22,,,,0/0/0,,,,1,,,,1,,,,decidueye/frenzy plant,722;723;724,722;723;724
 726,Litten,Litten,FALSE,,,,23,,,,0/0/0,,,,1,,,,1,,,,incineroar/blast burn,725;726;727,726;727
 728,Popplio,Popplio,FALSE,,,,24,,,,0/0/0,,,,1,,,,1,,,,primarina/hydro cannon,728;729;730,728;729;730
