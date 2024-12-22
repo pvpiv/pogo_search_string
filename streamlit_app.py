@@ -293,7 +293,7 @@ with cols[1]:
                         st.button(lab_att,on_click = ultra_but)
                 except:
                     pass
-            elif st.session_state['show_custom'] or st.session_state['show_custom1']or st.session_state['show_custom2']: 
+            elif st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['show_custom2']: 
                 try:
                     #popover.button("Show Sunshine Cup Table", key='sun_table', on_click=great_but)
                     days_since_date = calculate_days_since(season_start)
@@ -313,7 +313,24 @@ with cols[1]:
                     
                 except:
                     pass
-        
+            elif st.session_state['show_custom2']: 
+		try:
+                    st.write(f'Great League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
+                    lab_gre = "Show Great Table"
+                    if st.session_state['great_clicked']:
+                        lab_gre  = "Hide Great Table"
+                        st.button(lab_gre,on_click = great_but)
+                        family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                        df_display_Great = pd.DataFrame(family_data_Great)
+                        df_display_Great.set_index(['Pokemon'], inplace=True)
+                        st.table(df_display_Great)
+                    else:
+                        st.button(lab_gre,on_click = great_but)
+                    
+                except:
+                    pass
+		    
             try:
                 load_from_firestore(streamlit_analytics2.counts, st.secrets["fb_col"])
                 streamlit_analytics2.start_tracking()
