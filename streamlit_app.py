@@ -184,7 +184,7 @@ with cols[1]:
         else:
             st.subheader("PVP Poké Search Strings")
 		
-        show_custom_boxz3 =  st.checkbox('Community Day String', on_change=upd_cust2, key='sho_cust2')
+        show_custom_boxz3 =  st.checkbox('Community Day String', value=st.session_state['show_custom3'], on_change=upd_cust2, key='sho_cust2')
 	    
         if st.session_state.show_string:
             top_nbox = st.number_input(
