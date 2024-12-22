@@ -1,6 +1,6 @@
 ﻿ID,Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next
 56,Mankey,Mankey,FALSE,,650,,1,,15/15/15,,,,50,,1,,1317,,,,,,primeape/rage fist|annihilape/rage fist,56;57;979,56;57;979
-57,Primeape,Mankey,FALSE,,5,2,2,,15-Jan,15-Jul,,,24.5,50,1,,1497,2490,2586,,,,primeape/rage fist|annihilape/rage fist,56;57;979,57;979
+57,Primeape,Mankey,FALSE,,5,2,2,,15-Jan,15-Jul,,,24.5,50,1,,1497,2490,,,,,primeape/rage fist|annihilape/rage fist,56;57;979,57;979
 60,Poliwag,Poliwag,FALSE,,,,3,,,,,,,,1,,,,,,,,poliwhirl/counter|politoed/ice beam,60;61;62,60;61;62
 61,Poliwhirl,Poliwag,FALSE,,418,,4,,15-Jun,,,,49.5,,1,,1500,,,,,,poliwhirl/counter|politoed/ice beam,60;61;62,61;62
 69,Bellsprout,Bellsprout,FALSE,328,,,5,0/15/11,,,,19,,,1,500,,,,,,,victreebel/magical leaf,69;70;71,69;70;71
