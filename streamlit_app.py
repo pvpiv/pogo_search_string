@@ -315,18 +315,18 @@ with cols[1]:
                     pass
             elif st.session_state['show_custom2']: 
                 try:
-                    st.write(f'Great League Top {st.session_state.top_num} Search String:')
-                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-                    lab_gre = "Show Great Table"
-                    if st.session_state['great_clicked']:
-                        lab_gre  = "Hide Great Table"
-                        st.button(lab_gre,on_click = great_but)
-                        family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                        df_display_Great = pd.DataFrame(family_data_Great)
-                        df_display_Great.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_Great)
+                    st.write(f'Community Day evolve {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
+                    lab_mast = "Show Master Table"
+                    if st.session_state['master_clicked']:
+                        lab_mast  = "Hide Community Day evolve Table"
+                        family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
+                        df_display_master = pd.DataFrame(family_data_master)
+                        df_display_master.set_index(['Pokemon'], inplace=True)
+                        st.button(lab_mast, on_click = master_but)
+                        st.table(df_display_master)
                     else:
-                        st.button(lab_gre,on_click = great_but)
+                        st.button(lab_mast,on_click = master_but)
                     
                 except:
                     pass
