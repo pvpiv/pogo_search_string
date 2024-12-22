@@ -155,7 +155,7 @@ with cols[1]:
                         st.table(df_display)
                         try:
                             save_to_firestore(streamlit_analytics2.counts, st.secrets["fb_col"])
-                            streamlit_analytics.stop_tracking(unsafe_password=st.secrets['pass'])
+                            streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
                         except:
                             pass
                     else:
@@ -315,7 +315,7 @@ with cols[1]:
         
             try:
                 load_from_firestore(streamlit_analytics2.counts, st.secrets["fb_col"])
-                streamlit_analytics.start_tracking()
+                streamlit_analytics2.start_tracking()
                 if st.session_state['show_custom']:
                     copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Remix Cup into PokeGO*'
                 elif st.session_state['show_custom1']:
@@ -345,10 +345,10 @@ with cols[1]:
                 # Do something with the inputted text here
                         st.write(f"Submitted: {prompt}")
                 #st.text_input()
-                save_to_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
+                save_to_firestore(streamlit_analytics2.counts, st.secrets["fb_col"])
                 streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
         
-                load_from_firestore(streamlit_analytics.counts, st.secrets["fb_col"])
+                load_from_firestore(streamlit_analytics2.counts, st.secrets["fb_col"])
                 streamlit_analytics2.start_tracking()
                 if st.session_state['little_clicked']:
                     st.text_input(
