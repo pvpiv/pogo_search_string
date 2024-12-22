@@ -170,7 +170,7 @@ with cols[1]:
     else:
         # Section 2 - PVP Pokemon Search String
         
-        show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust1, key='sho_cust1')
+        show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust1, key='sho_cust2')
         st.subheader("PVP Poké Search Strings")
         if st.session_state.show_string:
             top_nbox = st.number_input(
@@ -185,7 +185,7 @@ with cols[1]:
             inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
             #tables_pop = st.popover("League Tables")
             
-            if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['gym_bool']):
+            if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
                 
         
                 try:
