@@ -321,7 +321,7 @@ with cols[1]:
                     pass
             elif st.session_state['show_custom2']: 
 
-                st.write(f'Community Day Evolve {st.session_state.top_num} Search String:')
+                st.write(f'Community Day Evolve Search String:')
                 st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
                 lab_mast = "Show Community Day Evolve Table"
                 if st.session_state['master_clicked']:
