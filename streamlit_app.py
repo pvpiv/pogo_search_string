@@ -8,6 +8,7 @@ from datetime import date, datetime
 import requests
 import pytz
 
+#st.set_page_config(layout="wide")
 
 # Import utility functions and session state manager
 from utils import (
@@ -42,7 +43,7 @@ from session_state_manager import (
 # Initialize session state
 initialize_session_state()
 
-#st.set_page_config(layout="wide")
+
 
 season_start = date(2024, 9, 3)
 
