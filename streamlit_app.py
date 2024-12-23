@@ -273,7 +273,7 @@ with cols[1]:
                     st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
 
                     all_str = make_search_string(df, "all", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,True)
-                    col3, col4 = st.columns([1,9]) 	
+                    col3, col4 = st.columns([1,15]) 	
                     with col3:
                     	st_copy_to_clipboard(all_str)
                     with col4:
