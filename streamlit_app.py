@@ -7,8 +7,7 @@ import json
 from datetime import date, datetime
 import requests
 import pytz
-from st_copy_to_clipboard import st_copy_to_clipboard
-#st.set_page_config(layout = "wide")
+st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
 
 # Import utility functions and session state manager
@@ -205,31 +204,17 @@ with cols[1]:
         
                 try:
                     st.write(f'Great League Top {st.session_state.top_num} Search String:')
-                    
-                    gre_str = make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False)
-                    st.code(gre_str)
+                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
                     lab_gre = "Show Great Table"
-                    col3, col4, col5 = st.columns([3,1,15]) 	
-
                     if st.session_state['great_clicked']:
                         lab_gre  = "Hide Great Table"
-                        with st.container():
-                            with col3:
-                                st.button(lab_gre,on_click = great_but)
-                            with col4:
-                                st_copy_to_clipboard(gre_str)
-                    	
                         st.button(lab_gre,on_click = great_but)
                         family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                         df_display_Great = pd.DataFrame(family_data_Great)
                         df_display_Great.set_index(['Pokemon'], inplace=True)
                         st.table(df_display_Great)
                     else:
-                        with st.container():
-                            with col3:
-                                st.button(lab_gre,on_click = great_but)
-                            with col4:
-                                st_copy_to_clipboard(gre_str)
+                        st.button(lab_gre,on_click = great_but)
                     
                 except:
                     pass
@@ -285,14 +270,7 @@ with cols[1]:
                     pass
                 try:
                     st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
-
-                    all_str = make_search_string(df, "all", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,True)
-                    col3, col4 = st.columns([1,15]) 	
-                    with col3:
-                    	st_copy_to_clipboard(all_str)
-                    with col4:
-                    	st.code(all_str)
-	
+                    st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,True))
                 except:
                     pass
             elif st.session_state['gym_bool']: 
@@ -454,13 +432,6 @@ td {
     text-overflow: ellipsis;
     display: block;
 }
-div[data-testid="column"] {
-    width: fit-content !important;
-    flex: unset;
-}
-div[data-testid="column"] * {
-    width: fit-content !important;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -481,6 +452,8 @@ footer:after {
 	display: block;
 	position: relative;
 	#background-color: red;
+	padding: 5px;
+	top: 2px;
 }
             </style>
             """
