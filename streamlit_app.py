@@ -427,6 +427,11 @@ button {
     width: 200px;
     color: blue;
 }
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
 </style>
 """, unsafe_allow_html=True)
 
