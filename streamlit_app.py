@@ -209,7 +209,7 @@ with cols[1]:
                     gre_str = make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False)
                     st.code(gre_str)
                     lab_gre = "Show Great Table"
-                    col3, col4 = st.columns([3,1]) 	
+                    col3, col4, col5 = st.columns([3,1,15]) 	
 
                     if st.session_state['great_clicked']:
                         lab_gre  = "Hide Great Table"
@@ -225,10 +225,11 @@ with cols[1]:
                         df_display_Great.set_index(['Pokemon'], inplace=True)
                         st.table(df_display_Great)
                     else:
-                        with col3:
-                            st.button(lab_gre,on_click = great_but)
-                        with col4:
-                            st_copy_to_clipboard(gre_str)
+                        with st.container():
+                            with col3:
+                                st.button(lab_gre,on_click = great_but)
+                            with col4:
+                                st_copy_to_clipboard(gre_str)
                     
                 except:
                     pass
