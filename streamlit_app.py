@@ -209,7 +209,7 @@ with cols[1]:
                     gre_str = make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False)
                     st.code(gre_str)
                     lab_gre = "Show Great Table"
-                    col3, col4 = st.columns([1,15]) 	
+                    col3, col4 = st.columns([3,1]) 	
 
                     if st.session_state['great_clicked']:
                         lab_gre  = "Hide Great Table"
