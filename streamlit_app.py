@@ -7,6 +7,7 @@ import json
 from datetime import date, datetime
 import requests
 import pytz
+import st-copy-to-clipboard
 st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
 
@@ -270,7 +271,14 @@ with cols[1]:
                     pass
                 try:
                     st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
-                    st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,True))
+
+                    all_str = make_search_string(df, "all", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,True)
+                    col3, col4 = st.columns([3,1]) 	
+                    with col3:
+                    	st.code(all_str)
+                    with col4:
+		    	st_copy_to_clipboard(all_str)
+	
                 except:
                     pass
             elif st.session_state['gym_bool']: 
