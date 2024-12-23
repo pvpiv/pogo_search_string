@@ -205,17 +205,29 @@ with cols[1]:
         
                 try:
                     st.write(f'Great League Top {st.session_state.top_num} Search String:')
-                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
+                    
+                    gre_str = make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False)
+                    st.code(gre_str)
                     lab_gre = "Show Great Table"
+                    col3, col4 = st.columns([1,15]) 	
+
                     if st.session_state['great_clicked']:
                         lab_gre  = "Hide Great Table"
+                        with col3:
+                            st.button(lab_gre,on_click = great_but)
+                        with col4:
+                            st_copy_to_clipboard(gre_str)
+                    	
                         st.button(lab_gre,on_click = great_but)
                         family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                         df_display_Great = pd.DataFrame(family_data_Great)
                         df_display_Great.set_index(['Pokemon'], inplace=True)
                         st.table(df_display_Great)
                     else:
-                        st.button(lab_gre,on_click = great_but)
+                        with col3:
+                            st.button(lab_gre,on_click = great_but)
+                        with col4:
+                            st_copy_to_clipboard(gre_str)
                     
                 except:
                     pass
