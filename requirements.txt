@@ -9,3 +9,4 @@ pytz
 streamlit_extras
 streamlit_toggle 
 streamlit-toggle-switch
+st-copy-to-clipboard
