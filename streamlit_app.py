@@ -277,7 +277,7 @@ with cols[1]:
                     with col3:
                     	st.code(all_str)
                     with col4:
-		    	st_copy_to_clipboard(all_str)
+                    	st_copy_to_clipboard(all_str)
 	
                 except:
                     pass
