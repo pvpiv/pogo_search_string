@@ -7,7 +7,7 @@ import json
 from datetime import date, datetime
 import requests
 import pytz
-import st-copy-to-clipboard
+from st_copy_to_clipboard import st_copy_to_clipboard
 st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
 
