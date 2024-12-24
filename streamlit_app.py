@@ -330,7 +330,7 @@ with cols[1]:
                 lab_gre = "Show Color Cup Table"
                 if st.session_state['great_clicked']:
 	                lab_gre  = "Hide Color Cup Table"
-	                family_data_great = format_data_top(df, 'great', st.session_state.top_num,True)
+	                family_data_great = format_data_top(df, 'Great', st.session_state.top_num,True)
 	                df_display_great = pd.DataFrame(family_data_great)
 	                df_display_great.set_index(['Pokemon'], inplace=True)
 	                st.button(lab_gre, on_click = great_but)
