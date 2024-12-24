@@ -327,7 +327,7 @@ with cols[1]:
 
                 st.write(f'Color Cup Search String:')
                 st.code(make_search_string(df, "great", st.session_state.top_num , fam_box, False, inv_box,show_xl_boxz))
-                lab_gre = "Show Community Day Evolve Table"
+                lab_gre = "Show Color Cup Table"
                 if st.session_state['great_clicked']:
 	                lab_gre  = "Hide Color Cup Table"
 	                family_data_great = format_data_top(df, 'great', st.session_state.top_num,True)
