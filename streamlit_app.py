@@ -61,7 +61,7 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_holiday.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_color.csv"
 
 # Load data
 if st.session_state['show_custom'] and not st.session_state['show_custom1']:
@@ -93,7 +93,7 @@ with cols[0]:
         if not st.session_state['table_string_butt']:
 
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-            show_custom_boxz = popover.checkbox('Holiday Cup', on_change=upd_cust, key='sho_cust')
+            show_custom_boxz = popover.checkbox('Holiday Cup', on_change=upd_cust1, key='sho_cust1')
 
             show_custom_boxz3 = popover.checkbox('Color Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
 
@@ -344,10 +344,10 @@ with cols[1]:
             try:
                 load_from_firestore(streamlit_analytics2.counts, st.secrets["fb_col"])
                 streamlit_analytics2.start_tracking()
-                if st.session_state['show_custom']:
-                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Remix Cup into PokeGO*'
-                elif st.session_state['show_custom1']:
-                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Halloween Cup into PokeGO*'
+                if st.session_state['show_custom1']:
+                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Holiday Cup into PokeGO*'
+                elif st.session_state['show_custom2']:
+                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Color Cup into PokeGO*'
                 else:
                     copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO*'
                 st.text_input(
