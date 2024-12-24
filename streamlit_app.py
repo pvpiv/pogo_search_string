@@ -326,7 +326,7 @@ with cols[1]:
             elif st.session_state['show_custom2']: 
 
                 st.write(f'Color Cup Search String:')
-                st.code(make_search_string(df, "great", st.session_state.top_num , fam_box, False, inv_box,show_xl_boxz))
+                st.code(make_search_string(df, "great", st.session_state.top_num , fam_box, iv_box, inv_box,show_xl_boxz))
                 lab_gre = "Show Color Cup Table"
                 if st.session_state['great_clicked']:
 	                lab_gre  = "Hide Color Cup Table"
