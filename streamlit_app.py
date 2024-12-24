@@ -94,13 +94,14 @@ with cols[0]:
 
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
             show_custom_boxz = popover.checkbox('Holiday Cup', on_change=upd_cust, key='sho_cust')
-            #show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust1, key='sho_cust1')
+
+            show_custom_boxz3 =  st.checkbox('Color Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+
             show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
-
         else:
-            show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-            #show_custom_boxz2 = popover.checkbox('Community Day String', on_change=upd_cust2, key='sho_cust2')
+            show_custom_boxz2 = popover.checkbox('Holiday Cup', on_change=upd_cust1, key='sho_cust1')
+            show_custom_boxz3 =  st.checkbox('Color Cup String', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
             topstrin = str(st.session_state.top_num)
@@ -179,13 +180,9 @@ with cols[1]:
         # Section 2 - Pokemon Search String
         
         
-        if st.session_state['show_custom2']:
-            st.subheader("Comm Day Evolve Search Strings")
-        else:
-            st.subheader("PVP Poké Search Strings")
+
+        st.subheader("PVP Poké Search Strings")
 		
-        show_custom_boxz3 =  st.checkbox('Community Day String', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-	    
         if st.session_state.show_string:
             top_nbox = st.number_input(
                 'Showing Top:',
@@ -328,18 +325,18 @@ with cols[1]:
                     pass
             elif st.session_state['show_custom2']: 
 
-                st.write(f'Community Day Evolve Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num * 2, fam_box, False, inv_box,show_xl_boxz))
-                lab_mast = "Show Community Day Evolve Table"
-                if st.session_state['master_clicked']:
-	                lab_mast  = "Hide Community Day Evolve Table"
-	                family_data_master = format_data_top(df, 'Master', st.session_state.top_num* 2,True)
-	                df_display_master = pd.DataFrame(family_data_master)
-	                df_display_master.set_index(['Pokemon'], inplace=True)
-	                st.button(lab_mast, on_click = master_but)
-	                st.table(df_display_master)
+                st.write(f'Color Cup Search String:')
+                st.code(make_search_string(df, "great", st.session_state.top_num , fam_box, False, inv_box,show_xl_boxz))
+                lab_gre = "Show Community Day Evolve Table"
+                if st.session_state['great_clicked']:
+	                lab_gre  = "Hide Color Cup Table"
+	                family_data_great = format_data_top(df, 'great', st.session_state.top_num,True)
+	                df_display_great = pd.DataFrame(family_data_great)
+	                df_display_great.set_index(['Pokemon'], inplace=True)
+	                st.button(lab_gre, on_click = great_but)
+	                st.table(df_display_great)
                 else:
-                	st.button(lab_mast,on_click = master_but)
+                	st.button(lab_gre,on_click = great_but)
 
 		    
             try:
