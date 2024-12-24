@@ -327,18 +327,18 @@ with cols[1]:
 
 
                 lab_gre = "Show Color Cup Table"
-				st.write(f'Color Cup Top {st.session_state.top_num} Search String:')
-				st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-				lab_gre = "Show Color Cup Table"
-				if st.session_state['great_clicked']:
-					lab_gre  = "Hide Color Cup Table"
-					st.button(lab_gre,on_click = great_but)
-					family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-					df_display_Great = pd.DataFrame(family_data_Great)
-					df_display_Great.set_index(['Pokemon'], inplace=True)
-					st.table(df_display_Great)
-				else:
-					st.button(lab_gre,on_click = great_but)
+		st.write(f'Color Cup Top {st.session_state.top_num} Search String:')
+		st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
+		lab_gre = "Show Color Cup Table"
+		if st.session_state['great_clicked']:
+                    lab_gre  = "Hide Color Cup Table"
+                    st.button(lab_gre,on_click = great_but)
+                    family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                    df_display_Great = pd.DataFrame(family_data_Great)
+                    df_display_Great.set_index(['Pokemon'], inplace=True)
+                    st.table(df_display_Great)
+		else:
+                    st.button(lab_gre,on_click = great_but)
 
 		    
             try:
