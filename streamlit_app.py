@@ -64,7 +64,7 @@ else:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_color.csv"
 
 # Load data
-if st.session_state['show_custom'] and not st.session_state['show_custom1']:
+if  st.session_state['show_custom1']:
     df = pd.read_csv('pvp_data_holiday.csv')
 elif st.session_state['show_custom2']:
     df = pd.read_csv('pvp_data_color.csv')
