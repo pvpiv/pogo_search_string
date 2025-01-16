@@ -1,6 +1,7 @@
 # session_state_manager.py
 
 import streamlit as st
+import streamlit_analytics2
 
 def initialize_session_state():
     if 'get_dat' not in st.session_state:
@@ -23,6 +24,8 @@ def initialize_session_state():
         st.session_state['show_custom'] = False
     if 'show_custom1' not in st.session_state:
         st.session_state['show_custom1'] = False
+    if 'show_custom2' not in st.session_state:
+        st.session_state['show_custom2'] = False
     if 'show_inverse' not in st.session_state:
         st.session_state['show_inverse'] = False
     if 'little_clicked' not in st.session_state:
@@ -39,6 +42,8 @@ def initialize_session_state():
         st.session_state['table_string_butt'] = True
     if 'gym_bool' not in st.session_state:
         st.session_state['gym_bool'] = False
+    if "state_dict" not in st.session_state:
+        st.session_state.state_dict = {}
 
         
 
@@ -60,6 +65,8 @@ def upd_cust():
     st.session_state.show_custom = st.session_state.sho_cust
 def upd_cust1():
     st.session_state.show_custom1 = st.session_state.sho_cust1
+def upd_cust2():
+    st.session_state.show_custom2 = st.session_state.sho_cust2
 def update_gym_bool():
     st.session_state['gym_bool'] = st.session_state['sho_gym']
 def upd_inv():

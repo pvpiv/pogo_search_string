@@ -1,5 +1,5 @@
 # utils.py
-
+import streamlit_analytics2
 import streamlit as st
 import pandas as pd
 import json
