@@ -303,7 +303,7 @@ with cols[1]:
                         st.button(lab_att,on_click = ultra_but)
                 except:
                     pass
-            elif st.session_state['show_custom'] or st.session_state['show_custom1']: 
+            elif st.session_state['show_custom'] or st.session_state['show_custom2']: 
                 try:
                     #popover.button("Show Sunshine Cup Table", key='sun_table', on_click=great_but)
                     days_since_date = calculate_days_since(season_start)
@@ -323,7 +323,7 @@ with cols[1]:
                     
                 except:
                     pass
-            elif st.session_state['show_custom2']: 
+            elif st.session_state['show_custom1']: 
 
 
                 lab_gre = "Show Little Jungle Cup Table"
