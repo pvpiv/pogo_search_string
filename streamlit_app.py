@@ -61,13 +61,13 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_littlejungle.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_love.csv"
 
 # Load data
 if  st.session_state['show_custom1']:
-    df = pd.read_csv('pvp_data_holiday.csv')
+    df = pd.read_csv('pvp_data_love.csv')
 elif st.session_state['show_custom2']:
-    df = pd.read_csv('pvp_data_littlejungle.csv')
+    df = pd.read_csv('pvp_data_love.csv')
 else:
     df = pd.read_csv('pvp_data.csv')
 
@@ -95,13 +95,13 @@ with cols[0]:
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
           #  show_custom_boxz = popover.checkbox('Holiday Cup', on_change=upd_cust1, key='sho_cust1')
 
-            show_custom_boxz3 = popover.checkbox('Little Jungle Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+            show_custom_boxz3 = popover.checkbox('Love Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
 
             show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
         else:
           #  show_custom_boxz2 = popover.checkbox('Holiday Cup', on_change=upd_cust1, key='sho_cust1')
-            show_custom_boxz3 =  popover.checkbox('Little Jungle Cup String', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+            show_custom_boxz3 =  popover.checkbox('Love Cup String', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
             topstrin = str(st.session_state.top_num)
@@ -326,12 +326,12 @@ with cols[1]:
             elif st.session_state['show_custom1']: 
 
 
-                lab_gre = "Show Little Jungle Cup Table"
-                st.write(f'Little Jungle Cup Top {st.session_state.top_num} Search String:')
+                lab_gre = "Show Love Cup Table"
+                st.write(f'Love Cup Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-                lab_gre = "Show Little Jungle Cup Table"
+                lab_gre = "Show Love Cup Table"
                 if st.session_state['great_clicked']:
-                    lab_gre  = "Hide Little Jungle Cup Table"
+                    lab_gre  = "Hide Love Cup Table"
                     st.button(lab_gre,on_click = great_but)
                     family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
@@ -347,7 +347,7 @@ with cols[1]:
                 if st.session_state['show_custom1']:
                     copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Holiday Cup into PokeGO*'
                 elif st.session_state['show_custom2']:
-                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Little Jungle Cup into PokeGO*'
+                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Love Cup into PokeGO*'
                 else:
                     copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO*'
                 st.text_input(
