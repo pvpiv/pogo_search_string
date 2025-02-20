@@ -65,7 +65,7 @@ else:
 
 # Load data
 if  st.session_state['show_custom1']:
-    df = pd.read_csv('pvp_data_Mega Master.csv')
+    df = pd.read_csv('pvp_data_mega.csv')
 elif st.session_state['show_custom2']:
     df = pd.read_csv('pvp_data_mega.csv')
 else:
