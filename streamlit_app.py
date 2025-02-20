@@ -7,7 +7,7 @@ import json
 from datetime import date, datetime
 import requests
 import pytz
-st.set_page_config(layout = "wide")
+#st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
 
 # Import utility functions and session state manager
