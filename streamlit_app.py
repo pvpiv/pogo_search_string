@@ -61,13 +61,13 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_love.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Mega Master.csv"
 
 # Load data
 if  st.session_state['show_custom1']:
-    df = pd.read_csv('pvp_data_love.csv')
+    df = pd.read_csv('pvp_data_Mega Master.csv')
 elif st.session_state['show_custom2']:
-    df = pd.read_csv('pvp_data_love.csv')
+    df = pd.read_csv('pvp_data_mega.csv')
 else:
     df = pd.read_csv('pvp_data.csv')
 
@@ -93,15 +93,15 @@ with cols[0]:
         if not st.session_state['table_string_butt']:
 
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-          #  show_custom_boxz = popover.checkbox('Holiday Cup', on_change=upd_cust1, key='sho_cust1')
+           # show_custom_boxz = popover.checkbox('Mega Master Cup', on_change=upd_cust1, key='sho_cust2')
 
-            show_custom_boxz3 = popover.checkbox('Love Cup', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+            show_custom_boxz3 = popover.checkbox('Mega Master Cup', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
 
             show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
         else:
-          #  show_custom_boxz2 = popover.checkbox('Holiday Cup', on_change=upd_cust1, key='sho_cust1')
-            show_custom_boxz3 =  popover.checkbox('Love Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+            show_custom_boxz2 = popover.checkbox('Mega Master Cup', on_change=upd_cust1, key='sho_cust2')
+            show_custom_boxz3 =  popover.checkbox('Mega Master Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
             topstrin = str(st.session_state.top_num)
@@ -309,29 +309,29 @@ with cols[1]:
                     days_since_date = calculate_days_since(season_start)
                     age_string = f"age0-{days_since_date}&"
                     st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
-                    st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
-                    lab_lit = "Show Custom Table"
-                    if st.session_state['little_clicked']:
-                        lab_lit = "Hide Custom Table"
-                        st.button(lab_lit,on_click = little_but)
-                        family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
-                        df_display_Little = pd.DataFrame(family_data_Little)
-                        df_display_Little.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_Little)   
+                    st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    lab_mast = "Show Custom Table"
+                    if st.session_state['master_clicked']:
+                        lab_mast  = "Hide Master Table"
+                        family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
+                        df_display_master = pd.DataFrame(family_data_master)
+                        df_display_master.set_index(['Pokemon'], inplace=True)
+                        st.button(lab_mast, on_click = master_but)
+                        st.table(df_display_master)
                     else:
-                        st.button(lab_lit,on_click = little_but)
+                        st.button(lab_mast,on_click = master_but)
                     
                 except:
                     pass
             elif st.session_state['show_custom1']: 
 
 
-                lab_gre = "Show Love Cup Table"
-                st.write(f'Love Cup Top {st.session_state.top_num} Search String:')
+                lab_gre = "Show Mega Master Cup Table"
+                st.write(f'Mega Master Cup Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-                lab_gre = "Show Love Cup Table"
+                lab_gre = "Show Mega Master Cup Table"
                 if st.session_state['great_clicked']:
-                    lab_gre  = "Hide Love Cup Table"
+                    lab_gre  = "Hide Mega Master Cup Table"
                     st.button(lab_gre,on_click = great_but)
                     family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
@@ -345,9 +345,9 @@ with cols[1]:
                 load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
                 streamlit_analytics2.start_tracking()
                 if st.session_state['show_custom1']:
-                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Holiday Cup into PokeGO*'
+                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Mega Master Cup into PokeGO*'
                 elif st.session_state['show_custom2']:
-                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Love Cup into PokeGO*'
+                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Mega Master Cup into PokeGO*'
                 else:
                     copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO*'
                 st.text_input(
