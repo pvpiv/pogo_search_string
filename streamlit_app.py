@@ -7,7 +7,7 @@ import json
 from datetime import date, datetime
 import requests
 import pytz
-#st.set_page_config(layout = "wide")
+st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
 
 # Import utility functions and session state manager
@@ -71,7 +71,7 @@ elif st.session_state['show_custom2']:
 else:
     df = pd.read_csv('pvp_data.csv')
 
-cols = st.columns((2,8,1))
+cols = st.columns((2,8))
 
 with cols[0]:
    
