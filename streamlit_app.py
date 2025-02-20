@@ -71,7 +71,7 @@ elif st.session_state['show_custom2']:
 else:
     df = pd.read_csv('pvp_data.csv')
 
-cols = st.columns((2,8),vertical_alignment="center")
+cols = st.columns((2,8),vertical_alignment="Top")
 
 with cols[0]:
    
@@ -451,12 +451,3 @@ footer:after {
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-
-st.markdown(f"""
-      <style>
-      iframe {{
-          width: inherit;
-      }}
-      </style>
-    """
-    , unsafe_allow_html=True)
