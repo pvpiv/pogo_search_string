@@ -216,8 +216,7 @@ with cols[1]:
                        # AgGrid(
                         gb = GridOptionsBuilder.from_dataframe(df_display_Great)
                         gb.configure_default_column(cellStyle={'color': 'black', 'font-size': '12px'}, suppressMenu=True, wrapHeaderText=True, autoHeaderHeight=True)
-                        custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},
-                              ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
+                        custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
 			other_opt = {'suppressColumnVirtualisation':true}
 			gb.configure_grid_options(**other_opt)
                         gridOptions = gb.build()
