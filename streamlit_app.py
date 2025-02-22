@@ -7,7 +7,7 @@ import json
 from datetime import date, datetime
 import requests
 import pytz
-import aggrid
+import AgGrid
 st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
 
