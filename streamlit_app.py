@@ -65,14 +65,13 @@ else:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Mega Master.csv"
 
 # Load data
-#if  st.session_state['show_custom1']:
-    df = pd.read_csv('pvp_data_mega.csv')
+#if  st.session_state['show_custom1']
 if st.session_state['show_custom2']:
     df = pd.read_csv('pvp_data_mega.csv')
 else:
     df = pd.read_csv('pvp_data.csv')
 
-cols = st.columns((2,8,1))
+cols = st.columns(2,8,1)
 with cols[0]:
    
 
@@ -209,7 +208,7 @@ with cols[1]:
                         family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                         df_display_Great = pd.DataFrame(family_data_Great)
                         df_display_Great.set_index(['Pokemon'], inplace=True)
-			AgGrid(df_display_Great)
+                        AgGrid(df_display_Great)
                     else:
                         st.button(lab_gre,on_click = great_but)
                     
