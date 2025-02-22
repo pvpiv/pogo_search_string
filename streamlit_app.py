@@ -253,11 +253,11 @@ with cols[1]:
                         lab_mast  = "Hide Master Table"
                         family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                         df_display_master = pd.DataFrame(family_data_master)
-                        df_display_master.set_index(['Pokemon'], inplace=True)
+                        df_display_master.set_index(['Pokemon'])
                         st.button(lab_mast, on_click = master_but)
                                               #  df_display_Great.set_index(['Pokemon'], inplace=True)
                        # AgGrid(
-                        gb = GridOptionsBuilder.from_dataframe(df_display_Great)
+                        gb = GridOptionsBuilder.from_dataframe(df_display_Master)
                         gb.configure_default_column(cellStyle={'color': 'black', 'font-size': '12px'}, suppressMenu=True, wrapHeaderText=True, autoHeaderHeight=True)
                         custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
                         other_opt = {'suppressColumnVirtualisation':True}
