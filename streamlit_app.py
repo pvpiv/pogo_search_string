@@ -58,15 +58,15 @@ except:
 season_start = date(2024, 9, 3)
 
 # Set GitHub API URL based on 'show_custom' flag
-if not st.session_state['show_custom']:
+if not st.session_state['show_custom2']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Mega Master.csv"
 
 # Load data
-if  st.session_state['show_custom1']:
+#if  st.session_state['show_custom1']:
     df = pd.read_csv('pvp_data_mega.csv')
-elif st.session_state['show_custom2']:
+if st.session_state['show_custom2']:
     df = pd.read_csv('pvp_data_mega.csv')
 else:
     df = pd.read_csv('pvp_data.csv')
@@ -99,7 +99,7 @@ with cols[0]:
             show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
         else:
-            show_custom_boxz2 = popover.checkbox('Mega Master Cup', on_change=upd_cust2, key='sho_cust2')
+            show_custom_boxz2 = popover.checkbox('Mega Master Cup' ,, value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
            # show_custom_boxz3 =  popover.checkbox('Mega Master Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
