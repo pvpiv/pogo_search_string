@@ -159,7 +159,7 @@ with cols[1]:
                             label_visibility='hidden'
                         )
                         df_display = pd.DataFrame(family_data)
-                        df_display.set_index(['Pokemon'], inplace=True)
+                        df_display.set_index(['Pokemon'])
                         st.table(df_display)
                         try:
                             save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
