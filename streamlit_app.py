@@ -162,8 +162,16 @@ with cols[1]:
                     family_data = format_data(pokemon_family, show_shadow, df)
         
                     if family_data:
-                        st.text_input(
-                            label=today.strftime("%m/%d/%y")
+                        st.text_input(label=today.strftime("%m/%d/%y"),
+                            value=pokemon_choice,
+                            disabled=True,
+                            label_visibility='hidden'
+                        )
+                        df_display = pd.DataFrame(family_data)
+                        df_display.set_index(['Pokemon'])
+                        st.table(df_display)
+                        try:
+                            
                             save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
                             streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
                         except:
