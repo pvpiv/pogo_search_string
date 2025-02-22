@@ -51,7 +51,7 @@ def format_data(pokemon_family, shadow_only, df):
                 attr = attr.replace("Level","Lvl")
                 attr = attr.replace("Rank","#")
                 entry[attr] = (
-                    f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value if pd.notna(value) else ''
+                    f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value.replace(',', '\n') if pd.notna(value) else ''
                 )
             formatted_data.append(entry)
     return formatted_data
