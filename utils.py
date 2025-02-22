@@ -151,7 +151,7 @@ def make_search_string(df, league, top_n, fam, iv_b, inv_b,sho_xl_val, all_pre=F
 def format_data_top(df, league, num_rank,xl_var):
     family_data = df.sort_values(by=[f'{league}_Rank'])
     formatted_data = []
-    attributes = ['Rank', 'IVs', 'CP', 'Level', 'MoveSet']
+    attributes = ['Rank', 'IVs', 'CP','MoveSet', 'Level']
 
     for _, row in family_data.iterrows():
         if (not xl_var and row[f'{league}_Level'] <= 40) or xl_var:
