@@ -219,7 +219,7 @@ with cols[1]:
                         df_display_Great = pd.DataFrame(family_data_Great)
                       #  df_display_Great.set_index(['Pokemon'], inplace=True)
                        # AgGrid(
-			AgGrid(df_display_Great,gridOptions=gridOptions, custom_css=custom_css, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,  theme=AgGridTheme.BALHAM,  height=350, width='100%'   )
+                        AgGrid(df_display_Great,gridOptions=gridOptions, custom_css=custom_css, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,  theme=AgGridTheme.BALHAM,  height=350, width='100%'   )
                     else:
                         st.button(lab_gre,on_click = great_but)
                     
