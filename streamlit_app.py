@@ -264,7 +264,7 @@ with cols[1]:
                         gb.configure_grid_options(**other_opt)
                         gridOptions = gb.build()
 
-                        AgGrid(df_display_master,gridOptions=gridOptions, custom_css=custom_css, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,  theme=AgGridTheme.BALHAM,  height=350  )
+                        AgGrid(df_display_master,gridOptions=gridOptions,  theme=AgGridTheme.BALHAM,  height=350  )
                     
                     else:
                         st.button(lab_mast,on_click = master_but)
