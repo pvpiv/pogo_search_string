@@ -48,7 +48,7 @@ def format_data(pokemon_family, shadow_only, df):
 
             for attr in attributes:
                 value = row[f'{league}_{attr}']
-                attr = attr.replace("Level","Lvl")
+                attr = attr.replace("Level","Level")
                 attr = attr.replace("Rank","#")
                 entry[attr] = (
                     f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value.replace(',', '\n') if pd.notna(value) else ''
@@ -166,7 +166,7 @@ def format_data_top(df, league, num_rank,xl_var):
                 entry = {'Pokemon': row['Pokemon']}
                 for attr in attributes:
                     value = row[f'{league}_{attr}']
-                    attr = attr.replace("Level","Lvl")
+                    attr = attr.replace("Level","Level")
                     attr = attr.replace("Rank","#")
                     entry[attr] = (
                         f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value.replace(',', '\n') if pd.notna(value) else ''
