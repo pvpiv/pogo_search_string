@@ -257,14 +257,14 @@ with cols[1]:
                         st.button(lab_mast, on_click = master_but)
                                               #  df_display_Great.set_index(['Pokemon'], inplace=True)
                        # AgGrid(
-                        gb = GridOptionsBuilder.from_dataframe(df_display_Master)
+                        gb = GridOptionsBuilder.from_dataframe(df_display_master)
                         gb.configure_default_column(cellStyle={'color': 'black', 'font-size': '12px'}, suppressMenu=True, wrapHeaderText=True, autoHeaderHeight=True)
                         custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
                         other_opt = {'suppressColumnVirtualisation':True}
                         gb.configure_grid_options(**other_opt)
                         gridOptions = gb.build()
 
-                        AgGrid(df_display_Master,gridOptions=gridOptions, custom_css=custom_css, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,  theme=AgGridTheme.BALHAM,  height=350  )
+                        AgGrid(df_display_master,gridOptions=gridOptions, custom_css=custom_css, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,  theme=AgGridTheme.BALHAM,  height=350  )
                     
                     else:
                         st.button(lab_mast,on_click = master_but)
