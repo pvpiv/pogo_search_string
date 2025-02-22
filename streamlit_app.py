@@ -8,6 +8,16 @@ from datetime import date, datetime
 import requests
 import pytz
 from st_aggrid import AgGrid
+
+from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode, ColumnsAutoSizeMode, AgGridTheme
+
+gb = GridOptionsBuilder.from_dataframe(table_df)
+gb.configure_default_column(cellStyle={'color': 'black', 'font-size': '12px'}, suppressMenu=True, wrapHeaderText=True, autoHeaderHeight=True)
+custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},
+      ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
+gridOptions = gb.build()
+
+
 st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
 
@@ -153,15 +163,7 @@ with cols[1]:
         
                     if family_data:
                         st.text_input(
-                            label=today.strftime("%m/%d/%y"),
-                            value=pokemon_choice,
-                            disabled=True,
-                            label_visibility='hidden'
-                        )
-                        df_display = pd.DataFrame(family_data)
-                        df_display.set_index(['Pokemon'])
-                        st.table(df_display)
-                        try:
+                            label=today.strftime("%m/%d/%y")
                             save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
                             streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
                         except:
@@ -207,8 +209,9 @@ with cols[1]:
                         st.button(lab_gre,on_click = great_but)
                         family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                         df_display_Great = pd.DataFrame(family_data_Great)
-                        df_display_Great.set_index(['Pokemon'], inplace=True)
-                        AgGrid(df_display_Great)
+                      #  df_display_Great.set_index(['Pokemon'], inplace=True)
+                       # AgGrid(
+			AgGrid(df_display_Great,gridOptions=gridOptions, custom_css=custom_css, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,  theme=AgGridTheme.BALHAM,  height=350, width='100%'   )
                     else:
                         st.button(lab_gre,on_click = great_but)
                     
