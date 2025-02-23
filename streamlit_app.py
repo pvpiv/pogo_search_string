@@ -184,7 +184,7 @@ with st.container():
         )
         
         if st.session_state['table_string_butt']:
-
+            st.divider()
             inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
         # The toggle for switching between table vs. search strings
        
