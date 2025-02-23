@@ -14,7 +14,7 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
 
 #st.set_page_config(layout = "wide")
-#st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 # Import utility functions and session state manager
 from utils import (
