@@ -166,7 +166,7 @@ with st.container():
                 max_value=200,
                 step=5
                 )
-            
+    st.divider()      
     with cola2:    
         if st.session_state['table_string_butt']:
             butt_label = "Switch to Pokémon Lookup"
@@ -183,7 +183,7 @@ with st.container():
         )
         
         if st.session_state['table_string_butt']:
-            st.divider()
+
             inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
         # The toggle for switching between table vs. search strings
        
