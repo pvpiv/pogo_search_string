@@ -214,14 +214,15 @@ with cols[1]:
                         df_display_Great = pd.DataFrame(family_data_Great)
                       #  df_display_Great.set_index(['Pokemon'], inplace=True)
                        # AgGrid(
-                        gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-                        gb.configure_default_column(cellStyle={'color': 'black', 'font-size': '12px'}, suppressMenu=True, wrapHeaderText=True, autoHeaderHeight=True)
-                        custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
-                        other_opt = {'suppressColumnVirtualisation':True}
-                        gb.configure_grid_options(**other_opt)
-                        gridOptions = gb.build()
 
-                        AgGrid(df_display_Great,gridOptions=gridOptions, custom_css=custom_css, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,  theme=AgGridTheme.BALHAM,  height=350  )
+		    	columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
+                     #   gb = GridOptionsBuilder.from_dataframe(df_display_Great)
+			AgGrid(	(id="column-definitions-basic",rowData=df_display_Great.to_dict("records"),defaultColDef={"filter": True},columnDefs=columnDefs,columnSize="sizeToFit",dashGridOptions={"animateRows": False}    )
+                     #   custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
+                    #    other_opt = {'suppressColumnVirtualisation':True}
+                     #   gb.configure_grid_options(**other_opt)
+                     #   gridOptions = gb.build()
+                      #  AgGrid(df_display_Great,gridOptions=gridOptions, custom_css=custom_css, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,  theme=AgGridTheme.BALHAM,  height=350  )
                     else:
                         st.button(lab_gre,on_click = great_but)
                     
@@ -253,18 +254,10 @@ with cols[1]:
                         lab_mast  = "Hide Master Table"
                         family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                         df_display_master = pd.DataFrame(family_data_master)
-                        df_display_master.set_index(['Pokemon'])
+                       # df_display_master.set_index(['Pokemon'])
                         st.button(lab_mast, on_click = master_but)
-                                              #  df_display_Great.set_index(['Pokemon'], inplace=True)
-                       # AgGrid(
-                        gb = GridOptionsBuilder.from_dataframe(df_display_master)
-                        gb.configure_default_column(cellStyle={'color': 'black', 'font-size': '12px'}, suppressMenu=True, wrapHeaderText=True, autoHeaderHeight=True)
-                        custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
-                        other_opt = {'suppressColumnVirtualisation':True}
-                        gb.configure_grid_options(**other_opt)
-                        gridOptions = gb.build()
-
-                        AgGrid(df_display_master,gridOptions=gridOptions,  theme=AgGridTheme.BALHAM,  height=350  )
+                        st.table(df_display_master)                      #  df_display_Great.set_index(['Pokemon'], inplace=True)
+ 
                     
                     else:
                         st.button(lab_mast,on_click = master_but)
