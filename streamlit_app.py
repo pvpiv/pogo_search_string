@@ -10,14 +10,16 @@ import pytz
 from st_aggrid import AgGrid
 
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode, ColumnsAutoSizeMode, AgGridTheme
-def configure_ag_grid():
+def configure_ag_grid(df,cols = None):
+    if cols is None:
+	cols = df.columns
     gb = GridOptionsBuilder.from_dataframe(your_dataframe)
     gb.configure_grid_options(autoHeight=True)
-    gb.configure_columns(["MoveSet"], wrapText=True, autoHeight=True, width=150)
+    gb.configure_columns(cols, wrapText=True, autoHeight=True, width=150)
     gridOptions = gb.build()
-    AgGrid(your_dataframe, gridOptions=gridOptions)
+    AgGrid(df, gridOptions=gridOptions)
 
-configure_ag_grid()
+
 
 
 #st.set_page_config(layout = "wide")
@@ -233,20 +235,20 @@ with cols[1]:
                        # AgGrid(
 
                        # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
-                        
+                        configure_ag_grid(df_display_Great)
 
 #                        other_options = {'suppressColumnVirtualisation': True}
-                        gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-                        other_options = {'suppressColumnVirtualisation': True,'wrapText':True,'fit_columns_on_grid_load':True,'height':None}
-                        gb.configure_grid_options(**other_options)
+                      #  gb = GridOptionsBuilder.from_dataframe(df_display_Great)
+                     #   other_options = {'suppressColumnVirtualisation': True,'wrapText':True,'fit_columns_on_grid_load':True,'height':None}
+                       # gb.configure_grid_options(**other_options)
 
                         # Configure the MoveSet column to wrap text and adjust height
                    #     gb.configure_column("MoveSet", wrapText=True)
 
-                        gridOptions = gb.build()
-                        grid = AgGrid(
-                            df_display_Great,
-                            gridOptions=gridOptions)
+                     #   gridOptions = gb.build()
+                      #  grid = AgGrid(
+                      #      df_display_Great,
+                          #  gridOptions=gridOptions)
                     else:
                         st.button(lab_gre,on_click = great_but)
                     
