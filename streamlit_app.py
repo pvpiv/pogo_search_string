@@ -230,7 +230,7 @@ with cols[1]:
 
 #                        other_options = {'suppressColumnVirtualisation': True}
                         gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-                        other_options = {'suppressColumnVirtualisation': True,'wrapText'=True,'autoHeight'=True}
+                        other_options = {'suppressColumnVirtualisation': True,'wrapText':True,'autoHeight':True}
                         gb.configure_grid_options(**other_options)
 
                         # Configure the MoveSet column to wrap text and adjust height
