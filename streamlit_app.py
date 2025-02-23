@@ -216,7 +216,7 @@ with cols[1]:
                        # AgGrid(
 
                        # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
-                        from st_aggrid import GridOptionsBuilder, AgGrid, ColumnsAutoSizeMode
+                        
 
                         gb = GridOptionsBuilder.from_dataframe(df_display_Great)
                         other_options = {'suppressColumnVirtualisation': True}
@@ -253,7 +253,18 @@ with cols[1]:
                         df_display_Ultra = pd.DataFrame(family_data_Ultra)
                         df_display_Ultra.set_index(['Pokemon'], inplace=True)
                         st.button(lab_ult,on_click = ultra_but)
-                        st.table(df_display_Ultra)
+			    
+                        gb = GridOptionsBuilder.from_dataframe(df_display_Ultra)
+                        other_options = {'suppressColumnVirtualisation': True}
+                        gb.configure_grid_options(**other_options)
+                        gridOptions = gb.build()
+			
+                        grid = AgGrid(
+			    df_display_Ultra,
+			    gridOptions=gridOptions,
+			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+			    )
+
                     else:
                         st.button(lab_ult,on_click = ultra_but)
                     
@@ -270,7 +281,17 @@ with cols[1]:
                         df_display_master = pd.DataFrame(family_data_master)
                        # df_display_master.set_index(['Pokemon'])
                         st.button(lab_mast, on_click = master_but)
-                        st.table(df_display_master)                      #  df_display_Great.set_index(['Pokemon'], inplace=True)
+
+                        gb = GridOptionsBuilder.from_dataframe(df_display_master)
+                        other_options = {'suppressColumnVirtualisation': True}
+                        gb.configure_grid_options(**other_options)
+                        gridOptions = gb.build()
+			
+                        grid = AgGrid(
+			    df_display_master,
+			    gridOptions=gridOptions,
+			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+			    )                #  df_display_Great.set_index(['Pokemon'], inplace=True)
  
                     
                     else:
@@ -288,7 +309,17 @@ with cols[1]:
                         family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
                         df_display_Little = pd.DataFrame(family_data_Little)
                         df_display_Little.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_Little)   
+
+                        gb = GridOptionsBuilder.from_dataframe(df_display_Little)
+                        other_options = {'suppressColumnVirtualisation': True}
+                        gb.configure_grid_options(**other_options)
+                        gridOptions = gb.build()
+			
+                        grid = AgGrid(
+			    df_display_Little,
+			    gridOptions=gridOptions,
+			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+			    )         
                     else: 
                         st.button(lab_lit,on_click = little_but)     
                     
@@ -312,7 +343,17 @@ with cols[1]:
                         family_data_def = format_data_top(defenders, 'Master', st.session_state.top_num,show_xl_boxz)
                         df_display_def = pd.DataFrame(family_data_def)
                         df_display_def.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_def)
+
+                        gb = GridOptionsBuilder.from_dataframe(df_display_def)
+                        other_options = {'suppressColumnVirtualisation': True}
+                        gb.configure_grid_options(**other_options)
+                        gridOptions = gb.build()
+			
+                        grid = AgGrid(
+			    df_display_def,
+			    gridOptions=gridOptions,
+			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+			    )    
                     else:
                         st.button(lab_def,on_click = master_but)
                 except:
@@ -327,7 +368,17 @@ with cols[1]:
                         family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz)
                         df_display_att = pd.DataFrame(family_data_att)
                         df_display_att.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_att)
+
+                        gb = GridOptionsBuilder.from_dataframe(df_display_att)
+                        other_options = {'suppressColumnVirtualisation': True}
+                        gb.configure_grid_options(**other_options)
+                        gridOptions = gb.build()
+			
+                        grid = AgGrid(
+			    df_display_att,
+			    gridOptions=gridOptions,
+			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+			    )
                     else:
                         st.button(lab_att,on_click = ultra_but)
                 except:
@@ -346,7 +397,17 @@ with cols[1]:
                         df_display_master = pd.DataFrame(family_data_master)
                         df_display_master.set_index(['Pokemon'], inplace=True)
                         st.button(lab_mast, on_click = master_but)
-                        st.table(df_display_master)
+
+                        gb = GridOptionsBuilder.from_dataframe(df_display_master)
+                        other_options = {'suppressColumnVirtualisation': True}
+                        gb.configure_grid_options(**other_options)
+                        gridOptions = gb.build()
+			
+                        grid = AgGrid(
+			    df_display_master,
+			    gridOptions=gridOptions,
+			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+			    )
                     else:
                         st.button(lab_mast,on_click = master_but)
                     
@@ -365,7 +426,17 @@ with cols[1]:
                     family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
                     df_display_Great.set_index(['Pokemon'], inplace=True)
-                    st.table(df_display_Great)
+                    
+                    gb = GridOptionsBuilder.from_dataframe(df_display_Great)
+                    other_options = {'suppressColumnVirtualisation': True}
+                    gb.configure_grid_options(**other_options)
+                    gridOptions = gb.build()
+			
+                    grid = AgGrid(
+			    df_display_Great,
+			    gridOptions=gridOptions,
+			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+			    )
                 else:
                     st.button(lab_gre,on_click = great_but)
 
