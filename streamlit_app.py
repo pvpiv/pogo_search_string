@@ -22,7 +22,7 @@ def configure_ag_grid(df, cols=None):
 	"font-family": "Roboto, sans-serif !important;"},
 	#".ag-header-cell-text": {"color": "#495057 !important;"},
 	
-	".ag-theme-alpine .ag-ltr .ag-cell": {"ag-font-size": "32 px","color": "#444 !important;"},
+	".ag-theme-alpine .ag-ltr .ag-cell": {"color": "#444 !important;"},
 	".ag-theme-alpine .ag-row-odd": {"background": "rgba(243, 247, 249, 0.3) !important;",
 	"border": "1px solid #eee !important;"},
 	".ag-theme-alpine .ag-row-even": {"border-bottom": "1px solid #eee !important;"},
@@ -48,7 +48,7 @@ def configure_ag_grid(df, cols=None):
                 col,
                 wrapText=True,
                # autoHeight=True,
-                cellStyle={'white-space': 'normal'},
+                cellStyle={'white-space': 'normal','font-size': '32px'},
             )
 
     
@@ -57,7 +57,7 @@ def configure_ag_grid(df, cols=None):
         df,
         gridOptions=gridOptions,
        # columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
-        style={'font-size': '32px'},
+       # style={},
         custom_css=custom_css,
         allow_unsafe_jscode=True
     )
