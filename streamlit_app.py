@@ -218,12 +218,12 @@ with cols[1]:
                        # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
                         from st_aggrid import GridOptionsBuilder, AgGrid, ColumnsAutoSizeMode
 
-			gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-			other_options = {'suppressColumnVirtualisation': True}
-			gb.configure_grid_options(**other_options)
-			gridOptions = gb.build()
+                        gb = GridOptionsBuilder.from_dataframe(df_display_Great)
+                        other_options = {'suppressColumnVirtualisation': True}
+                        gb.configure_grid_options(**other_options)
+                        gridOptions = gb.build()
 			
-			grid = AgGrid(
+                        grid = AgGrid(
 			    df_display_Great,
 			    gridOptions=gridOptions,
 			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
