@@ -124,39 +124,7 @@ with cols[0]:
         }
         """,
 ):
-        popover = st.popover('Settings' ,use_container_width =True)
-        if not st.session_state['table_string_butt']:
-
-           # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-           # show_custom_boxz = popover.checkbox('Mega Master Cup', on_change=upd_cust1, key='sho_cust2')
-
-            show_custom_boxz2 = popover.checkbox('Mega Master Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-
-            show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
-
-        else:
-            show_custom_boxz2 = popover.checkbox('Mega Master Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-           # show_custom_boxz3 =  popover.checkbox('Mega Master Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
-            show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
-            popover.divider()
-            topstrin = str(st.session_state.top_num)
-            fam_box = popover.checkbox('Include pre-evolutions', value=True)
-            show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
-            iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
-            # tables_pop = st.popover("League Tables")
-
-    
-    if st.session_state['table_string_butt']:
-        butt_label = "Switch to Pokémon Lookup"
-    else: 
-        butt_label = "Switch to Search Strings"
-    st.toggle(
-        label=butt_label,
-        key= "tab_str_butt",
-        value = st.session_state['table_string_butt'],
-        on_change = upd_tab_str
-    )
-
+       
    
 # Replace your existing code that creates 'cols = st.columns((2,5,1))'
 # and the toggles/checkboxes with something like this:
@@ -239,7 +207,7 @@ with st.container():
 
 with cols[1]:
 
-    #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
+    #str_tab_but = st.button(butett_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
     
     today = date.today()
     # Section 1 - PVP Pokemon Search Table
