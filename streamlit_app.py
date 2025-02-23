@@ -57,6 +57,7 @@ def configure_ag_grid(df, cols=None):
         df,
         gridOptions=gridOptions,
         columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
+        style={'font-size': '32px'},
         custom_css=custom_css,
         allow_unsafe_jscode=True
     )
