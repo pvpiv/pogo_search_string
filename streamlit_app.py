@@ -203,16 +203,16 @@ with st.container():
             butt_label = "Switch to Pokémon Lookup"
 		with cola3:
 		# If we’re on the search-strings side, show the "Showing Top" input
-	            if st.session_state['table_string_butt']:
-	                top_nbox = st.number_input(
-	                'Showing Top:',
-	                value=st.session_state.top_num,
-	                key='top_no',
-	                on_change=update_top_num,
-	                min_value=5,
-	                max_value=200,
-	                step=5
-	                )
+            if st.session_state['table_string_butt']:
+                top_nbox = st.number_input(
+                'Showing Top:',
+                value=st.session_state.top_num,
+                key='top_no',
+                on_change=update_top_num,
+                min_value=5,
+                max_value=200,
+                step=5
+                )
         else:
             butt_label = "Switch to Search Strings"
 
