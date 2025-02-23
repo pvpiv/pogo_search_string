@@ -54,12 +54,7 @@ initialize_session_state()
 
 query_params = st.query_params  #st.experimental_get_query_params()
 
-try:
-	if st.query_params["comm"] == "True":
-		st.session_state['show_custom2'] = True
-		upd_cust2()
-except:
-	pass
+
 	
 season_start = date(2024, 9, 3)
 
@@ -67,7 +62,7 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom2']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Mega Master.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv"
 
 # Load data
 #if  st.session_state['show_custom1']
