@@ -48,6 +48,8 @@ def format_data(pokemon_family, shadow_only, df):
 
             for attr in attributes:
                 value = row[f'{league}_{attr}']
+                if attr == "Rank":
+                    value = int(value)
             #    attr = attr.replace("Level","Lvl")
                # attr = attr.replace("MoveSet","Moves")
              #   attr = attr.replace("Rank","N")
@@ -167,6 +169,8 @@ def format_data_top(df, league, num_rank,xl_var):
                 entry = {'Pokemon': row['Pokemon']}
                 for attr in attributes:
                     value = row[f'{league}_{attr}']
+                    if attr == "Rank":
+                        value = int(value)
             #        attr = attr.replace("Level","Lvl")
               #      attr = attr.replace("MoveSet","Moves")
                #     attr = attr.replace("Rank","N")
