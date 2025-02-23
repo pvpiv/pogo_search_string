@@ -108,22 +108,7 @@ else:
     df = pd.read_csv('pvp_data.csv')
 
 cols = st.columns((2,5,1))
-with cols[0]:
-   
 
-    with stylable_container(
-    key= "Settings" ,
-    css_styles="""
-        button {
-            width: 150px;
-            height: 45px;
-            background-color: green;
-            color: white;
-            border-radius: 5px;
-            white-space: nowrap;
-        }
-        """,
-):
        
    
 # Replace your existing code that creates 'cols = st.columns((2,5,1))'
