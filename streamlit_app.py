@@ -73,7 +73,7 @@ else:
 
 
 with st.form():
-	col_head1,col_head2 = st.columns((2,5))
+	col_head1,col_head2 = st.columns([2,5])
 	with col_head1:
 	    with stylable_container(
 	    key= "Settings" ,
