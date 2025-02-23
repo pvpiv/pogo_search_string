@@ -15,7 +15,7 @@ def configure_ag_grid(df,cols = None):
 	    cols = df.columns
     gb = GridOptionsBuilder.from_dataframe(df)
     gb.configure_grid_options(autoHeight=True)
-    gb.configure_columns(cols, wrapText=True, autoHeight=True, width=150)
+    gb.configure_columns(cols, wrapText=True, autoHeight=True, width=50)
     gridOptions = gb.build()
     AgGrid(df, gridOptions=gridOptions)
 
