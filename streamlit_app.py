@@ -159,7 +159,7 @@ with st.container():
     with cola2:    
         if st.session_state['table_string_butt']:
             butt_label = "Switch to Pokémon Lookup"
-
+        if st.session_state['table_string_butt']:
             top_nbox = st.number_input(
             'Showing Top:',
             value=st.session_state.top_num,
