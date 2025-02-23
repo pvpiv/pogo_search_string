@@ -54,7 +54,12 @@ initialize_session_state()
 
 query_params = st.query_params  #st.experimental_get_query_params()
 
-
+try:
+	if st.query_params["comm"] == "True":
+		st.session_state['show_custom2'] = True
+		upd_cust2()
+except:
+	pass
 	
 season_start = date(2024, 9, 3)
 
@@ -62,7 +67,7 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom2']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Mega Master.csv"
 
 # Load data
 #if  st.session_state['show_custom1']
@@ -71,53 +76,55 @@ if st.session_state['show_custom2']:
 else:
     df = pd.read_csv('pvp_data.csv')
 
-
-with st.form():
-	col_head1,col_head2 = st.columns([2,5])
-	with col_head1:
-	    with stylable_container(key= "Settings" ,css_styles="""
-		button {
-		    width: 150px;
-		    height: 45px;
-		    background-color: green;
-		    color: white;
-		    border-radius: 5px;
-		    white-space: nowrap;
-		}
-		""",):
-		    popover = st.popover('Settings' ,use_container_width =True)
-	    if not st.session_state['table_string_butt']:
-		
-			   # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-			   # show_custom_boxz = popover.checkbox('Mega Master Cup', on_change=upd_cust1, key='sho_cust2')
-		
-		    show_custom_boxz2 = popover.checkbox('Mega Master Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-			
-		    show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
-			
-	    else:
-		    show_custom_boxz2 = popover.checkbox('Mega Master Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-				   # show_custom_boxz3 =  popover.checkbox('Mega Master Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
-		    show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
-		    popover.divider()
-		    topstrin = str(st.session_state.top_num)
-		    fam_box = popover.checkbox('Include pre-evolutions', value=True)
-		    show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
-		    iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
-				    # tables_pop = st.popover("League Tables")
-
-	with col_head2:
-		if st.session_state['table_string_butt']:
-			butt_label = "Switch to Pokémon Lookup"
-		else: 
-			butt_label = "Switch to Search Strings"
-   			st.toggle(
-			label=butt_label,
-			key= "tab_str_butt",
-			value = st.session_state['table_string_butt'],
-			on_change = upd_tab_str
-	    	)
 cols = st.columns((2,5,1))
+with cols[0]:
+   
+
+    with stylable_container(
+    key= "Settings" ,
+    css_styles="""
+        button {
+            width: 150px;
+            height: 45px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+        """,
+):
+        popover = st.popover('Settings' ,use_container_width =True)
+        if not st.session_state['table_string_butt']:
+
+           # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
+           # show_custom_boxz = popover.checkbox('Mega Master Cup', on_change=upd_cust1, key='sho_cust2')
+
+            show_custom_boxz2 = popover.checkbox('Mega Master Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+
+            show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
+
+        else:
+            show_custom_boxz2 = popover.checkbox('Mega Master Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
+           # show_custom_boxz3 =  popover.checkbox('Mega Master Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+            show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
+            popover.divider()
+            topstrin = str(st.session_state.top_num)
+            fam_box = popover.checkbox('Include pre-evolutions', value=True)
+            show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
+            iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
+            # tables_pop = st.popover("League Tables")
+
+    
+    if st.session_state['table_string_butt']:
+        butt_label = "Switch to Pokémon Lookup"
+    else: 
+        butt_label = "Switch to Search Strings"
+    st.toggle(
+        label=butt_label,
+        key= "tab_str_butt",
+        value = st.session_state['table_string_butt'],
+        on_change = upd_tab_str
+    )
 with cols[1]:
 
     #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
