@@ -15,7 +15,36 @@ from st_aggrid import (
     ColumnsAutoSizeMode,
     AgGridTheme
 )
+from utils import (
+    MyList,
+    load_from_firestore,
+    save_to_firestore,
+    format_data,
+    filter_ids,
+    get_top_50_ids,
+    make_search_string,
+    format_data_top,
+    calculate_days_since,
+    get_last_updated_date
+)
 
+from session_state_manager import (
+    initialize_session_state,
+    update_top_num,
+    upd_shadow,
+    upd_tab_str,
+    upd_xl,
+    upd_seas,
+    upd_cust,
+    upd_cust1,
+    upd_cust2,
+    upd_inv,
+    update_gym_bool,
+    little_but,
+    great_but,
+    ultra_but,
+    master_but
+)
 def configure_ag_grid(df, cols=None):
     if cols is None:
         cols = df.columns
@@ -46,38 +75,7 @@ def configure_ag_grid(df, cols=None):
 
 st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
-
-# Import utility functions and session state manager
-from utils import (
-    MyList,
-    load_from_firestore,
-    save_to_firestore,
-    format_data,
-    filter_ids,
-    get_top_50_ids,
-    make_search_string,
-    format_data_top,
-    calculate_days_since,
-    get_last_updated_date
-)
-from session_state_manager import (
-    initialize_session_state,
-    update_top_num,
-    upd_shadow,
-    upd_tab_str,
-    upd_xl,
-    upd_seas,
-    upd_cust,
-    upd_cust1,
-    upd_cust2,
-    upd_inv,
-    update_gym_bool,
-    little_but,
-    great_but,
-    ultra_but,
-    master_but
-)
-
+ 
 # Initialize session state
 initialize_session_state()
 
@@ -98,7 +96,7 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom2']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Mega Master.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv"
 
 # Load data
 #if  st.session_state['show_custom1']
@@ -111,78 +109,6 @@ cols = st.columns((2,5,1))
 
        
    
-# Replace your existing code that creates 'cols = st.columns((2,5,1))'
-# and the toggles/checkboxes with something like this:
-with st.container():
-    # Create one row with three columns
-    cola1, cola2, cola3 = st.columns([1, 2, 1])  # adjust ratios as desired
-    st.subheader("PVP Poké Search Strings")
-		
- 
-    with cola1:
-        # Put the stylable_container + Settings popover here
-        with stylable_container(
-            key="Settings",
-            css_styles="""
-                button {
-                    width: 150px;
-                    height: 45px;
-                    background-color: green;
-                    color: white;
-                    border-radius: 5px;
-                    white-space: nowrap;
-                }
-            """,
-        ):
-            popover = st.popover('Settings', use_container_width=True)
-
-            # Example checkboxes inside the popover:
-            show_custom_boxz2 = popover.checkbox(
-                'Mega Master Cup',
-                value=st.session_state['show_custom2'],
-                on_change=upd_cust2,
-                key='sho_cust2'
-            )
-            show_shadow_boxz = popover.checkbox(
-                'Include Shadow Pokémon',
-                on_change=upd_shadow,
-                key='sho_shad',
-                value=st.session_state['get_shadow']
-            )
-            if st.session_state['table_string_butt']:
-                show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
-                popover.divider()
-                topstrin = str(st.session_state.top_num)
-                fam_box = popover.checkbox('Include pre-evolutions', value=True)
-                show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
-                iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
-
-    with cola2:
-        # The toggle for switching between table vs. search strings
-        if st.session_state['table_string_butt']:
-            butt_label = "Switch to Pokémon Lookup"
-            
-            with cola3:
-            # If we’re on the search-strings side, show the "Showing Top" input
-                if st.session_state['table_string_butt']:
-                    top_nbox = st.number_input(
-                    'Showing Top:',
-                    value=st.session_state.top_num,
-                    key='top_no',
-                    on_change=update_top_num,
-                    min_value=5,
-                    max_value=200,
-                    step=5
-                    )
-        else:
-            butt_label = "Switch to Search Strings"
-
-        st.toggle(
-            label=butt_label,
-            key="tab_str_butt",
-            value=st.session_state['table_string_butt'],
-            on_change=upd_tab_str
-        )
 
     
 
@@ -575,6 +501,85 @@ with cols[1]:
                 pass
     last_updated = get_last_updated_date(GITHUB_API_URL)
     st.write(f"Last updated: {last_updated} (EST)")
+
+
+
+# Replace your existing code that creates 'cols = st.columns((2,5,1))'
+# and the toggles/checkboxes with something like this:
+with st.container():
+    # Create one row with three columns
+    cola1, cola2, cola3 = st.columns([1, 2, 1])  # adjust ratios as desired
+    st.subheader("PVP Poké Search Strings")
+		
+ 
+    with cola1:
+        # Put the stylable_container + Settings popover here
+        with stylable_container(
+            key="Settings",
+            css_styles="""
+                button {
+                    width: 150px;
+                    height: 45px;
+                    background-color: green;
+                    color: white;
+                    border-radius: 5px;
+                    white-space: nowrap;
+                }
+            """,
+        ):
+            popover = st.popover('Settings', use_container_width=True)
+
+            # Example checkboxes inside the popover:
+            show_custom_boxz2 = popover.checkbox(
+                'Mega Master Cup',
+                value=st.session_state['show_custom2'],
+                on_change=upd_cust2,
+                key='sho_cust2'
+            )
+            show_shadow_boxz = popover.checkbox(
+                'Include Shadow Pokémon',
+                on_change=upd_shadow,
+                key='sho_shad',
+                value=st.session_state['get_shadow']
+            )
+            if st.session_state['table_string_butt']:
+                show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
+                popover.divider()
+                topstrin = str(st.session_state.top_num)
+                fam_box = popover.checkbox('Include pre-evolutions', value=True)
+                show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
+                iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
+
+    with cola2:
+        # The toggle for switching between table vs. search strings
+        if st.session_state['table_string_butt']:
+            butt_label = "Switch to Pokémon Lookup"
+            
+            with cola3:
+            # If we’re on the search-strings side, show the "Showing Top" input
+                if st.session_state['table_string_butt']:
+                    top_nbox = st.number_input(
+                    'Showing Top:',
+                    value=st.session_state.top_num,
+                    key='top_no',
+                    on_change=update_top_num,
+                    min_value=5,
+                    max_value=200,
+                    step=5
+                    )
+        else:
+            butt_label = "Switch to Search Strings"
+
+        st.toggle(
+            label=butt_label,
+            key="tab_str_butt",
+            value=st.session_state['table_string_butt'],
+            on_change=upd_tab_str
+        )
+
+
+
+
 # Custom CSS for mobile view and table fit
 st.markdown("""
 <style>
