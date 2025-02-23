@@ -215,9 +215,9 @@ with cols[1]:
                       #  df_display_Great.set_index(['Pokemon'], inplace=True)
                        # AgGrid(
 
-		    	columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
+                        columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
                      #   gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-			AgGrid(	(id="column-definitions-basic",rowData=df_display_Great.to_dict("records"),defaultColDef={"filter": True},columnDefs=columnDefs,columnSize="sizeToFit",dashGridOptions={"animateRows": False}    )
+                        AgGrid(	(id="column-definitions-basic",rowData=df_display_Great.to_dict("records"),defaultColDef={"filter": True},columnDefs=columnDefs,columnSize="sizeToFit",dashGridOptions={"animateRows": False}    )
                      #   custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
                     #    other_opt = {'suppressColumnVirtualisation':True}
                      #   gb.configure_grid_options(**other_opt)
