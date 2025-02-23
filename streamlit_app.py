@@ -156,6 +156,111 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
+import streamlit as st
+from streamlit_extras.stylable_container import stylable_container
+from st_aggrid import AgGrid, GridOptionsBuilder, ColumnsAutoSizeMode
+
+def configure_ag_grid(df, cols=None):
+    if cols is None:
+        cols = df.columns
+    gb = GridOptionsBuilder.from_dataframe(df)
+    gb.configure_grid_options(autoHeight=True)
+    
+    for col in cols:
+        if col == "MoveSet":
+            gb.configure_column(
+                col,
+                wrapText=True,
+                autoHeight=True,
+                cellStyle={'white-space': 'normal'},
+            )
+    
+    gridOptions = gb.build()
+    AgGrid(
+        df,
+        gridOptions=gridOptions,
+        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+    )
+   
+# Replace your existing code that creates 'cols = st.columns((2,5,1))'
+# and the toggles/checkboxes with something like this:
+with st.container():
+    # Create one row with three columns
+    col1, col2, col3 = st.columns([1, 2, 1])  # adjust ratios as desired
+    st.subheader("PVP Poké Search Strings")
+		
+    if st.session_state.show_string:
+        top_nbox = st.number_input(
+            'Showing Top:',
+            value=st.session_state.top_num,
+            key='top_no',
+            on_change=update_top_num,
+            min_value=5,
+            max_value=200,
+            step=5
+        )
+    with col1:
+        # Put the stylable_container + Settings popover here
+        with stylable_container(
+            key="Settings",
+            css_styles="""
+                button {
+                    width: 150px;
+                    height: 45px;
+                    background-color: green;
+                    color: white;
+                    border-radius: 5px;
+                    white-space: nowrap;
+                }
+            """,
+        ):
+            popover = st.popover('Settings', use_container_width=True)
+
+            # Example checkboxes inside the popover:
+            show_custom_boxz2 = popover.checkbox(
+                'Mega Master Cup',
+                value=st.session_state['show_custom2'],
+                on_change=upd_cust2,
+                key='sho_cust2'
+            )
+            show_shadow_boxz = popover.checkbox(
+                'Include Shadow Pokémon',
+                on_change=upd_shadow,
+                key='sho_shad',
+                value=st.session_state['get_shadow']
+            )
+
+    with col2:
+        # The toggle for switching between table vs. search strings
+        if st.session_state['table_string_butt']:
+            butt_label = "Switch to Pokémon Lookup"
+        else:
+            butt_label = "Switch to Search Strings"
+
+        st.toggle(
+            label=butt_label,
+            key="tab_str_butt",
+            value=st.session_state['table_string_butt'],
+            on_change=upd_tab_str
+        )
+
+    with col3:
+        # If we’re on the search-strings side, show the "Showing Top" input
+        if st.session_state['table_string_butt']:
+            top_nbox = st.number_input(
+                'Showing Top:',
+                value=st.session_state.top_num,
+                key='top_no',
+                on_change=update_top_num,
+                min_value=5,
+                max_value=200,
+                step=5
+            )
+
+# Then continue the rest of your code normally below...
+# e.g. the logic for displaying search strings, or for the big table, etc.
+
+
 with cols[1]:
 
     #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
@@ -226,18 +331,7 @@ with cols[1]:
         
         
 
-        st.subheader("PVP Poké Search Strings")
-		
-        if st.session_state.show_string:
-            top_nbox = st.number_input(
-                'Showing Top:',
-                value=st.session_state.top_num,
-                key='top_no',
-                on_change=update_top_num,
-                min_value=5,
-                max_value=200,
-                step=5
-            )
+
             inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
             #tables_pop = st.popover("League Tables")
             
