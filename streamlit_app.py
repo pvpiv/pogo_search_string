@@ -21,7 +21,8 @@ def configure_ag_grid(df, cols=None):
 	".ag-root.ag-unselectable.ag-layout-normal": {"font-size": "16px !important",
 	"font-family": "Roboto, sans-serif !important;"},
 	#".ag-header-cell-text": {"color": "#495057 !important;"},
-	".ag-theme-alpine .ag-ltr .ag-cell": {"color": "#444 !important;"},
+	
+	".ag-theme-alpine .ag-ltr .ag-cell": {"ag-font-size": "32 px","color": "#444 !important;"},
 	".ag-theme-alpine .ag-row-odd": {"background": "rgba(243, 247, 249, 0.3) !important;",
 	"border": "1px solid #eee !important;"},
 	".ag-theme-alpine .ag-row-even": {"border-bottom": "1px solid #eee !important;"},
