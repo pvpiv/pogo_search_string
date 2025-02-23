@@ -230,17 +230,17 @@ with cols[1]:
 
 #                        other_options = {'suppressColumnVirtualisation': True}
                         gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-                        other_options = {'suppressColumnVirtualisation': True}
+                        other_options = {'suppressColumnVirtualisation': True,'wrapText'=True,'autoHeight'=True}
                         gb.configure_grid_options(**other_options)
 
                         # Configure the MoveSet column to wrap text and adjust height
-                        gb.configure_column("MoveSet", wrapText=True, autoHeight=True)
+                   #     gb.configure_column("MoveSet", wrapText=True)
 
                         gridOptions = gb.build()
                         grid = AgGrid(
                             df_display_Great,
                             gridOptions=gridOptions,
-                            columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS)
+                            height = None)
                     else:
                         st.button(lab_gre,on_click = great_but)
                     
