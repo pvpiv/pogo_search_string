@@ -13,7 +13,7 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 def configure_ag_grid(df,cols = None):
     if cols is None:
 	cols = df.columns
-    gb = GridOptionsBuilder.from_dataframe(your_dataframe)
+    gb = GridOptionsBuilder.from_dataframe(df)
     gb.configure_grid_options(autoHeight=True)
     gb.configure_columns(cols, wrapText=True, autoHeight=True, width=150)
     gridOptions = gb.build()
