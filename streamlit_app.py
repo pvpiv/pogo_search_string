@@ -151,7 +151,7 @@ with st.container():
             )
             if st.session_state['table_string_butt']:
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
-                #popover.divider()
+                popover.divider()
                 topstrin = str(st.session_state.top_num)
                 fam_box = popover.checkbox('Include pre-evolutions', value=True)
                 show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
@@ -184,9 +184,7 @@ with st.container():
             on_change=upd_tab_str
         )
         
-        if st.session_state['table_string_butt']:
-            st.divider()
-            
+ 
         # The toggle for switching between table vs. search strings
        
         
