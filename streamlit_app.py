@@ -7,18 +7,39 @@ import json
 from datetime import date, datetime
 import requests
 import pytz
-from st_aggrid import AgGrid
+from st_aggrid import (
+    GridOptionsBuilder,
+    AgGrid,
+    GridUpdateMode,
+    DataReturnMode,
+    ColumnsAutoSizeMode,
+    AgGridTheme
+)
 
-from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode, ColumnsAutoSizeMode, AgGridTheme
-def configure_ag_grid(df,cols = None):
+def configure_ag_grid(df, cols=None):
     if cols is None:
-	    cols = df.columns
+        cols = df.columns
     gb = GridOptionsBuilder.from_dataframe(df)
     gb.configure_grid_options(autoHeight=True)
+    
     for col in cols:
-        gb.configure_columns(col, wrapText=wrap_text, autoHeight=True, width=50)
+        if col == "MoveSet":
+            # Enable wrap on the MoveSet column:
+            gb.configure_column(
+                col,
+                wrapText=True,
+                autoHeight=True,
+                cellStyle={'white-space': 'normal'},
+            )
+
+    
     gridOptions = gb.build()
-    AgGrid(df, gridOptions=gridOptions)
+    AgGrid(
+        df,
+        gridOptions=gridOptions,
+        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+    )
+
 
 
 
