@@ -10,7 +10,14 @@ import pytz
 from st_aggrid import AgGrid
 
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode, ColumnsAutoSizeMode, AgGridTheme
+def configure_ag_grid():
+    gb = GridOptionsBuilder.from_dataframe(your_dataframe)
+    gb.configure_grid_options(autoHeight=True)
+    gb.configure_columns(["MoveSet"], wrapText=True, autoHeight=True, width=150)
+    gridOptions = gb.build()
+    AgGrid(your_dataframe, gridOptions=gridOptions)
 
+configure_ag_grid()
 
 
 #st.set_page_config(layout = "wide")
