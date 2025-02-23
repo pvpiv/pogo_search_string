@@ -166,6 +166,7 @@ with st.container():
                 max_value=200,
                 step=5
                 )
+            inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
     with cola2:    
         if st.session_state['table_string_butt']:
             butt_label = "Switch to Pokémon Lookup"
@@ -264,7 +265,7 @@ with st.container():
             
 
 
-                inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
+                
                 #tables_pop = st.popover("League Tables")
                 
                 if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
