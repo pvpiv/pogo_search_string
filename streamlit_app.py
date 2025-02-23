@@ -31,14 +31,14 @@ def configure_ag_grid(df, cols=None):
 	"border-radius": "3px !important;"},
 	".ag-theme-light button:before": {"content": "‘Confirm’ !important", "position": "relative !important",
 	"z-index": "1000 !important", "top": "0 !important",
-	"font-size": "16px !important", "left": "0 !important",
+	"font-size": "16px !important", "left": "4 !important",
 	"padding": "4px !important"},
 	
 	}
     if cols is None:
         cols = df.columns
     gb = GridOptionsBuilder.from_dataframe(df)
-    gb.configure_grid_options(autoHeight=True)
+    gb.configure_grid_options()
     
     for col in cols:
         if col == "MoveSet":
@@ -46,7 +46,7 @@ def configure_ag_grid(df, cols=None):
             gb.configure_column(
                 col,
                 wrapText=True,
-                autoHeight=True,
+               # autoHeight=True,
                 cellStyle={'white-space': 'normal'},
             )
 
