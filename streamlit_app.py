@@ -156,6 +156,7 @@ with st.container():
                 fam_box = popover.checkbox('Include pre-evolutions', value=True)
                 show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
                 iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
+                inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
         if st.session_state['table_string_butt']:
 
             top_nbox = st.number_input(
@@ -185,7 +186,7 @@ with st.container():
         
         if st.session_state['table_string_butt']:
             st.divider()
-            inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
+            
         # The toggle for switching between table vs. search strings
        
         
