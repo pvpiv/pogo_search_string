@@ -32,7 +32,7 @@ def configure_ag_grid(df, cols=None):
 	"border-radius": "3px !important;"},
 	".ag-theme-light button:before": {"content": "‘Confirm’ !important", "position": "relative !important",
 	"z-index": "1000 !important", "top": "0 !important",
-	"font-size": "16px !important", "left": "4 !important",
+	#"font-size": "16px !important", "left": "4 !important",
 	"padding": "4px !important"},
 	
 	}
@@ -56,7 +56,7 @@ def configure_ag_grid(df, cols=None):
     AgGrid(
         df,
         gridOptions=gridOptions,
-        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
+       # columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
         style={'font-size': '32px'},
         custom_css=custom_css,
         allow_unsafe_jscode=True
