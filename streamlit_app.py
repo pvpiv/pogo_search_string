@@ -213,8 +213,8 @@ with st.container():
                 max_value=200,
                 step=5
                 )
-        else:
-            butt_label = "Switch to Search Strings"
+            else:
+                butt_label = "Switch to Search Strings"
 
         st.toggle(
             label=butt_label,
