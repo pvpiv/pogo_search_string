@@ -164,7 +164,17 @@ with cols[1]:
                         )
                         df_display = pd.DataFrame(family_data)
                         df_display.set_index(['Pokemon'])
-                        st.table(df_display)
+                        
+                        gb = GridOptionsBuilder.from_dataframe(df_display)
+                        other_options = {'suppressColumnVirtualisation': True}
+                        gb.configure_grid_options(**other_options)
+                        gridOptions = gb.build()
+			
+                        grid = AgGrid(
+			    df_display,
+			    gridOptions=gridOptions,
+			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+			    )
                         try:
                             
                             save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
