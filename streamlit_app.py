@@ -113,9 +113,10 @@ else:
 # Replace your existing code that creates 'cols = st.columns((2,5,1))'
 # and the toggles/checkboxes with something like this:
 with st.container():
+    st.subheader("PVP Poké Search Strings")
     # Create one row with three columns
     cola1, cola2, cola3 = st.columns([1, 2, 1])  # adjust ratios as desired
-    st.subheader("PVP Poké Search Strings")
+
 		
  
     with cola1:
