@@ -17,6 +17,24 @@ from st_aggrid import (
 )
 
 def configure_ag_grid(df, cols=None):
+    custom_css = {
+	".ag-root.ag-unselectable.ag-layout-normal": {"font-size": "13px !important",
+	"font-family": "Roboto, sans-serif !important;"},
+	".ag-header-cell-text": {"color": "#495057 !important;"},
+	".ag-theme-alpine .ag-ltr .ag-cell": {"color": "#444 !important;"},
+	".ag-theme-alpine .ag-row-odd": {"background": "rgba(243, 247, 249, 0.3) !important;",
+	"border": "1px solid #eee !important;"},
+	".ag-theme-alpine .ag-row-even": {"border-bottom": "1px solid #eee !important;"},
+	".ag-theme-light button": {"font-size": "0 !important;", "width": "auto !important;", "height": "24px !important;",
+	"border": "1px solid #eee !important;", "margin": "4px 2px !important;",
+	"background": "#3162bd !important;", "color": "#fff !important;",
+	"border-radius": "3px !important;"},
+	".ag-theme-light button:before": {"content": "‘Confirm’ !important", "position": "relative !important",
+	"z-index": "1000 !important", "top": "0 !important",
+	"font-size": "12px !important", "left": "0 !important",
+	"padding": "4px !important"},
+	
+	}
     if cols is None:
         cols = df.columns
     gb = GridOptionsBuilder.from_dataframe(df)
@@ -37,7 +55,9 @@ def configure_ag_grid(df, cols=None):
     AgGrid(
         df,
         gridOptions=gridOptions,
-        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
+        custom_css=custom_css,
+        allow_unsafe_jscode=True
     )
 
 
