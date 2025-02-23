@@ -196,11 +196,19 @@ with st.container():
                 key='sho_shad',
                 value=st.session_state['get_shadow']
             )
+            if st.session_state['table_string_butt']:
+                show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
+                popover.divider()
+                topstrin = str(st.session_state.top_num)
+                fam_box = popover.checkbox('Include pre-evolutions', value=True)
+                show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
+                iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
 
     with cola2:
         # The toggle for switching between table vs. search strings
         if st.session_state['table_string_butt']:
             butt_label = "Switch to Pokémon Lookup"
+            
             with cola3:
             # If we’re on the search-strings side, show the "Showing Top" input
                 if st.session_state['table_string_butt']:
