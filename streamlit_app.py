@@ -235,8 +235,8 @@ with cols[1]:
 			
                         grid = AgGrid(
 			    df_display_Great,
-			    gridOptions=gridOptions,
-			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+				columnSize=“autoSize”,
+				dashGridOptions={“suppressColumnVirtualisation”: True
 			    )
 
                    
