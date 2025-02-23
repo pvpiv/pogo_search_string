@@ -159,16 +159,8 @@ with st.container():
     with cola2:    
         if st.session_state['table_string_butt']:
             butt_label = "Switch to Pokémon Lookup"
-        if st.session_state['table_string_butt']:
-            top_nbox = st.number_input(
-            'Showing Top:',
-            value=st.session_state.top_num,
-            key='top_no',
-            on_change=update_top_num,
-            min_value=5,
-            max_value=200,
-            step=5
-            )
+        
+            
         else:
             butt_label = "Switch to Search Strings"
 
@@ -178,6 +170,16 @@ with st.container():
             value=st.session_state['table_string_butt'],
             on_change=upd_tab_str
         )
+        if st.session_state['table_string_butt']:
+            top_nbox = st.number_input(
+                'Showing Top:',
+                value=st.session_state.top_num,
+                key='top_no',
+                on_change=update_top_num,
+                min_value=5,
+                max_value=200,
+                step=5
+                )
     
         # The toggle for switching between table vs. search strings
        
