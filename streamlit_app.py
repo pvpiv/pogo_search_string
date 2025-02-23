@@ -45,7 +45,7 @@ def configure_ag_grid(df, cols=None):
 
 
 #st.set_page_config(layout = "wide")
- st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 # Import utility functions and session state manager
 from utils import (
