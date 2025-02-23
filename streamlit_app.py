@@ -190,7 +190,7 @@ with st.container():
 # e.g. the logic for displaying search strings, or for the big table, etc.
 
 
-    cols = st.columns([2,5,1])
+    cols = st.columns([1,3,1])
     with cols[1]:
 
         #str_tab_but = st.button(butett_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
