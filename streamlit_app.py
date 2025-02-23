@@ -216,13 +216,20 @@ with cols[1]:
                        # AgGrid(
 
                        # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
-                        gridOptions = gb.build() 
-                        column_defs = gridOptions["columnDefs"]
-                        for col_def in column_defs:
-                        	col_name = col_def["field"]
-                        	max_len = df_display_Great[col_name].astype(str).str.len().max() # can add +5 here if things are too tight
-                        	col_def["width"] = max_len
-                        AgGrid(df_display_Great)
+                        from st_aggrid import GridOptionsBuilder, AgGrid, ColumnsAutoSizeMode
+
+			gb = GridOptionsBuilder.from_dataframe(df_display_Great)
+			other_options = {'suppressColumnVirtualisation': True}
+			gb.configure_grid_options(**other_options)
+			gridOptions = gb.build()
+			
+			grid = AgGrid(
+			    df_display_Great,
+			    gridOptions=gridOptions,
+			    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+			    )
+
+                   
                      #   gb = GridOptionsBuilder.from_dataframe(df_display_Great)
                         #AgGrid(	(id="column-definitions-basic",rowData=df_display_Great.to_dict("records"),defaultColDef={"filter": True},columnDefs=columnDefs,columnSize="sizeToFit",dashGridOptions={"animateRows": False}    )
                      #   custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
