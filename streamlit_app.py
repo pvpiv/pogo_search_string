@@ -228,25 +228,19 @@ with cols[1]:
                        # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
                         
 
+#                        other_options = {'suppressColumnVirtualisation': True}
                         gb = GridOptionsBuilder.from_dataframe(df_display_Great)
                         other_options = {'suppressColumnVirtualisation': True}
                         gb.configure_grid_options(**other_options)
-                        gridOptions = gb.build()
-			
-                        grid = AgGrid(
-			    df_display_Great,
-				columnSize="autoSize",
-				dashGridOptions={"suppressColumnVirtualisation": True,"wrapText": True}
-			    )
 
-                   
-                     #   gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-                        #AgGrid(	(id="column-definitions-basic",rowData=df_display_Great.to_dict("records"),defaultColDef={"filter": True},columnDefs=columnDefs,columnSize="sizeToFit",dashGridOptions={"animateRows": False}    )
-                     #   custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
-                    #    other_opt = {'suppressColumnVirtualisation':True}
-                     #   gb.configure_grid_options(**other_opt)
-                     #   gridOptions = gb.build()
-                      #  AgGrid(df_display_Great,gridOptions=gridOptions, custom_css=custom_css, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,  theme=AgGridTheme.BALHAM,  height=350  )
+                        # Configure the MoveSet column to wrap text and adjust height
+                        gb.configure_column("MoveSet", wrapText=True, autoHeight=True)
+
+                        gridOptions = gb.build()
+                        grid = AgGrid(
+                            df_display_Great,
+                            gridOptions=gridOptions,
+                            columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS)
                     else:
                         st.button(lab_gre,on_click = great_but)
                     
