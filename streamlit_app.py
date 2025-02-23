@@ -215,7 +215,7 @@ with cols[1]:
                       #  df_display_Great.set_index(['Pokemon'], inplace=True)
                        # AgGrid(
 
-			columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
+                        columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
 			gridOptions = gb.build() 
 			column_defs = gridOptions["columnDefs"]
 		        for col_def in column_defs:
