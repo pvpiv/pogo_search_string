@@ -297,38 +297,37 @@ with st.container():
                 if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
                     
             
-                    try:
-                        st.write(f'Great League Top {st.session_state.top_num} Search String:')
-                        st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-                        lab_gre = "Show Great Table"
-                        if st.session_state['great_clicked']:
-                            lab_gre  = "Hide Great Table"
-                            st.button(lab_gre,on_click = great_but)
-                            family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                            df_display_Great = pd.DataFrame(family_data_Great)
-                        #  df_display_Great.set_index(['Pokemon'], inplace=True)
-                        # AgGrid(
+                    
+                    st.write(f'Great League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
+                    lab_gre = "Show Great Table"
+                    if st.session_state['great_clicked']:
+                        lab_gre  = "Hide Great Table"
+                        st.button(lab_gre,on_click = great_but)
+                        family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                        df_display_Great = pd.DataFrame(family_data_Great)
+                    #  df_display_Great.set_index(['Pokemon'], inplace=True)
+                    # AgGrid(
 
-                        # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
-                            configure_ag_grid2(df_display_Great)
-                            #interactive_table(df_display_Great)
-    #                        other_options = {'suppressColumnVirtualisation': True}
-                        #  gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-                        #   other_options = {'suppressColumnVirtualisation': True,'wrapText':True,'fit_columns_on_grid_load':True,'height':None}
-                        # gb.configure_grid_options(**other_options)
+                    # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
+                        configure_ag_grid2(df_display_Great)
+                        #interactive_table(df_display_Great)
+#                        other_options = {'suppressColumnVirtualisation': True}
+                    #  gb = GridOptionsBuilder.from_dataframe(df_display_Great)
+                    #   other_options = {'suppressColumnVirtualisation': True,'wrapText':True,'fit_columns_on_grid_load':True,'height':None}
+                    # gb.configure_grid_options(**other_options)
 
-                            # Configure the MoveSet column to wrap text and adjust height
-                    #     gb.configure_column("MoveSet", wrapText=True)
+                        # Configure the MoveSet column to wrap text and adjust height
+                #     gb.configure_column("MoveSet", wrapText=True)
 
-                        #   gridOptions = gb.build()
-                        #  grid = AgGrid(
-                        #      df_display_Great,
-                            #  gridOptions=gridOptions)
-                        else:
-                            st.button(lab_gre,on_click = great_but)
+                    #   gridOptions = gb.build()
+                    #  grid = AgGrid(
+                    #      df_display_Great,
+                        #  gridOptions=gridOptions)
+                    else:
+                        st.button(lab_gre,on_click = great_but)
                         
-                    except:
-                        pass
+                    
             
                     try:
                         st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
