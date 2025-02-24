@@ -21,7 +21,7 @@ def configure_ag_grid(df, cols=None):
 	".ag-root.ag-unselectable.ag-layout-normal": {"font-size": "48px !important",
 	"font-family": "Roboto, sans-serif !important;"},
 	#".ag-header-cell-text": {"color": "#495057 !important;"},
-	
+	".ag-theme-alpine .ag-header-cell": {"font-size" : "32 px;"},
 	".ag-theme-alpine .ag-ltr .ag-cell": {"color": "#444 !important;"},
 	".ag-theme-alpine .ag-row-odd": {"background": "rgba(243, 247, 249, 0.3) !important;",
 	"border": "1px solid #eee !important;"},
@@ -36,12 +36,7 @@ def configure_ag_grid(df, cols=None):
 	"padding": "4px !important"},
 	
 	}
-    custom_theme = (StAggridTheme(base="alpine").withParams({
-        "fontSize": 48,
-        "rowBorder": False
-    })  
-    .withParts(['iconSetAlpine'])  
-    )
+
     if cols is None:
         cols = df.columns
     gb = GridOptionsBuilder.from_dataframe(df)
@@ -64,7 +59,7 @@ def configure_ag_grid(df, cols=None):
         gridOptions=gridOptions,
        # columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
        # style={},
-        theme = custom_theme,
+       
         custom_css=custom_css,
         allow_unsafe_jscode=True
     )
