@@ -50,7 +50,7 @@ def configure_ag_grid(df, cols=None):
                 col,
                 wrapText=True,
                 autoHeight=True,
-                cellStyle={'font-size': '24px'},
+                cellStyle={'font-size': '16px'},
             )
 
     
