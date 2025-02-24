@@ -38,7 +38,7 @@ def configure_ag_grid2(df, cols=None):
             elif col == 'MoveSet':
                 
                 gb.configure_column( col, maxWidth = 150)                #,"wrapText": True
-	    elif col in ('Level','Lvl'):
+            elif col in ('Level','Lvl'):
                 gb.configure_column( col, maxWidth = int(18*df[col].astype(str).str.len().max()))
 	    else:
                 gb.configure_column( col, maxWidth = int(14*df[col].astype(str).str.len().max()))
