@@ -15,7 +15,7 @@ from st_aggrid import (
     ColumnsAutoSizeMode,
     AgGridTheme
 )
-
+from itables.streamlit import interactive_table
 def configure_ag_grid(df, cols=None):
     custom_css = {
 	#".ag-root.ag-unselectable.ag-layout-normal": {"font-size": "56px !important"},
@@ -313,8 +313,8 @@ with st.container():
                         # AgGrid(
 
                         # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
-                            configure_ag_grid(df_display_Great)
-
+                            #configure_ag_grid(df_display_Great)
+                            interactive_table(df_display_Great)
     #                        other_options = {'suppressColumnVirtualisation': True}
                         #  gb = GridOptionsBuilder.from_dataframe(df_display_Great)
                         #   other_options = {'suppressColumnVirtualisation': True,'wrapText':True,'fit_columns_on_grid_load':True,'height':None}
