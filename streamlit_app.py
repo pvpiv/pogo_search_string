@@ -39,9 +39,11 @@ def configure_ag_grid2(df, cols=None):
                 
                 gb.configure_column( col, maxWidth = 150)                #,"wrapText": True
             elif col in ('Level','Lvl'):
+                gb.configure_column( col, maxWidth = int(15*df[col].astype(str).str.len().max()))
+            elif col in ('#','Rank'):
                 gb.configure_column( col, maxWidth = int(18*df[col].astype(str).str.len().max()))
             else:
-                gb.configure_column( col, maxWidth = int(14*df[col].astype(str).str.len().max()))
+                gb.configure_column( col, maxWidth = int(12*df[col].astype(str).str.len().max()))
      
     custom_css = {".ag-header-cell-text": {"font-size": "16 px",  'font-weight': 700},
     ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
