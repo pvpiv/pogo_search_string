@@ -16,7 +16,7 @@ from st_aggrid import (
     AgGridTheme
 ) 
 def configure_ag_grid2(df, cols=None):
-    gb = GridOptionsBuilder.from_dataframe(df)
+   # gb = GridOptionsBuilder.from_dataframe(df)
     #gb.configure_pagination(enabled=True)
     gb.configure_default_column(editable=False, groupable=True)
     gb.configure_selection(selection_mode="single",
