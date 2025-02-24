@@ -25,7 +25,7 @@ def configure_ag_grid2(df, cols=None):
 
     gb.configure_grid_options(domLayout='normal')
     gb.configure_grid_options(rowHeight = 55)
-    gb.configure_grid_options(overflow = 'auto')
+    #gb.configure_grid_options(overflow = 'auto')
 	
     if cols is None:
         cols = df.columns    
@@ -43,7 +43,7 @@ def configure_ag_grid2(df, cols=None):
         #    gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
       #  elif col in ('Lvl','Level'):
          #   gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
-    custom_css = {".ag-header-cell-text": {"font-size": "48 px", 'text-overflow': 'revert;', 'font-weight': 700},
+    custom_css = {".ag-header-cell-text": {"font-size": "48 px",  'font-weight': 700},
     ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
 
     gridOptions = gb.build() 
