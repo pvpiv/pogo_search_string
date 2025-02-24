@@ -32,7 +32,7 @@ def configure_ag_grid2(df, cols=None):
         for col in cols:
             #gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
             gb.configure_column( col, wrapText=True) #, width=df[col].astype(str).str.len().max())
-            gb.configure_column( col, width = 5)
+            #gb.configure_column( col, width = 5)
                 #,"wrapText": True
     
     #column_defs = gridOptions["columnDefs"]
@@ -43,7 +43,7 @@ def configure_ag_grid2(df, cols=None):
         #    gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
       #  elif col in ('Lvl','Level'):
          #   gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
-    custom_css = {".ag-header-cell-text": {"font-size": "24px", 'text-overflow': 'revert;', 'font-weight': 700},
+    custom_css = {".ag-header-cell-text": {"font-size": "16 px", 'text-overflow': 'revert;', 'font-weight': 700},
     ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
 
     gridOptions = gb.build() 
