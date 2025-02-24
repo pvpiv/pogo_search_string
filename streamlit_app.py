@@ -65,7 +65,7 @@ def configure_ag_grid(df, cols=None):
         gridOptions=gridOptions,
        # columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
        # style={},
-        AgGridTheme = custom_theme
+        AgGridTheme = custom_theme,
         custom_css=custom_css,
         allow_unsafe_jscode=True
     )
