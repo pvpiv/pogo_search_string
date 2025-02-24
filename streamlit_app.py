@@ -34,7 +34,7 @@ def configure_ag_grid2(df, cols=None):
             gb.configure_column( col, wrapText=True) #, width=df[col].astype(str).str.len().max())
     
             if col == 'Pokemon':
-                gb.configure_column( col, maxWidth = 175)
+                gb.configure_column( col, maxWidth = 150)
             elif col == 'MoveSet':
                 
                 gb.configure_column( col, maxWidth = 275)                #,"wrapText": True
@@ -53,7 +53,7 @@ def configure_ag_grid2(df, cols=None):
 	theme="streamlit",
 	reload_data=True,
 	configure_side_bar=True,
-	columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,		
+	#columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,		
 	update_mode=GridUpdateMode.SELECTION_CHANGED,
 	allow_unsafe_jscode=True,
 	data=df,
