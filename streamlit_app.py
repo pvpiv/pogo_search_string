@@ -31,9 +31,7 @@ def configure_ag_grid2(df, cols=None):
         for col in cols:
             gb.configure_column( col, wrapText=True)
                 #,"wrapText": True
-		
-	
-	gridOptions = gb.build()
+    gridOptions = gb.build()
     
     grid_table = AgGrid(gridOptions=gridOptions,
 	fit_columns_on_grid_load=True,
