@@ -40,7 +40,7 @@ def configure_ag_grid2(df, cols=None):
                 gb.configure_column( col, maxWidth = 150)                #,"wrapText": True
             elif col in ('Level','Lvl'):
                 gb.configure_column( col, maxWidth = int(18*df[col].astype(str).str.len().max()))
-	    else:
+            else:
                 gb.configure_column( col, maxWidth = int(14*df[col].astype(str).str.len().max()))
      
     custom_css = {".ag-header-cell-text": {"font-size": "16 px",  'font-weight': 700},
