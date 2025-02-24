@@ -57,6 +57,7 @@ def configure_ag_grid(df, cols=None):
     AgGrid(
         df,
         gridOptions=gridOptions,
+        theme = 'alpine',
        # columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
        # style={},
        
