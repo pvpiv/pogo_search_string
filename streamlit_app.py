@@ -67,8 +67,29 @@ def configure_ag_grid(df, cols=None):
         allow_unsafe_jscode=True
     )
 
-
-
+def configure_ag_grid2(df, cols=None):
+	gb = GridOptionsBuilder.from_dataframe(df)
+	gb.configure_pagination(enabled=True)
+	gb.configure_default_column(editable=False, groupable=True)
+	gb.configure_selection(selection_mode="single",
+	use_checkbox=True,
+	rowMultiSelectWithClick=True,
+	)
+	gb.configure_grid_options(domLayout='normal')
+	
+	gridOptions = gb.build()
+	
+	grid_table = AgGrid(gridOptions=gridOptions,
+	fit_columns_on_grid_load=True,
+	height=300,
+	width='100%',
+	theme="streamlit",
+	reload_data=True,
+	configure_side_bar=True,
+	update_mode=GridUpdateMode.SELECTION_CHANGED,
+	allow_unsafe_jscode=True,
+	data=df,
+	enable_enterprise_modules=False)
 
 
 #st.set_page_config(layout = "wide")
@@ -313,8 +334,8 @@ with st.container():
                         # AgGrid(
 
                         # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
-                            #configure_ag_grid(df_display_Great)
-                            interactive_table(df_display_Great)
+                            configure_ag_grid2(df_display_Great)
+                            #interactive_table(df_display_Great)
     #                        other_options = {'suppressColumnVirtualisation': True}
                         #  gb = GridOptionsBuilder.from_dataframe(df_display_Great)
                         #   other_options = {'suppressColumnVirtualisation': True,'wrapText':True,'fit_columns_on_grid_load':True,'height':None}
