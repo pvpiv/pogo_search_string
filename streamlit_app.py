@@ -69,10 +69,10 @@ def configure_ag_grid(df, cols=None):
 
 def configure_ag_grid2(df, cols=None):
 	gb = GridOptionsBuilder.from_dataframe(df)
-	gb.configure_pagination(enabled=True)
+	#gb.configure_pagination(enabled=True)
 	gb.configure_default_column(editable=False, groupable=True)
 	gb.configure_selection(selection_mode="single",
-	use_checkbox=True,
+	#use_checkbox=True,
 	rowMultiSelectWithClick=True,
 	)
 	gb.configure_grid_options(domLayout='normal')
@@ -83,7 +83,7 @@ def configure_ag_grid2(df, cols=None):
 	fit_columns_on_grid_load=True,
 	height=300,
 	width='75%',
-	theme="streamlit",
+	theme="alpine",
 	reload_data=True,
 	configure_side_bar=True,
 	update_mode=GridUpdateMode.SELECTION_CHANGED,
