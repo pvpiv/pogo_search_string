@@ -23,8 +23,8 @@ def configure_ag_grid2(df, cols=None):
     #use_checkbox=True,
     rowMultiSelectWithClick=True)
 
-    gb.configure_grid_options(domLayout='autoHeight')
-    #gb.configure_grid_options(rowHeight = 5)
+    gb.configure_grid_options(domLayout='normal')
+    gb.configure_grid_options(rowHeight = 5)
     gb.configure_grid_options(overflow = 'auto')
 	
     if cols is None:
@@ -44,7 +44,7 @@ def configure_ag_grid2(df, cols=None):
       #  elif col in ('Lvl','Level'):
          #   gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
     custom_css = {".ag-header-cell-text": {"font-size": "24 px", 'text-overflow': 'revert;', 'font-weight': 700},
-    ".ag-theme-streamlit": {'transform': "scale(1.8)", "transform-origin": '0 0'}}
+    ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
 
     gridOptions = gb.build() 
     grid_table = AgGrid(gridOptions=gridOptions,
@@ -55,7 +55,7 @@ def configure_ag_grid2(df, cols=None):
 	theme="streamlit",
 	reload_data=True,
 	configure_side_bar=True,
-	columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,		
+	#columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,		
 	update_mode=GridUpdateMode.SELECTION_CHANGED,
 	allow_unsafe_jscode=True,
 	data=df,
