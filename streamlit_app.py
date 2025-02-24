@@ -23,8 +23,8 @@ def configure_ag_grid2(df, cols=None):
     #use_checkbox=True,
     rowMultiSelectWithClick=True)
 
-    gb.configure_grid_options(domLayout='normal')
-    gb.configure_grid_options(rowHeight = 70)
+    gb.configure_grid_options(domLayout='autoHeight')
+    #gb.configure_grid_options(rowHeight = 5)
     gb.configure_grid_options(overflow = 'auto')
 	
     if cols is None:
