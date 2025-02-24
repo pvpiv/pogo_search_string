@@ -49,7 +49,7 @@ def configure_ag_grid(df, cols=None):
             gb.configure_column(
                 col,
                 wrapText=True,
-               # autoHeight=True,
+                autoHeight=True,
                 cellStyle={'white-space': 'normal','font-size': '32px'},
             )
 
@@ -59,7 +59,7 @@ def configure_ag_grid(df, cols=None):
         df,
         gridOptions=gridOptions,
         theme = 'alpine',
-       # columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
+        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
        # style={},
        
         custom_css=custom_css,
