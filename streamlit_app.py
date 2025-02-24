@@ -23,13 +23,13 @@ def configure_ag_grid2(df, cols=None):
 	#use_checkbox=True,
 	rowMultiSelectWithClick=True,
 	)
-	gb.configure_grid_options(domLayout='autoHeight',rowHeight = 70)
+	gb.configure_grid_options(domLayout='autoHeight',rowHeight = 70,font-size = 25,overflow = 'auto')
 	
 	gridOptions = gb.build()
 	
 	grid_table = AgGrid(gridOptions=gridOptions,
 	fit_columns_on_grid_load=True,
-	style = {overflow = 'auto'},
+#	style = {overflow = 'auto'},
 	#height=300,
 	width='100%',
 	theme="alpine",
