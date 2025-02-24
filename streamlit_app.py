@@ -53,7 +53,7 @@ def configure_ag_grid(df, cols=None):
             )
 
     
-    gridOptions = gb.build()
+    gridOptions = gb.build({'headerHeight':150})
     AgGrid(
         df,
         gridOptions=gridOptions,
