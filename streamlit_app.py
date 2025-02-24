@@ -52,7 +52,7 @@ def configure_ag_grid2(df, cols=None):
     grid_table = AgGrid(gridOptions=gridOptions,
 	fit_columns_on_grid_load=True,
 #	style = {overflow = 'auto'},
-	height=420,
+	height=840,
 	width='100%',
 	theme="streamlit",
 	reload_data=True,
