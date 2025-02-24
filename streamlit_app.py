@@ -14,59 +14,7 @@ from st_aggrid import (
     DataReturnMode,
     ColumnsAutoSizeMode,
     AgGridTheme
-)
-from itables.streamlit import interactive_table
-def configure_ag_grid(df, cols=None):
-    custom_css = {
-	#".ag-root.ag-unselectable.ag-layout-normal": {"font-size": "56px !important"},
-	#"font-family": "Roboto, sans-serif !important;"},
-	#".ag-header-cell-text": {"color": "#495057 !important;"},
-	".ag-theme-alpine .ag-header-font-size": {"font-size": "56 px"},
-    	".ag-header-cell-label": {"justify-content: center;"},
-	#".ag-theme-alpine .ag-header .ag-cell": {"font-size" : "32 px;"},
-	".ag-theme-alpine .ag-ltr .ag-cell": {"color": "#444 !important;"},
-	".ag-theme-alpine .ag-row-odd": {"background": "rgba(243, 247, 249, 0.3) !important;",
-	"border": "1px solid #eee !important;"},
-	".ag-theme-alpine .ag-row-even": {"border-bottom": "1px solid #eee !important;"},
-	".ag-theme-light button": {"font-size": "0 !important;", "width": "auto !important;", "height": "24px !important;",
-	"border": "1px solid #eee !important;", "margin": "4px 2px !important;",
-	#"background": "#3162bd !important;", "color": "#fff !important;",
-	"border-radius": "3px !important;"},
-	".ag-theme-light button:before": {"content": "‘Confirm’ !important", "position": "relative !important",
-	"z-index": "1000 !important", "top": "0 !important",
-	"font-size": "56px !important", "left": "4 !important",
-	"padding": "4px !important"},
-	
-	}
-
-    if cols is None:
-        cols = df.columns
-    gb = GridOptionsBuilder.from_dataframe(df)
-    gb.configure_grid_options()
-    
-    for col in cols:
-        if col != "MoveSet2":
-            # Enable wrap on the MoveSet column:
-            gb.configure_column(
-                col,
-                wrapText=True,
-                autoHeight=True,
-                cellStyle={'font-size': '16px'},
-            )
-
-    
-    gridOptions = gb.build()
-    AgGrid(
-        df,
-        gridOptions=gridOptions,
-        theme = 'alpine',
-     #   columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
-       # style={},
-       
-      #  custom_css=custom_css,
-        allow_unsafe_jscode=True
-    )
-
+) 
 def configure_ag_grid2(df, cols=None):
 	gb = GridOptionsBuilder.from_dataframe(df)
 	#gb.configure_pagination(enabled=True)
@@ -82,7 +30,7 @@ def configure_ag_grid2(df, cols=None):
 	grid_table = AgGrid(gridOptions=gridOptions,
 	fit_columns_on_grid_load=True,
 	height=500,
-	width='25%',
+	width='65%',
 	theme="alpine",
 	reload_data=True,
 	configure_side_bar=True,
