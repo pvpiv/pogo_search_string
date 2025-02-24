@@ -19,9 +19,9 @@ from st_aggrid import (
 def configure_ag_grid(df, cols=None):
     custom_css = {
 	".ag-root.ag-unselectable.ag-layout-normal": {"font-size": "56px !important",
-	"font-family": "Roboto, sans-serif !important;"},
+	#"font-family": "Roboto, sans-serif !important;"},
 	#".ag-header-cell-text": {"color": "#495057 !important;"},
-	".ag-header-font-size": {"font-size": "56 px"},
+	".ag-theme-alpine .ag-header-font-size": {"font-size": "56 px"},
 	#".ag-theme-alpine .ag-header .ag-cell": {"font-size" : "32 px;"},
 	".ag-theme-alpine .ag-ltr .ag-cell": {"color": "#444 !important;"},
 	".ag-theme-alpine .ag-row-odd": {"background": "rgba(243, 247, 249, 0.3) !important;",
