@@ -11,3 +11,4 @@ streamlit_toggle
 streamlit-toggle-switch
 st-copy-to-clipboard
 itables.streamlit
+itables.streamlit.interactive_table
