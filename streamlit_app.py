@@ -638,10 +638,7 @@ with st.container():
         padding: 5px;
         top: 2px;
     }
-    .my-header-class .ag-header-cell-label {
-        justify-content: center !important;
-        font-size: 32px !important;
-    }
+
                 </style>
                 """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
