@@ -52,7 +52,7 @@ def configure_ag_grid2(df, cols=None):
 #	style = {overflow = 'auto'},
 	height=420,
 	width='100%',
-	theme="alpine",
+	theme="streamlit",
 	reload_data=True,
 	configure_side_bar=True,
 	#columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,		
