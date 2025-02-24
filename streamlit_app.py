@@ -43,6 +43,9 @@ def configure_ag_grid2(df, cols=None):
         #    gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
       #  elif col in ('Lvl','Level'):
          #   gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
+    custom_css = {".ag-header-cell-text": {"font-size": "24px", 'text-overflow': 'revert;', 'font-weight': 700},
+    ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
+
     gridOptions = gb.build() 
     grid_table = AgGrid(gridOptions=gridOptions,
 	#fit_columns_on_grid_load=True,
@@ -56,6 +59,7 @@ def configure_ag_grid2(df, cols=None):
 	update_mode=GridUpdateMode.SELECTION_CHANGED,
 	allow_unsafe_jscode=True,
 	data=df,
+	custom_css=custom_css,
 	enable_enterprise_modules=False)
 
  
