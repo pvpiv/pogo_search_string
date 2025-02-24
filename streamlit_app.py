@@ -31,6 +31,12 @@ def configure_ag_grid2(df, cols=None):
         cols = df.columns    
         for col in cols:
             gb.configure_column( col, wrapText=True)
+            if col in ('Rank','#'):
+                gb.configure_column( col, min_column_width=50)
+            elif col in ('CP'):
+                gb.configure_column( col, min_column_width=75)
+            elif col in ('Lvl','Level'):
+                gb.configure_column( col, min_column_width=50)
                 #,"wrapText": True
     gridOptions = gb.build()
     
