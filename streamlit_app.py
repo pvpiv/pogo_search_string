@@ -345,14 +345,14 @@ with st.container():
                             st.button(lab_ult,on_click = ultra_but)
                     
                             gb = GridOptionsBuilder.from_dataframe(df_display_Ultra)
-                            other_options = {'suppressColumnVirtualisation': True}
-                            gb.configure_grid_options(**other_options)
+                           # other_options = {'suppressColumnVirtualisation': True}
+                          #  gb.configure_grid_options(**other_options)
                             gridOptions = gb.build()
                 
                             grid = AgGrid(
                     df_display_Ultra,
-                    gridOptions=gridOptions,
-                    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
+                    gridOptions=gridOptions
+				    #,columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
                     )
 
                         else:
