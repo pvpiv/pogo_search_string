@@ -34,19 +34,19 @@ def configure_ag_grid2(df, cols=None):
             gb.configure_column( col, wrapText=True) #, width=df[col].astype(str).str.len().max())
     
             if col == 'Pokemon':
-                gb.configure_column( col, maxWidth = 25)
+                gb.configure_column( col, maxWidth = 55)
             elif col == 'MoveSet':
                 
-                gb.configure_column( col, maxWidth = 35)                #,"wrapText": True
+                gb.configure_column( col, maxWidth = 75)                #,"wrapText": True
             else:
-                gb.configure_column( col, maxWidth = int(df[col].astype(str).str.len().max()))
+                gb.configure_column( col, maxWidth = int(df[col].astype(str).str.len().max()))*1.5
      
     custom_css = {".ag-header-cell-text": {"font-size": "24 px",  'font-weight': 700},
     ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
 
     gridOptions = gb.build() 
     grid_table = AgGrid(gridOptions=gridOptions,
-	fit_columns_on_grid_load=True,
+	#fit_columns_on_grid_load=True,
 #	style = {overflow = 'auto'},
 	height=420,
 	width='100%',
