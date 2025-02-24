@@ -44,13 +44,13 @@ def configure_ag_grid(df, cols=None):
     gb.configure_grid_options()
     
     for col in cols:
-        if col == "MoveSet":
+        if col != "MoveSet2":
             # Enable wrap on the MoveSet column:
             gb.configure_column(
                 col,
                 wrapText=True,
                 autoHeight=True,
-                cellStyle={'white-space': 'normal','font-size': '24px'},
+                cellStyle={'font-size': '24px'},
             )
 
     
