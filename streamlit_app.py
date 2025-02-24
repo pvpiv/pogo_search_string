@@ -29,7 +29,7 @@ def configure_ag_grid(df, cols=None):
 	".ag-theme-alpine .ag-row-even": {"border-bottom": "1px solid #eee !important;"},
 	".ag-theme-light button": {"font-size": "0 !important;", "width": "auto !important;", "height": "24px !important;",
 	"border": "1px solid #eee !important;", "margin": "4px 2px !important;",
-	"background": "#3162bd !important;", "color": "#fff !important;",
+	#"background": "#3162bd !important;", "color": "#fff !important;",
 	"border-radius": "3px !important;"},
 	".ag-theme-light button:before": {"content": "‘Confirm’ !important", "position": "relative !important",
 	"z-index": "1000 !important", "top": "0 !important",
