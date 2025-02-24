@@ -38,7 +38,7 @@ def configure_ag_grid(df, cols=None):
 	}
     custom_theme = (StAggridTheme(base="alpine").withParams({
         "fontSize": 48,
-        "rowBorder": False,
+        "rowBorder": False
     })  
     .withParts(['iconSetAlpine'])  
     )
