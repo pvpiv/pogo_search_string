@@ -15,6 +15,27 @@ from st_aggrid import (
     ColumnsAutoSizeMode,
     AgGridTheme
 ) 
+
+
+def configure_ag_grid3(df, cols=None):
+	
+	gb = GridOptionsBuilder.from_dataframe(df)
+	gb.configure_default_column(cellStyle={'color': 'black', 'font-size': '12px'}, suppressMenu=True, wrapHeaderText=True, autoHeaderHeight=True)
+	custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},
+	      ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
+	gridOptions = gb.build()
+	
+	AgGrid(
+	    df,
+	    gridOptions=gridOptions,
+	    custom_css=custom_css,
+	    #allow_unsafe_jscode=True,
+	    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
+	    theme=AgGridTheme.BALHAM, # Only choices: AgGridTheme.STREAMLIT, AgGridTheme.ALPINE, AgGridTheme.BALHAM, AgGridTheme.MATERIAL
+	    height=350, 
+	    #width='100%',
+	    )
+
 def configure_ag_grid2(df, cols=None):
     gb = GridOptionsBuilder.from_dataframe(df)
     #gb.configure_pagination(enabled=True)
@@ -306,7 +327,7 @@ with st.container():
                     # AgGrid(
 
                     # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
-                        configure_ag_grid2(df_display_Great)
+                        configure_ag_grid3(df_display_Great)
                         #interactive_table(df_display_Great)
 #                        other_options = {'suppressColumnVirtualisation': True}
                     #  gb = GridOptionsBuilder.from_dataframe(df_display_Great)
