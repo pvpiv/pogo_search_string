@@ -24,7 +24,7 @@ def configure_ag_grid2(df, cols=None):
     rowMultiSelectWithClick=True)
 
     gb.configure_grid_options(domLayout='normal')
-    gb.configure_grid_options(rowHeight = 35)
+    gb.configure_grid_options(rowHeight = 55)
     #gb.configure_grid_options(overflow = 'auto')
 	
     if cols is None:
@@ -39,7 +39,7 @@ def configure_ag_grid2(df, cols=None):
                 
                 gb.configure_column( col, maxWidth = 450)                #,"wrapText": True
             else:
-                gb.configure_column( col, maxWidth = int(4*df[col].astype(str).str.len().max()))
+                gb.configure_column( col, maxWidth = int(5*df[col].astype(str).str.len().max()))
      
     custom_css = {".ag-header-cell-text": {"font-size": "24 px",  'font-weight': 700},
     ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
