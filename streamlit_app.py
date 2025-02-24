@@ -16,16 +16,15 @@ from st_aggrid import (
     AgGridTheme
 ) 
 def configure_ag_grid2(df, cols=None):
-	gb = GridOptionsBuilder.from_dataframe(df)
-	#gb.configure_pagination(enabled=True)
-	gb.configure_default_column(editable=False, groupable=True)
-	gb.configure_selection(selection_mode="single",
-	#use_checkbox=True,
-	rowMultiSelectWithClick=True,
-	)
-	gb.configure_grid_options(domLayout='autoHeight')
+    gb = GridOptionsBuilder.from_dataframe(df)
+    #gb.configure_pagination(enabled=True)
+    gb.configure_default_column(editable=False, groupable=True)
+    gb.configure_selection(selection_mode="single",
+    #use_checkbox=True,
+    rowMultiSelectWithClick=True)
+
+    gb.configure_grid_options(domLayout='autoHeight')
     gb.configure_grid_options(rowHeight = 70)
-    gb.configure_grid_options(font-size = 25)
     gb.configure_grid_options(overflow = 'auto')
     if cols is None:
         cols = df.columns    
