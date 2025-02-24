@@ -23,7 +23,10 @@ def configure_ag_grid2(df, cols=None):
 	#use_checkbox=True,
 	rowMultiSelectWithClick=True,
 	)
-	gb.configure_grid_options(domLayout='autoHeight',rowHeight = 70,font-size = 25,overflow = 'auto')
+	gb.configure_grid_options(domLayout='autoHeight')
+    gb.configure_grid_options(rowHeight = 70)
+    gb.configure_grid_options(font-size = 25)
+    gb.configure_grid_options(overflow = 'auto')
     if cols is None:
         cols = df.columns    
         for col in cols:
