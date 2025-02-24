@@ -32,11 +32,11 @@ def configure_ag_grid2(df, cols=None):
         for col in cols:
             gb.configure_column( col, wrapText=True)
             if col in ('Rank','#'):
-                gb.configure_column( col, max_column_width=50)
+                gb.configure_column( col, max_column_width=20)
             elif col in ('CP'):
-                gb.configure_column( col, max_column_width=75)
+                gb.configure_column( col, max_column_width=35)
             elif col in ('Lvl','Level'):
-                gb.configure_column( col, max_column_width=50)
+                gb.configure_column( col, max_column_width=20)
                 #,"wrapText": True
     gridOptions = gb.build()
     
