@@ -24,10 +24,16 @@ def configure_ag_grid2(df, cols=None):
 	rowMultiSelectWithClick=True,
 	)
 	gb.configure_grid_options(domLayout='autoHeight',rowHeight = 70,font-size = 25,overflow = 'auto')
+    if cols is None:
+        cols = df.columns    
+        for col in cols:
+            gb.configure_column( col, wrapText=True)
+                #,"wrapText": True
+		
 	
 	gridOptions = gb.build()
-	
-	grid_table = AgGrid(gridOptions=gridOptions,
+    
+    grid_table = AgGrid(gridOptions=gridOptions,
 	fit_columns_on_grid_load=True,
 #	style = {overflow = 'auto'},
 	#height=300,
