@@ -50,14 +50,14 @@ def configure_ag_grid2(df, cols=None):
 
     gridOptions = gb.build() 
     grid_table = AgGrid(gridOptions=gridOptions,
-	fit_columns_on_grid_load=True,
+	#fit_columns_on_grid_load=True,
 #	style = {overflow = 'auto'},
-	height=500,
-	width='200%',
+	height=420,
+	width='100%',
 	theme="streamlit",
 	reload_data=True,
 	configure_side_bar=True,
-	columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,		
+	#columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,		
 	update_mode=GridUpdateMode.SELECTION_CHANGED,
 	allow_unsafe_jscode=True,
 	data=df,
