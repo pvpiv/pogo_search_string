@@ -50,7 +50,7 @@ def configure_ag_grid2(df, cols=None):
 
     gridOptions = gb.build() 
     grid_table = AgGrid(gridOptions=gridOptions,
-	#fit_columns_on_grid_load=True,
+	fit_columns_on_grid_load=True,
 #	style = {overflow = 'auto'},
 	height=420,
 	width='100%',
