@@ -33,7 +33,7 @@ def configure_ag_grid(df, cols=None):
 	"border-radius": "3px !important;"},
 	".ag-theme-light button:before": {"content": "‘Confirm’ !important", "position": "relative !important",
 	"z-index": "1000 !important", "top": "0 !important",
-	"font-size": "48px !important", "left": "4 !important",
+	"font-size": "56px !important", "left": "4 !important",
 	"padding": "4px !important"},
 	
 	}
