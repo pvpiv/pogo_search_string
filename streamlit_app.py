@@ -24,7 +24,7 @@ def configure_ag_grid2(df, cols=None):
     rowMultiSelectWithClick=True)
 
     gb.configure_grid_options(domLayout='normal')
-   # gb.configure_grid_options(rowHeight = 55)
+    gb.configure_grid_options(rowHeight = 70)
     gb.configure_grid_options(overflow = 'auto')
 	
     if cols is None:
