@@ -36,6 +36,14 @@ def configure_ag_grid(df, cols=None):
 	"padding": "4px !important"},
 	
 	}
+    custom_theme = (StAggridTheme(base="alpine") 
+    .withParams({
+        "fontSize": 48,
+        "rowBorder": False,
+        "backgroundColor": #FFFFFF
+    })  
+    .withParts(['iconSetAlpine'])  
+    )
     if cols is None:
         cols = df.columns
     gb = GridOptionsBuilder.from_dataframe(df)
@@ -58,6 +66,7 @@ def configure_ag_grid(df, cols=None):
         gridOptions=gridOptions,
        # columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
        # style={},
+        AgGridTheme = custom_theme
         custom_css=custom_css,
         allow_unsafe_jscode=True
     )
