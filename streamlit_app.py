@@ -23,7 +23,7 @@ def configure_ag_grid2(df, cols=None):
 	#use_checkbox=True,
 	rowMultiSelectWithClick=True,
 	)
-	gb.configure_grid_options(domLayout='normal')
+	gb.configure_grid_options(domLayout='autoHeight')
 	
 	gridOptions = gb.build()
 	
