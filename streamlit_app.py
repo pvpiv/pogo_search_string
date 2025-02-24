@@ -32,7 +32,7 @@ def configure_ag_grid2(df, cols=None):
         for col in cols:
             #gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
             gb.configure_column( col, wrapText=True) #, width=df[col].astype(str).str.len().max())
-            gb.configure_column( col, width = 5)
+            gb.configure_column( col, width = 2)
                 #,"wrapText": True
     
     #column_defs = gridOptions["columnDefs"]
