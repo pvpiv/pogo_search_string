@@ -36,11 +36,10 @@ def configure_ag_grid(df, cols=None):
 	"padding": "4px !important"},
 	
 	}
-    custom_theme = (StAggridTheme(base="alpine") 
-    .withParams({
+    custom_theme = (StAggridTheme(base="alpine").withParams({
         "fontSize": 48,
         "rowBorder": False,
-        "backgroundColor": #FFFFFF
+        "backgroundColor": '#FFFFFF'
     })  
     .withParts(['iconSetAlpine'])  
     )
