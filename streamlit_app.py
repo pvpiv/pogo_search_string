@@ -363,19 +363,7 @@ with st.container():
                             df_display_master = pd.DataFrame(family_data_master)
                         # df_display_master.set_index(['Pokemon'])
                             st.button(lab_mast, on_click = master_but)
-
-                            gb = GridOptionsBuilder.from_dataframe(df_display_master)
-                            other_options = {'suppressColumnVirtualisation': True}
-                            gb.configure_grid_options(**other_options)
-                            gridOptions = gb.build()
-                
-                            grid = AgGrid(
-                    df_display_master,
-                    gridOptions=gridOptions,
-                    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
-                    )                #  df_display_Great.set_index(['Pokemon'], inplace=True)
-    
-                        
+                            configure_ag_grid2(df_display_master)                        
                         else:
                             st.button(lab_mast,on_click = master_but)
                         
