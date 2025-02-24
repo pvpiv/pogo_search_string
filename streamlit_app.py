@@ -34,14 +34,14 @@ def configure_ag_grid2(df, cols=None):
             gb.configure_column( col, wrapText=True) #, width=df[col].astype(str).str.len().max())
     
             if col == 'Pokemon':
-                gb.configure_column( col, maxWidth = 225)
+                gb.configure_column( col, maxWidth = 175)
             elif col == 'MoveSet':
                 
-                gb.configure_column( col, maxWidth = 450)                #,"wrapText": True
+                gb.configure_column( col, maxWidth = 400)                #,"wrapText": True
             else:
                 gb.configure_column( col, maxWidth = int(10*df[col].astype(str).str.len().max()))
      
-    custom_css = {".ag-header-cell-text": {"font-size": "24 px",  'font-weight': 700},
+    custom_css = {".ag-header-cell-text": {"font-size": "16 px",  'font-weight': 700},
     ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
 
     gridOptions = gb.build() 
