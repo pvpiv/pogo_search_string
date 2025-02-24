@@ -33,9 +33,9 @@ def configure_ag_grid2(df, cols=None):
             #gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
             gb.configure_column( col, wrapText=True) #, width=df[col].astype(str).str.len().max())
     
-            if col in ('Pokemon'):
+            if col == 'Pokemon':
                 gb.configure_column( col, maxWidth = 25)
-            elif col in ('MoveSet'):
+            elif col == 'MoveSet':
                 
                 gb.configure_column( col, maxWidth = 35)                #,"wrapText": True
             else:
