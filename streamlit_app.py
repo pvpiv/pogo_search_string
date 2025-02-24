@@ -18,7 +18,7 @@ from st_aggrid import (
 
 def configure_ag_grid(df, cols=None):
     custom_css = {
-	".ag-root.ag-unselectable.ag-layout-normal": {"font-size": "16px !important",
+	".ag-root.ag-unselectable.ag-layout-normal": {"font-size": "48px !important",
 	"font-family": "Roboto, sans-serif !important;"},
 	#".ag-header-cell-text": {"color": "#495057 !important;"},
 	
@@ -32,7 +32,7 @@ def configure_ag_grid(df, cols=None):
 	"border-radius": "3px !important;"},
 	".ag-theme-light button:before": {"content": "‘Confirm’ !important", "position": "relative !important",
 	"z-index": "1000 !important", "top": "0 !important",
-	#"font-size": "16px !important", "left": "4 !important",
+	"font-size": "48px !important", "left": "4 !important",
 	"padding": "4px !important"},
 	
 	}
