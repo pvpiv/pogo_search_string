@@ -60,10 +60,10 @@ def configure_ag_grid(df, cols=None):
         df,
         gridOptions=gridOptions,
         theme = 'alpine',
-        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
+     #   columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
        # style={},
        
-        custom_css=custom_css,
+      #  custom_css=custom_css,
         allow_unsafe_jscode=True
     )
 
