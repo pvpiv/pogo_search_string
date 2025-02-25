@@ -161,7 +161,7 @@ with cols[1]:
                         )
                         df_display = pd.DataFrame(family_data)
                         df_display.set_index(['#'])
-                        #st.table(df_display)
+                        #st.markdown(swap_columns(df_display)
                         st.markdown(swap_columns(df_display,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                         try:
                             save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
@@ -211,7 +211,7 @@ with cols[1]:
                         df_display_Great = pd.DataFrame(family_data_Great)
                         df_display_Great.set_index(['#'])#, inplace=True)
                         st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                     #   st.table(df_display_Great)
+                     #   st.markdown(swap_columns(df_display_Great)
                     else:
                         st.button(lab_gre,on_click = great_but)
                     
@@ -226,9 +226,9 @@ with cols[1]:
                         lab_ult  = "Hide Ultra Table"
                         family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
                         df_display_Ultra = pd.DataFrame(family_data_Ultra)
-                        df_display_Ultra.set_index(['Pokemon'], inplace=True)
+                        df_display_Ultra.set_index(['#'])
                         st.button(lab_ult,on_click = ultra_but)
-                        st.table(df_display_Ultra)
+                        st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                     else:
                         st.button(lab_ult,on_click = ultra_but)
                     
@@ -243,9 +243,9 @@ with cols[1]:
                         lab_mast  = "Hide Master Table"
                         family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                         df_display_master = pd.DataFrame(family_data_master)
-                        df_display_master.set_index(['Pokemon'], inplace=True)
+                        df_display_master.set_index(['#'])
                         st.button(lab_mast, on_click = master_but)
-                        st.table(df_display_master)
+                        st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                     else:
                         st.button(lab_mast,on_click = master_but)
                     
@@ -260,8 +260,8 @@ with cols[1]:
                         st.button(lab_lit,on_click = little_but)
                         family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
                         df_display_Little = pd.DataFrame(family_data_Little)
-                        df_display_Little.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_Little)   
+                        df_display_Little.set_index(['#'])
+                        st.markdown(swap_columns(df_display_Little,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)  
                     else: 
                         st.button(lab_lit,on_click = little_but)     
                     
@@ -284,8 +284,8 @@ with cols[1]:
                         st.button(lab_def,on_click = master_but)
                         family_data_def = format_data_top(defenders, 'Master', st.session_state.top_num,show_xl_boxz)
                         df_display_def = pd.DataFrame(family_data_def)
-                        df_display_def.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_def)
+                        df_display_def.set_index(['#'])
+                        st.markdown(swap_columns(df_display_def,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                     else:
                         st.button(lab_def,on_click = master_but)
                 except:
@@ -299,8 +299,8 @@ with cols[1]:
                         st.button(lab_att,on_click = ultra_but)
                         family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz)
                         df_display_att = pd.DataFrame(family_data_att)
-                        df_display_att.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display_att)
+                        df_display_att.set_index(['#'])
+                        st.markdown(swap_columns(df_display_att,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                     else:
                         st.button(lab_att,on_click = ultra_but)
                 except:
@@ -317,9 +317,9 @@ with cols[1]:
                         lab_mast  = "Hide Master Table"
                         family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                         df_display_master = pd.DataFrame(family_data_master)
-                        df_display_master.set_index(['Pokemon'], inplace=True)
+                        df_display_master.set_index(['#'])
                         st.button(lab_mast, on_click = master_but)
-                        st.table(df_display_master)
+                        st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                     else:
                         st.button(lab_mast,on_click = master_but)
                     
@@ -337,8 +337,8 @@ with cols[1]:
                     st.button(lab_gre,on_click = great_but)
                     family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
-                    df_display_Great.set_index(['Pokemon'], inplace=True)
-                    st.table(df_display_Great)
+                    df_display_Great.set_index(['#'])
+                    st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                 else:
                     st.button(lab_gre,on_click = great_but)
 
