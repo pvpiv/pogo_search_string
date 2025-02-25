@@ -81,7 +81,7 @@ else:
 
 with st.container():
     st.subheader("PVP Poké Search Strings")
-    col1,col2,col3 = st.columns([1,8,1])
+    col1,col2,col3 = st.columns([1,1,8])
     with col1:
     
 
@@ -129,16 +129,21 @@ with st.container():
                 max_value=200,
                 step=5
             )
-        
-
-with st.container():
-    colb1, colb2 =  st.columns([9,1])
-    with colb1:
-        
+    with col2: 
         if st.session_state['table_string_butt']:
             butt_label = "Switch to Pokémon Lookup"
         else: 
             butt_label = "Switch to Search Strings"
+        st.toggle(
+            label=butt_label,
+            key= "tab_str_butt",
+            value = st.session_state['table_string_butt'],
+            on_change = upd_tab_str)
+with st.container():
+    colb1, colb2 =  st.columns([9,1])
+    with colb1:
+        
+
         st.toggle(
             label=butt_label,
             key= "tab_str_butt",
