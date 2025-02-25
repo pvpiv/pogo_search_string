@@ -185,7 +185,7 @@ with cols[1]:
         
 
         
-	st.subheader("PVP Poké Search Strings")	
+        st.subheader("PVP Poké Search Strings")	
         if st.session_state.show_string:
 
  
