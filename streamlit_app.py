@@ -22,7 +22,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
     <style>
         .stTable tr {
-            height: 50px; # use this to adjust the height
+            height: 100px; # use this to adjust the height
         }
     </style>
 """, unsafe_allow_html=True)
@@ -635,6 +635,7 @@ with st.container():
                 df_display_Great = pd.DataFrame(family_data_Great)
                 df_display_Great.set_index(['Pokemon'], inplace=True)
                 st.table(df_display_Great)
+                st.markdown(df_display_Great.to_html(escape=False), unsafe_allow_html=True)
             else:
                 st.button(lab_gre,on_click = great_but)
         last_updated = get_last_updated_date(GITHUB_API_URL)
@@ -645,14 +646,8 @@ with st.container():
 
 
 	# Custom CSS for mobile view and table fit
-    st.markdown("""
-    <style>
-    button {
-        height: 50px;
-        width: 200px;
-        color: blue;
-    }
-    """, unsafe_allow_html=True)
+
+
 
 
     hide_streamlit_style = """
