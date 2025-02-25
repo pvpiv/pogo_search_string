@@ -89,7 +89,7 @@ with st.container():
         key= "Settings" ,
         css_styles="""
             button {
-                width: 75px;
+                width: 100px;
                 height: 45px;
                 background-color: green;
                 color: white;
