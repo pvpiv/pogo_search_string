@@ -72,7 +72,7 @@ if st.session_state['show_custom2']:
 else:
     df = pd.read_csv('pvp_data.csv')
 
-cols = st.columns((1,10,1))
+cols = st.columns((3,10,1))
 with cols[0]:
    
 
@@ -80,7 +80,7 @@ with cols[0]:
     key= "Settings" ,
     css_styles="""
         button {
-            width: 150px;
+            width: 100px;
             height: 45px;
             background-color: green;
             color: white;
