@@ -82,7 +82,7 @@ else:
     df = pd.read_csv('pvp_data.csv')
 
 with st.container():
-    col1,col2 = st.columns([9,1])
+    col1,col2 = st.columns([1,9])
     with col1:
     
 
