@@ -221,7 +221,7 @@ with st.container():
                             family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                             df_display_Great = pd.DataFrame(family_data_Great)
                             df_display_Great.set_index(['#'])
-                            st.table(df_display_Great)
+                           # st.table(df_display_Great)
                             st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                         else:
                             st.button(lab_gre,on_click = great_but)
