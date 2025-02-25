@@ -72,7 +72,7 @@ if st.session_state['show_custom2']:
 else:
     df = pd.read_csv('pvp_data.csv')
 
-cols = st.columns((2,8,2))
+cols = st.columns((2,7,2))
 with cols[0]:
    
 
