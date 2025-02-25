@@ -9,6 +9,13 @@ import requests
 import pytz
 st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
+st.markdown("""
+    <style>
+        .stTable tr {
+            height: 50px; # use this to adjust the height
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 # Import utility functions and session state manager
 from utils import (
