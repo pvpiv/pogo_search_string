@@ -121,8 +121,9 @@ with st.container():
 
         
 
-
-    with col2:
+with st.container():
+    colb1, colb2 =  st.columns([9,1])
+    with colb1:
         
         if st.session_state['table_string_butt']:
             butt_label = "Switch to Pokémon Lookup"
