@@ -14,6 +14,10 @@ class MyList(list):
     def last_index(self):
         return len(self) - 1
 
+def st_normal():
+    _, col, _ = st.columns([1, 8, 1])
+    return col
+    
 def load_from_firestore(counts, collection_name):
     key_dict = json.loads(st.secrets["textkey"])
     creds = service_account.Credentials.from_service_account_info(key_dict)
