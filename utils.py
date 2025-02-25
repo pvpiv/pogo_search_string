@@ -57,9 +57,9 @@ def format_data(pokemon_family, shadow_only, df):
                 value = row[f'{league}_{attr}']
                 attr = attr.replace("Level","Lvl")
                 attr = attr.replace("MoveSet","Moves")
-                attr = attr.replace("Rank","N")
+                attr = attr.replace("Rank","#")
                 entry[attr] = (
-                    f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value.replace(',', '\n') if pd.notna(value) else ''
+                    f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value if pd.notna(value) else ''
                 )
             formatted_data.append(entry)
     return formatted_data
@@ -176,9 +176,9 @@ def format_data_top(df, league, num_rank,xl_var):
                     value = row[f'{league}_{attr}']
                     attr = attr.replace("Level","Lvl")
                     attr = attr.replace("MoveSet","Moves")
-                    attr = attr.replace("Rank","N")
+                    attr = attr.replace("Rank","#")
                     entry[attr] = (
-                        f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value.replace(',', '\n') if pd.notna(value) else ''
+                        f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value  if pd.notna(value) else ''
                     )
                 formatted_data.append(entry)
     return formatted_data
