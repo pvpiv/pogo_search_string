@@ -611,28 +611,29 @@ with st.container():
 
                 except:
                     pass
+        with st_normal():
+            st.subheader("Back to Normal Width")
+            st.write("This part should remain at the default width.")
+            lab_gre = "Show Mega Master Cup Table"
+            st.write(f'Mega Master Cup Top {st.session_state.top_num} Search String:')
+            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
+            lab_gre = "Show Mega Master Cup Table"
+            if st.session_state['great_clicked']:
+                lab_gre  = "Hide Mega Master Cup Table"
+                st.button(lab_gre,on_click = great_but)
+                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                df_display_Great = pd.DataFrame(family_data_Great)
+                df_display_Great.set_index(['Pokemon'], inplace=True)
+                st.table(df_display_Great)
+            else:
+                st.button(lab_gre,on_click = great_but)
         last_updated = get_last_updated_date(GITHUB_API_URL)
         st.write(f"Last updated: {last_updated} (EST)")
     
 	
 	
 
-with st_normal():
-    st.subheader("Back to Normal Width")
-    st.write("This part should remain at the default width.")
-    lab_gre = "Show Mega Master Cup Table"
-    st.write(f'Mega Master Cup Top {st.session_state.top_num} Search String:')
-    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-    lab_gre = "Show Mega Master Cup Table"
-    if st.session_state['great_clicked']:
-        lab_gre  = "Hide Mega Master Cup Table"
-        st.button(lab_gre,on_click = great_but)
-        family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-        df_display_Great = pd.DataFrame(family_data_Great)
-        df_display_Great.set_index(['Pokemon'], inplace=True)
-        st.table(df_display_Great)
-    else:
-        st.button(lab_gre,on_click = great_but)
+
 	# Custom CSS for mobile view and table fit
     st.markdown("""
     <style>
