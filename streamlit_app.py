@@ -633,7 +633,7 @@ with st.container():
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
-                df_display_Great.set_index(['Pokemon'], inplace=True)
+              #  df_display_Great.set_index(['Pokemon'], inplace=True)
                 st.table(df_display_Great)
                 st.markdown(df_display_Great.to_html(escape=False), unsafe_allow_html=True)
             else:
