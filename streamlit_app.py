@@ -195,15 +195,7 @@ with cols[1]:
         st.subheader("PVP Poké Search Strings")
 		
         if st.session_state.show_string:
-            top_nbox = st.number_input(
-                'Showing Top:',
-                value=st.session_state.top_num,
-                key='top_no',
-                on_change=update_top_num,
-                min_value=5,
-                max_value=200,
-                step=5
-            )
+
         
             #tables_pop = st.popover("League Tables")
             
