@@ -15,7 +15,13 @@ from st_aggrid import (
     ColumnsAutoSizeMode,
     AgGridTheme
 ) 
-
+st.markdown("""
+    <style>
+        .stTable tr {
+            height: 50px; # use this to adjust the height
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 def configure_ag_grid3(df, cols=None):
 	
