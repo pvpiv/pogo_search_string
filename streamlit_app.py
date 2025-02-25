@@ -80,6 +80,7 @@ else:
     df = pd.read_csv('pvp_data.csv')
 
 with st.container():
+    st.subheader("PVP Poké Search Strings")
     col1,col2,col3 = st.columns([1,8,1])
     with col1:
     
@@ -120,7 +121,6 @@ with st.container():
 
         
 
-        )
 
     with col2:
         
@@ -132,7 +132,7 @@ with st.container():
             label=butt_label,
             key= "tab_str_butt",
             value = st.session_state['table_string_butt'],
-            on_change = upd_tab_str
+            on_change = upd_tab_str)
         #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
         
         today = date.today()
@@ -192,7 +192,7 @@ with st.container():
             
             
 
-            st.subheader("PVP Poké Search Strings")
+            
             
             if st.session_state.show_string:
                 top_nbox = st.number_input(
