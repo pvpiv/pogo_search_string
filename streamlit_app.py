@@ -122,20 +122,11 @@ with cols[0]:
         on_change = upd_tab_str
     )
 
-    if st.session_state.show_string: 
-        
-        top_nbox = st.number_input('Showing Top:', 
-                                    value=st.session_state.top_num, 
-                                    key='top_no',
-                                    on_change=update_top_num,
-                                    min_value=5,
-                                    max_value=200,
-                                    step=5
-                                    ) 
+
 with cols[1]:
 
     #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
-    st.subheader("PVP Poké Search Strings")
+    
     today = date.today()
     # Section 1 - PVP Pokemon Search Table
     show_shadow = st.session_state['get_shadow']
@@ -194,9 +185,19 @@ with cols[1]:
         
 
         
-		
+	st.subheader("PVP Poké Search Strings")	
         if st.session_state.show_string:
 
+ 
+
+            box = st.number_input('Showing Top:', 
+                            value=st.session_state.top_num, 
+                            top_nkey='top_no',
+                            on_change=update_top_num,
+                            min_value=5,
+                            max_value=200,
+                            step=5
+                            ) 
         
             #tables_pop = st.popover("League Tables")
             
