@@ -144,11 +144,6 @@ with st.container():
     with colb1:
         
 
-        st.toggle(
-            label=butt_label,
-            key= "tab_str_butt",
-            value = st.session_state['table_string_butt'],
-            on_change = upd_tab_str)
         #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
         
         today = date.today()
