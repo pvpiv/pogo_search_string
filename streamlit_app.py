@@ -422,15 +422,6 @@ with st_normal():
                 pass
     last_updated = get_last_updated_date(GITHUB_API_URL)
     st.write(f"Last updated: {last_updated} (EST)")
-# Custom CSS for mobile view and table fit
-st.markdown("""
-<style>
-button {
-    height: 50px;
-    width: 200px;
-    color: blue;
-}
-""", unsafe_allow_html=True)
 
 
 hide_streamlit_style = """
