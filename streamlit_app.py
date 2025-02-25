@@ -81,7 +81,7 @@ else:
 
 with st.container():
     st.subheader("PVP Poké Search Strings")
-    col1,col2,col3 = st.columns([1,1,8])
+    col1,col2,col3 = st.columns([1,2,8])
     with col1:
     
 
