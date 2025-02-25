@@ -7,18 +7,8 @@ import json
 from datetime import date, datetime
 import requests
 import pytz
-from st_aggrid import (
-    GridOptionsBuilder,
-    AgGrid,
-    GridUpdateMode,
-    DataReturnMode,
-    ColumnsAutoSizeMode,
-    AgGridTheme
-) 
-
- 
-st.set_page_config(layout="wide")
-
+st.set_page_config(layout = "wide")
+#st.set_page_config(layout="wide")
 st.markdown("""
     <style>
         .stTable tr {
@@ -26,77 +16,6 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-
-def configure_ag_grid3(df, cols=None):
-	
-	gb = GridOptionsBuilder.from_dataframe(df)
-	gb.configure_default_column(cellStyle={'color': 'black', 'font-size': '12px'}, suppressMenu=True, wrapHeaderText=True, autoHeaderHeight=True)
-	custom_css = {".ag-header-cell-text": {"font-size": "12px", 'text-overflow': 'revert;', 'font-weight': 700},
-	      ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
-	gridOptions = gb.build()
-	
-	AgGrid(
-	    df,
-	    gridOptions=gridOptions,
-	    custom_css=custom_css,
-	    #allow_unsafe_jscode=True,
-	    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,
-	    theme=AgGridTheme.BALHAM, # Only choices: AgGridTheme.STREAMLIT, AgGridTheme.ALPINE, AgGridTheme.BALHAM, AgGridTheme.MATERIAL
-	    height=350, 
-	    #width='100%',
-	    )
-
-def configure_ag_grid2(df, cols=None):
-    gb = GridOptionsBuilder.from_dataframe(df)
-    #gb.configure_pagination(enabled=True)
-    gb.configure_default_column(editable=False, groupable=True)
-    gb.configure_selection(selection_mode="single",
-    #use_checkbox=True,
-    rowMultiSelectWithClick=True)
-
-    gb.configure_grid_options(domLayout='normal')
-    gb.configure_grid_options(rowHeight = 55)
-    #gb.configure_grid_options(overflow = 'auto')
-	
-    if cols is None:
-        cols = df.columns    
-        for col in cols:
-            #gb.configure_column( col, width=df[col_name].astype(str).str.len().max())
-            gb.configure_column( col, wrapText=True) #, width=df[col].astype(str).str.len().max())
-    
-            if col == 'Pokemon':
-                gb.configure_column( col, maxWidth = 100)
-            elif col == 'MoveSet':
-                
-                gb.configure_column( col, maxWidth = 150)                #,"wrapText": True
-            elif col in ('Level','Lvl'):
-                gb.configure_column( col, maxWidth = int(18*df[col].astype(str).str.len().max()))
-            elif col in ('#','Rank'):
-                gb.configure_column( col, maxWidth = int(15*df[col].astype(str).str.len().max()))
-            else:
-                gb.configure_column( col, maxWidth = int(12*df[col].astype(str).str.len().max()))
-     
-    custom_css = {".ag-header-cell-text": {"font-size": "16 px",  'font-weight': 700},
-    ".ag-theme-streamlit": {'transform': "scale(0.8)", "transform-origin": '0 0'}}
-
-    gridOptions = gb.build() 
-    grid_table = AgGrid(gridOptions=gridOptions,
-	#fit_columns_on_grid_load=True,
-#	style = {overflow = 'auto'},
-	height=420,
-	width='100%',
-	theme="streamlit",
-	reload_data=True,
-	configure_side_bar=True,
-	#columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,		
-	update_mode=GridUpdateMode.SELECTION_CHANGED,
-	allow_unsafe_jscode=True,
-	data=df,
-	custom_css=custom_css,
-	enable_enterprise_modules=False)
-
- 
-#st.set_page_config(layout="wide")
 
 # Import utility functions and session state manager
 from utils import (
@@ -110,7 +29,8 @@ from utils import (
     format_data_top,
     calculate_days_since,
     get_last_updated_date,
-    swap_columns
+    swap_columns,
+    st_normal
 )
 from session_state_manager import (
     initialize_session_state,
@@ -134,7 +54,6 @@ from session_state_manager import (
 initialize_session_state()
 
 
-
 query_params = st.query_params  #st.experimental_get_query_params()
 
 try:
@@ -150,111 +69,73 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom2']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Mega Master.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv"
 
 # Load data
-#if  st.session_state['show_custom1']
+if  st.session_state['show_custom1']:
+    df = pd.read_csv('pvp_data_mega.csv')
 if st.session_state['show_custom2']:
     df = pd.read_csv('pvp_data_mega.csv')
 else:
     df = pd.read_csv('pvp_data.csv')
 
-
-
-def st_normal():
-    _, col, _ = st.columns([1, 8, 1])
-    return col
-
-   
-# Replace your existing code that creates 'cols = st.columns((2,5,1))'
-# and the toggles/checkboxes with something like this:
 with st.container():
     st.subheader("PVP Poké Search Strings")
-    # Create one row with three columns
-    cola1, cola2, cola3 = st.columns([1, 8, 1])  # adjust ratios as desired
+    col1,col2,col3 = st.columns([1,8,1])
+    with col1:
+    
 
-		
- 
-    with cola1:
-        # Put the stylable_container + Settings popover here
         with stylable_container(
-            key="Settings",
-            css_styles="""
-                button {
-                    width: 150px;
-                    height: 45px;
-                    background-color: green;
-                    color: white;
-                    border-radius: 5px;
-                    white-space: nowrap;
-                }
+        key= "Settings" ,
+        css_styles="""
+            button {
+                width: 150px;
+                height: 45px;
+                background-color: green;
+                color: white;
+                border-radius: 5px;
+                white-space: nowrap;
+            }
             """,
-        ):
-            popover = st.popover('Settings', use_container_width=True)
+    ):
+            popover = st.popover('Settings' ,use_container_width =True)
+            if not st.session_state['table_string_butt']:
 
-            # Example checkboxes inside the popover:
-            show_custom_boxz2 = popover.checkbox(
-                'Mega Master Cup',
-                value=st.session_state['show_custom2'],
-                on_change=upd_cust2,
-                key='sho_cust2'
-            )
-            show_shadow_boxz = popover.checkbox(
-                'Include Shadow Pokémon',
-                on_change=upd_shadow,
-                key='sho_shad',
-                value=st.session_state['get_shadow']
-            )
-            if st.session_state['table_string_butt']:
+            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
+            # show_custom_boxz = popover.checkbox('Mega Master Cup', on_change=upd_cust1, key='sho_cust2')
+
+                show_custom_boxz2 = popover.checkbox('Mega Master Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+
+                show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
+
+            else:
+                show_custom_boxz2 = popover.checkbox('Mega Master Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
+            # show_custom_boxz3 =  popover.checkbox('Mega Master Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                 topstrin = str(st.session_state.top_num)
                 fam_box = popover.checkbox('Include pre-evolutions', value=True)
                 show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
                 iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
-                inv_box = popover.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
-        if st.session_state['table_string_butt']:
+                inv_box = popover('Invert strings', value=st.session_state.show_inverse, key='show_inv')
+                # tables_pop = st.popover("League Tables")
 
-            top_nbox = st.number_input(
-                'Showing Top:',
-                value=st.session_state.top_num,
-                key='top_no',
-                on_change=update_top_num,
-                min_value=5,
-                max_value=200,
-                step=5
-                )
-            
-    with cola2:    
-        if st.session_state['table_string_butt']:
-            butt_label = "Switch to Pokémon Lookup"
-        	
-            
-        else:
-            butt_label = "Switch to Search Strings"
-
-        st.toggle(
-            label=butt_label,
-            key="tab_str_butt",
-            value=st.session_state['table_string_butt'],
-            on_change=upd_tab_str
-        )
-        
- 
-        # The toggle for switching between table vs. search strings
-       
         
 
-    
 with st.container():
-# Then continue the rest of your code normally below...
-# e.g. the logic for displaying search strings, or for the big table, etc.
-
-
     colb1, colb2 =  st.columns([9,1])
     with colb1:
-
-        #str_tab_but = st.button(butett_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
+        
+        if st.session_state['table_string_butt']:
+            butt_label = "Switch to Pokémon Lookup"
+        else: 
+            butt_label = "Switch to Search Strings"
+        st.toggle(
+            label=butt_label,
+            key= "tab_str_butt",
+            value = st.session_state['table_string_butt'],
+            on_change = upd_tab_str)
+        #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
         
         today = date.today()
         # Section 1 - PVP Pokemon Search Table
@@ -284,26 +165,17 @@ with st.container():
                         family_data = format_data(pokemon_family, show_shadow, df)
             
                         if family_data:
-                            st.text_input(label=today.strftime("%m/%d/%y"),
+                            st.text_input(
+                                label=today.strftime("%m/%d/%y"),
                                 value=pokemon_choice,
                                 disabled=True,
                                 label_visibility='hidden'
                             )
                             df_display = pd.DataFrame(family_data)
-                            df_display.set_index(['Pokemon'])
-                            
-                            gb = GridOptionsBuilder.from_dataframe(df_display)
-                            other_options = {'suppressColumnVirtualisation': True}
-                            gb.configure_grid_options(**other_options)
-                            gridOptions = gb.build()
-                
-                            grid = AgGrid(
-                    df_display,
-                    gridOptions=gridOptions,
-                    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
-                    )
+                            df_display.set_index(['#'])
+                            #st.table(df_display)
+                            st.markdown(swap_columns(df_display,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                             try:
-                                
                                 save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
                                 streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
                             except:
@@ -322,44 +194,41 @@ with st.container():
             
             
 
-
+            
+            
+            if st.session_state.show_string:
+                top_nbox = st.number_input(
+                    'Showing Top:',
+                    value=st.session_state.top_num,
+                    key='top_no',
+                    on_change=update_top_num,
+                    min_value=5,
+                    max_value=200,
+                    step=5
+                )
                 
                 #tables_pop = st.popover("League Tables")
                 
                 if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
                     
             
-                    
-                    st.write(f'Great League Top {st.session_state.top_num} Search String:')
-                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-                    lab_gre = "Show Great Table"
-                    if st.session_state['great_clicked']:
-                        lab_gre  = "Hide Great Table"
-                        st.button(lab_gre,on_click = great_but)
-                        family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                        df_display_Great = pd.DataFrame(family_data_Great)
-                    #  df_display_Great.set_index(['Pokemon'], inplace=True)
-                    # AgGrid(
-
-                    # columnDefs = [{"field": "Pokemon", "sortable": False },{"field": "N"},{"field": "IVs"},{"field": "CP"},{"field": "Lvl"},{"field": "Moves"}]
-                        configure_ag_grid3(df_display_Great)
-                        #interactive_table(df_display_Great)
-#                        other_options = {'suppressColumnVirtualisation': True}
-                    #  gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-                    #   other_options = {'suppressColumnVirtualisation': True,'wrapText':True,'fit_columns_on_grid_load':True,'height':None}
-                    # gb.configure_grid_options(**other_options)
-
-                        # Configure the MoveSet column to wrap text and adjust height
-                #     gb.configure_column("MoveSet", wrapText=True)
-
-                    #   gridOptions = gb.build()
-                    #  grid = AgGrid(
-                    #      df_display_Great,
-                        #  gridOptions=gridOptions)
-                    else:
-                        st.button(lab_gre,on_click = great_but)
+                    try:
+                        st.write(f'Great League Top {st.session_state.top_num} Search String:')
+                        st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
+                        lab_gre = "Show Great Table"
+                        if st.session_state['great_clicked']:
+                            lab_gre  = "Hide Great Table"
+                            st.button(lab_gre,on_click = great_but)
+                            family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                            df_display_Great = pd.DataFrame(family_data_Great)
+                            df_display_Great.set_index(['#'])
+                           # st.table(df_display_Great)
+                            st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                        else:
+                            st.button(lab_gre,on_click = great_but)
                         
-                    
+                    except:
+                        pass
             
                     try:
                         st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
@@ -371,18 +240,7 @@ with st.container():
                             df_display_Ultra = pd.DataFrame(family_data_Ultra)
                             df_display_Ultra.set_index(['Pokemon'], inplace=True)
                             st.button(lab_ult,on_click = ultra_but)
-                    
-                            gb = GridOptionsBuilder.from_dataframe(df_display_Ultra)
-                           # other_options = {'suppressColumnVirtualisation': True}
-                          #  gb.configure_grid_options(**other_options)
-                            gridOptions = gb.build()
-                
-                            grid = AgGrid(
-                    df_display_Ultra,
-                    gridOptions=gridOptions
-				    #,columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
-                    )
-
+                            st.table(df_display_Ultra)
                         else:
                             st.button(lab_ult,on_click = ultra_but)
                         
@@ -397,9 +255,9 @@ with st.container():
                             lab_mast  = "Hide Master Table"
                             family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                             df_display_master = pd.DataFrame(family_data_master)
-                        # df_display_master.set_index(['Pokemon'])
+                            df_display_master.set_index(['Pokemon'], inplace=True)
                             st.button(lab_mast, on_click = master_but)
-                            configure_ag_grid2(df_display_master)                        
+                            st.table(df_display_master)
                         else:
                             st.button(lab_mast,on_click = master_but)
                         
@@ -415,17 +273,7 @@ with st.container():
                             family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
                             df_display_Little = pd.DataFrame(family_data_Little)
                             df_display_Little.set_index(['Pokemon'], inplace=True)
-
-                            gb = GridOptionsBuilder.from_dataframe(df_display_Little)
-                            other_options = {'suppressColumnVirtualisation': True}
-                            gb.configure_grid_options(**other_options)
-                            gridOptions = gb.build()
-                
-                            grid = AgGrid(
-                    df_display_Little,
-                    gridOptions=gridOptions,
-                    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
-                    )         
+                            st.table(df_display_Little)   
                         else: 
                             st.button(lab_lit,on_click = little_but)     
                         
@@ -449,17 +297,7 @@ with st.container():
                             family_data_def = format_data_top(defenders, 'Master', st.session_state.top_num,show_xl_boxz)
                             df_display_def = pd.DataFrame(family_data_def)
                             df_display_def.set_index(['Pokemon'], inplace=True)
-
-                            gb = GridOptionsBuilder.from_dataframe(df_display_def)
-                            other_options = {'suppressColumnVirtualisation': True}
-                            gb.configure_grid_options(**other_options)
-                            gridOptions = gb.build()
-                
-                            grid = AgGrid(
-                    df_display_def,
-                    gridOptions=gridOptions,
-                    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
-                    )    
+                            st.table(df_display_def)
                         else:
                             st.button(lab_def,on_click = master_but)
                     except:
@@ -474,17 +312,7 @@ with st.container():
                             family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz)
                             df_display_att = pd.DataFrame(family_data_att)
                             df_display_att.set_index(['Pokemon'], inplace=True)
-
-                            gb = GridOptionsBuilder.from_dataframe(df_display_att)
-                            other_options = {'suppressColumnVirtualisation': True}
-                            gb.configure_grid_options(**other_options)
-                            gridOptions = gb.build()
-                
-                            grid = AgGrid(
-                    df_display_att,
-                    gridOptions=gridOptions,
-                    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
-                    )
+                            st.table(df_display_att)
                         else:
                             st.button(lab_att,on_click = ultra_but)
                     except:
@@ -503,17 +331,7 @@ with st.container():
                             df_display_master = pd.DataFrame(family_data_master)
                             df_display_master.set_index(['Pokemon'], inplace=True)
                             st.button(lab_mast, on_click = master_but)
-
-                            gb = GridOptionsBuilder.from_dataframe(df_display_master)
-                            other_options = {'suppressColumnVirtualisation': True}
-                            gb.configure_grid_options(**other_options)
-                            gridOptions = gb.build()
-                
-                            grid = AgGrid(
-                    df_display_master,
-                    gridOptions=gridOptions,
-                    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
-                    )
+                            st.table(df_display_master)
                         else:
                             st.button(lab_mast,on_click = master_but)
                         
@@ -532,17 +350,7 @@ with st.container():
                         family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                         df_display_Great = pd.DataFrame(family_data_Great)
                         df_display_Great.set_index(['Pokemon'], inplace=True)
-                        
-                        gb = GridOptionsBuilder.from_dataframe(df_display_Great)
-                        other_options = {'suppressColumnVirtualisation': True}
-                        gb.configure_grid_options(**other_options)
-                        gridOptions = gb.build()
-                
-                        grid = AgGrid(
-                    df_display_Great,
-                    gridOptions=gridOptions,
-                    columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS
-                    )
+                        st.table(df_display_Great)
                     else:
                         st.button(lab_gre,on_click = great_but)
 
@@ -622,33 +430,8 @@ with st.container():
 
                 except:
                     pass
-        with st_normal():
-            st.subheader("Back to Normal Width")
-            st.write("This part should remain at the default width.")
-            lab_gre = "Show Mega Master Cup Table"
-            st.write(f'Mega Master Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-            lab_gre = "Show Mega Master Cup Table"
-            if st.session_state['great_clicked']:
-                lab_gre  = "Hide Mega Master Cup Table"
-                st.button(lab_gre,on_click = great_but)
-                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                df_display_Great = pd.DataFrame(family_data_Great)
-                df_display_Great.set_index(['#'])
-                st.table(df_display_Great)
-                st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-            else:
-                st.button(lab_gre,on_click = great_but)
-        last_updated = get_last_updated_date(GITHUB_API_URL)
-        st.write(f"Last updated: {last_updated} (EST)")
-    
-	
-	
-
-
-	# Custom CSS for mobile view and table fit
-
-
+    last_updated = get_last_updated_date(GITHUB_API_URL)
+    st.write(f"Last updated: {last_updated} (EST)")
 
 
     hide_streamlit_style = """
@@ -670,7 +453,6 @@ with st.container():
         padding: 5px;
         top: 2px;
     }
-
                 </style>
                 """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
