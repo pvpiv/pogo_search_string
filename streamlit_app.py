@@ -29,7 +29,8 @@ from utils import (
     format_data_top,
     calculate_days_since,
     get_last_updated_date,
-    swap_columns
+    swap_columns,
+    st_normal
 )
 from session_state_manager import (
     initialize_session_state,
