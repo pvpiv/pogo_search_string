@@ -121,7 +121,10 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-with cols[1]:
+def st_normal():
+    _, col, _ = st.columns([1, 2, 1])
+    return col
+with st_normal():
 
     #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
     
