@@ -53,9 +53,6 @@ from session_state_manager import (
 # Initialize session state
 initialize_session_state()
 
-def st_normal():
-    _, col, _ = st.columns([1, 8, 1])
-    return col
 
 query_params = st.query_params  #st.experimental_get_query_params()
 
