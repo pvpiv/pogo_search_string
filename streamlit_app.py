@@ -21,7 +21,8 @@ from utils import (
     make_search_string,
     format_data_top,
     calculate_days_since,
-    get_last_updated_date
+    get_last_updated_date,
+    swap_columns
 )
 from session_state_manager import (
     initialize_session_state,
