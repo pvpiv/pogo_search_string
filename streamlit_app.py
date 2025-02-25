@@ -15,6 +15,10 @@ from st_aggrid import (
     ColumnsAutoSizeMode,
     AgGridTheme
 ) 
+
+ 
+st.set_page_config(layout="wide")
+
 st.markdown("""
     <style>
         .stTable tr {
@@ -92,7 +96,7 @@ def configure_ag_grid2(df, cols=None):
 	enable_enterprise_modules=False)
 
  
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 
 # Import utility functions and session state manager
 from utils import (
