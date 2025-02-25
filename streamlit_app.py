@@ -173,7 +173,7 @@ with st.container():
                             df_display = pd.DataFrame(family_data)
                             df_display.set_index(['#'])
                             #st.table(df_display)
-                            st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                            st.markdown(swap_columns(df_display,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                             try:
                                 save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
                                 streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
@@ -220,8 +220,9 @@ with st.container():
                             st.button(lab_gre,on_click = great_but)
                             family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                             df_display_Great = pd.DataFrame(family_data_Great)
-                            df_display_Great.set_index(['Pokemon'], inplace=True)
+                            df_display_Great.set_index(['#'])
                             st.table(df_display_Great)
+                            st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                         else:
                             st.button(lab_gre,on_click = great_but)
                         
