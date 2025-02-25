@@ -1,5 +1,3 @@
-
-
 # app.py
 from streamlit_extras.stylable_container import stylable_container
 import streamlit as st
@@ -11,13 +9,6 @@ import requests
 import pytz
 st.set_page_config(layout = "wide")
 #st.set_page_config(layout="wide")
-st.markdown("""
-    <style>
-        .stTable tr {
-            height: 50px; # use this to adjust the height
-        }
-    </style>
-""", unsafe_allow_html=True)
 
 # Import utility functions and session state manager
 from utils import (
@@ -31,8 +22,7 @@ from utils import (
     format_data_top,
     calculate_days_since,
     get_last_updated_date,
-    swap_columns,
-    st_normal
+    swap_columns
 )
 from session_state_manager import (
     initialize_session_state,
@@ -54,6 +44,7 @@ from session_state_manager import (
 
 # Initialize session state
 initialize_session_state()
+
 
 
 query_params = st.query_params  #st.experimental_get_query_params()
@@ -81,8 +72,8 @@ if st.session_state['show_custom2']:
 else:
     df = pd.read_csv('pvp_data.csv')
 
-cola1,cola2,cola3 = st.columns((2,5,1))
-with cola1:
+cols = st.columns((2,8,1))
+with cols[0]:
    
 
     with stylable_container(
@@ -130,10 +121,7 @@ with cola1:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-
-
-with cola2:
-    st.subheader("PVP Poké Search Strings")
+with cols[1]:
 
     #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
     
@@ -174,7 +162,7 @@ with cola2:
                         df_display = pd.DataFrame(family_data)
                         df_display.set_index(['#'])
                         #st.table(df_display)
-                        st.markdown(swap_columns(df_display,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                        st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                         try:
                             save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
                             streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
@@ -194,235 +182,252 @@ with cola2:
         
         
 
-        
-        
-
-            
+        st.subheader("PVP Poké Search Strings")
+		
+        if st.session_state.show_string:
+            top_nbox = st.number_input(
+                'Showing Top:',
+                value=st.session_state.top_num,
+                key='top_no',
+                on_change=update_top_num,
+                min_value=5,
+                max_value=200,
+                step=5
+            )
+            inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
             #tables_pop = st.popover("League Tables")
             
-        if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
-            
-    
-            try:
-                st.write(f'Great League Top {st.session_state.top_num} Search String:')
+            if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
+                
+        
+                try:
+                    st.write(f'Great League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
+                    lab_gre = "Show Great Table"
+                    if st.session_state['great_clicked']:
+                        lab_gre  = "Hide Great Table"
+                        st.button(lab_gre,on_click = great_but)
+                        family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                        df_display_Great = pd.DataFrame(family_data_Great)
+                        df_display_Great.set_index(['Pokemon'], inplace=True)
+                        st.table(df_display_Great)
+                    else:
+                        st.button(lab_gre,on_click = great_but)
+                    
+                except:
+                    pass
+        
+                try:
+                    st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    lab_ult = "Show Ultra Table"
+                    if st.session_state['ultra_clicked']:
+                        lab_ult  = "Hide Ultra Table"
+                        family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
+                        df_display_Ultra = pd.DataFrame(family_data_Ultra)
+                        df_display_Ultra.set_index(['Pokemon'], inplace=True)
+                        st.button(lab_ult,on_click = ultra_but)
+                        st.table(df_display_Ultra)
+                    else:
+                        st.button(lab_ult,on_click = ultra_but)
+                    
+                except:
+                    pass
+        
+                try:
+                    st.write(f'Master League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    lab_mast = "Show Master Table"
+                    if st.session_state['master_clicked']:
+                        lab_mast  = "Hide Master Table"
+                        family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
+                        df_display_master = pd.DataFrame(family_data_master)
+                        df_display_master.set_index(['Pokemon'], inplace=True)
+                        st.button(lab_mast, on_click = master_but)
+                        st.table(df_display_master)
+                    else:
+                        st.button(lab_mast,on_click = master_but)
+                    
+                except:
+                    pass
+                try:
+                    st.write(f'Little League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    lab_lit = "Show Little Table"
+                    if st.session_state['little_clicked']:
+                        lab_lit = "Hide Little Table"
+                        st.button(lab_lit,on_click = little_but)
+                        family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
+                        df_display_Little = pd.DataFrame(family_data_Little)
+                        df_display_Little.set_index(['Pokemon'], inplace=True)
+                        st.table(df_display_Little)   
+                    else: 
+                        st.button(lab_lit,on_click = little_but)     
+                    
+                except:
+                    pass
+                try:
+                    st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz,True))
+                except:
+                    pass
+            elif st.session_state['gym_bool']: 
+                attackers = pd.read_csv('attackers.csv')
+                defenders = pd.read_csv('defenders.csv')
+                try:
+                    st.write(f'Defenders Search String:')
+                    st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
+                    lab_def = "Show Defenders Table"
+                    if st.session_state['master_clicked']:
+                        lab_def = "Hide Defenders Table"
+                        st.button(lab_def,on_click = master_but)
+                        family_data_def = format_data_top(defenders, 'Master', st.session_state.top_num,show_xl_boxz)
+                        df_display_def = pd.DataFrame(family_data_def)
+                        df_display_def.set_index(['Pokemon'], inplace=True)
+                        st.table(df_display_def)
+                    else:
+                        st.button(lab_def,on_click = master_but)
+                except:
+                    pass
+                try:
+                    st.write(f'Attackers Search String:')
+                    st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
+                    lab_att = "Show Attackers Table"
+                    if st.session_state['ultra_clicked']:
+                        lab_att = "Hide Attackers Table"
+                        st.button(lab_att,on_click = ultra_but)
+                        family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz)
+                        df_display_att = pd.DataFrame(family_data_att)
+                        df_display_att.set_index(['Pokemon'], inplace=True)
+                        st.table(df_display_att)
+                    else:
+                        st.button(lab_att,on_click = ultra_but)
+                except:
+                    pass
+            elif st.session_state['show_custom'] or st.session_state['show_custom2']: 
+                try:
+                    #popover.button("Show Sunshine Cup Table", key='sun_table', on_click=great_but)
+                    days_since_date = calculate_days_since(season_start)
+                    age_string = f"age0-{days_since_date}&"
+                    st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                    lab_mast = "Show Custom Table"
+                    if st.session_state['master_clicked']:
+                        lab_mast  = "Hide Master Table"
+                        family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
+                        df_display_master = pd.DataFrame(family_data_master)
+                        df_display_master.set_index(['Pokemon'], inplace=True)
+                        st.button(lab_mast, on_click = master_but)
+                        st.table(df_display_master)
+                    else:
+                        st.button(lab_mast,on_click = master_but)
+                    
+                except:
+                    pass
+            elif st.session_state['show_custom1']: 
+
+
+                lab_gre = "Show Mega Master Cup Table"
+                st.write(f'Mega Master Cup Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-                lab_gre = "Show Great Table"
+                lab_gre = "Show Mega Master Cup Table"
                 if st.session_state['great_clicked']:
-                    lab_gre  = "Hide Great Table"
+                    lab_gre  = "Hide Mega Master Cup Table"
                     st.button(lab_gre,on_click = great_but)
                     family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
-                    df_display_Great.set_index(['#'])
-                    # st.table(df_display_Great)
-                    st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                    df_display_Great.set_index(['Pokemon'], inplace=True)
+                    st.table(df_display_Great)
                 else:
                     st.button(lab_gre,on_click = great_but)
-                
-            except:
-                pass
-    
-            try:
-                st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
-                lab_ult = "Show Ultra Table"
-                if st.session_state['ultra_clicked']:
-                    lab_ult  = "Hide Ultra Table"
-                    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
-                    df_display_Ultra = pd.DataFrame(family_data_Ultra)
-                    df_display_Ultra.set_index(['Pokemon'], inplace=True)
-                    st.button(lab_ult,on_click = ultra_but)
-                    st.table(df_display_Ultra)
-                else:
-                    st.button(lab_ult,on_click = ultra_but)
-                
-            except:
-                pass
-    
-            try:
-                st.write(f'Master League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
-                lab_mast = "Show Master Table"
-                if st.session_state['master_clicked']:
-                    lab_mast  = "Hide Master Table"
-                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
-                    df_display_master = pd.DataFrame(family_data_master)
-                    df_display_master.set_index(['Pokemon'], inplace=True)
-                    st.button(lab_mast, on_click = master_but)
-                    st.table(df_display_master)
-                else:
-                    st.button(lab_mast,on_click = master_but)
-                
-            except:
-                pass
-            try:
-                st.write(f'Little League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
-                lab_lit = "Show Little Table"
-                if st.session_state['little_clicked']:
-                    lab_lit = "Hide Little Table"
-                    st.button(lab_lit,on_click = little_but)
-                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
-                    df_display_Little = pd.DataFrame(family_data_Little)
-                    df_display_Little.set_index(['Pokemon'], inplace=True)
-                    st.table(df_display_Little)   
-                else: 
-                    st.button(lab_lit,on_click = little_but)     
-                
-            except:
-                pass
-            try:
-                st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz,True))
-            except:
-                pass
-        elif st.session_state['gym_bool']: 
-            attackers = pd.read_csv('attackers.csv')
-            defenders = pd.read_csv('defenders.csv')
-            try:
-                st.write(f'Defenders Search String:')
-                st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
-                lab_def = "Show Defenders Table"
-                if st.session_state['master_clicked']:
-                    lab_def = "Hide Defenders Table"
-                    st.button(lab_def,on_click = master_but)
-                    family_data_def = format_data_top(defenders, 'Master', st.session_state.top_num,show_xl_boxz)
-                    df_display_def = pd.DataFrame(family_data_def)
-                    df_display_def.set_index(['Pokemon'], inplace=True)
-                    st.table(df_display_def)
-                else:
-                    st.button(lab_def,on_click = master_but)
-            except:
-                pass
-            try:
-                st.write(f'Attackers Search String:')
-                st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box,show_xl_boxz))
-                lab_att = "Show Attackers Table"
-                if st.session_state['ultra_clicked']:
-                    lab_att = "Hide Attackers Table"
-                    st.button(lab_att,on_click = ultra_but)
-                    family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz)
-                    df_display_att = pd.DataFrame(family_data_att)
-                    df_display_att.set_index(['Pokemon'], inplace=True)
-                    st.table(df_display_att)
-                else:
-                    st.button(lab_att,on_click = ultra_but)
-            except:
-                pass
-        elif st.session_state['show_custom'] or st.session_state['show_custom2']: 
-            try:
-                #popover.button("Show Sunshine Cup Table", key='sun_table', on_click=great_but)
-                days_since_date = calculate_days_since(season_start)
-                age_string = f"age0-{days_since_date}&"
-                st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
-                lab_mast = "Show Custom Table"
-                if st.session_state['master_clicked']:
-                    lab_mast  = "Hide Master Table"
-                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
-                    df_display_master = pd.DataFrame(family_data_master)
-                    df_display_master.set_index(['Pokemon'], inplace=True)
-                    st.button(lab_mast, on_click = master_but)
-                    st.table(df_display_master)
-                else:
-                    st.button(lab_mast,on_click = master_but)
-                
-            except:
-                pass
-        elif st.session_state['show_custom1']: 
 
+		    
+            try:
+                load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+                streamlit_analytics2.start_tracking()
+                if st.session_state['show_custom1']:
+                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Mega Master Cup into PokeGO*'
+                elif st.session_state['show_custom2']:
+                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Mega Master Cup into PokeGO*'
+                else:
+                    copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO*'
+                st.text_input(
+                    label=today.strftime("%m/%d/%y"),
+                    value= copy_val,
+                    label_visibility='hidden',
+                    disabled=True,
+                    key="sstring"
+                )
+                st.divider()
+                with st.form('chat_input_form',clear_on_submit =True):
+    # Create two columns; adjust the ratio to your liking
+                    col3, col4 = st.columns([3,1]) 
 
-            lab_gre = "Show Mega Master Cup Table"
-            st.write(f'Mega Master Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-            lab_gre = "Show Mega Master Cup Table"
-            if st.session_state['great_clicked']:
-                lab_gre  = "Hide Mega Master Cup Table"
-                st.button(lab_gre,on_click = great_but)
-                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                df_display_Great = pd.DataFrame(family_data_Great)
-                df_display_Great.set_index(['Pokemon'], inplace=True)
-                st.table(df_display_Great)
-            else:
-                st.button(lab_gre,on_click = great_but)
+    # Use the first column for text input
+                    with col3:
+                        prompt = st.text_input(placeholder = "Feedback", label="Feedback", key="fstring", label_visibility='collapsed')
+                # Use the second column for the submit button
+                    with col4:
+                        submitted = st.form_submit_button('Submit')
 
+                    if prompt and submitted:
+                # Do something with the inputted text here
+                        st.write(f"Submitted: {prompt}")
+                #st.text_input()
+                save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+                streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
         
-        try:
-            load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
-            streamlit_analytics2.start_tracking()
-            if st.session_state['show_custom1']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Mega Master Cup into PokeGO*'
-            elif st.session_state['show_custom2']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Mega Master Cup into PokeGO*'
-            else:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO*'
-            st.text_input(
-                label=today.strftime("%m/%d/%y"),
-                value= copy_val,
-                label_visibility='hidden',
-                disabled=True,
-                key="sstring"
-            )
-            st.divider()
-            with st.form('chat_input_form',clear_on_submit =True):
-# Create two columns; adjust the ratio to your liking
-                col3, col4 = st.columns([3,1]) 
+                load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+                streamlit_analytics2.start_tracking()
+                if st.session_state['little_clicked']:
+                    st.text_input(
+                        label=today.strftime("%m/%d/%y"),
+                        value='Little Table',
+                        label_visibility='hidden',
+                        disabled=True,
+                        key="little_text"
+                    )
+                if st.session_state['great_clicked']:
+                    st.text_input(
+                        label=today.strftime("%m/%d/%y"),
+                        value='Great Table',
+                        label_visibility='hidden',
+                        disabled=True,
+                        key="great_text"
+                    )
+                if st.session_state['ultra_clicked']:
+                    st.text_input(
+                        label=today.strftime("%m/%d/%y"),
+                        value='Ultra Table',
+                        label_visibility='hidden',
+                        disabled=True,
+                        key="ultra_text"
+                    )
+                if st.session_state['master_clicked']:
+                    st.text_input(
+                        label=today.strftime("%m/%d/%y"),
+                        value='Master Table',
+                        label_visibility='hidden',
+                        disabled=True,
+                        key="master_text"
+                    )
+                streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
+        
+            # Get the last updated date
 
-# Use the first column for text input
-                with col3:
-                    prompt = st.text_input(placeholder = "Feedback", label="Feedback", key="fstring", label_visibility='collapsed')
-            # Use the second column for the submit button
-                with col4:
-                    submitted = st.form_submit_button('Submit')
-
-                if prompt and submitted:
-            # Do something with the inputted text here
-                    st.write(f"Submitted: {prompt}")
-            #st.text_input()
-            save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
-            streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
-    
-            load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
-            streamlit_analytics2.start_tracking()
-            if st.session_state['little_clicked']:
-                st.text_input(
-                    label=today.strftime("%m/%d/%y"),
-                    value='Little Table',
-                    label_visibility='hidden',
-                    disabled=True,
-                    key="little_text"
-                )
-            if st.session_state['great_clicked']:
-                st.text_input(
-                    label=today.strftime("%m/%d/%y"),
-                    value='Great Table',
-                    label_visibility='hidden',
-                    disabled=True,
-                    key="great_text"
-                )
-            if st.session_state['ultra_clicked']:
-                st.text_input(
-                    label=today.strftime("%m/%d/%y"),
-                    value='Ultra Table',
-                    label_visibility='hidden',
-                    disabled=True,
-                    key="ultra_text"
-                )
-            if st.session_state['master_clicked']:
-                st.text_input(
-                    label=today.strftime("%m/%d/%y"),
-                    value='Master Table',
-                    label_visibility='hidden',
-                    disabled=True,
-                    key="master_text"
-                )
-            streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
-    
-        # Get the last updated date
-
-        except:
-            pass
-last_updated = get_last_updated_date(GITHUB_API_URL)
-st.write(f"Last updated: {last_updated} (EST)")
+            except:
+                pass
+    last_updated = get_last_updated_date(GITHUB_API_URL)
+    st.write(f"Last updated: {last_updated} (EST)")
+# Custom CSS for mobile view and table fit
+st.markdown("""
+<style>
+button {
+    height: 50px;
+    width: 200px;
+    color: blue;
+}
+""", unsafe_allow_html=True)
 
 
 hide_streamlit_style = """
@@ -431,18 +436,18 @@ hide_streamlit_style = """
             footer {visibility: hidden;}
 
 footer {
-    
-    visibility: hidden;
-    
-    }
+	
+	visibility: hidden;
+	
+	}
 footer:after {
-    content:'goodbye'; 
-    visibility: visible;
-    display: block;
-    position: relative;
-    #background-color: red;
-    padding: 5px;
-    top: 2px;
+	content:'goodbye'; 
+	visibility: visible;
+	display: block;
+	position: relative;
+	#background-color: red;
+	padding: 5px;
+	top: 2px;
 }
             </style>
             """
