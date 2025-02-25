@@ -24,6 +24,13 @@ def load_from_firestore(counts, collection_name):
         for key in firestore_counts:
             if key in counts:
                 counts[key] = firestore_counts[key]
+def swap_columns(df, col1, col2):
+    col_list = list(df.columns)
+    x, y = col_list.index(col1), col_list.index(col2)
+    col_list[y], col_list[x] = col_list[x], col_list[y]
+    df = df[col_list]
+    return df
+
 
 def save_to_firestore(counts, collection_name):
     key_dict = json.loads(st.secrets["textkey"])
