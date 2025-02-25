@@ -80,7 +80,7 @@ else:
     df = pd.read_csv('pvp_data.csv')
 
 with st.container():
-    col1,col2 = st.columns([1,9])
+    col1,col2,col3 = st.columns([1,8,1])
     with col1:
     
 
@@ -119,6 +119,11 @@ with st.container():
                 # tables_pop = st.popover("League Tables")
 
         
+
+        )
+
+    with col2:
+        
         if st.session_state['table_string_butt']:
             butt_label = "Switch to Pokémon Lookup"
         else: 
@@ -128,10 +133,6 @@ with st.container():
             key= "tab_str_butt",
             value = st.session_state['table_string_butt'],
             on_change = upd_tab_str
-        )
-
-    with col2:
-
         #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
         
         today = date.today()
