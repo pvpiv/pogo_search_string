@@ -170,7 +170,7 @@ def st_normal():
 with st.container():
     st.subheader("PVP Poké Search Strings")
     # Create one row with three columns
-    cola1, cola2, cola3 = st.columns([1, 2, 1])  # adjust ratios as desired
+    cola1, cola2, cola3 = st.columns([1, 8, 1])  # adjust ratios as desired
 
 		
  
