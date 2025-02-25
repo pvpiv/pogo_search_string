@@ -119,16 +119,16 @@ with st.container():
                 iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
                 inv_box = popover.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
                 # tables_pop = st.popover("League Tables")
-            if st.session_state.show_string:
-                top_nbox = st.number_input(
-                    'Showing Top:',
-                    value=st.session_state.top_num,
-                    key='top_no',
-                    on_change=update_top_num,
-                    min_value=5,
-                    max_value=200,
-                    step=5
-                )
+        if st.session_state.show_string:
+            top_nbox = st.number_input(
+                'Showing Top:',
+                value=st.session_state.top_num,
+                key='top_no',
+                on_change=update_top_num,
+                min_value=5,
+                max_value=200,
+                step=5
+            )
         
 
 with st.container():
