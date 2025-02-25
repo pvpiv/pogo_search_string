@@ -1,4 +1,89 @@
-with col1:
+# app.py
+from streamlit_extras.stylable_container import stylable_container
+import streamlit as st
+import pandas as pd
+import streamlit_analytics2
+import json
+from datetime import date, datetime
+import requests
+import pytz
+st.set_page_config(layout = "wide")
+#st.set_page_config(layout="wide")
+st.markdown("""
+    <style>
+        .stTable tr {
+            height: 50px; # use this to adjust the height
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Import utility functions and session state manager
+from utils import (
+    MyList,
+    load_from_firestore,
+    save_to_firestore,
+    format_data,
+    filter_ids,
+    get_top_50_ids,
+    make_search_string,
+    format_data_top,
+    calculate_days_since,
+    get_last_updated_date,
+    swap_columns
+)
+from session_state_manager import (
+    initialize_session_state,
+    update_top_num,
+    upd_shadow,
+    upd_tab_str,
+    upd_xl,
+    upd_seas,
+    upd_cust,
+    upd_cust1,
+    upd_cust2,
+    upd_inv,
+    update_gym_bool,
+    little_but,
+    great_but,
+    ultra_but,
+    master_but
+)
+
+# Initialize session state
+initialize_session_state()
+
+def st_normal():
+    _, col, _ = st.columns([1, 8, 1])
+    return col
+
+query_params = st.query_params  #st.experimental_get_query_params()
+
+try:
+	if st.query_params["comm"] == "True":
+		st.session_state['show_custom2'] = True
+		upd_cust2()
+except:
+	pass
+	
+season_start = date(2024, 9, 3)
+
+# Set GitHub API URL based on 'show_custom' flag
+if not st.session_state['show_custom2']:
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
+else:
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv"
+
+# Load data
+if  st.session_state['show_custom1']:
+    df = pd.read_csv('pvp_data_mega.csv')
+if st.session_state['show_custom2']:
+    df = pd.read_csv('pvp_data_mega.csv')
+else:
+    df = pd.read_csv('pvp_data.csv')
+
+with st.container():
+    col1,col2 = st.columns([9,1])
+    with col1:
     
 
         with stylable_container(
@@ -46,9 +131,7 @@ with col1:
             value = st.session_state['table_string_butt'],
             on_change = upd_tab_str
         )
-    def st_normal():
-        _, col, _ = st.columns([1, 8, 1])
-        return col
+
     with col2:
 
         #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
@@ -347,3 +430,27 @@ with col1:
                     pass
     last_updated = get_last_updated_date(GITHUB_API_URL)
     st.write(f"Last updated: {last_updated} (EST)")
+
+
+    hide_streamlit_style = """
+                <style>
+                #MainMenu {visibility: hidden;}
+                footer {visibility: hidden;}
+
+    footer {
+        
+        visibility: hidden;
+        
+        }
+    footer:after {
+        content:'goodbye'; 
+        visibility: visible;
+        display: block;
+        position: relative;
+        #background-color: red;
+        padding: 5px;
+        top: 2px;
+    }
+                </style>
+                """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
