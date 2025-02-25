@@ -123,7 +123,7 @@ with cols[0]:
     )
 
     if st.session_state.show_string: 
-        st.subheader("PVP Poké Search Strings")
+        
         top_nbox = st.number_input('Showing Top:', 
                                     value=st.session_state.top_num, 
                                     key='top_no',
@@ -135,7 +135,7 @@ with cols[0]:
 with cols[1]:
 
     #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
-    
+    st.subheader("PVP Poké Search Strings")
     today = date.today()
     # Section 1 - PVP Pokemon Search Table
     show_shadow = st.session_state['get_shadow']
