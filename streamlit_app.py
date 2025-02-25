@@ -108,7 +108,7 @@ with cols[0]:
             fam_box = popover.checkbox('Include pre-evolutions', value=True)
             show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
             iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
-            # tables_pop = st.popover("League Tables")
+            inv_box = popover.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')# tables_pop = st.popover("League Tables")
 
     
     if st.session_state['table_string_butt']:
@@ -121,6 +121,16 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
+
+    if st.session_state.show_string: 
+        top_nbox = st.number_input('Showing Top:', 
+                                    value=st.session_state.top_num, 
+                                    key='top_no',
+                                    on_change=update_top_num,
+                                    min_value=5,
+                                    max_value=200,
+                                    step=5
+                                    ) 
 with cols[1]:
 
     #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
@@ -194,7 +204,7 @@ with cols[1]:
                 max_value=200,
                 step=5
             )
-            inv_box = st.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')
+        
             #tables_pop = st.popover("League Tables")
             
             if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
