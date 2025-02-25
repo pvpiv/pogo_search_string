@@ -109,7 +109,8 @@ from utils import (
     make_search_string,
     format_data_top,
     calculate_days_since,
-    get_last_updated_date
+    get_last_updated_date,
+    swap_columns
 )
 from session_state_manager import (
     initialize_session_state,
@@ -635,7 +636,7 @@ with st.container():
                 df_display_Great = pd.DataFrame(family_data_Great)
                 df_display_Great.set_index(['#'])
                 st.table(df_display_Great)
-                st.markdown(df_display_Great.style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
             else:
                 st.button(lab_gre,on_click = great_but)
         last_updated = get_last_updated_date(GITHUB_API_URL)
