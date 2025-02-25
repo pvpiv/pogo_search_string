@@ -159,8 +159,9 @@ with cols[1]:
                             label_visibility='hidden'
                         )
                         df_display = pd.DataFrame(family_data)
-                        df_display.set_index(['Pokemon'], inplace=True)
-                        st.table(df_display)
+                        df_display.set_index(['#'])
+                        #st.table(df_display)
+                        st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                         try:
                             save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
                             streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
