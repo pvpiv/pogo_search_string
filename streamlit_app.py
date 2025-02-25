@@ -635,7 +635,7 @@ with st.container():
                 df_display_Great = pd.DataFrame(family_data_Great)
                 df_display_Great.set_index(['#'],inplace=True)
                 st.table(df_display_Great)
-                st.markdown(df_display_Great.to_html(escape=False), unsafe_allow_html=True)
+                st.markdown(df_display_Great.style.hide(axis="index")..to_html(escape=False), unsafe_allow_html=True)
             else:
                 st.button(lab_gre,on_click = great_but)
         last_updated = get_last_updated_date(GITHUB_API_URL)
