@@ -22,7 +22,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
     <style>
         .stTable tr {
-            height: 100px; # use this to adjust the height
+            height: 50px; # use this to adjust the height
         }
     </style>
 """, unsafe_allow_html=True)
