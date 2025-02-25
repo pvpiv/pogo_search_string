@@ -67,7 +67,7 @@ else:
 # Load data
 if  st.session_state['show_custom1']:
     df = pd.read_csv('pvp_data_mpremier.csv')
-if st.session_state['show_custom2']:
+elif st.session_state['show_custom2']:
     df = pd.read_csv('pvp_data_mpremier.csv')
 else:
     df = pd.read_csv('pvp_data_pg.csv')
