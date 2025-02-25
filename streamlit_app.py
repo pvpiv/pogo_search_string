@@ -129,7 +129,7 @@ with cols[0]:
         on_change = upd_tab_str
     )
 def st_normal():
-    _, col, _ = st.columns([1, 2, 1])
+    _, col, _ = st.columns([1, 8, 1])
     return col
 with st_normal():
 
