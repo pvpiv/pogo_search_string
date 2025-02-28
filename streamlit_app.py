@@ -90,7 +90,7 @@ with cols[0]:
         """,
 ):
         popover = st.popover('Settings' ,use_container_width =True)
-        season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
+        
         if not st.session_state['table_string_butt']:
 
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
@@ -122,6 +122,7 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
+    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
 
 
 with cols[1]:
