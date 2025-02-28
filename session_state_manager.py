@@ -67,6 +67,8 @@ def upd_cust1():
     st.session_state.show_custom1 = st.session_state.sho_cust1
 def upd_cust2():
     st.session_state.show_custom2 = st.session_state.sho_cust2
+def upd_cust3():
+    st.session_state.show_custom2 = st.session_state.sho_cust3
 def update_gym_bool():
     st.session_state['gym_bool'] = st.session_state['sho_gym']
 def upd_inv():
