@@ -26,6 +26,8 @@ def initialize_session_state():
         st.session_state['show_custom1'] = False
     if 'show_custom2' not in st.session_state:
         st.session_state['show_custom2'] = False
+    if 'show_custom3' not in st.session_state:
+        st.session_state['show_custom3'] = False
     if 'show_inverse' not in st.session_state:
         st.session_state['show_inverse'] = False
     if 'little_clicked' not in st.session_state:
