@@ -51,8 +51,8 @@ query_params = st.query_params  #st.experimental_get_query_params()
 
 try:
 	if st.query_params["comm"] == "True":
-		st.session_state['show_custom2'] = True
-		upd_cust2()
+		st.session_state['show_custom1'] = True
+		upd_cust1()
 except:
 	pass
 	
@@ -66,7 +66,7 @@ else:
 
 # Load data
 if  st.session_state['show_custom1']:
-    df = pd.read_csv('pvp_data_mpremier.csv')
+    df = pd.read_csv('pvp_data_season.csv')
 elif st.session_state['show_custom2']:
     df = pd.read_csv('pvp_data_mpremier.csv')
 else:
@@ -90,6 +90,7 @@ with cols[0]:
         """,
 ):
         popover = st.popover('Settings' ,use_container_width =True)
+	season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
         if not st.session_state['table_string_butt']:
 
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
@@ -199,7 +200,7 @@ with cols[1]:
         
             #tables_pop = st.popover("League Tables")
             
-            if not (st.session_state['show_custom'] or st.session_state['show_custom1'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
+            if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
                 
         
                 try:
@@ -327,7 +328,7 @@ with cols[1]:
                     
                 except:
                     pass
-            elif st.session_state['show_custom1']: 
+            elif st.session_state['show_custom3']: 
 
 
                 lab_gre = "Show Master Premier Cup Table"
@@ -348,7 +349,7 @@ with cols[1]:
             try:
                 load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
                 streamlit_analytics2.start_tracking()
-                if st.session_state['show_custom1']:
+                if st.session_state['show_custom3']:
                     copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO*'
                 elif st.session_state['show_custom2']:
                     copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO*'
