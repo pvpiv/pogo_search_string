@@ -51,7 +51,7 @@ initialize_session_state()
 query_params = st.query_params  #st.experimental_get_query_params()
 
 try:
-	if st.query_params["comm"] == "True":
+	if st.query_params["new_ranks"] == "True":
 		st.session_state['show_custom1'] = True
 		upd_cust1()
 except:
