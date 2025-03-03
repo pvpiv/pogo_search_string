@@ -325,7 +325,7 @@ with cols[1]:
                     st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
                     lab_mast = "Show Custom Table"
                     if st.session_state['master_clicked']:
-                        lab_mast  = "Hide Master Table"
+                        lab_mast  = "Hide Custom Table"
                         family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                         df_display_master = pd.DataFrame(family_data_master)
                         df_display_master.set_index(['#'])
