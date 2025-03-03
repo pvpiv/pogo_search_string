@@ -50,12 +50,12 @@ initialize_session_state()
 
 query_params = st.query_params  #st.experimental_get_query_params()
 
-try:
-	if st.query_params["new_ranks"] == "true":
-		st.session_state['show_custom1'] = True
-		upd_cust1()
-except:
-	pass
+#try:
+#	if st.query_params["new_ranks"] == "true":
+	#	st.session_state['show_custom1'] = True
+	#	upd_cust1()
+#except:
+	#pass
 	
 season_start = date(2024, 9, 3)
 
@@ -63,7 +63,7 @@ season_start = date(2024, 9, 3)
 if not st.session_state['show_custom2']:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_pg.csv"
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mpremier.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 
 # Load data
 if  st.session_state['show_custom1']:
@@ -123,7 +123,7 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
+ #   season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
 
 
 with cols[1]:
