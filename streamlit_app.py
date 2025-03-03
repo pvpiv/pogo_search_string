@@ -71,7 +71,7 @@ if  st.session_state['show_custom1']:
 elif st.session_state['show_custom2']:
     df = pd.read_csv('pvp_data_mpremier.csv')
 else:
-    df = pd.read_csv('pvp_data_pg.csv')
+    df = pd.read_csv('pvp_data.csv')
 
 cols = st.columns((3,10,1))
 with cols[0]:
