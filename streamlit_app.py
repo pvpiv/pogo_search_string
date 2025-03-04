@@ -61,13 +61,13 @@ season_start = date(2025, 3, 4)
 
 # Set GitHub API URL based on 'show_custom' flag
 if st.session_state['show_custom2']:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_pg.csv"
+    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_willpower.csv"
 else:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 
 
 if st.session_state['show_custom2']:
-    df = pd.read_csv('pvp_data_mpremier.csv')
+    df = pd.read_csv('pvp_data_willpower.csv')
 else:
     df = pd.read_csv('pvp_data.csv')
 
@@ -93,16 +93,16 @@ with cols[0]:
         if not st.session_state['table_string_butt']:
             butt_label = "Switch to Search Strings"
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-           # show_custom_boxz = popover.checkbox('Master Premier Cup', on_change=upd_cust1, key='sho_cust2')
+           # show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust1, key='sho_cust2')
 
-            show_custom_boxz2 = popover.checkbox('Master Premier Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+            show_custom_boxz2 = popover.checkbox('Willpower Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
 
             show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
         else:
             butt_label = "Switch to Pokémon Lookup"
-            show_custom_boxz2 = popover.checkbox('Master Premier Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-           # show_custom_boxz3 =  popover.checkbox('Master Premier Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+            show_custom_boxz2 = popover.checkbox('Willpower Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
+           # show_custom_boxz3 =  popover.checkbox('Willpower Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
            
@@ -312,7 +312,7 @@ with cols[1]:
                     st.button(lab_att,on_click = ultra_but)
             except:
                 pass
-        elif st.session_state['show_custom'] or st.session_state['show_custom2']: 
+        elif st.session_state['show_custom'] or st.session_state['show_custom3']: 
             try:
                 #popover.button("Show Sunshine Cup Table", key='sun_table', on_click=great_but)
                 days_since_date = calculate_days_since(season_start)
@@ -332,15 +332,15 @@ with cols[1]:
                 
             except:
                 pass
-        elif st.session_state['show_custom3']: 
+        elif st.session_state['show_custom2']: 
 
 
-            lab_gre = "Show Master Premier Cup Table"
-            st.write(f'Master Premier Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show Willpower Cup Table"
+            st.write(f'Willpower Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,False))
-            lab_gre = "Show Master Premier Cup Table"
+            lab_gre = "Show Willpower Cup Table"
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Master Premier Cup Table"
+                lab_gre  = "Hide Willpower Cup Table"
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
@@ -357,9 +357,9 @@ with cols[1]:
         
             topstrin = str(st.session_state.top_num)
             if st.session_state['show_custom3']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Willpower Cup into PokeGO*'
             elif st.session_state['show_custom2']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Willpower Cup into PokeGO*'
             else:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO*'
             st.text_input(
