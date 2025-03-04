@@ -14,10 +14,6 @@ class MyList(list):
     def last_index(self):
         return len(self) - 1
 
-def st_normal():
-    _, col, _ = st.columns([1, 8, 1])
-    return col
-    
 def load_from_firestore(counts, collection_name):
     key_dict = json.loads(st.secrets["textkey"])
     creds = service_account.Credentials.from_service_account_info(key_dict)
@@ -28,14 +24,14 @@ def load_from_firestore(counts, collection_name):
         for key in firestore_counts:
             if key in counts:
                 counts[key] = firestore_counts[key]
+                
 def swap_columns(df, col1, col2):
     col_list = list(df.columns)
     x, y = col_list.index(col1), col_list.index(col2)
     col_list[y], col_list[x] = col_list[x], col_list[y]
     df = df[col_list]
     return df
-
-
+    
 def save_to_firestore(counts, collection_name):
     key_dict = json.loads(st.secrets["textkey"])
     creds = service_account.Credentials.from_service_account_info(key_dict)
@@ -43,6 +39,10 @@ def save_to_firestore(counts, collection_name):
     col = db.collection(collection_name)
     col.document(st.secrets["fb_col"]).set(counts)
 
+def st_normal():
+    _, col, _ = st.columns([1, 8, 1])
+    return col
+    
 def format_data(pokemon_family, shadow_only, df):
     if shadow_only:
         family_data = df[(df['Family'] == pokemon_family)].sort_values(by=['Shadow', 'ID'])
@@ -59,13 +59,11 @@ def format_data(pokemon_family, shadow_only, df):
 
             for attr in attributes:
                 value = row[f'{league}_{attr}']
-                if attr == "Rank":
-                    value = int(value)
                 attr = attr.replace("Level","Lvl")
-               # attr = attr.replace("MoveSet","Moves")
-                attr = attr.replace("Rank",'#')
+                attr = attr.replace("MoveSet","Moves")
+                attr = attr.replace("Rank","#")
                 entry[attr] = (
-                    f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value.replace(',', ',') if pd.notna(value) else ''
+                    f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value if pd.notna(value) else ''
                 )
             formatted_data.append(entry)
     return formatted_data
@@ -180,13 +178,11 @@ def format_data_top(df, league, num_rank,xl_var):
                 entry = {'Pokemon': row['Pokemon']}
                 for attr in attributes:
                     value = row[f'{league}_{attr}']
-                    if attr == "Rank":
-                        value = int(value)
                     attr = attr.replace("Level","Lvl")
-              #      attr = attr.replace("MoveSet","Moves")
-                    attr = attr.replace("Rank",'#')
+                    attr = attr.replace("MoveSet","Moves")
+                    attr = attr.replace("Rank","#")
                     entry[attr] = (
-                        f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value.replace(',', ',') if pd.notna(value) else ''
+                        f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value  if pd.notna(value) else ''
                     )
                 formatted_data.append(entry)
     return formatted_data
