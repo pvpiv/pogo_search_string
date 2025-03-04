@@ -429,8 +429,8 @@ with cols[1]:
 
         except:
             pass
-    last_updated = get_last_updated_date(GITHUB_API_URL)
-    st.write(f"Last updated: {last_updated} (EST)")
+last_updated = get_last_updated_date(GITHUB_API_URL)
+st.write(f"Last updated: {last_updated} (EST)")
 
 
 
