@@ -60,10 +60,11 @@ query_params = st.query_params  #st.experimental_get_query_params()
 season_start = date(2025, 3, 4)
 
 # Set GitHub API URL based on 'show_custom' flag
-if st.session_state['show_custom2']:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_willpower.csv"
+if not st.session_state['show_custom2']:
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
 else:
-    GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_willpower.csv'
+    
 
 
 if st.session_state['show_custom2']:
