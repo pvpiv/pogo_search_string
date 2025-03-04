@@ -65,7 +65,6 @@ if not st.session_state['show_custom2']:
 else:
     GITHUB_API_URL = "https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv"
 
-# Load data
 
 if st.session_state['show_custom2']:
     df = pd.read_csv('pvp_data_mpremier.csv')
@@ -372,13 +371,12 @@ with cols[1]:
             )
             st.divider()
             with st.form('chat_input_form',clear_on_submit =True):
-# Create two columns; adjust the ratio to your liking
+
                 col3, col4 = st.columns([3,1]) 
 
-# Use the first column for text input
                 with col3:
                     prompt = st.text_input(placeholder = "Feedback", label="Feedback", key="fstring", label_visibility='collapsed')
-            # Use the second column for the submit button
+
                 with col4:
                     submitted = st.form_submit_button('Submit')
 
@@ -389,8 +387,8 @@ with cols[1]:
             save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
             streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
     
-            load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
-            streamlit_analytics2.start_tracking()
+           # load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+           # streamlit_analytics2.start_tracking()
             if st.session_state['little_clicked']:
                 st.text_input(
                     label=today.strftime("%m/%d/%y"),
@@ -423,8 +421,8 @@ with cols[1]:
                     disabled=True,
                     key="master_text"
                 )
-            save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
-            streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
+           # save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+          #  streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
     
         # Get the last updated date
 
