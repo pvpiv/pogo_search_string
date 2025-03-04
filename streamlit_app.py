@@ -106,7 +106,7 @@ with cols[0]:
            # show_custom_boxz3 =  popover.checkbox('Master Premier Cup String', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
-            topstrin = str(st.session_state.top_num)
+           
             fam_box = popover.checkbox('Include pre-evolutions', value=True)
             show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
             iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
@@ -357,6 +357,9 @@ with cols[1]:
             try:
                 load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
                 streamlit_analytics2.start_tracking()
+		    
+		    
+                topstrin = str(st.session_state.top_num)
                 if st.session_state['show_custom3']:
                     copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO*'
                 elif st.session_state['show_custom2']:
