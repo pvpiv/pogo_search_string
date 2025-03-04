@@ -57,7 +57,7 @@ query_params = st.query_params  #st.experimental_get_query_params()
 #except:
 	#pass
 	
-season_start = date(2024, 9, 3)
+season_start = date(2025, 3, 4)
 
 # Set GitHub API URL based on 'show_custom' flag
 if not st.session_state['show_custom2']:
