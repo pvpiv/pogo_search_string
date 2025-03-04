@@ -165,7 +165,7 @@ with cols[1]:
                             label_visibility='hidden'
                         )
                         df_display = pd.DataFrame(family_data)
-                        df_display.set_index(['Pokemon'], inplace=True)
+                        df_display.set_index(['Pokemon'])#, inplace=True)
                         #st.markdown(swap_columns(df_display)
                         st.markdown(df_display.to_html(escape=False), unsafe_allow_html=True)
                         try:
