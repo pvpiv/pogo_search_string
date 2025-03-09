@@ -1,7 +1,7 @@
 # session_state_manager.py
 
 import streamlit as st
-import streamlit_analytics2
+
 
 def initialize_session_state():
     if 'get_dat' not in st.session_state:
