@@ -185,7 +185,7 @@ with cols[1]:
 		
         if st.session_state.show_string:
             top_nbox = st.number_input(
-                'Showing Top:',
+                label = 'Showing Top:',
                 value=st.session_state.top_num,
                 key='top_no',
                 on_change=update_top_num,
