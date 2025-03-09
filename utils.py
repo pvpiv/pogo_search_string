@@ -37,39 +37,7 @@ def save_to_firestore(counts, collection_name):
     creds = service_account.Credentials.from_service_account_info(key_dict)
     db = firestore.Client(credentials=creds, project="pvpogo")
     col = db.collection(collection_name)
-    
-    # Use a transaction to handle concurrent updates
-    @firestore.transactional
-    def update_in_transaction(transaction, doc_ref, counts_data):
-        # Get the current data
-        doc = transaction.get(doc_ref)
-        current_data = doc.to_dict() if doc.exists else {}
-        
-        # For each count in the new data, increment it from the current value
-        for key in counts_data:
-            if key in current_data and isinstance(counts_data[key], int) and isinstance(current_data[key], int):
-                # For numeric values that should be incremented (like pageviews)
-                # Calculate the increment amount
-                increment = counts_data[key] - (counts_data.get(key, 0) if key in counts_data else 0)
-                if increment > 0:  # Only apply positive increments
-                    current_data[key] = current_data.get(key, 0) + increment
-            else:
-                # For other values, just update them
-                current_data[key] = counts_data[key]
-        
-        # Update the document with the merged data
-        transaction.set(doc_ref, current_data)
-        return current_data
-    
-    # Get a reference to the document and run the transaction
-    doc_ref = col.document(st.secrets["fb_col"])
-    transaction = db.transaction()
-    updated_data = update_in_transaction(transaction, doc_ref, counts)
-    
-    # Update the local counts with the transaction result
-    for key in updated_data:
-        if key in counts:
-            counts[key] = updated_data[key]
+    col.document(st.secrets["fb_col"]).set(counts)
 
 def st_normal():
     _, col, _ = st.columns([1, 8, 1])
