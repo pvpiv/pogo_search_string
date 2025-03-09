@@ -194,7 +194,7 @@ with cols[1]:
         st.subheader("PVP Poké Search Strings")
         
         top_nbox = st.number_input(
-            'Showing Top:',
+            label = 'Showing Top:',
             value=st.session_state.top_num,
             key='top_no',
             on_change=update_top_num,
