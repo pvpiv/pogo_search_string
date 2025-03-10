@@ -97,13 +97,13 @@ with cols[0]:
            # show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust1, key='sho_cust2')
 
             show_custom_boxz2 = popover.checkbox('Willpower Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-            show_custom_boxz3 =  popover.checkbox('Scroll Cup String', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+            show_custom_boxz3 =  popover.checkbox('Scroll Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
             show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
         else:
             butt_label = "Switch to Pokémon Lookup"
             show_custom_boxz2 = popover.checkbox('Willpower Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-            show_custom_boxz3 =  popover.checkbox('Scroll Cup String', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+            show_custom_boxz3 =  popover.checkbox('Scroll Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
             show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
             popover.divider()
            
