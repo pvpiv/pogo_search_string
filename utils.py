@@ -84,7 +84,7 @@ def filter_ids(row):
 
     return list(filtered_list)
 
-def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var=True, all=False):
+def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var=True, all=False,shad_only=False):
     df_all = df.sort_values(by=rank_column)
     df_filtered = df.dropna(subset=[rank_column])
     df_filtered = df_filtered[df_filtered[rank_column] <= top_n]
@@ -136,28 +136,29 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
             ids_string += "&0-1attack&3-4defense,3-4hp&2-4defense&2-4hp"
         else:
             ids_string += "&3*,4*"
-
+    if shad_only:
+        ids_string += "&shadow"
     return ids_string.replace("&,", "&")
 
 
-def make_search_string(df, league, top_n, fam, iv_b, inv_b,sho_xl_val, all_pre=False):
+def make_search_string(df, league, top_n, fam, iv_b, inv_b,sho_xl_val, all_pre=False,shad_only=False):
     if league == 'little':
-        return get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre)
+        return get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre,shad_only)
     elif league == 'great':
-        return get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre)
+        return get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre,shad_only)
     elif league == 'ultra':
-        return get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre)
+        return get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre,shad_only)
     elif league == 'master':
-        return get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b,True,all_pre)
+        return get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b,True,all_pre,shad_only)
     elif league == 'all':
         return (
-            get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre)
+            get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre,shad_only)
             + ','
-            + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre)
+            + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre,shad_only)
             + ','
-            + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre)
+            + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre,shad_only)
             + ','
-            + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True,all_pre)
+            + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True,all_pre,shad_only)
         )
 
 def format_data_top(df, league, num_rank,xl_var):
