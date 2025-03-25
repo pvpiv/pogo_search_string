@@ -41,7 +41,7 @@ from session_state_manager import (
     great_but,
     ultra_but,
     master_but,
-    upd_shad	
+    upd_shad_only	
 )
 
 # Initialize session state
