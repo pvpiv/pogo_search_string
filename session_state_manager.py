@@ -64,7 +64,8 @@ def upd_xl():
     st.session_state.show_xl = st.session_state.sho_xl
 def upd_seas():
     st.session_state.get_season = st.session_state.sho_seas
-
+def upd_shad_only():
+    st.session_state.show_shadow = st.session_state.sho_shad
 def upd_cust():
     st.session_state.show_custom = st.session_state.sho_cust
 def upd_cust1():
