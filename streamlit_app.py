@@ -72,6 +72,10 @@ if  st.session_state['show_custom3']:
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data.csv')
+	
+if st.session_state.show_shadow:
+    df = df[df['Shadow']]
+
 
 cols = st.columns((3,10,1))
 with cols[0]:
