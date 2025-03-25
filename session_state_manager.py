@@ -8,6 +8,8 @@ def initialize_session_state():
         st.session_state['get_dat'] = False
     if 'get_shadow' not in st.session_state:
         st.session_state['get_shadow'] = True
+    if 'show_shadow' not in st.session_state:
+        st.session_state['show_shadow'] = False
     if 'show_xl' not in st.session_state:
         st.session_state['show_xl'] = True
     if 'get_season' not in st.session_state:
