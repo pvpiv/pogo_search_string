@@ -251,11 +251,11 @@ with cols[1]:
     
             try:
                 st.write(f'Master League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz))
+                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box,show_xl_boxz,shad_only=shad_box))
                 lab_mast = "Show Master Table"
                 if st.session_state['master_clicked']:
                     lab_mast  = "Hide Master Table"
-                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True,shad_only=shad_box)
+                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                     df_display_master = pd.DataFrame(family_data_master)
                     df_display_master.set_index(['#'])
                     st.button(lab_mast, on_click = master_but)
@@ -272,7 +272,7 @@ with cols[1]:
                 if st.session_state['little_clicked']:
                     lab_lit = "Hide Little Table"
                     st.button(lab_lit,on_click = little_but)
-                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz,shad_only=shad_box)
+                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
                     df_display_Little = pd.DataFrame(family_data_Little)
                     df_display_Little.set_index(['#'])
                     st.markdown(swap_columns(df_display_Little,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)  
