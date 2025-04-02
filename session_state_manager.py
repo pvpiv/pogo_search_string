@@ -8,6 +8,8 @@ def initialize_session_state():
         st.session_state['get_dat'] = False
     if 'get_shadow' not in st.session_state:
         st.session_state['get_shadow'] = True
+    if 'show_shadow' not in st.session_state:
+        st.session_state['show_shadow'] = False
     if 'show_xl' not in st.session_state:
         st.session_state['show_xl'] = True
     if 'get_season' not in st.session_state:
@@ -62,7 +64,8 @@ def upd_xl():
     st.session_state.show_xl = st.session_state.sho_xl
 def upd_seas():
     st.session_state.get_season = st.session_state.sho_seas
-
+def upd_shad_only():
+    st.session_state.show_shadow = st.session_state.sho_shad
 def upd_cust():
     st.session_state.show_custom = st.session_state.sho_cust
 def upd_cust1():
@@ -70,7 +73,7 @@ def upd_cust1():
 def upd_cust2():
     st.session_state.show_custom2 = st.session_state.sho_cust2
 def upd_cust3():
-    st.session_state.show_custom2 = st.session_state.sho_cust3
+    st.session_state.show_custom3 = st.session_state.sho_cust3
 def update_gym_bool():
     st.session_state['gym_bool'] = st.session_state['sho_gym']
 def upd_inv():

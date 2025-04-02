@@ -1,0 +1,100 @@
+﻿KEY VALUE,English,Brazilian,Chinese,French,German,Hindi,Indonesian,Italian,Japanese,Korean,Russian,Spanish,LatinAmerican,Thai,Turkish
+general_cp,CP,PC,CP,PC,WP,CP,CP,PL,CP,CP,БС,PC,PC,CP,DG
+filter_key_distance,distance,distância,距離,distance,Entfernung,दूर,Jarak,distanza,きょり,거리,нарасстоянии,distancia,distancia,ระยะทาง,mesafe
+pokedex_sort_hp,HP,PS,HP,PV,KP,HP,HP,Punti salute,HP,HP,ОЖ,Puntos de Salud,PS,HP,SP
+filter_key_year,year,ano,年,année,Jahr,साल,tahun,anno,年,연도,год,año,año,ป,yıl
+filter_key_age,age,idade,日數,âge,Alter,उ,usia,età,日数,일수,возраст,edad,edad,อายุ,yaş
+buddy_set,Buddy,Companheiro,夥伴,Copain,Kumpel,पाटनर,Partner,Compagno,相棒を選ぶ,파트너 포켓몬,Приятель,Compañero,Compañero,คูหู,Dost
+pokedex_mode_name_mega,Mega,Mega,超級,Méga,Mega,मेगा,Mega,Mega,メガ,메가,Мега,Mega,Mega,เมกา,Mega
+filter_key_mega_level,Mega,Mega,超級,Méga,Mega,मेगा,Mega,Mega,メガ,메가,Мега,Mega,Mega,เมกา,Mega
+filter_key_attack,attack,ataque,攻擊,attaque,Angriffs-Wert,अटैक,serangan,attacco,こうげき,공격,Атака,ataque,ataque,โจมตี,saldırı
+filter_key_defense,defense,defesa,防禦,défense,Verteidigungs-Wert,डफ़ेंस,pertahanan,difesa,ぼうぎょ,방어,Защита,defensa,defensa,ปองกัน,savunma
+pokemon_type_bug,Bug,Inseto,蟲,Insecte,Käfer,बग,Serangga,Coleottero,むし,벌레,Насекомое,Bicho,Insecto,แมลง,Böcek
+pokemon_type_dark,Dark,Sombrio,惡,Ténèbres,Unlicht,डाक,Kegelapan,Buio,あく,악,Тёмный,Siniestro,Siniestro,ความมืด,Karanlık
+pokemon_type_dragon,Dragon,Dragão,龍,Dragon,Drache,डैगन,Naga,Drago,ドラゴン,드래곤,Дракон,Dragón,Dragón,มังกร,Ejderha
+pokemon_type_electric,Electric,Elétrico,電,Électrik,Elektro,इलटक,Listrik,Elettro,でんき,전기,Электро,Eléctrico,Eléctrico,ไฟฟา,Elektrik
+pokemon_type_fairy,Fairy,Fada,妖精,Fée,Fee,फ़ेर,Peri,Folletto,フェアリー,페어리,Фея,Hada,Hada,แฟรี่,Peri
+pokemon_type_fighting,Fighting,Lutador,格鬥,Combat,Kampf,फ़ाइटंग,Petarung,Lotta,かくとう,격투,Боевой,Lucha,Pelea,ตอสู,Dövüşçü
+pokemon_type_fire,Fire,Fogo,火,Feu,Feuer,फ़ायर,Api,Fuoco,ほのお,불꽃,Огонь,Fuego,Fuego,ไฟ,Ateş
+pokemon_type_flying,Flying,Voador,飛行,Vol,Flug,़लाइंग,Terbang,Volante,ひこう,비행,Летающий,Volador,Volador,บิน,Uçan
+pokemon_type_ghost,Ghost,Fantasma,幽靈,Spectre,Geist,घोट,Hantu,Spettro,ゴースト,고스트,Привидение,Fantasma,Fantasma,ผี,Hayalet
+pokemon_type_grass,Grass,Planta,草,Plante,Pflanze,ास,Daun,Erba,くさ,풀,Трава,Planta,Planta,หญา,Bitki
+pokemon_type_ground,Ground,Terrestre,地面,Sol,Boden,ाउंड,Tanah,Terra,じめん,땅,Земля,Tierra,Tierra,ดิน,Yer
+pokemon_type_ice,Ice,Gelo,冰,Glace,Eis,आइस,Es,Ghiaccio,こおり,얼음,Лёд,Hielo,Hielo,น้ำแข็ง,Buz
+pokemon_type_normal,Normal,Normal,一般,Normal,Normal,नॉमल,Normal,Normale,ノーマル,노말,Обычный,Normal,Normal,ปกติ,Normal
+pokemon_type_poison,Poison,Venenoso,毒,Poison,Gift,पॉइज़न,Racun,Veleno,どく,독,Яд,Veneno,Veneno,พิษ,Zehir
+pokemon_type_psychic,Psychic,Psíquico,超能力,Psy,Psycho,साइकक,Psychic,Psico,エスパー,에스퍼,Психо,Psíquico,Psíquico,พลังจิต,Psişik
+pokemon_type_rock,Rock,Pedra,岩石,Roche,Gestein,रॉक,Bebatuan,Roccia,いわ,바위,Камень,Roca,Roca,หิน,Kaya
+pokemon_type_steel,Steel,Aço,鋼,Acier,Stahl,टल,Logam,Acciaio,はがね,강철,Сталь,Acero,Acero,โลหะ,Çelik
+pokemon_type_water,Water,Água,水,Eau,Wasser,वॉटर,Air,Acqua,みず,물,Вода,Agua,Agua,น้ำ,Su
+badge_pokedex_entries_title,Kanto,Kanto,關都,Kanto,Kanto,कांतो,Kanto,Kanto,カントー,관동,Канто,Kanto,Kanto,คันโต,Kanto
+badge_pokedex_entries_gen2_title,Johto,Johto,城都,Johto,Johto,जोहतो,Johto,Johto,ジョウト,성도,Джото,Johto,Johto,โจโตะ,Johto
+badge_pokedex_entries_gen3_title,Hoenn,Hoenn,豐緣,Hoenn,Hoenn,होएन,Hoenn,Hoenn,ホウエン,호연,Хоэнн,Hoenn,Hoenn,โฮเอ็น,Hoenn
+badge_pokedex_entries_gen4_title,Sinnoh,Sinnoh,神奧,Sinnoh,Sinnoh,सनोह,Sinnoh,Sinnoh,シンオウ,신오,Синно,Sinnoh,Sinnoh,ชินโอ,Sinnoh
+badge_pokedex_entries_gen5_title,Unova,Unova,合眾,Unys,Einall,युनोवा,Unova,Unima,イッシュ,하나,Юнова,Teselia,Unova,อิชชู,Unova
+badge_pokedex_entries_gen6_title,Kalos,Kalos,卡洛斯,Kalos,Kalos,कालोस,Kalos,Kalos,カロス,칼로스,Калос,Kalos,Kalos,คาลอส,Kalos
+badge_pokedex_entries_gen7_title,Alola,Alola,阿羅拉,Alola,Alola,अलोला,Alola,Alola,アローラ,알로라,Алола,Alola,Alola,อโลลา,Alola
+filter_key_alola,alola,Alola,阿羅拉,Alola,Alola,अलोला,Alola,alola,あろーら,알로라,алола,alola,alola,อโลลา,alola
+badge_pokedex_entries_gen8_title,Galar,Galar,伽勒爾,Galar,Galar,गलार,Galar,Galar,ガラル,가라르,Галар,Galar,Galar,กาลาร,Galar
+filter_key_hisui,hisui,hisui,洗翠,hisui,hisui,हसुइ,hisui,hisui,ひすい,히스이,Гисуи,hisui,hisui,ฮิซุย,hisui
+badge_pokedex_entries_gen8a_title,Hisui,Hisui,洗翠,Hisui,Hisui,हसुइ,Hisui,Hisui,ヒスイ,히스이,Гисуи,Hisui,Hisui,ฮิซุย,Hisui
+badge_pokedex_entries_gen9_title,Paldea,Paldea,帕底亞,Paldea,Paldea,पैलडीया,Paldea,Paldea,パルデア,팔데아,Пальдея,Paldea,Paldea,พัลเดีย,Paldea
+filter_key_gender_male,Male,Macho,雄性,mâle,Männlich,मेल,Jantan,maschio,おす,수컷,Мужские,macho,Macho,ตัวผู,Erkek
+filter_key_gender_female,Female,Fêmea,雌性,femelle,Weiblich,फ़ीमेल,Betina,femmina,めす,암컷,Женские,hembra,Hembra,ตัวเมีย,Dişi
+filter_key_gender_none,Genderunknown,gênerodesconhecido,性別不明,sexeinconnu,Geschlechtunbekannt,लग का पता नहीं,Gendertakdiketahui,sessosconosciuto,性別不明,성별불명,Полнеизвестен,génerodesconocido,génerodesconocido,เพศไมแนชัด,Cinsiyetbilinmiyor
+general_xxs,XXS,XXS,XXS,XXS,XXS,XXS,XXS,XXS,XXS,XXS,XXS,XXS,XXS,XXS,XXS
+general_xs,XS,XS,XS,XS,XS,XS,XS,XS,XS,XS,XS,XS,XS,XS,XS
+general_xl,XL,XL,XL,XL,XL,XL,XL,XL,XL,XL,XL,XL,XL,XL,XL
+general_xxl,XXL,XXL,XXL,XXL,XXL,XXL,XXL,XXL,XXL,XXL,XXL,XXL,XXL,XXL,XXL
+filter_key_costume,costume,traje,特殊,costume,kostümiert,कॉट्यूम,kostum,costume,とくべつ,특별,костюмы,disfraz,disfraz,เครื่องแตงกาย,kostüm
+filter_key_location_card,locationbackground,fundodelocalidade,紀念背卡,fonddelieu,Ortshintergrund,लोकशनबैकाउंड,latarbelakanglokasi,sfondodiposizione,ろけーしょんはいけい,로케이션배경,фонместа,fondodelugar,fondodelaubicación,พื้นหลังสถานที่,konumarkaplanı
+filter_key_location_card_old,locationcards,cartoesdelocalizacao,紀念背卡,cartesdelieu,ortskarten,लोकशन काड,kartulokasi,schedericordo,はいけい,배경,карточкиместа,cartasdelugar,tarjetadeubicacion,การดสถานที่,konumkartları
+filter_key_special_background,specialbackground,fundoespecial,特別背卡,fondspécial,Spezialhintergrund,पेशलबैकाउंड,latarbelakangspesial,sfondospeciale,すぺしゃるはいけい,스페셜배경,особыйфон,fondoespecial,fondoespecial,พื้นหลังพิเศษ,özelarkaplan
+filter_key_any_background,background,fundo,背卡,fond,Hintergrund,बैकाउंड,latarbelakang,sfondo,はいけい,배경,фон,fondo,fondo,พื้นหลัง,arkaplan
+filter_key_baby,eggsonly,apenasovos,只限蛋,oeufseulement,nurausEiern,सफ़ अंडे,khusustelur,solouovo,たまごのみ,알,толькояйца,huevosolo,solohuevos,รางเบบี้,sadeceyumurta
+filter_key_legendary,legendary,lendário,傳說的寶可夢,légendaire,Legendär,लजेंडर,Legendaris,leggendario,伝説のポケモン,전설의 포켓몬,легендарные,legendario,legendario,ตำนาน,efsanevi
+filter_key_mythical,mythical,Mítico,幻,fabuleux,Mysteriös,मथकल,Mitos,misterioso,まぼろし,환상,мифические,singular,mítico,มายา,mitolojik
+filter_key_ultra_beast,Ultra Beasts,Ultracriatura,究極異獸,Ultra-Chimère,Ultrabestien,अटा बीट,Ultra Beast,ultracreatura,ウルトラビースト,울트라비스트,Ультрачудовища,Ultraente,Ultraente,อัลตราบีสต,Ultra Yaratık
+filter_key_ultra_beasts,ultrabeast,ultracriatura,究極異獸,ultra-chimère,ultrabestie,अटाबीट,UltraBeast,ultracreatura,ウルトラビースト,울트라비스트,Ультрачудовище,ultraente,ultraente,อัลตราบีสต,ultrayaratık
+filter_key_shadow,shadow,Sombroso,暗影,obscur,Crypto,शैडो,bayangan,ombra,しゃどう,그림자,теневые,oscuro,oscuro,ชาโดว,gölge
+filter_key_purified,purified,purificado,淨化,purifié,erlöst,शु,purifikasi,purificato,らいと,정화,очищенные,purificado,purificado,ชำระลาง,arınmış
+filter_key_shiny,shiny,Brilhante,異色,chromatique,Schillernd,शाइनी,Bersinar,cromatico,色違い,색이 다른,сияющие,variocolor,brillante,สีแตกตาง,parlak
+filter_key_lucky,lucky,sortudo,亮晶晶,chanceux,Glücks,लक,istimewa,fortunato,キラ,반짝반짝,удачливые,suerte,suerte,นำโชค,şanslı
+filter_key_defender,defender,defensor,防禦者,défenseur,Verteidiger,डफ़ेंडर,Pelindung,difensore,ジムを守るポケモン,방어 포켓몬,защитники,defensor,defensor,ปองกันยิม,savunan
+favorite_filter_group_key,Favorite,Favorito,我的最愛,Favoris,Favorit,पसंदीदा,Favorit,Preferiti,お気に入り,즐겨찾기,Избранные,Favoritos,Favoritos,รายการโปรด,Favori
+filter_key_candyxl,candyxl,doce GG,糖果XL,bonbonL,bonbonxl,कडी XL,permenxl,caramellaL,アメXL,사탕XL,конфетыXL,caramelo++,carameloxl,ลูกอม XL,büyükşeker
+filter_key_bread,dynamax,dinamax,極巨化,dynamax,dynamax,डायनामैस,dynamax,dynamax,だいまっくす,다이맥스,динамакс,dinamax,dinamax,ไดแมกซ,dinamaks
+filter_key_dough,gigantamax,gigamax,超極巨化,gigamax,gigadynamax,जायगैंटामैस,gigantamax,gigamax,きょだいまっくす,거다이 맥스,гигантамакс,gigamax,gigamax,กิกะแมกซ,gigantamaks
+filter_key_candy_km,candykm,docekm,糖果距離,kmbonbon,Bonbonkm,कडी km,permenkm,kmcaramella,アメ距離,사탕 거리,конфетакм,kmcaramelo,kmcaramelo,ระยะทางลูกอม,şekerkm
+filter_key_has_duplicate,Duplicate,duplicado,兩隻以上,Double,Duplikate,डुलकट,Duplikat,Più esemplari,ふくすう,중복,Повторяющиеся,Repetido,Copia,ซ้ำ,birdençok
+filter_key_count,count,total,數量,total,Anzahl,गने,hitung,quantità,カウント,카운트,всего,cantidad,cantidad,จำนวน,toplam
+filter_key_raid,raid,Reide,團體戰,Raid,Raid,रड,raid,raid,レイド,레이드,рейд,Incursión,incursión,ตีบอส,akın
+filter_key_raid_remote,remoteraid,reideadistância,遠距團體戰,raidàdistance,FernRaid,रमोटरड,raidjarakjauh,raidremoto,リモートレイド,리모트 레이드,удалённыйрейд,incursiónremota,incursiónremota,ตีบอสระยะไกล,uzakakın
+filter_key_raid_mega,megaraid,megarreide,超級團體戰,mégaraid,MegaRaid,मेगारड,raidmega,megaraid,メガレイド,메가 레이드,мегарейд,megaincursión,megaincursión,ตีบอสเมกา,megaakın
+filter_key_raid_ex,exraid,reideex,VIP團體戰,raidex,ExRaid,EX रड,raidex,raidex,EXレイド,EX레이드,EX-рейд,incursiónex,incursiónex,ตีบอส EX,özelakın
+filter_key_raid_primal,primalraid,reideprimitivo,原始團體戰,primo-raid,protoraid,ाइमल रड,raidprimal,archeoraid,げんしれいど,원시 레이드,проторейд,incursionprimigenia,incursionprimigenia,ตีบอสตนกำเนิด,kadimakın
+filter_key_hatched,hatched,chocado,孵化,éclos,ausgebrütet,हैच कए गए,ditetaskan,dauovo,ふか,부화,вылупились,eclosionado,eclosionado,ฟกจากไข,yumurtadan
+filter_key_research,research,pesquisa,調查,étude,Forschung,रसच,penelitian,ricerca,リサーチ,리서치,квест,investigación,investigación,งานวิจัย,araştırma
+filter_key_gbl,gbl,lbg,GO對戰聯盟,lgc,GBL,gbl,gbl,llg,バトルリーグ,gbl,боеваялигаGO,lcg,lcg,โกแบตเทิลลีก,gml
+filter_key_rocket,rocket,rocket,火箭,rocket,Rocket,रॉकट,roket,rocket,ロケット,로켓,ракета,rocket,rocket,ร็อกเกต,roket
+filter_key_photobomb,snapshot,retrato,Snapshot,photo,Schnappschuss,नैपशॉट,hasil potret,foto,スナップショット,스냅샷,фото,instantánea,foto,ถายภาพ,Fotoğraf
+filter_key_traded,traded,Trocado,交換,échangé,getauscht,टड कये गए,ditukarkan,scambiato,こうかん,교환,обменянные,intercambiados,intercambiados,แลกเปลี่ยน,takaslanan
+filter_key_caught_in_party,party,grupo,小隊,équipe,team,टम,grup,gruppo,チーム,팀,команда,equipo,equipo,ปารตี้,ekip
+pokemon_info_evolve_button,Evolve,Evoluir,進化,Évoluer,Entwickeln,वकसत,Evolusi,Fai evolvere,進化,진화,Эволюция,Evolucionar,Evolucionar,วิวัฒนาการ,Evrimleştir
+filter_key_evolve_to_new,evolvenew,evoluirnovo,未登錄,nouvelleévolution,NeueEntwicklung,नया वकास करं,evolusibaru,nuovaevoluzione,みとうろく,미등록,новаяэволюция,nuevaevolución,nuevaevolución,วิวัฒนาการใหม,yenievrim
+filter_key_evolve_mega,megaevolve,megaevolui,超級進化,mégaévolue,MegaEntwicklung,मेगा एवॉव,evolusimega,megaevoluto,めがしんか,메가진화,мегаэволюция,megaevoluciona,megaevoluciona,วิวัฒนาการเมกา,megaevrim
+filter_key_evolvemega,megaevolve,megaevolui,超級進化,mégaévolue,MegaEntwicklung,मेगा एवॉव,evolusimega,megaevoluzione,めがしんか,메가진화,мегаэволюция,megaevoluciona,megaevoluciona,วิวัฒนาการเมกา,megaevrim
+filter_key_evolve_with_item,item,item,道具,objet,Item,आइटम,item,strumento,どうぐ,도구,предмет,objeto,objeto,ไอเท็ม,eşya
+filter_key_can_evolve_with_trading,tradeevolve,evoluirportroca,交換進化,évolutionparéchange,Tauschentwicklung,टड करक वकसत,tukardanevolusi,evoluzionetramitescambio,こうかんしんか,교환진화,обменэволюция,evoluciónintercambio,evoluciónintercambio,แลกเปลี่ยนกลายราง,takasevrimi
+filter_key_evolve_with_quest,evolvequest,evoluirmissao,有進化條件,évolutionparquête,entwicklungsaufgabe,इवॉववेट,evolusimisi,evoluzionetramitericerca,じょうけんしんか,조건 진화,эволюциявквесте,investigacionevolucion,evolucióninvestigación,เงื่อนไขวิวัฒนาการ,evrimgörevi
+filter_key_fusion,fusion,fusão,合體,fusion,Fusion,यूज़न,fusi,fusione,がったい,합체,объединение,fusión,fusión,รวมราง,birleştirme
+filter_key_special_move,special,especial,特別,spécial,spezial,पेशल,Spesial,speciale,わざ,기술,особые,especial,especial,พิเศษ,özel
+weather_weather,Weather,Clima,天氣,Météo,Wetter,मौसम,Cuaca,Condizioni atmosferiche,天候,날씨,Погода,Tiempo atmosférico,Clima,สภาพอากาศ,Hava Durumu
+filter_key_field_effect,adventureeffect,efeitodeaventura,冒險效果,effetaventure,abenteuereffekt,फ़ीडइफ़ेट,efekpetualangan,effettoavventura,ふぃーるど,필드,эффектприключений,efectoaventura,efectoaventura,เอฟเฟกตผจญภัย,maceraetkisi
+filter_key_bread_move_a,maxmove,movimentomax,極巨招式,capacitédynamax,dynaattacke,मैसमूव,jurusmax,mossadynamax,まっくすわざ,맥스 기술,приёммакс,movimientomax,movimientomax,ทาแมกซ,maksihareket
+filter_key_bread_move_b,maxguard,guardamax,極巨防壁,gardomax,dynawall,मैसगाड,maxguard,dynabarriera,だいうぉーる,다이월,защитамакс,maxibarrera,maxibarrera,ไดวอลล,maksikoruma
+filter_key_bread_move_c,maxspirit,espiritomax,極巨回復,régémax,dynakampfgeist,मैसिपरट,maxspirit,dynaspirito,だいりかばりー,다이리커버리,боевойдухмакс,maxivigor,maxiánimo,ไดรีคัฟเวอรี,maksiruh
+filter_friend_key_interactable,interactable,interagir,互動,interaction,interaktionsfähig,इंटरैट करने लायक,interaksi,interagisci,インタラクト,상호작용,общающиеся,interacción,interacción,เพิ่มระดับได,etkileşimli
+filter_friend_key_giftable,giftable,presenteável,禮物,cadeau,schenkbar,गट,hadiah,regala,ギフト,선물,подарок,regalo,regalo,ใหของได,hediye
+filter_friend_key_lucky,lucky,sortudo,亮晶晶,chanceux,Glücks,लक,istimewa,fortunato,キラ,반짝반짝,удачливые,suerte,suerte,นำโชค,şanslı
+filter_friend_key_rank,friendlevel,níveldeamizade,友誼等級,niveauamitié,Freundeslevel,दोत का लवल,levelteman,livelloamicizia,仲良し度,우정레벨,уровеньдружбы,nivelamistad,nivelamistad,ระดับเพื่อน,arkadaşseviyesi
