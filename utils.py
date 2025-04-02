@@ -210,6 +210,7 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
             ids_string += "&3*,4*"
 
     final_string = ids_string.replace("&,", "&")
+    final_string =final_string.replace(',&!','&!')
     # Apply additional translations for any other terms that might be in the string
     return translate_search_string(final_string, language)
 
