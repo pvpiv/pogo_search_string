@@ -75,10 +75,8 @@ def initialize_session_state():
 def update_language():
     """Update the language in session state and URL"""
     # Check which key was used to trigger the update
-    if 'lang_choice' in st.session_state:
-        new_lang = st.session_state.lang_choice
-    elif 'sidebar_lang_choice' in st.session_state:
-        new_lang = st.session_state.sidebar_lang_choice
+    if 'sidebar_lang_choice_box' in st.session_state:
+        new_lang = st.session_state.sidebar_lang_choice_box
     else:
         return  # No language selection was made
         

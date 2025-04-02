@@ -25,30 +25,54 @@ def translate_search_string(search_string, language='English'):
     if language == 'English':
         return search_string
         
+    # Get translations for all key terms
     translations = {
         'cp': get_translation('general_cp', language).lower(),
-        'attack': get_translation('filter_key_attack', language),
-        'defense': get_translation('filter_key_defense', language),
-        'hp': get_translation('pokedex_sort_hp', language),
-        'shadow': get_translation('filter_key_shadow', language),
-        'fusion': get_translation('filter_key_fusion', language),
-        'kanto': get_translation('badge_pokedex_entries_title', language),
-        'johto': get_translation('badge_pokedex_entries_gen2_title', language),
-        'hoenn': get_translation('badge_pokedex_entries_gen3_title', language),
-        'sinnoh': get_translation('badge_pokedex_entries_gen4_title', language),
-        'unova': get_translation('badge_pokedex_entries_gen5_title', language),
-        'kalos': get_translation('badge_pokedex_entries_gen6_title', language),
-        'alola': get_translation('badge_pokedex_entries_gen7_title', language),
-        'galar': get_translation('badge_pokedex_entries_gen8_title', language),
-        'hisui': get_translation('filter_key_hisui', language),
-        'paldea': get_translation('badge_pokedex_entries_gen9_title', language)
+        'attack': get_translation('filter_key_attack', language).lower(),
+        'defense': get_translation('filter_key_defense', language).lower(),
+        'hp': get_translation('pokedex_sort_hp', language).lower(),
+        'shadow': get_translation('filter_key_shadow', language).lower(),
+        'fusion': get_translation('filter_key_fusion', language).lower(),
+        'kanto': get_translation('badge_pokedex_entries_title', language).lower(),
+        'johto': get_translation('badge_pokedex_entries_gen2_title', language).lower(),
+        'hoenn': get_translation('badge_pokedex_entries_gen3_title', language).lower(),
+        'sinnoh': get_translation('badge_pokedex_entries_gen4_title', language).lower(),
+        'unova': get_translation('badge_pokedex_entries_gen5_title', language).lower(),
+        'kalos': get_translation('badge_pokedex_entries_gen6_title', language).lower(),
+        'alola': get_translation('filter_key_alola', language).lower(),
+        'galar': get_translation('badge_pokedex_entries_gen8_title', language).lower(),
+        'hisui': get_translation('filter_key_hisui', language).lower(),
+        'paldea': get_translation('badge_pokedex_entries_gen9_title', language).lower(),
+        'year': get_translation('filter_key_year', language).lower(),
+        'age': get_translation('filter_key_age', language).lower()
     }
     
     translated = search_string
     for eng, trans in translations.items():
-        translated = translated.replace(eng, trans)
+        # Replace the term with proper word boundaries to avoid partial matches
+        translated = translated.replace(f"{eng}-", f"{trans}-")
+        translated = translated.replace(f"{eng}&", f"{trans}&")
+        translated = translated.replace(f"{eng},", f"{trans},")
+        translated = translated.replace(f" {eng} ", f" {trans} ")
+        
+        # Handle beginning and end of string
+        if translated.startswith(f"{eng}"):
+            translated = translated.replace(f"{eng}", f"{trans}", 1)
+        if translated.endswith(f"{eng}"):
+            translated = translated[:-len(eng)] + trans
+            
         # Also replace capitalized version
-        translated = translated.replace(eng.capitalize(), trans.capitalize())
+        cap_eng = eng.capitalize()
+        cap_trans = trans.capitalize()
+        translated = translated.replace(f"{cap_eng}-", f"{cap_trans}-")
+        translated = translated.replace(f"{cap_eng}&", f"{cap_trans}&")
+        translated = translated.replace(f"{cap_eng},", f"{cap_trans},")
+        translated = translated.replace(f" {cap_eng} ", f" {cap_trans} ")
+        
+        if translated.startswith(f"{cap_eng}"):
+            translated = translated.replace(f"{cap_eng}", f"{cap_trans}", 1)
+        if translated.endswith(f"{cap_eng}"):
+            translated = translated[:-len(cap_eng)] + cap_trans
         
     return translated
 
@@ -145,11 +169,7 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
 
     all_ids = list(all_ids_set)
 
-    # Get translations for key terms
     cp_str = get_translation('general_cp', language).lower()
-    attack_str = get_translation('filter_key_attack', language).lower()
-    defense_str = get_translation('filter_key_defense', language).lower()
-    hp_str = get_translation('pokedex_sort_hp', language).lower()
     
     if not all:
         prefix = (
@@ -180,13 +200,18 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
         ids_string = prefix + ','.join(all_ids)
 
     if iv_bool and not inv_bool:
+        attack_str = get_translation('filter_key_attack', language).lower()
+        defense_str = get_translation('filter_key_defense', language).lower()
+        hp_str = get_translation('pokedex_sort_hp', language).lower()
+        
         if league != 'master':
             ids_string += f"&0-1{attack_str}&3-4{defense_str},3-4{hp_str}&2-4{defense_str}&2-4{hp_str}"
         else:
             ids_string += "&3*,4*"
 
     final_string = ids_string.replace("&,", "&")
-    return final_string  # No need to translate again, we've already used translated terms
+    # Apply additional translations for any other terms that might be in the string
+    return translate_search_string(final_string, language)
 
 
 def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val, all_pre=False, language='English'):
