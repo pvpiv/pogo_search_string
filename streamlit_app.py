@@ -103,6 +103,16 @@ with cols[0]:
 ):
         popover = st.popover('Settings' ,use_container_width =True)
         
+        # Add language selector at the top of settings
+        popover.selectbox(
+            "Language",
+            options=AVAILABLE_LANGUAGES,
+            key="lang_choice",
+            index=AVAILABLE_LANGUAGES.index(st.session_state['language']),
+            on_change=update_language
+        )
+        popover.divider()
+        
         if not st.session_state['table_string_butt']:
             butt_label = "Switch to Search Strings"
            # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
@@ -240,7 +250,7 @@ with cols[1]:
     
             try:
                 st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, st.session_state['language']))
+                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False, st.session_state['language']))
                 lab_ult = "Show Ultra Table"
                 if st.session_state['ultra_clicked']:
                     lab_ult  = "Hide Ultra Table"
@@ -257,7 +267,7 @@ with cols[1]:
     
             try:
                 st.write(f'Master League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, st.session_state['language']))
+                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False, st.session_state['language']))
                 lab_mast = "Show Master Table"
                 if st.session_state['master_clicked']:
                     lab_mast  = "Hide Master Table"
@@ -273,7 +283,7 @@ with cols[1]:
                 pass
             try:
                 st.write(f'Little League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, st.session_state['language']))
+                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False, st.session_state['language']))
                 lab_lit = "Show Little Table"
                 if st.session_state['little_clicked']:
                     lab_lit = "Hide Little Table"
@@ -297,7 +307,7 @@ with cols[1]:
             defenders = pd.read_csv('defenders.csv')
             try:
                 st.write(f'Defenders Search String:')
-                st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, st.session_state['language']))
+                st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False, st.session_state['language']))
                 lab_def = "Show Defenders Table"
                 if st.session_state['master_clicked']:
                     lab_def = "Hide Defenders Table"
@@ -312,7 +322,7 @@ with cols[1]:
                 pass
             try:
                 st.write(f'Attackers Search String:')
-                st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, st.session_state['language']))
+                st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False, st.session_state['language']))
                 lab_att = "Show Attackers Table"
                 if st.session_state['ultra_clicked']:
                     lab_att = "Hide Attackers Table"
@@ -331,7 +341,7 @@ with cols[1]:
                 days_since_date = calculate_days_since(season_start)
                 age_string = f"age0-{days_since_date}&"
                 st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, st.session_state['language']))
+                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False, st.session_state['language']))
                 lab_mast = "Show Custom Table"
                 if st.session_state['master_clicked']:
                     lab_mast  = "Hide Custom Table"
