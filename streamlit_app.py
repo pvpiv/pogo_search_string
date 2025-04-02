@@ -55,7 +55,7 @@ with st.sidebar:
     st.selectbox(
         "Language",
         options=AVAILABLE_LANGUAGES,
-        key="lang_choice",
+        key="sidebar_lang_choice",
         index=AVAILABLE_LANGUAGES.index(st.session_state['language']),
         on_change=update_language
     )

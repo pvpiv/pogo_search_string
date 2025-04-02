@@ -3,10 +3,17 @@
 import streamlit as st
 import streamlit_analytics2
 import pandas as pd
+import random
+import string
 
 # Get available languages from translation file
 TRANSLATIONS_DF = pd.read_csv('translation.csv')
 AVAILABLE_LANGUAGES = [col for col in TRANSLATIONS_DF.columns if col not in ['KEY VALUE']]
+
+def generate_unique_key(base_key):
+    """Generate a unique key by appending a random string"""
+    random_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
+    return f"{base_key}_{random_suffix}"
 
 def initialize_session_state():
     # Get language from query params if available
@@ -61,10 +68,20 @@ def initialize_session_state():
         st.session_state['gym_bool'] = False
     if "state_dict" not in st.session_state:
         st.session_state.state_dict = {}
+    # Store used keys to avoid duplicates
+    if "used_keys" not in st.session_state:
+        st.session_state.used_keys = set()
 
 def update_language():
     """Update the language in session state and URL"""
-    new_lang = st.session_state.lang_choice
+    # Check which key was used to trigger the update
+    if 'lang_choice' in st.session_state:
+        new_lang = st.session_state.lang_choice
+    elif 'sidebar_lang_choice' in st.session_state:
+        new_lang = st.session_state.sidebar_lang_choice
+    else:
+        return  # No language selection was made
+        
     st.session_state['language'] = new_lang
     # Update URL query parameter
     current_params = st.query_params
