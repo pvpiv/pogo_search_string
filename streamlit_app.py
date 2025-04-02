@@ -86,53 +86,46 @@ else:
 
 cols = st.columns((3,10,1))
 with cols[0]:
-   
-
-    with stylable_container(
-    key= "Settings" ,
-    css_styles="""
-        button {
-            width: 100px;
-            height: 45px;
-            background-color: green;
-            color: white;
-            border-radius: 5px;
-            white-space: nowrap;
-        }
-        """,
-):
-        popover = st.popover('Settings' ,use_container_width =True)
-        
-        # Add language selector at the top of settings
-        popover.selectbox(
-            "Language",
-            options=AVAILABLE_LANGUAGES,
-            key="lang_choice",
-            index=AVAILABLE_LANGUAGES.index(st.session_state['language']),
-            on_change=update_language
-        )
-        popover.divider()
-        
-        if not st.session_state['table_string_butt']:
-            butt_label = "Switch to Search Strings"
-           # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-           # show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust1, key='sho_cust2')
-
-           # show_custom_boxz2 = popover.checkbox('Willpower Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-            show_custom_boxz3 =  popover.checkbox('Scroll Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
-            show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
-
-        else:
-            butt_label = "Switch to Pokémon Lookup"
-          #  show_custom_boxz2 = popover.checkbox('Willpower Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-            show_custom_boxz3 =  popover.checkbox('Scroll Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
-            show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
+    # Create a row with two columns for Settings and Language dropdown
+    settings_col, lang_col = st.columns([1, 1])
+    
+    with settings_col:
+        with stylable_container(
+            key="Settings",
+            css_styles="""
+                button {
+                    width: 100px;
+                    height: 45px;
+                    background-color: green;
+                    color: white;
+                    border-radius: 5px;
+                    white-space: nowrap;
+                }
+                """,
+        ):
+            popover = st.popover('Settings', use_container_width=True)
             popover.divider()
-           
-            fam_box = popover.checkbox('Include pre-evolutions', value=True)
-            show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
-            iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
-            inv_box = popover.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')# tables_pop = st.popover("League Tables")
+            
+            if not st.session_state['table_string_butt']:
+                butt_label = "Switch to Search Strings"
+               # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
+               # show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust1, key='sho_cust2')
+
+               # show_custom_boxz2 = popover.checkbox('Willpower Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz3 =  popover.checkbox('Scroll Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+                show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
+
+            else:
+                butt_label = "Switch to Pokémon Lookup"
+              #  show_custom_boxz2 = popover.checkbox('Willpower Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz3 =  popover.checkbox('Scroll Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+                show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
+                popover.divider()
+               
+                fam_box = popover.checkbox('Include pre-evolutions', value=True)
+                show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
+                iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
+                inv_box = popover.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')# tables_pop = st.popover("League Tables")
 
     
 
@@ -145,6 +138,15 @@ with cols[0]:
     )
  #   season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
 
+    with lang_col:
+        st.selectbox(
+            "Language",
+            options=AVAILABLE_LANGUAGES,
+            key="sidebar_lang_choice",
+            index=AVAILABLE_LANGUAGES.index(st.session_state['language']),
+            on_change=update_language,
+            label_visibility="collapsed"
+        )
 
 with cols[1]:
 

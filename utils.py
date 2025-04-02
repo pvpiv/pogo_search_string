@@ -145,7 +145,11 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
 
     all_ids = list(all_ids_set)
 
+    # Get translations for key terms
     cp_str = get_translation('general_cp', language).lower()
+    attack_str = get_translation('filter_key_attack', language).lower()
+    defense_str = get_translation('filter_key_defense', language).lower()
+    hp_str = get_translation('pokedex_sort_hp', language).lower()
     
     if not all:
         prefix = (
@@ -176,17 +180,13 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
         ids_string = prefix + ','.join(all_ids)
 
     if iv_bool and not inv_bool:
-        attack = get_translation('filter_key_attack', language).lower()
-        defense = get_translation('filter_key_defense', language).lower()
-        hp = get_translation('pokedex_sort_hp', language).lower()
-        
         if league != 'master':
-            ids_string += f"&0-1{attack}&3-4{defense},3-4{hp}&2-4{defense}&2-4{hp}"
+            ids_string += f"&0-1{attack_str}&3-4{defense_str},3-4{hp_str}&2-4{defense_str}&2-4{hp_str}"
         else:
             ids_string += "&3*,4*"
 
     final_string = ids_string.replace("&,", "&")
-    return translate_search_string(final_string, language)
+    return final_string  # No need to translate again, we've already used translated terms
 
 
 def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val, all_pre=False, language='English'):
