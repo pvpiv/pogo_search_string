@@ -50,15 +50,7 @@ from session_state_manager import (
 # Initialize session state
 initialize_session_state()
 
-# Add language selector in the sidebar
-with st.sidebar:
-    st.selectbox(
-        "Language",
-        options=AVAILABLE_LANGUAGES,
-        key="sidebar_lang_choice",
-        index=AVAILABLE_LANGUAGES.index(st.session_state['language']),
-        on_change=update_language
-    )
+
 
 query_params = st.query_params  #st.experimental_get_query_params()
 
@@ -142,7 +134,7 @@ with cols[0]:
         st.selectbox(
             "Language",
             options=AVAILABLE_LANGUAGES,
-            key="sidebar_lang_choice",
+            key="sidebar_lang_choice_box",
             index=AVAILABLE_LANGUAGES.index(st.session_state['language']),
             on_change=update_language,
             label_visibility="collapsed"
