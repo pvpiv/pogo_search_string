@@ -389,11 +389,11 @@ with cols[1]:
         
             topstrin = str(st.session_state.top_num)
             if st.session_state['show_custom']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom2']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Willpower Cup into PokeGO*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Willpower Cup into PokeGO {st.session_state['language']}*'
             else:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO {st.session_state['language']}*'
             st.text_input(
                 label=today.strftime("%m/%d/%y"),
                 value= copy_val,
