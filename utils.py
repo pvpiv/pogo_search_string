@@ -10,6 +10,48 @@ import requests
 import pytz
 from streamlit_toggle import toggle
 
+# Load translations
+TRANSLATIONS_DF = pd.read_csv('translation.csv')
+
+def get_translation(key, language='English'):
+    """Get translation for a given key and language"""
+    try:
+        return TRANSLATIONS_DF.loc[TRANSLATIONS_DF['KEY VALUE'] == key, language].iloc[0]
+    except:
+        return key
+
+def translate_search_string(search_string, language='English'):
+    """Translate a search string to the specified language"""
+    if language == 'English':
+        return search_string
+        
+    translations = {
+        'cp': get_translation('general_cp', language).lower(),
+        'attack': get_translation('filter_key_attack', language),
+        'defense': get_translation('filter_key_defense', language),
+        'hp': get_translation('pokedex_sort_hp', language),
+        'shadow': get_translation('filter_key_shadow', language),
+        'fusion': get_translation('filter_key_fusion', language),
+        'kanto': get_translation('badge_pokedex_entries_title', language),
+        'johto': get_translation('badge_pokedex_entries_gen2_title', language),
+        'hoenn': get_translation('badge_pokedex_entries_gen3_title', language),
+        'sinnoh': get_translation('badge_pokedex_entries_gen4_title', language),
+        'unova': get_translation('badge_pokedex_entries_gen5_title', language),
+        'kalos': get_translation('badge_pokedex_entries_gen6_title', language),
+        'alola': get_translation('badge_pokedex_entries_gen7_title', language),
+        'galar': get_translation('badge_pokedex_entries_gen8_title', language),
+        'hisui': get_translation('filter_key_hisui', language),
+        'paldea': get_translation('badge_pokedex_entries_gen9_title', language)
+    }
+    
+    translated = search_string
+    for eng, trans in translations.items():
+        translated = translated.replace(eng, trans)
+        # Also replace capitalized version
+        translated = translated.replace(eng.capitalize(), trans.capitalize())
+        
+    return translated
+
 class MyList(list):
     def last_index(self):
         return len(self) - 1
@@ -84,7 +126,7 @@ def filter_ids(row):
 
     return list(filtered_list)
 
-def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var=True, all=False,shad_only=False):
+def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var=True, all=False, language='English'):
     df_all = df.sort_values(by=rank_column)
     df_filtered = df.dropna(subset=[rank_column])
     df_filtered = df_filtered[df_filtered[rank_column] <= top_n]
@@ -103,11 +145,13 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
 
     all_ids = list(all_ids_set)
 
+    cp_str = get_translation('general_cp', language).lower()
+    
     if not all:
         prefix = (
-            'cp-500&' if league == 'little' else
-            'cp-1500&' if league == 'great' else
-            'cp-2500&' if league == 'ultra' else
+            f'{cp_str}-500&' if league == 'little' else
+            f'{cp_str}-1500&' if league == 'great' else
+            f'{cp_str}-2500&' if league == 'ultra' else
             ''
         )
     else:
@@ -121,7 +165,7 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
                 '2501' if league == 'ultra' else
                 ''
             )
-            cp_threshold = f'cp{cp_cap}-'
+            cp_threshold = f'{cp_str}{cp_cap}-'
         else:
             cp_threshold = ''
 
@@ -132,37 +176,37 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
         ids_string = prefix + ','.join(all_ids)
 
     if iv_bool and not inv_bool:
+        attack = get_translation('filter_key_attack', language).lower()
+        defense = get_translation('filter_key_defense', language).lower()
+        hp = get_translation('pokedex_sort_hp', language).lower()
+        
         if league != 'master':
-            ids_string += "&0-1attack&3-4defense,3-4hp&2-4defense&2-4hp"
+            ids_string += f"&0-1{attack}&3-4{defense},3-4{hp}&2-4{defense}&2-4{hp}"
         else:
             ids_string += "&3*,4*"
-    if shad_only:
-        ids_string += "&shadow"
-    return ids_string.replace("&,", "&")
+
+    final_string = ids_string.replace("&,", "&")
+    return translate_search_string(final_string, language)
 
 
-def make_search_string(df, league, top_n, fam, iv_b, inv_b,sho_xl_val, all_pre=False,shad_only=False):
-    if shad_only:
-        shad_str = '&shadow'
-    else:
-        shad_str = ''
+def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val, all_pre=False, language='English'):
     if league == 'little':
-        return get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre,shad_only)
+        return get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre, language)
     elif league == 'great':
-        return get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre,shad_only)
+        return get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre, language)
     elif league == 'ultra':
-        return get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre,shad_only)
+        return get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre, language)
     elif league == 'master':
-        return get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b,True,all_pre,shad_only)
+        return get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre, language)
     elif league == 'all':
         return (
-            get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre)
+            get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre, language)
             + ','
-            + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre)
+            + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre, language)
             + ','
-            + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,all_pre)
+            + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre, language)
             + ','
-            + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True,all_pre)  + shad_str
+            + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre, language)
         )
 
 def format_data_top(df, league, num_rank,xl_var):
