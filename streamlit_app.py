@@ -64,8 +64,8 @@ query_params = st.query_params  #st.experimental_get_query_params()
 season_start = date(2025, 3, 4)
 
 # Set GitHub API URL based on 'show_custom' flag
-if  st.session_state['show_custom3']:
-    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_scroll.csv'
+if  st.session_state['show_custom']:
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mpremier.csv'
     df = pd.read_csv('pvp_data_scroll.csv')
 	
 #elif  st.session_state['show_custom2']:
@@ -104,13 +104,13 @@ with cols[0]:
                # show_custom_boxz = popover.checkbox('Willpower Cup', on_change=upd_cust1, key='sho_cust2')
 
                # show_custom_boxz2 = popover.checkbox('Willpower Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz3 =  popover.checkbox('Scroll Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+                show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
               #  show_custom_boxz2 = popover.checkbox('Willpower Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz3 =  popover.checkbox('Scroll Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+                show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                
@@ -368,12 +368,12 @@ with cols[1]:
         elif st.session_state['show_custom3']: 
 
 
-            lab_gre = "Show Scroll Cup Table"
-            st.write(f'Scroll Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show Master Premier Cup Table"
+            st.write(f'Master Premier Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False, st.session_state['language']))
-            lab_gre = "Show Scroll Cup Table"
+            lab_gre = "Show Master Premier Cup Table"
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Scroll Cup Table"
+                lab_gre  = "Hide Master Premier Cup Table"
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
@@ -388,8 +388,8 @@ with cols[1]:
         
         
             topstrin = str(st.session_state.top_num)
-            if st.session_state['show_custom3']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Scroll Cup into PokeGO*'
+            if st.session_state['show_custom']:
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO*'
             elif st.session_state['show_custom2']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Willpower Cup into PokeGO*'
             else:
