@@ -2,8 +2,21 @@
 
 import streamlit as st
 import streamlit_analytics2
+import pandas as pd
+
+# Get available languages from translation file
+TRANSLATIONS_DF = pd.read_csv('translation.csv')
+AVAILABLE_LANGUAGES = [col for col in TRANSLATIONS_DF.columns if col not in ['KEY VALUE']]
 
 def initialize_session_state():
+    # Get language from query params if available
+    query_params = st.query_params
+    default_language = query_params.get('lang', 'English')
+    if default_language not in AVAILABLE_LANGUAGES:
+        default_language = 'English'
+        
+    if 'language' not in st.session_state:
+        st.session_state['language'] = default_language
     if 'get_dat' not in st.session_state:
         st.session_state['get_dat'] = False
     if 'get_shadow' not in st.session_state:
@@ -49,8 +62,14 @@ def initialize_session_state():
     if "state_dict" not in st.session_state:
         st.session_state.state_dict = {}
 
-        
-
+def update_language():
+    """Update the language in session state and URL"""
+    new_lang = st.session_state.lang_choice
+    st.session_state['language'] = new_lang
+    # Update URL query parameter
+    current_params = st.query_params
+    current_params['lang'] = new_lang
+    st.query_params = current_params
 
 def update_top_num():
     st.session_state.top_num = st.session_state.top_no
@@ -60,26 +79,34 @@ def upd_tab_str():
     
 def upd_shadow():
     st.session_state.get_shadow = st.session_state.sho_shad
+
 def upd_xl():
     st.session_state.show_xl = st.session_state.sho_xl
+
 def upd_seas():
     st.session_state.get_season = st.session_state.sho_seas
+
 def upd_shad_only():
     st.session_state.show_shadow = st.session_state.sho_shad
+
 def upd_cust():
     st.session_state.show_custom = st.session_state.sho_cust
+
 def upd_cust1():
     st.session_state.show_custom1 = st.session_state.sho_cust1
+
 def upd_cust2():
     st.session_state.show_custom2 = st.session_state.sho_cust2
+
 def upd_cust3():
     st.session_state.show_custom3 = st.session_state.sho_cust3
+
 def update_gym_bool():
     st.session_state['gym_bool'] = st.session_state['sho_gym']
+
 def upd_inv():
     st.session_state.show_inverse = st.session_state.sho_inv
 
-    
 def bool_switcher(y):
     y = not (y)
 
