@@ -129,7 +129,8 @@ with cols[0]:
         on_change = upd_tab_str
     )
  #   season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
-
+    load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+    streamlit_analytics2.start_tracking()
     with lang_col:
         st.selectbox(
             "Language",
@@ -139,7 +140,9 @@ with cols[0]:
             on_change=update_language,
             label_visibility="collapsed"
         )
-
+    save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+    streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
+	
 with cols[1]:
 
     #str_tab_but = st.button(butt_label,key="tab_str_butt",on_click=upd_tab_str,use_container_width =True)
