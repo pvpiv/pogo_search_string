@@ -43,7 +43,7 @@ from session_state_manager import (
     great_but,
     ultra_but,
     master_but,
-    upd_shad_only
+    upd_shad_only,
     update_language,
     AVAILABLE_LANGUAGES
 )
