@@ -231,7 +231,7 @@ with cols[1]:
     
             try:
                 st.write(f'Great League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, st.session_state['language']))
+                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_gre = "Show Great Table"
                 if st.session_state['great_clicked']:
                     lab_gre  = "Hide Great Table"
@@ -249,7 +249,7 @@ with cols[1]:
     
             try:
                 st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, st.session_state['language']))
+                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_ult = "Show Ultra Table"
                 if st.session_state['ultra_clicked']:
                     lab_ult  = "Hide Ultra Table"
@@ -266,7 +266,7 @@ with cols[1]:
     
             try:
                 st.write(f'Master League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, st.session_state['language']))
+                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_mast = "Show Master Table"
                 if st.session_state['master_clicked']:
                     lab_mast  = "Hide Master Table"
@@ -282,7 +282,7 @@ with cols[1]:
                 pass
             try:
                 st.write(f'Little League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, st.session_state['language']))
+                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_lit = "Show Little Table"
                 if st.session_state['little_clicked']:
                     lab_lit = "Hide Little Table"
@@ -298,7 +298,7 @@ with cols[1]:
                 pass
             try:
                 st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, True,shad_only=shad_box, st.session_state['language']))
+                st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, True,shad_only=shad_box, language = st.session_state['language']))
             except:
                 pass
         elif st.session_state['gym_bool']: 
@@ -306,7 +306,7 @@ with cols[1]:
             defenders = pd.read_csv('defenders.csv')
             try:
                 st.write(f'Defenders Search String:')
-                st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, st.session_state['language']))
+                st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_def = "Show Defenders Table"
                 if st.session_state['master_clicked']:
                     lab_def = "Hide Defenders Table"
@@ -321,7 +321,7 @@ with cols[1]:
                 pass
             try:
                 st.write(f'Attackers Search String:')
-                st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, st.session_state['language']))
+                st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_att = "Show Attackers Table"
                 if st.session_state['ultra_clicked']:
                     lab_att = "Hide Attackers Table"
@@ -340,7 +340,7 @@ with cols[1]:
                 days_since_date = calculate_days_since(season_start)
                 age_string = f"age0-{days_since_date}&"
                 st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, st.session_state['language']))
+                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_mast = "Show Custom Table"
                 if st.session_state['master_clicked']:
                     lab_mast  = "Hide Custom Table"
@@ -359,7 +359,7 @@ with cols[1]:
 
             lab_gre = "Show Spring Cup Table"
             st.write(f'Spring Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, st.session_state['language']))
+            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             lab_gre = "Show Spring Cup Table"
             if st.session_state['great_clicked']:
                 lab_gre  = "Hide Spring Cup Table"
@@ -375,7 +375,7 @@ with cols[1]:
 
             lab_gre = "Show Master Premier Cup Table"
             st.write(f'Master Premier Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, st.session_state['language']))
+            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box,language = st.session_state['language']))
             lab_gre = "Show Master Premier Cup Table"
             if st.session_state['great_clicked']:
                 lab_gre  = "Hide Master Premier Cup Table"
