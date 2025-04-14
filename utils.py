@@ -150,7 +150,7 @@ def filter_ids(row):
 
     return list(filtered_list)
 
-def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var=True, all=False, language='English'):
+def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var=True, all=False,shad_only=False, language='English'):
     df_all = df.sort_values(by=rank_column)
     df_filtered = df.dropna(subset=[rank_column])
     df_filtered = df_filtered[df_filtered[rank_column] <= top_n]
@@ -208,14 +208,16 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
             ids_string += f"&0-1{attack_str}&3-4{defense_str},3-4{hp_str}&2-4{defense_str}&2-4{hp_str}"
         else:
             ids_string += "&3*,4*"
-
+    if shad_only:
+        ids_string += "&shadow"
+    
     final_string = ids_string.replace("&,", "&")
     final_string =final_string.replace(',&!','&!')
     # Apply additional translations for any other terms that might be in the string
     return translate_search_string(final_string, language)
 
 
-def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val, all_pre=False, language='English'):
+def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val, all_pre=False,shad_only=False, language='English'):
     if league == 'little':
         return get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre, language)
     elif league == 'great':
