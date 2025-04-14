@@ -348,7 +348,7 @@ with cols[1]:
                     df_display_master = pd.DataFrame(family_data_master)
                     df_display_master.set_index(['#'])
                     st.button(lab_mast, on_click = master_but)
-                    st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False),shad_only=shad_box, unsafe_allow_html=True)
+                    st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                 else:
                     st.button(lab_mast,on_click = master_but)
                 
