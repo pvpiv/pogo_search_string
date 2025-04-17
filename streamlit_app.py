@@ -226,166 +226,174 @@ with cols[1]:
     
         #tables_pop = st.popover("League Tables")
         
-        if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
+        # Add pvpdex view checkbox
+        pvpdex_view = st.checkbox('Pvpdex View', key='pvpdex_view')
+        
+        if st.session_state['pvpdex_view']:
+            # Display full table in Pokédex order
+            st.subheader("Pvpdex View")
+            full_df_display = df.sort_values(by=['ID'])  # Assuming 'ID' is the Pokédex order
+            st.dataframe(full_df_display)
+        else:
+            if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
             
     
-            try:
-                st.write(f'Great League Top {st.session_state.top_num} Search String:')
+                try:
+                    st.write(f'Great League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    lab_gre = "Show Great Table"
+                    if st.session_state['great_clicked']:
+                        lab_gre  = "Hide Great Table"
+                        st.button(lab_gre,on_click = great_but)
+                        family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                        df_display_Great = pd.DataFrame(family_data_Great)
+                        df_display_Great.set_index(['#'])#, inplace=True)
+                        st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                    else:
+                        st.button(lab_gre,on_click = great_but)
+                
+                except:
+                    pass
+    
+                try:
+                    st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    lab_ult = "Show Ultra Table"
+                    if st.session_state['ultra_clicked']:
+                        lab_ult  = "Hide Ultra Table"
+                        family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
+                        df_display_Ultra = pd.DataFrame(family_data_Ultra)
+                        df_display_Ultra.set_index(['#'])
+                        st.button(lab_ult,on_click = ultra_but)
+                        st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                    else:
+                        st.button(lab_ult,on_click = ultra_but)
+                
+                except:
+                    pass
+    
+                try:
+                    st.write(f'Master League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    lab_mast = "Show Master Table"
+                    if st.session_state['master_clicked']:
+                        lab_mast  = "Hide Master Table"
+                        family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
+                        df_display_master = pd.DataFrame(family_data_master)
+                        df_display_master.set_index(['#'])
+                        st.button(lab_mast, on_click = master_but)
+                        st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                    else:
+                        st.button(lab_mast,on_click = master_but)
+                
+                except:
+                    pass
+                try:
+                    st.write(f'Little League Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    lab_lit = "Show Little Table"
+                    if st.session_state['little_clicked']:
+                        lab_lit = "Hide Little Table"
+                        st.button(lab_lit,on_click = little_but)
+                        family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
+                        df_display_Little = pd.DataFrame(family_data_Little)
+                        df_display_Little.set_index(['#'])
+                        st.markdown(swap_columns(df_display_Little,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)  
+                    else: 
+                        st.button(lab_lit,on_click = little_but)     
+                
+                except:
+                    pass
+                try:
+                    st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, True,shad_only=shad_box, language = st.session_state['language']))
+                except:
+                    pass
+            elif st.session_state['gym_bool']: 
+                attackers = pd.read_csv('attackers.csv')
+                defenders = pd.read_csv('defenders.csv')
+                try:
+                    st.write(f'Defenders Search String:')
+                    st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    lab_def = "Show Defenders Table"
+                    if st.session_state['master_clicked']:
+                        lab_def = "Hide Defenders Table"
+                        st.button(lab_def,on_click = master_but)
+                        family_data_def = format_data_top(defenders, 'Master', st.session_state.top_num,show_xl_boxz)
+                        df_display_def = pd.DataFrame(family_data_def)
+                        df_display_def.set_index(['#'])
+                        st.markdown(swap_columns(df_display_def,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                    else:
+                        st.button(lab_def,on_click = master_but)
+                except:
+                    pass
+                try:
+                    st.write(f'Attackers Search String:')
+                    st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    lab_att = "Show Attackers Table"
+                    if st.session_state['ultra_clicked']:
+                        lab_att = "Hide Attackers Table"
+                        st.button(lab_att,on_click = ultra_but)
+                        family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz)
+                        df_display_att = pd.DataFrame(family_data_att)
+                        df_display_att.set_index(['#'])
+                        st.markdown(swap_columns(df_display_att,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                    else:
+                        st.button(lab_att,on_click = ultra_but)
+                except:
+                    pass
+            elif st.session_state['show_custom'] and not st.session_state['show_custom2']: 
+                try:
+                    #popover.button("Show Sunshine Cup Table", key='sun_table', on_click=great_but)
+                    days_since_date = calculate_days_since(season_start)
+                    age_string = f"age0-{days_since_date}&"
+                    st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
+                    st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    lab_mast = "Show Custom Table"
+                    if st.session_state['master_clicked']:
+                        lab_mast  = "Hide Custom Table"
+                        family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
+                        df_display_master = pd.DataFrame(family_data_master)
+                        df_display_master.set_index(['#'])
+                        st.button(lab_mast, on_click = master_but)
+                        st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                    else:
+                        st.button(lab_mast,on_click = master_but)
+                
+                except:
+                    pass
+            elif st.session_state['show_custom2']: 
+
+
+                lab_gre = "Show Spring Cup Table"
+                st.write(f'Spring Cup Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_gre = "Show Great Table"
+                lab_gre = "Show Spring Cup Table"
                 if st.session_state['great_clicked']:
-                    lab_gre  = "Hide Great Table"
+                    lab_gre  = "Hide Spring Cup Table"
                     st.button(lab_gre,on_click = great_but)
                     family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
-                    df_display_Great.set_index(['#'])#, inplace=True)
+                    df_display_Great.set_index(['#'])
                     st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                    #   st.markdown(swap_columns(df_display_Great)
                 else:
                     st.button(lab_gre,on_click = great_but)
-                
-            except:
-                pass
-    
-            try:
-                st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_ult = "Show Ultra Table"
-                if st.session_state['ultra_clicked']:
-                    lab_ult  = "Hide Ultra Table"
-                    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
-                    df_display_Ultra = pd.DataFrame(family_data_Ultra)
-                    df_display_Ultra.set_index(['#'])
-                    st.button(lab_ult,on_click = ultra_but)
-                    st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                else:
-                    st.button(lab_ult,on_click = ultra_but)
-                
-            except:
-                pass
-    
-            try:
-                st.write(f'Master League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_mast = "Show Master Table"
-                if st.session_state['master_clicked']:
-                    lab_mast  = "Hide Master Table"
-                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
-                    df_display_master = pd.DataFrame(family_data_master)
-                    df_display_master.set_index(['#'])
-                    st.button(lab_mast, on_click = master_but)
-                    st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                else:
-                    st.button(lab_mast,on_click = master_but)
-                
-            except:
-                pass
-            try:
-                st.write(f'Little League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_lit = "Show Little Table"
-                if st.session_state['little_clicked']:
-                    lab_lit = "Hide Little Table"
-                    st.button(lab_lit,on_click = little_but)
-                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
-                    df_display_Little = pd.DataFrame(family_data_Little)
-                    df_display_Little.set_index(['#'])
-                    st.markdown(swap_columns(df_display_Little,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)  
-                else: 
-                    st.button(lab_lit,on_click = little_but)     
-                
-            except:
-                pass
-            try:
-                st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, True,shad_only=shad_box, language = st.session_state['language']))
-            except:
-                pass
-        elif st.session_state['gym_bool']: 
-            attackers = pd.read_csv('attackers.csv')
-            defenders = pd.read_csv('defenders.csv')
-            try:
-                st.write(f'Defenders Search String:')
-                st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_def = "Show Defenders Table"
-                if st.session_state['master_clicked']:
-                    lab_def = "Hide Defenders Table"
-                    st.button(lab_def,on_click = master_but)
-                    family_data_def = format_data_top(defenders, 'Master', st.session_state.top_num,show_xl_boxz)
-                    df_display_def = pd.DataFrame(family_data_def)
-                    df_display_def.set_index(['#'])
-                    st.markdown(swap_columns(df_display_def,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                else:
-                    st.button(lab_def,on_click = master_but)
-            except:
-                pass
-            try:
-                st.write(f'Attackers Search String:')
-                st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_att = "Show Attackers Table"
-                if st.session_state['ultra_clicked']:
-                    lab_att = "Hide Attackers Table"
-                    st.button(lab_att,on_click = ultra_but)
-                    family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz)
-                    df_display_att = pd.DataFrame(family_data_att)
-                    df_display_att.set_index(['#'])
-                    st.markdown(swap_columns(df_display_att,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                else:
-                    st.button(lab_att,on_click = ultra_but)
-            except:
-                pass
-        elif st.session_state['show_custom'] and not st.session_state['show_custom2']: 
-            try:
-                #popover.button("Show Sunshine Cup Table", key='sun_table', on_click=great_but)
-                days_since_date = calculate_days_since(season_start)
-                age_string = f"age0-{days_since_date}&"
-                st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_mast = "Show Custom Table"
-                if st.session_state['master_clicked']:
-                    lab_mast  = "Hide Custom Table"
-                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
-                    df_display_master = pd.DataFrame(family_data_master)
-                    df_display_master.set_index(['#'])
-                    st.button(lab_mast, on_click = master_but)
-                    st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                else:
-                    st.button(lab_mast,on_click = master_but)
-                
-            except:
-                pass
-        elif st.session_state['show_custom2']: 
+            elif st.session_state['show_custom3']: 
 
 
-            lab_gre = "Show Spring Cup Table"
-            st.write(f'Spring Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-            lab_gre = "Show Spring Cup Table"
-            if st.session_state['great_clicked']:
-                lab_gre  = "Hide Spring Cup Table"
-                st.button(lab_gre,on_click = great_but)
-                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                df_display_Great = pd.DataFrame(family_data_Great)
-                df_display_Great.set_index(['#'])
-                st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-            else:
-                st.button(lab_gre,on_click = great_but)
-        elif st.session_state['show_custom3']: 
-
-
-            lab_gre = "Show Master Premier Cup Table"
-            st.write(f'Master Premier Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box,language = st.session_state['language']))
-            lab_gre = "Show Master Premier Cup Table"
-            if st.session_state['great_clicked']:
-                lab_gre  = "Hide Master Premier Cup Table"
-                st.button(lab_gre,on_click = great_but)
-                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                df_display_Great = pd.DataFrame(family_data_Great)
-                df_display_Great.set_index(['#'])
-                st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-            else:
-                st.button(lab_gre,on_click = great_but)
+                lab_gre = "Show Master Premier Cup Table"
+                st.write(f'Master Premier Cup Top {st.session_state.top_num} Search String:')
+                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box,language = st.session_state['language']))
+                lab_gre = "Show Master Premier Cup Table"
+                if st.session_state['great_clicked']:
+                    lab_gre  = "Hide Master Premier Cup Table"
+                    st.button(lab_gre,on_click = great_but)
+                    family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                    df_display_Great = pd.DataFrame(family_data_Great)
+                    df_display_Great.set_index(['#'])
+                    st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                else:
+                    st.button(lab_gre,on_click = great_but)
         
         try:
             load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
