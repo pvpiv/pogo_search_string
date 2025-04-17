@@ -166,41 +166,51 @@ with cols[1]:
                 key="poke_choice",label_visibility='hidden',
                 on_change=lambda: st.session_state.update({'get_dat': True})
             )
-        
-            if pokemon_choice != "Select a Pokemon" and pokemon_choice != "Select a Shadow Pokemon":
-                if st.session_state['get_dat'] and pokemon_choice:
-                    if st.session_state['last_sel'] != pokemon_choice or st.session_state['last_sel'] is None:
-                        load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
-                        streamlit_analytics2.start_tracking()
-        
-                    st.session_state['last_sel'] = pokemon_choice
-                    pokemon_family = df[df['Pokemon'] == pokemon_choice]['Family'].iloc[0]
-                    family_data = format_data(pokemon_family, show_shadow, df)
-        
-                    if family_data:
-                        st.text_input(
-                            label=today.strftime("%m/%d/%y"),
-                            value=pokemon_choice,
-                            disabled=True,
-                            label_visibility='hidden'
-                        )
-                        df_display = pd.DataFrame(family_data)
-                        df_display.set_index(['Pokemon'])#, inplace=True)
-                        #st.markdown(swap_columns(df_display)
-                        st.markdown(df_display.style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                        try:
-                            save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
-                            streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
-                        except:
-                            pass
-                    else:
-                        st.session_state['get_dat'] = False
+                
+        # Add pvpdex view checkbox
+            pvpdex_view = st.checkbox('Pvpdex View', key='pvpdex_view')
+            
+            if st.session_state['pvpdex_view']:
+                # Display full table in Pokédex order
+                st.subheader("Pvpdex View")
+                
+                full_df_display = format_data_dex(show_shadow, df.sort_values(by=['ID']))  # Assuming 'ID' is the Pokédex order
+                st.dataframe(full_df_display)
             else:
-                try:
-                    save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
-                    streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
-                except:
-                    pass
+                if pokemon_choice != "Select a Pokemon" and pokemon_choice != "Select a Shadow Pokemon":
+                    if st.session_state['get_dat'] and pokemon_choice:
+                        if st.session_state['last_sel'] != pokemon_choice or st.session_state['last_sel'] is None:
+                            load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+                            streamlit_analytics2.start_tracking()
+            
+                        st.session_state['last_sel'] = pokemon_choice
+                        pokemon_family = df[df['Pokemon'] == pokemon_choice]['Family'].iloc[0]
+                        family_data = format_data(pokemon_family, show_shadow, df)
+            
+                        if family_data:
+                            st.text_input(
+                                label=today.strftime("%m/%d/%y"),
+                                value=pokemon_choice,
+                                disabled=True,
+                                label_visibility='hidden'
+                            )
+                            df_display = pd.DataFrame(family_data)
+                            df_display.set_index(['Pokemon'])#, inplace=True)
+                            #st.markdown(swap_columns(df_display)
+                            st.markdown(df_display.style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                            try:
+                                save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+                                streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
+                            except:
+                                pass
+                        else:
+                            st.session_state['get_dat'] = False
+                else:
+                    try:
+                        save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
+                        streamlit_analytics2.stop_tracking(unsafe_password=st.secrets['pass'])
+                    except:
+                        pass
         else:
             try:
                 save_to_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
@@ -226,16 +236,7 @@ with cols[1]:
         )
     
         #tables_pop = st.popover("League Tables")
-        
-        # Add pvpdex view checkbox
-        pvpdex_view = st.checkbox('Pvpdex View', key='pvpdex_view')
-        
-        if st.session_state['pvpdex_view']:
-            # Display full table in Pokédex order
-            st.subheader("Pvpdex View")
-            
-            full_df_display = format_data_dex(show_shadow, df.sort_values(by=['ID']))  # Assuming 'ID' is the Pokédex order
-            st.dataframe(full_df_display)
+
         else:
             if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
             
