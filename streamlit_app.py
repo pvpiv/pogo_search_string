@@ -168,7 +168,7 @@ with cols[1]:
             )
                 
         # Add pvpdex view checkbox
-            pvpdex_view = st.checkbox('Pvpdex View', key='pvpdex_view')
+            pvpdex_view = st.toggle('Pvpdex View', key='pvpdex_view')
             
             if st.session_state['pvpdex_view']:
                 # Display full table in Pokédex order
