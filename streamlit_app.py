@@ -159,13 +159,7 @@ with cols[1]:
         if pokemon_list:
             poke_label = 'All League Rankings, IVs, & Moves Table' if not st.session_state['show_custom'] else 'Custom Cup Rankings, IVs, & Moves Table'
             st.subheader(poke_label)
-            pokemon_choice = st.selectbox(
-                "",
-                pokemon_list,
-                index=pokemon_list.last_index(),
-                key="poke_choice",label_visibility='hidden',
-                on_change=lambda: st.session_state.update({'get_dat': True})
-            )
+            
                 
         # Add pvpdex view checkbox
             pvpdex_view = st.toggle('Pvpdex View', key='pvpdex_view')
@@ -177,6 +171,13 @@ with cols[1]:
                 full_df_display = format_data_dex(show_shadow, df.sort_values(by=['ID']))  # Assuming 'ID' is the Pokédex order
                 st.dataframe(full_df_display)
             else:
+                pokemon_choice = st.selectbox(
+                "",
+                pokemon_list,
+                index=pokemon_list.last_index(),
+                key="poke_choice",label_visibility='hidden',
+                on_change=lambda: st.session_state.update({'get_dat': True})
+            )
                 if pokemon_choice != "Select a Pokemon" and pokemon_choice != "Select a Shadow Pokemon":
                     if st.session_state['get_dat'] and pokemon_choice:
                         if st.session_state['last_sel'] != pokemon_choice or st.session_state['last_sel'] is None:
