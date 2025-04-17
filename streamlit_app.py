@@ -16,6 +16,7 @@ from utils import (
     load_from_firestore,
     save_to_firestore,
     format_data,
+    format_data_dex,
     filter_ids,
     get_top_50_ids,
     make_search_string,
@@ -232,7 +233,8 @@ with cols[1]:
         if st.session_state['pvpdex_view']:
             # Display full table in Pokédex order
             st.subheader("Pvpdex View")
-            full_df_display = df.sort_values(by=['ID'])  # Assuming 'ID' is the Pokédex order
+            
+            full_df_display = format_data_dex(show_shadow, df.sort_values(by=['ID']))  # Assuming 'ID' is the Pokédex order
             st.dataframe(full_df_display)
         else:
             if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):

@@ -108,6 +108,28 @@ def save_to_firestore(counts, collection_name):
 def st_normal():
     _, col, _ = st.columns([1, 8, 1])
     return col
+def format_data_dex( shadow_only, df):
+
+
+    formatted_data = []
+    attributes = ['Rank', 'IVs', 'CP', 'Level', 'MoveSet']
+    leagues = ['Little', 'Great', 'Ultra', 'Master']
+
+    for _, row in df.iterrows():
+        for league in leagues:
+            entry = {'Pokemon': row['Pokemon'], 'League': league}
+
+            for attr in attributes:
+                value = row[f'{league}_{attr}']
+                attr = attr.replace("Level","Lvl")
+                attr = attr.replace("MoveSet","Moves")
+                attr = attr.replace("Rank","#")
+                entry[attr] = (
+                    f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value if pd.notna(value) else ''
+                )
+            formatted_data.append(entry)
+    return formatted_data
+
     
 def format_data(pokemon_family, shadow_only, df):
     if shadow_only:
