@@ -70,8 +70,8 @@ if  st.session_state['show_custom']:
     df = pd.read_csv('pvp_data_mpremier.csv')
 	
 elif  st.session_state['show_custom2']:
-  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_spring.csv'
-  df = pd.read_csv('pvp_data_spring.csv')
+  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Remix.csv'
+  df = pd.read_csv('pvp_data_Remix.csv')
 	
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
@@ -105,15 +105,15 @@ with cols[0]:
             if not st.session_state['table_string_butt']:
                 butt_label = "Switch to Search Strings"
                # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-               # show_custom_boxz = popover.checkbox('Spring Cup', on_change=upd_cust1, key='sho_cust2')
+               # show_custom_boxz = popover.checkbox('Great Remix Cup', on_change=upd_cust1, key='sho_cust2')
 
-                show_custom_boxz2 = popover.checkbox('Spring Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz2 = popover.checkbox('Great Remix Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
                # show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
-                show_custom_boxz2 = popover.checkbox('Spring Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz2 = popover.checkbox('Great Remix Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
                # show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
@@ -357,12 +357,12 @@ with cols[1]:
         elif st.session_state['show_custom2']: 
 
 
-            lab_gre = "Show Spring Cup Table"
-            st.write(f'Spring Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show Great Remix Cup Table"
+            st.write(f'Great Remix Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-            lab_gre = "Show Spring Cup Table"
+            lab_gre = "Show Great Remix Cup Table"
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Spring Cup Table"
+                lab_gre  = "Hide Great Remix Cup Table"
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
@@ -396,7 +396,7 @@ with cols[1]:
             if st.session_state['show_custom']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom2']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Spring Cup into PokeGO {st.session_state['language']}*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Remix Cup into PokeGO {st.session_state['language']}*'
             else:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO {st.session_state['language']}*'
             st.text_input(
