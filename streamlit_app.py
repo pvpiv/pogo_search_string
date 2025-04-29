@@ -70,7 +70,7 @@ if  st.session_state['show_custom']:
     df = pd.read_csv('pvp_data_mpremier.csv')
 	
 elif  st.session_state['show_custom2']:
-  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Remix.csv'
+  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_remix.csv'
   df = pd.read_csv('pvp_data_remix.csv')
 	
 else:
