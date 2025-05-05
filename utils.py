@@ -249,7 +249,7 @@ def format_data_top(df, league, num_rank,xl_var):
                 if pd.notna(row[f'{league}_Rank']) and isinstance(row[f'{league}_Rank'], (int, float))
                 else row[f'{league}_Rank']
                 if pd.notna(row[f'{league}_Rank'])
-                else 201
+                else 251
             )
             if num_rank >= int(rank_value):
                 entry = {'Pokemon': row['Pokemon']}
