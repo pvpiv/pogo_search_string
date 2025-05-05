@@ -220,7 +220,7 @@ with cols[1]:
             key='top_no',
             on_change=update_top_num,
             min_value=5,
-            max_value=200,
+            max_value=250,
             step=5
         )
     
