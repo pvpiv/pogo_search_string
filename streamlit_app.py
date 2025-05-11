@@ -252,12 +252,15 @@ with cols[1]:
                     # Convert to DataFrame and download
                     all_df = pd.DataFrame(all_data)
                     csv = all_df.to_csv(index=False).encode('utf-8')
+                    
+                    # Create a download link that triggers automatically
                     st.download_button(
-                        "Download CSV",
+                        "Downloading...",
                         csv,
                         "all_leagues_data.csv",
                         "text/csv",
-                        key='download-all-csv'
+                        key='download-all-csv',
+                        on_click=lambda: None  # This ensures the button doesn't stay visible
                     )
             
             with col2:
