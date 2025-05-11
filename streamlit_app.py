@@ -262,32 +262,33 @@ with cols[1]:
             
             with col2:
                 if st.button('Show Terminal Strings'):
-                    # Define IV filter combinations
-                    iv_filters = [
-                        "&0-5attack&6-15defense&6-15hp",
-                        "&0-5attack&11-15defense&11-15hp",
-                        "&0-5attack&6-15defense&11-15hp",
-                        "&0-5attack&11-15defense&6-15hp"
-                    ]
-                    
                     # Create table data
                     terminal_data = []
                     leagues = ['great', 'ultra', 'master', 'little']
+                    
+                    # Define IV filter combinations with their display names
+                    iv_filters = [
+                        ("&0-1attack&2-4defense&2-4hp", "2-4Def&2-4HP"),
+                        ("&0-1attack&3-4defense&3-4hp", "3-4Def&3-4HP"),
+                        ("&0-1attack&2-4defense&3-4hp", "2-4Def&3-4HP"),
+                        ("&0-1attack&3-4defense&2-4hp", "3-4Def&2-4HP")
+                    ]
                     
                     for league in leagues:
                         base_string = make_search_string(df, league, st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False, shad_only=shad_box, language=st.session_state['language'])
                         # Remove any existing IV filters
                         base_string = base_string.split('&0-1attack')[0] if '&0-1attack' in base_string else base_string
                         
-                        for iv_filter in iv_filters:
+                        for iv_filter, iv_display in iv_filters:
                             terminal_data.append({
                                 'League': league.capitalize(),
+                                'IV Filter': iv_display,
                                 'String': base_string + iv_filter
                             })
                     
                     # Display as table
                     terminal_df = pd.DataFrame(terminal_data)
-                    st.dataframe(terminal_df, use_container_width=True)
+                    st.dataframe(terminal_df.set_index('League'), use_container_width=True)
                     
                     # Add download button for terminal strings
                     csv = terminal_df.to_csv(index=False).encode('utf-8')
