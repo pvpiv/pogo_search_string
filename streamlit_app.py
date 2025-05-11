@@ -258,16 +258,22 @@ with cols[1]:
                 # Convert to DataFrame
                 all_df = pd.DataFrame(all_data)
                 
+                # Ensure Attack, Defense, HP columns always exist
+                for col in ['Attack', 'Defense', 'HP']:
+                    if col not in all_df.columns:
+                        all_df[col] = ''
+                
                 # Reorder columns to put Attack, Defense, HP after IVs
                 cols = all_df.columns.tolist()
-                ivs_idx = cols.index('IVs')
-                cols.remove('Attack')
-                cols.remove('Defense')
-                cols.remove('HP')
-                cols.insert(ivs_idx + 1, 'Attack')
-                cols.insert(ivs_idx + 2, 'Defense')
-                cols.insert(ivs_idx + 3, 'HP')
-                all_df = all_df[cols]
+                if 'IVs' in cols:
+                    ivs_idx = cols.index('IVs')
+                    # Remove if already present
+                    for col in ['Attack', 'Defense', 'HP']:
+                        if col in cols:
+                            cols.remove(col)
+                    # Insert after IVs
+                    cols[ivs_idx+1:ivs_idx+1] = ['Attack', 'Defense', 'HP']
+                    all_df = all_df[cols]
                 
                 csv = all_df.to_csv(index=False).encode('utf-8')
                 
