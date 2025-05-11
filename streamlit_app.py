@@ -232,36 +232,34 @@ with cols[1]:
             col1, col2 = st.columns(2)
             
             with col1:
-                if st.button('Download All Tables CSV'):
-                    # Create a list to store all table data
-                    all_data = []
-                    
-                    # Function to get table data for a league
-                    def get_league_data(league_name, df, top_n, show_xl):
-                        data = format_data_top(df, league_name, top_n, show_xl)
-                        for row in data:
-                            row['League'] = league_name
-                        return data
-                    
-                    # Get data for each league
-                    leagues = ['Great', 'Ultra', 'Master', 'Little']
-                    for league in leagues:
-                        league_data = get_league_data(league, df, st.session_state.top_num, show_xl_boxz)
-                        all_data.extend(league_data)
-                    
-                    # Convert to DataFrame and download
-                    all_df = pd.DataFrame(all_data)
-                    csv = all_df.to_csv(index=False).encode('utf-8')
-                    
-                    # Create a download link that triggers automatically
-                    st.download_button(
-                        "Downloading...",
-                        csv,
-                        "all_leagues_data.csv",
-                        "text/csv",
-                        key='download-all-csv',
-                        on_click=lambda: None  # This ensures the button doesn't stay visible
-                    )
+                # Create a list to store all table data
+                all_data = []
+                
+                # Function to get table data for a league
+                def get_league_data(league_name, df, top_n, show_xl):
+                    data = format_data_top(df, league_name, top_n, show_xl)
+                    for row in data:
+                        row['League'] = league_name
+                    return data
+                
+                # Get data for each league
+                leagues = ['Great', 'Ultra', 'Master', 'Little']
+                for league in leagues:
+                    league_data = get_league_data(league, df, st.session_state.top_num, show_xl_boxz)
+                    all_data.extend(league_data)
+                
+                # Convert to DataFrame
+                all_df = pd.DataFrame(all_data)
+                csv = all_df.to_csv(index=False).encode('utf-8')
+                
+                # Direct download button
+                st.download_button(
+                    "Download All Tables CSV",
+                    csv,
+                    "all_leagues_data.csv",
+                    "text/csv",
+                    key='download-all-csv'
+                )
             
             with col2:
                 if st.button('Show Terminal Strings'):
