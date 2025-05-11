@@ -240,6 +240,13 @@ with cols[1]:
                     data = format_data_top(df, league_name, top_n, show_xl)
                     for row in data:
                         row['League'] = league_name
+                        # Split IVs into separate columns
+                        if 'IVs' in row and pd.notna(row['IVs']):
+                            ivs = row['IVs'].split('/')
+                            if len(ivs) == 3:
+                                row['Attack'] = ivs[0].strip()
+                                row['Defense'] = ivs[1].strip()
+                                row['HP'] = ivs[2].strip()
                     return data
                 
                 # Get data for each league
@@ -250,6 +257,18 @@ with cols[1]:
                 
                 # Convert to DataFrame
                 all_df = pd.DataFrame(all_data)
+                
+                # Reorder columns to put Attack, Defense, HP after IVs
+                cols = all_df.columns.tolist()
+                ivs_idx = cols.index('IVs')
+                cols.remove('Attack')
+                cols.remove('Defense')
+                cols.remove('HP')
+                cols.insert(ivs_idx + 1, 'Attack')
+                cols.insert(ivs_idx + 2, 'Defense')
+                cols.insert(ivs_idx + 3, 'HP')
+                all_df = all_df[cols]
+                
                 csv = all_df.to_csv(index=False).encode('utf-8')
                 
                 # Direct download button
