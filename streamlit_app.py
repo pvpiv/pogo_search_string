@@ -224,8 +224,81 @@ with cols[1]:
             step=5
         )
     
-        #tables_pop = st.popover("League Tables")
+        # Check if we're in terminal mode
+        is_terminal_mode = st.query_params.get('terminal', 'false').lower() == 'true'
         
+        if is_terminal_mode:
+            # Add buttons for CSV export and terminal strings
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                if st.button('Download All Tables CSV'):
+                    # Create a list to store all table data
+                    all_data = []
+                    
+                    # Function to get table data for a league
+                    def get_league_data(league_name, df, top_n, show_xl):
+                        data = format_data_top(df, league_name, top_n, show_xl)
+                        for row in data:
+                            row['League'] = league_name
+                        return data
+                    
+                    # Get data for each league
+                    leagues = ['Great', 'Ultra', 'Master', 'Little']
+                    for league in leagues:
+                        league_data = get_league_data(league, df, st.session_state.top_num, show_xl_boxz)
+                        all_data.extend(league_data)
+                    
+                    # Convert to DataFrame and download
+                    all_df = pd.DataFrame(all_data)
+                    csv = all_df.to_csv(index=False).encode('utf-8')
+                    st.download_button(
+                        "Download CSV",
+                        csv,
+                        "all_leagues_data.csv",
+                        "text/csv",
+                        key='download-all-csv'
+                    )
+            
+            with col2:
+                if st.button('Show Terminal Strings'):
+                    # Define IV filter combinations
+                    iv_filters = [
+                        "&0-5attack&6-15defense&6-15hp",
+                        "&0-5attack&11-15defense&11-15hp",
+                        "&0-5attack&6-15defense&11-15hp",
+                        "&0-5attack&11-15defense&6-15hp"
+                    ]
+                    
+                    # Create table data
+                    terminal_data = []
+                    leagues = ['great', 'ultra', 'master', 'little']
+                    
+                    for league in leagues:
+                        base_string = make_search_string(df, league, st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False, shad_only=shad_box, language=st.session_state['language'])
+                        # Remove any existing IV filters
+                        base_string = base_string.split('&0-1attack')[0] if '&0-1attack' in base_string else base_string
+                        
+                        for iv_filter in iv_filters:
+                            terminal_data.append({
+                                'League': league.capitalize(),
+                                'String': base_string + iv_filter
+                            })
+                    
+                    # Display as table
+                    terminal_df = pd.DataFrame(terminal_data)
+                    st.dataframe(terminal_df, use_container_width=True)
+                    
+                    # Add download button for terminal strings
+                    csv = terminal_df.to_csv(index=False).encode('utf-8')
+                    st.download_button(
+                        "Download Terminal Strings CSV",
+                        csv,
+                        "terminal_strings.csv",
+                        "text/csv",
+                        key='download-terminal-csv'
+                    )
+
         if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
             
     
