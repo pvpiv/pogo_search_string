@@ -66,8 +66,8 @@ season_start = date(2025, 3, 4)
 
 # Set GitHub API URL based on 'show_custom' flag
 if  st.session_state['show_custom']:
-    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mpremier.csv'
-    df = pd.read_csv('pvp_data_mpremier.csv')
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_retro.csv'
+    df = pd.read_csv('pvp_data_retro.csv')
 	
 elif  st.session_state['show_custom2']:
   GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_remix.csv'
@@ -108,13 +108,13 @@ with cols[0]:
                # show_custom_boxz = popover.checkbox('Great Remix Cup', on_change=upd_cust1, key='sho_cust2')
 
                 show_custom_boxz2 = popover.checkbox('Great Remix Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-               # show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
+                show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
                 show_custom_boxz2 = popover.checkbox('Great Remix Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-               # show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
+                show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                
@@ -470,6 +470,23 @@ with cols[1]:
                 st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
             else:
                 st.button(lab_gre,on_click = great_but)
+		    elif st.session_state['show_custom2']: 
+
+        elif st.session_state['show_custom']: 
+            lab_gre = "Show Great Retro Cup Table"
+            st.write(f'Great Remix Cup Top {st.session_state.top_num} Search String:')
+            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+            lab_gre = "Show Great Retro Cup Table"
+            if st.session_state['great_clicked']:
+                lab_gre  = "Hide Great Retro Cup Table"
+                st.button(lab_gre,on_click = great_but)
+                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                df_display_Great = pd.DataFrame(family_data_Great)
+                df_display_Great.set_index(['#'])
+                st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+            else:
+                st.button(lab_gre,on_click = great_but)
+		    
         elif st.session_state['show_custom3']: 
 
 
