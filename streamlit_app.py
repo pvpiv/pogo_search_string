@@ -108,13 +108,13 @@ with cols[0]:
                # show_custom_boxz = popover.checkbox('Great Remix Cup', on_change=upd_cust1, key='sho_cust2')
 
                 show_custom_boxz2 = popover.checkbox('Great Remix Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
+                show_custom_boxz =  popover.checkbox('Great Retro Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
                 show_custom_boxz2 = popover.checkbox('Great Remix Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz =  popover.checkbox('Master Premier Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
+                show_custom_boxz =  popover.checkbox('Great Retro Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                
