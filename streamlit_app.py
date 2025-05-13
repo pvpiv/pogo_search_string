@@ -470,7 +470,7 @@ with cols[1]:
                 st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
             else:
                 st.button(lab_gre,on_click = great_but)
-		     
+	     
         elif st.session_state['show_custom']: 
             lab_gre = "Show Great Retro Cup Table"
             st.write(f'Great Remix Cup Top {st.session_state.top_num} Search String:')
