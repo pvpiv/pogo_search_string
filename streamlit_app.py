@@ -434,13 +434,13 @@ with cols[1]:
                     st.button(lab_att,on_click = ultra_but)
             except:
                 pass
-        elif  not st.session_state['show_custom'] and not st.session_state['show_custom2']: 
+        elif st.session_state['show_custom3']:
             try:
                 #popover.button("Show Sunshine Cup Table", key='sun_table', on_click=great_but)
                 days_since_date = calculate_days_since(season_start)
                 age_string = f"age0-{days_since_date}&"
                 st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                st.code(age_string + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_gre = "Show Custom Table"
                 if st.session_state['great_clicked']:
                     lab_mast  = "Hide Custom Table"
