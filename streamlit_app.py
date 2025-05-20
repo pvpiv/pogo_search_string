@@ -107,14 +107,14 @@ with cols[0]:
                # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
                # show_custom_boxz = popover.checkbox('Great Remix Cup', on_change=upd_cust1, key='sho_cust2')
 
-                show_custom_boxz2 = popover.checkbox('Great Remix Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz =  popover.checkbox('Great Retro Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
+                #show_custom_boxz2 = popover.checkbox('Great Remix Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz =  popover.checkbox('Great Catch Cup', value=st.session_state['show_custom'], on_change=upd_cust3, key='sho_cust3')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
-                show_custom_boxz2 = popover.checkbox('Great Remix Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz =  popover.checkbox('Great Retro Cup', value=st.session_state['show_custom'], on_change=upd_cust, key='sho_cust')
+               # show_custom_boxz2 = popover.checkbox('Great Remix Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz =  popover.checkbox('Great Catch Cup', value=st.session_state['show_custom'], on_change=upd_cust3, key='sho_cust3')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                
@@ -440,17 +440,17 @@ with cols[1]:
                 days_since_date = calculate_days_since(season_start)
                 age_string = f"age0-{days_since_date}&"
                 st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_mast = "Show Custom Table"
-                if st.session_state['master_clicked']:
+                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                lab_gre = "Show Custom Table"
+                if st.session_state['great_clicked']:
                     lab_mast  = "Hide Custom Table"
-                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
-                    df_display_master = pd.DataFrame(family_data_master)
-                    df_display_master.set_index(['#'])
-                    st.button(lab_mast, on_click = master_but)
-                    st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                    family_data_great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                    df_display_great = pd.DataFrame(family_data_great)
+                    df_display_great.set_index(['#'])
+                    st.button(lab_mast, on_click = great_but)
+                    st.markdown(swap_columns(df_display_great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                 else:
-                    st.button(lab_mast,on_click = master_but)
+                    st.button(lab_gre,on_click = great_but)
                 
             except:
                 pass
