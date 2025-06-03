@@ -107,9 +107,9 @@ with cols[0]:
             if not st.session_state['table_string_butt']:
                 butt_label = "Switch to Search Strings"
                # show_custom_boxz2 = popover.checkbox('Retro Cup', on_change=upd_cust1, key='sho_cust1')
-                show_custom_boxz = popover.checkbox('Great Sunshine Cup', on_change=upd_cust1, key='sho_cust2')
+                #show_custom_boxz = popover.checkbox('Great Sunshine Cup', on_change=upd_cust1, key='sho_cust2')
 
-                #show_custom_boxz2 = popover.checkbox('Great Sunshine Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz2 = popover.checkbox('Great Sunshine Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
              #  show_custom_boxz =  popover.checkbox('Great Catch Cup', value=st.session_state['show_custom'], on_change=upd_cust3, key='sho_cust3')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
