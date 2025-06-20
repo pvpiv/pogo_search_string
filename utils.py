@@ -227,15 +227,26 @@ def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val, all_pre=
     elif league == 'master':
         return get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
     elif league == 'all':
-        return (
-            get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
-            + ','
-            + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
-            + ','
-            + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
-            + ','
-            + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
-        )
+        if not inv_b:
+            return (
+                get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + ','
+                + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + ','
+                + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + ','
+                + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
+            )
+        else:
+            return (
+                get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + '&'
+                + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + '&'
+                + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + '&'
+                + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
+            )
 
 def format_data_top(df, league, num_rank,xl_var):
     family_data = df.sort_values(by=[f'{league}_Rank'])
