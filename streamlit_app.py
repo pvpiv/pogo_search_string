@@ -66,8 +66,8 @@ season_start = date(2025, 3, 4)
 
 # Set GitHub API URL based on 'show_custom' flag
 if  st.session_state['show_custom1']:
-    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_summer.csv'
-    df = pd.read_csv('pvp_data_summer.csv')
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_element.csv'
+    df = pd.read_csv('pvp_data_element.csv')
 	
 elif  st.session_state['show_custom2']:
   GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fossil.csv'
@@ -110,13 +110,13 @@ with cols[0]:
                 #show_custom_boxz = popover.checkbox('Great Fossil Cup', on_change=upd_cust1, key='sho_cust2')
 
                # show_custom_boxz2 = popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz =  popover.checkbox('Ultra Summer Cup', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+                show_custom_boxz =  popover.checkbox('Little Element Cup', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
               #  show_custom_boxz2 = popover.checkbox('Great Fossil Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz =  popover.checkbox('Ultra Summer Cup', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+                show_custom_boxz =  popover.checkbox('Little Element Cup', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                
@@ -458,18 +458,18 @@ with cols[1]:
                 pass
         elif st.session_state['show_custom1']: 
             try:
-                st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_ult = "Show Ultra Summer Table"
-                if st.session_state['ultra_clicked']:
-                    lab_ult  = "Hide Summer Table"
-                    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
-                    df_display_Ultra = pd.DataFrame(family_data_Ultra)
-                    df_display_Ultra.set_index(['#'])
-                    st.button(lab_ult,on_click = ultra_but)
-                    st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                else:
-                    st.button(lab_ult,on_click = ultra_but)
+                st.write(f'Little League Top {st.session_state.top_num} Search String:')
+                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                lab_lit = "Show Little Element Table"
+                if st.session_state['little_clicked']:
+                    lab_lit = "Hide Little Element Table"
+                    st.button(lab_lit,on_click = little_but)
+                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
+                    df_display_Little = pd.DataFrame(family_data_Little)
+                    df_display_Little.set_index(['#'])
+                    st.markdown(swap_columns(df_display_Little,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)  
+                else: 
+                    st.button(lab_lit,on_click = little_but)   
                 
             except:
                 pass
@@ -531,7 +531,7 @@ with cols[1]:
             if st.session_state['show_custom']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO {st.session_state['language']}*'
             if st.session_state['show_custom1']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Ultra Summer Cup into PokeGO {st.session_state['language']}*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Ultra element Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom2']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Fossil Cup into PokeGO {st.session_state['language']}*'
             else:
