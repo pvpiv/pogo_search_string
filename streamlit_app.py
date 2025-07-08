@@ -116,7 +116,7 @@ with cols[0]:
             else:
                 butt_label = "Switch to Pokémon Lookup"
               #  show_custom_boxz2 = popover.checkbox('Great Fossil Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz =  popover.checkbox('Great Hisui Cup', value=st.session_state['show_custom2'], on_change=upd_cust1, key='sho_cust2')
+                show_custom_boxz =  popover.checkbox('Great Hisui Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                
