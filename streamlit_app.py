@@ -8,7 +8,7 @@ from datetime import date, datetime
 import requests
 import pytz
 st.set_page_config(layout = "wide")
-#st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide") 
 
 # Import utility functions and session state manager
 from utils import (
@@ -477,11 +477,11 @@ with cols[1]:
 
 
             lab_gre = "Show Great Hisui Cup Table"
-            st.write(f'Great Fossil Cup Top {st.session_state.top_num} Search String:')
+            st.write(f'Great Hisui Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             lab_gre = "Show Great Hisui Cup Table"
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great Fossil Cup Table"
+                lab_gre  = "Hide Great Hisui Cup Table"
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
