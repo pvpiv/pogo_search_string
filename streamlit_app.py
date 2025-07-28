@@ -67,7 +67,7 @@ season_start = date(2025, 3, 4)
 # Set GitHub API URL based on 'show_custom' flag
 if  st.session_state['show_custom2']:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fossil.csv'
-    df = pd.read_csv('pvp_data_Fossil.csv')
+    df = pd.read_csv('pvp_data_fossil.csv')
 	
 elif  st.session_state['show_custom1']:
   GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fossil.csv'
