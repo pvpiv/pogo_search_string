@@ -67,7 +67,7 @@ season_start = date(2025, 3, 4)
 # Set GitHub API URL based on 'show_custom' flag
 if  st.session_state['show_custom2']:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_sunshine.csv'
-    df = pd.read_csv('pvp_data_sunshine.csv')
+    df = pd.read_csv('pvp_data_Fossil.csv')
 	
 elif  st.session_state['show_custom1']:
   GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fossil.csv'
@@ -110,13 +110,13 @@ with cols[0]:
                 #show_custom_boxz = popover.checkbox('Great Fossil Cup', on_change=upd_cust1, key='sho_cust2')
 
                # show_custom_boxz2 = popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz =  popover.checkbox('Great Sunshine Cup', value=st.session_state['show_custom1'], on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz =  popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom1'], on_change=upd_cust2, key='sho_cust1')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
               #  show_custom_boxz2 = popover.checkbox('Great Fossil Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz =  popover.checkbox('Great Sunshine Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz =  popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom1'], on_change=upd_cust2, key='sho_cust1')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                
@@ -460,9 +460,9 @@ with cols[1]:
             try:
                 st.write(f'Little League Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_lit = "Show Great Sunshine Table"
+                lab_lit = "Show Great Fossil Table"
                 if st.session_state['little_clicked']:
-                    lab_lit = "Hide Great Sunshine Table"
+                    lab_lit = "Hide Great Fossil Table"
                     st.button(lab_lit,on_click = little_but)
                     family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
                     df_display_Little = pd.DataFrame(family_data_Little)
@@ -476,12 +476,12 @@ with cols[1]:
         elif st.session_state['show_custom2']: 
 
 
-            lab_gre = "Show Great Sunshine Cup Table"
-            st.write(f'Great Sunshine Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show Great Fossil Cup Table"
+            st.write(f'Great Fossil Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-            lab_gre = "Show Great Sunshine Cup Table"
+            lab_gre = "Show Great Fossil Cup Table"
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great Sunshine Cup Table"
+                lab_gre  = "Hide Great Fossil Cup Table"
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
@@ -533,7 +533,7 @@ with cols[1]:
             if st.session_state['show_custom1']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Ultra element Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom2']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Sunshine Cup into PokeGO {st.session_state['language']}*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Fossil Cup into PokeGO {st.session_state['language']}*'
             else:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO {st.session_state['language']}*'
             st.text_input(
