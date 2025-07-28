@@ -440,21 +440,19 @@ with cols[1]:
                 pass
         elif st.session_state['show_custom3']:
             try:
-                #popover.button("Show Fossil Cup Table", key='sun_table', on_click=great_but)
-                days_since_date = calculate_days_since(season_start)
-                age_string = f"age0-{days_since_date}&"
-                st.write(f'Custom Cup Top {st.session_state.top_num} Search String:')
-                st.code(age_string + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_gre = "Show Custom Table"
-                if st.session_state['great_clicked']:
-                    lab_mast  = "Hide Custom Table"
-                    family_data_great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                    df_display_great = pd.DataFrame(family_data_great)
-                    df_display_great.set_index(['#'])
-                    st.button(lab_mast, on_click = great_but)
-                    st.markdown(swap_columns(df_display_great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                lab_ult = "Show Ultra Summer Cup Table"
+                st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
+                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                lab_ult = "Show Ultra Table"
+                if st.session_state['ultra_clicked']:
+                    lab_ult  = "Hide Ultra Table"
+                    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
+                    df_display_Ultra = pd.DataFrame(family_data_Ultra)
+                    df_display_Ultra.set_index(['#'])
+                    st.button(lab_ult,on_click = ultra_but)
+                    st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                 else:
-                    st.button(lab_gre,on_click = great_but)
+                    st.button(lab_ult,on_click = ultra_but)
                 
             except:
                 pass
