@@ -509,19 +509,19 @@ with cols[1]:
 		    
         elif st.session_state['show_custom3']: 
 
-		lab_ult = "Show Ultra Summer Cup Table"
-		st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
-		st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-		lab_ult = "Show Ultra Table"
-		if st.session_state['ultra_clicked']:
-		    lab_ult  = "Hide Ultra Table"
-		    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
-		    df_display_Ultra = pd.DataFrame(family_data_Ultra)
-		    df_display_Ultra.set_index(['#'])
-		    st.button(lab_ult,on_click = ultra_but)
-		    st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-		else:
-		    st.button(lab_ult,on_click = ultra_but)
+            lab_ult = "Show Ultra Summer Cup Table"
+            st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
+            st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+            lab_ult = "Show Ultra Table"
+            if st.session_state['ultra_clicked']:
+                lab_ult  = "Hide Ultra Table"
+                family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
+                df_display_Ultra = pd.DataFrame(family_data_Ultra)
+                df_display_Ultra.set_index(['#'])
+                st.button(lab_ult,on_click = ultra_but)
+                st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+            else:
+                st.button(lab_ult,on_click = ultra_but)
         
         try:
             load_from_firestore(streamlit_analytics2.data, st.secrets["fb_col"])
