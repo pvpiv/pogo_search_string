@@ -138,7 +138,7 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom2'], on_change=upd_cust1, key='sho_cust1')
+    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
  
     with lang_col:
         st.selectbox(
