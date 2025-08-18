@@ -55,12 +55,12 @@ initialize_session_state()
 
 query_params = st.query_params  #st.experimental_get_query_params()
 
-#try:
-#	if st.query_params["new_ranks"] == "true":
-	#	st.session_state['show_custom1'] = True
-	#	upd_cust1()
-#except:
-	#pass
+try:
+	if st.query_params["new_ranks"] == "true":
+		st.session_state['show_custom1'] = True
+		upd_cust1()
+except:
+	pass
 	
 season_start = date(2025, 3, 4)
 if  st.session_state['show_custom1']:
