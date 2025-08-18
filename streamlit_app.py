@@ -115,7 +115,7 @@ with cols[0]:
              #   show_custom_boxz =  popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
              #   show_custom_boxz2 =  popover.checkbox('Ultra Summer Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
-                show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
+                
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
@@ -130,7 +130,7 @@ with cols[0]:
                 iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
                 inv_box = popover.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')# tables_pop = st.popover("League Tables")
                 shad_box = popover.checkbox('Shadow Only', value=st.session_state.show_shadow, key='sho_shad', on_change=upd_shad_only)
-                show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
+            show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
         
     st.toggle(
