@@ -332,7 +332,7 @@ with cols[1]:
                         key='download-terminal-csv'
                     )
 
-        if not (st.session_state['show_custom1'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
+        if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
             
     
             try:
@@ -458,7 +458,7 @@ with cols[1]:
                 
             except:
                 pass
-        elif st.session_state['show_custom1']: 
+        elif st.session_state['show_custom4']: 
             try:
                 st.write(f'Little League Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
