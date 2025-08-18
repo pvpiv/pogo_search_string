@@ -63,7 +63,9 @@ query_params = st.query_params  #st.experimental_get_query_params()
 	#pass
 	
 season_start = date(2025, 3, 4)
-
+if  st.session_state['show_custom1']:
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
+    df = pd.read_csv('pvp_data_seas.csv')
 # Set GitHub API URL based on 'show_custom' flag
 if  st.session_state['show_custom2']:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fossil.csv'
@@ -136,7 +138,7 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-  #  season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
+    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
  
     with lang_col:
         st.selectbox(
