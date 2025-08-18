@@ -80,7 +80,7 @@ elif  st.session_state['show_custom3']:
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data.csv')
-
+st.text_input( label=today.strftime("%m/%d/%y"),  value= st.session_state['show_custom1'])
 if st.session_state.show_shadow:
      df = df[df['Shadow']]
 	
