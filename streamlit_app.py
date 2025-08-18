@@ -139,7 +139,7 @@ with cols[0]:
         on_change = upd_tab_str
     )
     season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
- 
+    st.text_input(label="New ranks: ", value = st.session_state['show_custom1'])
     with lang_col:
         st.selectbox(
             "Language",
