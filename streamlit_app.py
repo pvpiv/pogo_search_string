@@ -138,7 +138,7 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom2'], on_change=upd_cust1, key='sho_cust1')
  
     with lang_col:
         st.selectbox(
@@ -458,7 +458,7 @@ with cols[1]:
                 
             except:
                 pass
-        elif st.session_state['show_custom4']: 
+        elif st.session_state['show_custom3']: 
             try:
                 st.write(f'Little League Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
@@ -531,7 +531,7 @@ with cols[1]:
             topstrin = str(st.session_state.top_num)
             if st.session_state['show_custom']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO {st.session_state['language']}*'
-            if st.session_state['show_custom1']:
+            if st.session_state['show_custom3']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Ultra element Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom2']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Fossil Cup into PokeGO {st.session_state['language']}*'
