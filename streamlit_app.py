@@ -57,8 +57,8 @@ query_params = st.query_params  #st.experimental_get_query_params()
 
 try:
 	if st.query_params["new_ranks"] == "true":
-		st.session_state['show_custom1'] = True
-		upd_cust1()
+		st.session_state['get_season'] = True
+		upd_seas()
 except:
 	pass
 	
