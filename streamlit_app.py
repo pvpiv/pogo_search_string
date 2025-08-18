@@ -116,6 +116,7 @@ with cols[0]:
              #   show_custom_boxz =  popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
              #   show_custom_boxz2 =  popover.checkbox('Ultra Summer Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
+				sseason_box = popover.checkbox('Next Season Rankings', value=st.session_state.get_season, key='sho_seas', on_change=upd_seas)
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
