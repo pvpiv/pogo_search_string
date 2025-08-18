@@ -80,7 +80,7 @@ elif  st.session_state['show_custom3']:
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data.csv')
-st.text_input( label="next seas ranks",  value= st.session_state['show_custom1'])
+
 if st.session_state.show_shadow:
      df = df[df['Shadow']]
 	
@@ -138,7 +138,7 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'] , on_change=upd_cust1, key='sho_cust1')
+    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
  
     with lang_col:
         st.selectbox(
