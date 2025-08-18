@@ -63,7 +63,7 @@ except:
 	pass
 	
 season_start = date(2025, 6, 3)
-if  st.session_state['show_custom1']:
+if  st.session_state['get_season']:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
     df = pd.read_csv('pvp_data_seas.csv')
 # Set GitHub API URL based on 'show_custom' flag
@@ -138,8 +138,8 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-    season_box = st.checkbox('Next Season Rankings', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
-    st.text_input(label="New ranks: ", value = st.session_state['show_custom1'])
+    season_box = popover.checkbox('Next Season Rankings', value=st.session_state['get_season'], on_change=upd_seas, key='sho_seas')
+
     with lang_col:
         st.selectbox(
             "Language",
