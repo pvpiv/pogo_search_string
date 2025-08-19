@@ -1318,7 +1318,7 @@
 "888","Zacian (Hero)","Zacian","FALSE",,,"354","71",,,"2/15/15","15/15/15",,,"24","50",,,"2491","4329",,,"Snarl, Wild Charge, Close Combat","Quick Attack, Wild Charge, Play Rough","888","888"
 "889","Zamazenta (Crowned Shield)","Zamazenta","FALSE",,,"281","6",,,"0/12/12","15/15/15",,,"22.5","50",,,"2494","4717",,,"Ice Fang, Close Combat, Behemoth Bash","Ice Fang, Close Combat, Behemoth Bash[legacy]","889","889"
 "889","Zamazenta (Hero)","Zamazenta","FALSE",,,"597","65",,,"2/15/15","15/15/15",,,"24","50",,,"2491","4329",,,"Quick Attack, Close Combat, Crunch","Ice Fang, Close Combat, Crunch","889","889"
-"890","Eternatus","Eternatus","FALSE",,,"219","4",,,"0/13/13","15/15/15",,,"21","50",,,"2498","5007",,,"Dragon Tail, Dynamax Cannon, Sludge Bomb","Dragon Tail, Dynamax Cannon, Flamethrower","890","890"
+"890","Eternatus","Eternatus","FALSE",,,"219","4",,,"0/13/13","15/15/15",,,"21","50",,,"2498","5007",,,"Dragon Tail, Dynamax Cannon [etm], Sludge Bomb","Dragon Tail, Dynamax Cannon [etm], Flamethrower","890","890"
 "891","Kubfu","Kubfu","FALSE","364","781",,,"0/9/15","0/15/14",,,"11.5","37.5",,,"493","1493",,,"Counter, Brick Break, Close Combat","Counter, Close Combat, Brick Break",,,"891;892","891;892"
 "892","Urshifu (Rapid Strike)","Kubfu","FALSE","306","700","470","75","0/14/7","0/13/15","0/12/13","15/15/15","5.5","15.5","26","50","478","1489","2487","4077","Counter, Aqua Jet, Brick Break","Counter, Aqua Jet, Dynamic Punch","Counter, Aqua Jet, Dynamic Punch","Counter, Aqua Jet, Dynamic Punch","891;892","892"
 "892","Urshifu (Single Strike)","Kubfu","FALSE","427","234","222","37","0/14/7","0/13/15","0/12/13","15/15/15","5.5","15.5","26","50","478","1489","2487","4077","Counter, Brick Break, Close Combat","Sucker Punch, Brick Break, Dynamic Punch","Sucker Punch, Payback, Dynamic Punch","Sucker Punch, Dynamic Punch, Payback","891;892","892"
@@ -1390,3 +1390,4 @@
 "1111","Select a Pokemon","Select a Pokemon","TRUE","","","","","","","","","","","","","","","","","","","","","1111","1111"
 "1112","Select a Shadow Pokemon","Select a Shadow Pokemon","FALSE","","","","","","","","","","","","","","","","","","","","","1112","1112"
 "1112","Select a Shadow Pokemon","Select a Shadow Pokemon","TRUE","","","","","","","","","","","","","","","","","","","","","1112","1112"
+
