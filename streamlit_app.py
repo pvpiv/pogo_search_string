@@ -65,7 +65,7 @@ except:
 season_start = date(2025, 6, 3)
 if  st.session_state['get_season']:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
-    df = pd.read_csv('pvp_data_seas.csv')
+    df = pd.read_csv('pvp_data.csv')
 # Set GitHub API URL based on 'show_custom' flag
 elif  st.session_state['show_custom1']:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fossil.csv'
@@ -79,7 +79,7 @@ elif  st.session_state['show_custom3']:
  # df = pd.read_csv('pvp_data_catch.csv')	
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
-    df = pd.read_csv('pvp_data.csv')
+    df = pd.read_csv('pvp_data_seas.csv')
 
 if st.session_state.show_shadow:
      df = df[df['Shadow']]
@@ -139,7 +139,7 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-    show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
+    #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
         st.selectbox(
