@@ -71,12 +71,12 @@ elif  st.session_state['show_custom1']:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fossil.csv'
     df = pd.read_csv('pvp_data_fossil.csv')
 	
-elif  st.session_state['show_custom3']:
-  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_summer.csv'
-  df = pd.read_csv('pvp_data_summer.csv')
+elif  st.session_state['show_custom2']:
+  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_retro.csv'
+  df = pd.read_csv('pvp_data_retro.csv')
 #elif  st.session_state['show_custom3']:
  # GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Fossil.csv'
- # df = pd.read_csv('pvp_data_catch.csv')	
+ # df = pd.read_csv('pvp_data_Retro.csv')	
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data_seas.csv')
@@ -112,14 +112,14 @@ with cols[0]:
                 #show_custom_boxz = popover.checkbox('Great Fossil Cup', on_change=upd_cust1, key='sho_cust2')
 
                # show_custom_boxz2 = popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-             #   show_custom_boxz =  popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz2 = popover.checkbox('Great Retro Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
              #   show_custom_boxz2 =  popover.checkbox('Ultra Summer Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
                 
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
-                show_custom_boxz2 = popover.checkbox('Great Catch Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz2 = popover.checkbox('Great Retro Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
                 #show_custom_boxz =  popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
                # show_custom_boxz2 =  popover.checkbox('Ultra Summer Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
@@ -479,14 +479,14 @@ with cols[1]:
         elif st.session_state['show_custom2']: 
 
 
-            lab_gre = "Show Great Catch Cup Table"
-            st.write(f'Great Catch Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show Great Retro Cup Table"
+            st.write(f'Great Retro Cup Top {st.session_state.top_num} Search String:')
             days_since_date = calculate_days_since(season_start)
             age_string = f"age0-{days_since_date}&"
             st.code(age_string + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-            lab_gre = "Show Great Catch Cup Table"
+            lab_gre = "Show Great Retro Cup Table"
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great Catch Cup Table"
+                lab_gre  = "Hide Great Retro Cup Table"
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
