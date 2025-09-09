@@ -334,7 +334,7 @@ with cols[1]:
                         key='download-terminal-csv'
                     )
 
-        if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['gym_bool']):
+        if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['show_custom1'] or st.session_state['gym_bool']):
             
     
             try:
