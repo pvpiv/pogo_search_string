@@ -480,7 +480,7 @@ with cols[1]:
         elif st.session_state['show_custom2']: 
 
           #  days_since_date = calculate_days_since(season_start)
-        	try:
+            try:
                 st.write(f'Mega Master Cup Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_mast = "Show Master Table"
@@ -493,8 +493,8 @@ with cols[1]:
                     st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                 else:
                     st.button(lab_mast,on_click = master_but)
-        	except:
-				pass
+            except:
+                pass
 	     
         elif st.session_state['show_custom1']: 
             lab_gre = "Show Great Summer Cup Table"
