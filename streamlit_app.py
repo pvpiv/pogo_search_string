@@ -494,18 +494,18 @@ with cols[1]:
  
 	     
         elif st.session_state['show_custom1']: 
-			st.write(f'Master Premier Top {st.session_state.top_num} Search String:')
-			st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-			lab_mast = "Show Master Premier Table"
-			if st.session_state['master_clicked']:
-				lab_mast  = "Hide Master Premier Table"
-				family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
-				df_display_master = pd.DataFrame(family_data_master)
-				df_display_master.set_index(['#'])
-				st.button(lab_mast, on_click = master_but)
-				st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-			else:
-				st.button(lab_mast,on_click = master_but)
+            st.write(f'Master Premier Top {st.session_state.top_num} Search String:')
+            st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+            lab_mast = "Show Master Premier Table"
+            if st.session_state['master_clicked']:
+                lab_mast  = "Hide Master Premier Table"
+                family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
+                df_display_master = pd.DataFrame(family_data_master)
+                df_display_master.set_index(['#'])
+                st.button(lab_mast, on_click = master_but)
+                st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+            else:
+                st.button(lab_mast,on_click = master_but)
 		    
         elif st.session_state['show_custom3']: 
 
