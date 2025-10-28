@@ -73,7 +73,7 @@ elif  st.session_state['show_custom1']:
 	
 elif  st.session_state['show_custom2']:
   GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_halloween.csv'
-  df = pd.read_csv('pvp_data_Halloween.csv')
+  df = pd.read_csv('pvp_data_halloween.csv')
 #elif  st.session_state['show_custom3']:
  # GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Fossil.csv'
  # df = pd.read_csv('pvp_data_Retro.csv')	
