@@ -67,13 +67,14 @@ if  st.session_state['get_season']:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
     df = pd.read_csv('pvp_data.csv')
 # Set GitHub API URL based on 'show_custom' flag
-elif  st.session_state['show_custom1']:
-    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
-    df = pd.read_csv('pvp_data_mega.csv')
+
 	
 elif  st.session_state['show_custom2']:
   GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_laic2025.csv'
   df = pd.read_csv('pvp_data_laic2025.csv')
+elif  st.session_state['show_custom1']:
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
+	df = pd.read_csv('pvp_data_mega.csv')
 #elif  st.session_state['show_custom3']:
  # GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Fossil.csv'
  # df = pd.read_csv('pvp_data_Retro.csv')	
