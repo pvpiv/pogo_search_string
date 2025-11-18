@@ -68,12 +68,12 @@ if  st.session_state['get_season']:
     df = pd.read_csv('pvp_data.csv')
 # Set GitHub API URL based on 'show_custom' flag
 elif  st.session_state['show_custom1']:
-    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_premier.csv'
-    df = pd.read_csv('pvp_data_premier.csv')
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
+    df = pd.read_csv('pvp_data_mega.csv')
 	
 elif  st.session_state['show_custom2']:
-  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_jungle.csv'
-  df = pd.read_csv('pvp_data_jungle.csv')
+  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_laic2025.csv'
+  df = pd.read_csv('pvp_data_laic2025.csv')
 #elif  st.session_state['show_custom3']:
  # GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Fossil.csv'
  # df = pd.read_csv('pvp_data_Retro.csv')	
@@ -108,10 +108,10 @@ with cols[0]:
             
             if not st.session_state['table_string_butt']:
                 butt_label = "Switch to Search Strings"
-                #show_custom_boxz1 = popover.checkbox('Master Premier Cup', value=st.session_state['show_custom1']  ,on_change=upd_cust1, key='sho_cust1')
+                show_custom_boxz1 = popover.checkbox('Master Mega Cup', value=st.session_state['show_custom1']  ,on_change=upd_cust1, key='sho_cust1')
               #  show_custom_boxz = popover.checkbox('Great Fossil Cup', on_change=upd_cust1, key='sho_cust2')
 
-                show_custom_boxz2 = popover.checkbox('Great Jungle Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz2 = popover.checkbox('Great LAICS2025 Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
                 #show_custom_boxz2 = popover.checkbox('Mega Master Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
              #   show_custom_boxz2 =  popover.checkbox('Ultra Fantasy Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
@@ -119,8 +119,8 @@ with cols[0]:
 
             else:
                 butt_label = "Switch to Pokémon Lookup"
-                #show_custom_boxz1 = popover.checkbox('Master Premier Cup', value=st.session_state['show_custom1']  ,on_change=upd_cust1, key='sho_cust1')
-                show_custom_boxz2 = popover.checkbox('Great Jungle Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
+                show_custom_boxz1 = popover.checkbox('Master Mega Cup', value=st.session_state['show_custom1']  ,on_change=upd_cust1, key='sho_cust1')
+                show_custom_boxz2 = popover.checkbox('Great LAICS2025 Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
                 #show_custom_boxz =  popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
                # show_custom_boxz2 =  popover.checkbox('Ultra Fantasy Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
@@ -478,12 +478,12 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom2']: 
-            lab_gre = "Show Great Jungle Cup Table"
+            lab_gre = "Show Great LAICS2025 Cup Table"
             st.write(f'Great Jungle Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great Jungle Cup Table"
+                lab_gre  = "Hide Great LAIC2025 Cup Table"
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
@@ -496,9 +496,9 @@ with cols[1]:
         elif st.session_state['show_custom1']: 
             st.write(f'Master Premier Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-            lab_mast = "Show Master Premier Table"
+            lab_mast = "Show Master Mega Table"
             if st.session_state['master_clicked']:
-                lab_mast  = "Hide Master Premier Table"
+                lab_mast  = "Hide Master Mega Table"
                 family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                 df_display_master = pd.DataFrame(family_data_master)
                 df_display_master.set_index(['#'])
