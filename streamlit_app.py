@@ -62,12 +62,14 @@ try:
 except:
 	pass
 	
-season_start = date(2025, 6, 3)
+season_start = date(2025, 9, 3)
 if  st.session_state['get_season']:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
     df = pd.read_csv('pvp_data.csv')
 # Set GitHub API URL based on 'show_custom' flag
-
+days_since_date = calculate_days_since(season_start)
+age_string = f"age0-{days_since_date}&"
+                
 	
 elif  st.session_state['show_custom2']:
   GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_laic2025.csv'
@@ -114,7 +116,7 @@ with cols[0]:
 
                 show_custom_boxz2 = popover.checkbox('Great LAICS2025 Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
                 #show_custom_boxz2 = popover.checkbox('Mega Master Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
-             #   show_custom_boxz2 =  popover.checkbox('Ultra Fantasy Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+                show_custom_boxz2 =  popover.checkbox('Catch Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
                 
 
@@ -123,7 +125,7 @@ with cols[0]:
                 show_custom_boxz1 = popover.checkbox('Master Mega Cup', value=st.session_state['show_custom1']  ,on_change=upd_cust1, key='sho_cust1')
                 show_custom_boxz2 = popover.checkbox('Great LAICS2025 Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
                 #show_custom_boxz =  popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-               # show_custom_boxz2 =  popover.checkbox('Ultra Fantasy Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+                show_custom_boxz3 =  popover.checkbox('Catch Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                
@@ -335,12 +337,15 @@ with cols[1]:
                         key='download-terminal-csv'
                     )
 
-        if not (st.session_state['show_custom'] or st.session_state['show_custom3'] or st.session_state['show_custom2'] or st.session_state['show_custom1'] or st.session_state['gym_bool']):
+        if not (st.session_state['show_custom'] or st.session_state['show_custom2'] or st.session_state['show_custom1'] or st.session_state['gym_bool']):
             
     
             try:
                 st.write(f'Great League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+				if st.session_state['show_custom3']:
+                	st.code(age_string + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+				else
+					st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_gre = "Show Great Table"
                 if st.session_state['great_clicked']:
                     lab_gre  = "Hide Great Table"
@@ -358,7 +363,10 @@ with cols[1]:
     
             try:
                 st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+				if st.session_state['show_custom3']:
+					st.code(age_string + make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+				else:
+					st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_ult = "Show Ultra Table"
                 if st.session_state['ultra_clicked']:
                     lab_ult  = "Hide Ultra Table"
@@ -375,7 +383,10 @@ with cols[1]:
     
             try:
                 st.write(f'Master League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+				if st.session_state['show_custom3']:
+					st.code(age_string + make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+				else:
+                	st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_mast = "Show Master Table"
                 if st.session_state['master_clicked']:
                     lab_mast  = "Hide Master Table"
