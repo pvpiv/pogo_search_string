@@ -124,7 +124,7 @@ with cols[0]:
                 show_custom_boxz1 = popover.checkbox('Master Mega Cup', value=st.session_state['show_custom1']  ,on_change=upd_cust1, key='sho_cust1')
                 show_custom_boxz2 = popover.checkbox('Great LAICS2025 Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
                 #show_custom_boxz =  popover.checkbox('Great Fossil Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-                show_custom_boxz3 =  popover.checkbox('Catch Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+                
                 show_gym_box = popover.checkbox('Gym Attackers/Defenders', on_change=update_gym_bool, key='sho_gym')
                 popover.divider()
                
@@ -142,6 +142,7 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
+	show_custom_boxz3 =  st.checkbox('Catch Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
