@@ -142,7 +142,7 @@ with cols[0]:
         value = st.session_state['table_string_butt'],
         on_change = upd_tab_str
     )
-	show_custom_boxz3 =  st.checkbox('Catch Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+    show_custom_boxz3 =  st.checkbox('Catch Cup', value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
