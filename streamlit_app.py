@@ -343,7 +343,7 @@ with cols[1]:
                 st.write(f'Great League Top {st.session_state.top_num} Search String:')
 				if st.session_state['show_custom3']:
                 	st.code(age_string + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-				else
+				else:
 					st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_gre = "Show Great Table"
                 if st.session_state['great_clicked']:
