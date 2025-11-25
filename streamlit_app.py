@@ -63,14 +63,13 @@ except:
 	pass
 	
 season_start = date(2025, 9, 3)
-if  st.session_state['get_season']:
-    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
-    df = pd.read_csv('pvp_data.csv')
 # Set GitHub API URL based on 'show_custom' flag
 days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
-                
-	
+
+if  st.session_state['get_season']:
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
+    df = pd.read_csv('pvp_data.csv')              
 elif  st.session_state['show_custom2']:
   GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_laic2025.csv'
   df = pd.read_csv('pvp_data_laic2025.csv')
