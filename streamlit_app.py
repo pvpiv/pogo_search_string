@@ -363,7 +363,7 @@ with cols[1]:
     
             try:
                 st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
-                if st.session_state['show_custom3']:
+                if st.session_state['show_custom1']:
                     st.code(age_string + make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
                    st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
@@ -383,7 +383,7 @@ with cols[1]:
     
             try:
                 st.write(f'Master League Top {st.session_state.top_num} Search String:')
-                if st.session_state['show_custom3']:
+                if st.session_state['show_custom1']:
                     st.code(age_string + make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
                     st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
@@ -402,7 +402,7 @@ with cols[1]:
                 pass
             try:
                 st.write(f'Little League Top {st.session_state.top_num} Search String:')
-                if st.session_state['show_custom3']:
+                if st.session_state['show_custom1']:
                     st.code(age_string + make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
                     st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
