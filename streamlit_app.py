@@ -84,7 +84,7 @@ else:
     df = pd.read_csv('pvp_data.csv')
 
 try:
-	if st.query_params["comm"] == "True":
+	if st.session_state["comm"] == "True":
 		df = pd.read_csv("comm_day.csv")
 except:
 	pass
