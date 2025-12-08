@@ -40,8 +40,11 @@ def initialize_session_state():
         st.session_state['last_n'] = 0
     if 'top_num' not in st.session_state:
         st.session_state['top_num'] = 50
-        if st.query_params["comm"] == "True":
-            st.session_state['top_num'] = 2000
+        try:
+            if st.query_params["comm"] == "True":
+                st.session_state['top_num'] = 2000
+        except:
+            pass
     if 'show_string' not in st.session_state:
         st.session_state['show_string'] = True
     if 'show_custom' not in st.session_state:
