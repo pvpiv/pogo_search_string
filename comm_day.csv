@@ -1,49 +1,68 @@
-﻿ID,Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next
-56,Mankey,Mankey,FALSE,,650,,1,,15/15/15,,,,50,,1,,1317,,,,,,primeape/rage fist|annihilape/rage fist,56;57;979,56;57;979
-57,Primeape,Mankey,FALSE,,5,2,2,,15-Jan,15-Jul,,,24.5,50,1,,1497,2490,,,,,primeape/rage fist|annihilape/rage fist,56;57;979,57;979
-60,Poliwag,Poliwag,FALSE,,,,3,,,,,,,,1,,,,,,,,poliwhirl/counter|politoed/ice beam,60;61;62,60;61;62
-61,Poliwhirl,Poliwag,FALSE,,418,,4,,15-Jun,,,,49.5,,1,,1500,,,,,,poliwhirl/counter|politoed/ice beam,60;61;62,61;62
-69,Bellsprout,Bellsprout,FALSE,328,,,5,0/15/11,,,,19,,,1,500,,,,,,,victreebel/magical leaf,69;70;71,69;70;71
-70,Weepinbell,Bellsprout,FALSE,323,658,,6,0/13/13,15-Jan,,,12,40.5,,1,499,1493,,,,,,victreebel/magical leaf,69;70;71,70;71
-77,Ponyta,Ponyta,FALSE,,748,,7,,0/15/14,,,,37.5,,1,,1500,,,,,,rapidash/wild charge|rapidash (Galarian)/wild charge,77;78,77;78
-79,Slowpoke,Slowpoke,FALSE,,717,,9,,15/15/15,,,,50,,1,,1386,,,,,,slowbro/surf|slowbro (Galarian)/surf|slowking/surf|slowking (Galarian)/surf,79;80;199,79;80;199
-79,Slowpoke (Galarian),Slowpoke,FALSE,,739,,10,,15/15/15,,,,50,,1,,1386,,,,,,slowbro/surf|slowbro (Galarian)/surf|slowking/surf|slowking (Galarian)/surf,79;80;199,79;80;199
-113,Chansey,Chansey,FALSE,,363,732,13,,15/15/15,15/15/15,,,50,50,1,,1418,1418,,,,,blissey/wild charge,113;242;440,113;242;440
-137,Porygon,Porygon,FALSE,,603,,14,,0/13/15,,,,37.5,,1,,1500,,,,,,porygon-z/tri attack,137;233;474,137;233;474
-155,Cyndaquil,Cyndaquil,FALSE,,,,15,,,,,,,,1,,,,,,,,typhlosion/blast burn|typhlosion (Hisuian)/blast burn,155;156;157,155;156;157
-156,Quilava,Cyndaquil,FALSE,,796,,16,,0/13/15,,,,40,,1,,1496,,,,,,typhlosion/blast burn|typhlosion (Hisuian)/blast burn,155;156;157,156;157
-175,Togepi,Togepi,FALSE,260,,,17,15-Jan,,,,34,,,1,499,,,,,,,toggekiss/aura sphere,175;176;468,175;176;468
-176,Togetic,Togepi,FALSE,54,64,601,18,0/15/11,0/14/14,15/15/15,,11.5,38.5,50,1,499,1496,1931,,,,,toggekiss/aura sphere,175;176;468,176;468
-194,Wooper (Paldean),Wooper,FALSE,17,,,19,0/15/15,,,,35.5,,,1,500,,,,,,,quagsire/aqua tail|clodsire/mega horn,194;195,194;195
-233,Porygon2,Porygon,FALSE,,708,438,20,,0/12/15,15-Jan,15/15/15,,21,39,1,,1500,2495,3065,,,,porygon-z/tri attack,137;233;474,233;474
-371,Bagon,Bagon,FALSE,,,,21,,,,,,,,1,,,,,,,,shelgon/outrage|salamence/outrage,371;372;373,371;372;373
-372,Shelgon,Bagon,FALSE,,486,588,22,,15-Jan,15/15/15,,,28,50,1,,1493,2296,,,,,shelgon/outrage|salamence/outrage,371;372;373,372;373
-374,Beldum,Beldum,FALSE,,,,23,,,,,,,,1,,,,,,,,metagross/meteor mash,374;375;376,374;375;376
-375,Metang,Beldum,FALSE,,414,700,24,,0/13/15,15/15/14,,,38,50,1,,1494,1946,,,,,metagross/meteor mash,374;375;376,375;376
-532,Timburr,Timburr,FALSE,,985,,25,,15/15/15,,,,50,,1,,1487,,,,,,conkeldurr/brutal swing,532;533;534,532;533;534
-533,Gurdurr,Timburr,FALSE,,587,521,26,,15-Jan,15/15/14,15/15/15,,26,50,1,,1491,2452,2452,,,,conkeldurr/brutal swing,532;533;534,533;534
-540,Sewaddle,Sewaddle,FALSE,288,,,27,0/15/11,,,,21,,,1,497,,,,,,,leavanny/shadow claw,540;541;542,540;541;542
-541,Swadloon,Sewaddle,FALSE,316,617,,28,0/15/14,15-Dec,,,14.5,49.5,,1,498,1500,,,,,,leavanny/shadow claw,540;541;542,541;542
-602,Tynamo,Tynamo,FALSE,,,,29,,,,,,,,1,,,,,,,,eelektross/volt switch,602;603;604,602;603;604
-603,Eelektrik,Tynamo,FALSE,,745,,30,,0/13/15,,,,37.5,,1,,1498,,,,,,eelektross/volt switch,602;603;604,603;604
-610,Axew,Axew,FALSE,,962,,31,,15-Oct,,,,50,,1,,1498,,,,,,haxorus/breaking swipe,610;611;612,610;611;612
-611,Fraxure,Axew,FALSE,,300,265,32,,15-Jan,15-Dec,,,25,50,1,,1499,2497,,,,,haxorus/breaking swipe,610;611;612,611;612
-650,Chespin,Chespin,FALSE,,813,,33,,15/15/14,,,,50,,1,,1239,,,,,,chesnaught/frenzy plant,650;651;652,650;651;652
-651,Quilladin,Chespin,FALSE,,370,,34,,0/14/15,,,,37.5,,1,,1495,,,,,,chesnaught/frenzy plant,650;651;652,651;652
-653,Fennekin,Fennekin,FALSE,,,,35,,,,,,,,1,,,,,,,,delphox/blast burn,653;654;655,653;654;655
-654,Braixen,Fennekin,FALSE,,809,,36,,0/15/14,,,,33,,1,,1497,,,,,,delphox/blast burn,653;654;655,654;655
-656,Froakie,Froakie,FALSE,,,,37,,,,,,,,1,,,,,,,,greninja/hydro cannon,656;657;658,656;657;658
-657,Frogadier,Froakie,FALSE,,620,,38,,15-Jan,,,,39.5,,1,,1500,,,,,,greninja/hydro cannon,656;657;658,657;658
-704,Goomy,Goomy,FALSE,,,,39,,,,,,,,1,,,,,,,,goodra/thunder punch,704;705;706,704;705;706
-705,Sliggoo,Goomy,FALSE,,725,673,40,,15-Jan,15/15/15,15/15/15,,28,50,1,,1499,2303,2303,,,,goodra/thunder punch,704;705;706,705;706
-714,Noibat,Noibat,FALSE,,,,41,,,,,,,,1,,,,,,,,noivern/boomburst,714;715,714;715
-722,Rowlet,Rowlet,FALSE,,951,,42,,15/15/15,,,,50,,1,,1196,,,,,,decidueye/frenzy plant,722;723;724,722;723;724
-723,Dartrix,Rowlet,FALSE,,323,666,43,,0/15/14,15/15/14,,,37.5,50,1,,1498,1950,,,,,decidueye/frenzy plant,722;723;724,723;724
-725,Litten,Litten,FALSE,,,,44,,,,,,,,1,,,,,,,,incineroar/blast burn,725;726;727,725;726;727
-726,Torracat,Litten,FALSE,,828,,45,,0/15/13,,,,37,,1,,1497,,,,,,incineroar/blast burn,725;726;727,726;727
-728,Popplio,Popplio,FALSE,,803,,46,,15/15/15,,,,50,,1,,1276,,,,,,primarina/hydro cannon,728;729;730,728;729;730
-729,Brionne,Popplio,FALSE,,782,710,47,,15-Jan,15/15/14,,,30.5,50,1,,1488,2131,,,,,primarina/hydro cannon,728;729;730,729;730
-736,Grubbin,Grubbin,FALSE,289,,,48,15-Jan,,,,20,,,1,499,,,,,,,charjabug/volt switch|vikavolt/volt switch,736;737;738,736;737;738
-737,Charjabug,Grubbin,FALSE,144,128,,49,0/11/15,0/13/15,,,11.5,38.5,,1,499,1500,,,,,,charjabug/volt switch|vikavolt/volt switch,736;737;738,737;738
-761,Bounsweet,Bounsweet,FALSE,,,,50,,,,,,,,1,,,,,,,,tsareena/high jump kick,761;762;763,761;762;763
-762,Steenee,Bounsweet,FALSE,,609,455,51,,0/15/13,0/15/15,15/15/15,,19,33,1,,1499,2499,3351,,,,tsareena/high jump kick,761;762;763,762;763
+ID,Pokemon,Family,Shadow,Little_Rank,Great_Rank,Ultra_Rank,Master_Rank,Little_IVs,Great_IVs,Ultra_IVs,Master_IVs,Little_Level,Great_Level,Ultra_Level,Master_Level,Little_CP,Great_CP,Ultra_CP,Master_CP,Little_MoveSet,Great_MoveSet,Ultra_MoveSet,Master_MoveSet,Evo_Fam,Evo_Next
+66,Machop,Machop,FALSE,194,381,,,2/15/2014,15/15/15,,,15,50,,,500,1445,,,"Karate Chop, Brick Break, Cross Chop","Karate Chop, Cross Chop, Brick Break",,,66;67;68,66;67;68
+66,Machop (Shadow),Machop,TRUE,207,347,,,2/15/2014,15/15/15,,,15,50,,,500,1445,,,"Karate Chop, Brick Break, Cross Chop","Karate Chop, Cross Chop, Brick Break",,,66;67;68,66;67;68
+67,Machoke,Machop,FALSE,218,308,390,,0/13/12,0/15/14,15/15/15,,9.5,28,50,,500,1499,2296,,"Karate Chop, Brick Break, Cross Chop","Karate Chop, Cross Chop, Return","Karate Chop, Cross Chop, Dynamic Punch",,66;67;68,67;68
+67,Machoke (Shadow),Machop,TRUE,285,136,321,,0/13/12,0/15/14,15/15/15,,9.5,28,50,,500,1499,2296,,"Karate Chop, Brick Break, Cross Chop","Karate Chop, Cross Chop, Dynamic Punch","Karate Chop, Cross Chop, Dynamic Punch",,66;67;68,67;68
+68,Machamp,Machop,FALSE,316,152,228,140,0/11/5,0/15/9,0/15/14,15/15/15,6.5,18.5,31,50,500,1498,2498,3455,"Bullet Punch, Close Combat, Cross Chop","Karate Chop, Cross Chop, Rock Slide","Karate Chop, Cross Chop, Rock Slide","Karate Chop[etm], Cross Chop, Rock Slide",66;67;68,68
+68,Machamp (Shadow),Machop,TRUE,,144,175,131,,0/15/9,0/15/14,15/15/15,,18.5,31,50,,1498,2498,3455,,"Karate Chop, Cross Chop, Rock Slide","Karate Chop, Cross Chop, Rock Slide","Karate Chop[etm], Cross Chop, Stone Edge[etm]",66;67;68,68
+133,Eevee,Eevee,FALSE,22,959,,,0/13/12,15/15/15,,,19,50,,,500,1210,,,"Quick Attack, Body Slam, Dig","Quick Attack, Body Slam, Dig",,,133;134;135;136;196;197;470;471;700,133;134;135;136;196;197;470;471;700
+134,Vaporeon,Eevee,FALSE,362,414,362,181,0/8/1,0/15/15,0/15/12,15/15/15,6.5,18,30.5,50,500,1500,2494,3521,"Water Gun, Aqua Tail, Hydro Pump","Water Gun, Aqua Tail, Last Resort","Water Gun, Aqua Tail, Liquidation","Water Gun, Aqua Tail, Last Resort[etm]",133;134,134
+135,Jolteon,Eevee,FALSE,938,784,456,331,6/15/2013,0/15/12,0/14/13,15/15/15,6.5,19.5,35,50,500,1498,2496,3265,"Thunder Shock, Discharge, Last Resort","Thunder Shock, Discharge, Last Resort","Volt Switch, Discharge, Last Resort","Volt Switch, Discharge, Last Resort[etm]",133;135,135
+136,Flareon,Eevee,FALSE,1079,761,653,299,0/6/13,0/14/13,1/15/2015,15/15/15,6.5,18.5,31,50,500,1498,2497,3424,"Ember, Fire Blast, Flamethrower","Ember, Superpower, Flamethrower","Ember, Superpower, Flamethrower","Fire Spin, Superpower[etm], Flamethrower",133;136,136
+158,Totodile,Totodile,FALSE,,961,,,,15/15/15,,,,50,,,,1279,,,,"Water Gun, Aqua Jet, Crunch",,,158;159;160,158;159;160
+158,Totodile (Shadow),Totodile,TRUE,,984,,,,15/15/15,,,,50,,,,1279,,,,"Water Gun, Aqua Jet, Crunch",,,158;159;160,158;159;160
+159,Croconaw,Totodile,FALSE,571,579,,,0/13/7,0/15/15,,,11.5,37,,,499,1500,,,"Scratch, Crunch, Ice Punch","Water Gun, Ice Punch, Water Pulse",,,158;159;160,159;160
+159,Croconaw (Shadow),Totodile,TRUE,410,625,,,0/13/7,0/15/15,,,11.5,37,,,499,1500,,,"Scratch, Crunch, Frustration","Water Gun, Ice Punch, Water Pulse",,,158;159;160,159;160
+160,Feraligatr,Totodile,FALSE,502,75,17,138,0/14/0,0/11/13,1/15/2014,15/15/15,7,20,35.5,50,499,1500,2496,3230,"Bite, Crunch, Hydro Cannon","Shadow Claw, Hydro Cannon, Ice Beam","Shadow Claw, Hydro Cannon, Ice Beam","Shadow Claw, Hydro Cannon[etm], Ice Beam",158;159;160,160
+160,Feraligatr (Shadow),Totodile,TRUE,,76,9,151,,0/11/13,1/15/2014,15/15/15,,20,35.5,50,,1500,2496,3230,,"Shadow Claw, Hydro Cannon, Ice Beam","Shadow Claw, Hydro Cannon, Ice Beam","Shadow Claw, Hydro Cannon[etm], Ice Beam",158;159;160,160
+196,Espeon,Eevee,FALSE,886,768,544,257,2/15/2015,0/15/15,1/15/2015,15/15/15,6,17.5,29,50,500,1500,2499,3583,"Confusion, Future Sight, Last Resort","Confusion, Psychic Fangs, Shadow Ball","Confusion, Psychic Fangs, Shadow Ball","Confusion, Psychic Fangs, Shadow Ball[etm]",133;196,196
+197,Umbreon,Eevee,FALSE,153,20,125,378,3/15/2015,0/15/14,15/15/15,15/15/15,9,27.5,50,50,500,1500,2416,2416,"Feint Attack, Dark Pulse, Foul Play","Snarl, Foul Play, Last Resort","Snarl, Foul Play, Last Resort","Snarl, Foul Play, Last Resort[etm]",133;197,197
+280,Ralts,Ralts,FALSE,1043,,,,0/15/13,,,,48.5,,,,499,,,,"Charge Beam, Disarming Voice, Psyshock",,,,280;281;282,280;281;282
+280,Ralts (Shadow),Ralts,TRUE,1141,,,,0/15/13,,,,48.5,,,,499,,,,"Charge Beam, Disarming Voice, Frustration",,,,280;281;282,280;281;282
+281,Kirlia,Ralts,FALSE,1158,,,,0/14/15,,,,20.5,,,,500,,,,"Charge Beam, Disarming Voice, Draining Kiss",,,,280;281;282,281;282
+281,Kirlia (Shadow),Ralts,TRUE,1160,,,,0/14/15,,,,20.5,,,,500,,,,"Charge Beam, Disarming Voice, Frustration",,,,280;281;282,281;282
+282,Gardevoir,Ralts,FALSE,1177,826,568,214,9/15/2015,0/15/15,0/12/15,15/15/15,6,18,30.5,50,498,1499,2498,3497,"Charge Beam, Dazzling Gleam, Psychic","Charm, Triple Axel, Shadow Ball","Charm, Triple Axel, Shadow Ball","Charm, Shadow Ball, Triple Axel",280;281;282,282
+282,Gardevoir (Shadow),Ralts,TRUE,,732,566,194,,0/15/15,0/12/15,15/15/15,,18,30.5,50,,1499,2498,3497,,"Charm, Triple Axel, Shadow Ball","Charm, Triple Axel, Shadow Ball","Charm, Shadow Ball, Triple Axel",280;281;282,282
+577,Solosis,Solosis,FALSE,1166,1081,,,0/15/13,9/15/2015,,,14,50,,,499,1498,,,"Hidden Power (Bug), Night Shade, Psyshock","Hidden Power (Psychic), Psyshock, Night Shade",,,577;578;579,577;578;579
+577,Solosis (Shadow),Solosis,TRUE,1153,1074,,,0/15/13,9/15/2015,,,14,50,,,499,1498,,,"Hidden Power (Bug), Frustration, Night Shade","Hidden Power (Psychic), Psyshock, Night Shade",,,577;578;579,577;578;579
+578,Duosion,Solosis,FALSE,1161,1076,,,0/15/8,0/15/13,,,9.5,28,,,499,1500,,,"Hidden Power (Bug), Night Shade, Psyshock","Hidden Power (Psychic), Psyshock, Night Shade",,,577;578;579,578;579
+578,Duosion (Shadow),Solosis,TRUE,1146,1072,,,0/15/8,0/15/13,,,9.5,28,,,499,1500,,,"Hidden Power (Bug), Frustration, Night Shade","Hidden Power (Psychic), Psyshock, Night Shade",,,577;578;579,578;579
+579,Reuniclus,Solosis,FALSE,1151,1055,581,344,3/15/2015,2/15/2014,0/15/14,15/15/15,6.5,19,34,50,500,1500,2500,3309,"Hidden Power (Bug), Future Sight, Psyshock","Hidden Power (Fighting), Psyshock, Shadow Ball","Charm, Psyshock, Shadow Ball","Charm, Psyshock, Shadow Ball",577;578;579,579
+579,Reuniclus (Shadow),Solosis,TRUE,,900,624,328,,2/15/2014,0/15/14,15/15/15,,19,34,50,,1500,2500,3309,,"Charm, Psyshock, Shadow Ball","Charm, Psyshock, Shadow Ball","Charm, Psyshock, Shadow Ball",577;578;579,579
+582,Vanillite,Vanillite,FALSE,804,,,,0/15/15,,,,19,,,,500,,,,"Astonish, Ice Beam, Icy Wind",,,,582;583;584,582;583;584
+583,Vanillish,Vanillite,FALSE,855,686,,,1/15/2015,0/14/15,,,12,43,,,499,1500,,,"Astonish, Ice Beam, Icy Wind","Astonish, Icy Wind, Signal Beam",,,582;583;584,583;584
+584,Vanilluxe,Vanillite,FALSE,968,901,545,339,0/3/15,0/15/12,0/15/13,15/15/15,7,20,36.5,50,499,1500,2496,3190,"Astonish, Avalanche, Blizzard","Astonish, Avalanche, Flash Cannon","Astonish, Avalanche, Flash Cannon","Astonish, Avalanche, Signal Beam",582;583;584,584
+588,Karrablast,Karrablast,FALSE,785,677,,,0/14/15,15/15/15,,,16.5,50,,,499,1336,,,"Fury Cutter, Aerial Ace, Drill Run","Fury Cutter, Drill Run, X-Scissor",,,588;589,588;589
+588,Karrablast (Shadow),Karrablast,TRUE,873,612,,,0/14/15,15/15/15,,,16.5,50,,,499,1336,,,"Fury Cutter, Aerial Ace, Drill Run","Fury Cutter, X-Scissor, Drill Run",,,588;589,588;589
+589,Escavalier,Karrablast,FALSE,126,424,337,266,6/15/2013,0/14/13,1/15/2014,15/15/15,6.5,19.5,34.5,50,500,1495,2499,3266,"Bug Bite, Acid Spray, Aerial Ace","Bug Bite, Drill Run, Razor Shell","Bug Bite, Razor Shell, Drill Run","Bug Bite, Drill Run, Megahorn",588;589,589
+589,Escavalier (Shadow),Karrablast,TRUE,,436,375,271,,0/14/13,1/15/2014,15/15/15,,19.5,34.5,50,,1495,2499,3266,,"Bug Bite, Drill Run, Razor Shell","Bug Bite, Drill Run, Razor Shell","Bug Bite, Drill Run, Megahorn",588;589,589
+616,Shelmet,Shelmet,FALSE,11,,,,0/15/13,,,,25.5,,,,500,,,,"Acid, Body Slam, Bug Buzz",,,,616;617,616;617
+616,Shelmet (Shadow),Shelmet,TRUE,13,,,,0/15/13,,,,25.5,,,,500,,,,"Acid, Body Slam, Bug Buzz",,,,616;617,616;617
+617,Accelgor,Shelmet,FALSE,1107,1057,782,,0/10/10,0/14/15,0/15/13,,8,23,47.5,,500,1500,2499,,"Acid, Acid Spray, Bug Buzz","Water Shuriken, Bug Buzz, Acid Spray","Water Shuriken, Bug Buzz, Signal Beam",,616;617,617
+617,Accelgor (Shadow),Shelmet,TRUE,,1017,776,,,0/14/15,0/15/13,,,23,47.5,,,1500,2499,,,"Water Shuriken, Bug Buzz, Energy Ball","Water Shuriken, Bug Buzz, Signal Beam",,616;617,617
+669,Flabebe,Flabebe,FALSE,777,1051,,,0/12/14,15/15/15,,,19,50,,,500,1202,,,"Tackle, Dazzling Gleam, Petal Blizzard","Vine Whip, Dazzling Gleam, Petal Blizzard",,,669;670;671,669;670;671
+670,Floette,Flabebe,FALSE,815,584,,,2/14/2015,0/15/12,,,12.5,47.5,,,499,1499,,,"Tackle, Dazzling Gleam, Petal Blizzard","Vine Whip, Dazzling Gleam, Petal Blizzard",,,669;670;671,670;671
+671,Florges,Flabebe,FALSE,31,117,7,31,1/15/2014,0/11/15,0/14/15,15/15/15,6,17.5,29,50,499,1499,2496,3657,"Fairy Wind, Chilling Water, Disarming Voice","Fairy Wind, Chilling Water, Trailblaze","Fairy Wind, Chilling Water, Trailblaze","Fairy Wind, Moonblast, Chilling Water",669;670;671,671
+700,Sylveon,Eevee,FALSE,152,340,178,94,0/6/11,0/14/12,0/13/15,15/15/15,6.5,18.5,31.5,50,499,1498,2498,3470,"Charm, Dazzling Gleam, Draining Kiss","Charm, Psyshock, Moonblast","Charm, Moonblast, Psyshock","Charm, Moonblast, Psyshock[etm]",133;700,700
+731,Pikipek,Pikipek,FALSE,470,,,,2/15/2015,,,,21,,,,499,,,,"Peck, Aerial Ace, Drill Peck",,,,731;732;733,731;732;733
+731,Pikipek (Shadow),Pikipek,TRUE,476,,,,2/15/2015,,,,21,,,,499,,,,"Peck, Aerial Ace, Drill Peck",,,,731;732;733,731;732;733
+732,Trumbeak,Pikipek,FALSE,213,295,,,0/14/14,0/15/14,,,13,48.5,,,500,1499,,,"Peck, Drill Peck, Rock Blast","Peck, Drill Peck, Rock Blast",,,731;732;733,732;733
+732,Trumbeak (Shadow),Pikipek,TRUE,300,235,,,0/14/14,0/15/14,,,13,48.5,,,497,1492,,,"Peck, Drill Peck, Frustration","Peck, Drill Peck, Rock Blast",,,731;732;733,732;733
+733,Toucannon,Pikipek,FALSE,923,126,35,,4/15/2014,0/14/13,2/15/2014,,7,21,39,,499,1500,2499,,"Bullet Seed, Drill Peck, Flash Cannon","Peck, Beak Blast, Drill Peck","Peck, Beak Blast, Drill Peck",,731;732;733,733
+733,Toucannon (Shadow),Pikipek,TRUE,,92,25,,,0/14/13,2/15/2014,,,21,39,,,1500,2499,,,"Peck, Beak Blast, Drill Peck","Peck, Beak Blast, Drill Peck",,731;732;733,733
+782,Jangmo-o,Jangmo-o,FALSE,93,,,,0/15/11,,,,21,,,,500,,,,"Dragon Tail, Brick Break, Dragon Claw",,,,782;783;784,782;783;784
+783,Hakamo-o,Jangmo-o,FALSE,125,40,,,0/15/13,0/13/15,,,11.5,39,,,500,1498,,,"Dragon Tail, Brick Break, Dragon Claw","Dragon Tail, Brick Break, Rock Tomb",,,782;783;784,783;784
+784,Kommo-o,Jangmo-o,FALSE,367,79,58,87,0/11/9,0/14/14,0/11/14,15/15/15,6,17,28.5,50,500,1497,2496,3741,"Dragon Tail, Boomburst, Brick Break","Dragon Tail, Clanging Scales, Upper Hand","Dragon Tail, Clanging Scales, Upper Hand","Dragon Tail, Clanging Scales, Upper Hand",782;783;784,784
+821,Rookidee,Rookidee,FALSE,683,,,,0/0/1,,,,24.5,,,,498,,,,"Air Slash, Payback, Sky Attack",,,,821;822;823,821;822;823
+822,Corvisquire,Rookidee,FALSE,685,458,,,0/15/10,11/15/2015,,,14.5,50,,,499,1496,,,"Air Slash, Payback, Sky Attack","Peck, Sky Attack, Payback",,,821;822;823,822;823
+823,Corviknight,Rookidee,FALSE,37,8,2,278,0/12/11,0/15/11,0/15/15,15/15/15,8,23.5,48.5,50,500,1500,2497,2777,"Air Slash, Air Cutter, Iron Head","Sand Attack, Air Cutter, Payback","Sand Attack, Air Cutter, Payback","Sand Attack, Sky Attack, Iron Head[etm]",821;822;823,823
+907,Floragato,Sprigatito,FALSE,790,743,,,0/15/12,1/15/2015,,,11.5,38,,,500,1500,,,"Charm, Energy Ball, Grass Knot","Leafage, Grass Knot, Play Rough",,,906;907;908,907;908
+908,Meowscarada,Sprigatito,FALSE,735,348,299,,0/8/9,0/13/13,0/15/14,,7,20,36,,499,1498,2498,,"Charm, Energy Ball, Flower Trick","Leafage, Night Slash, Frenzy Plant","Leafage, Night Slash, Frenzy Plant",,906;907;908,908
+909,Fuecoco,Fuecoco,FALSE,,862,,,,15/15/14,,,,50,,,,1274,,,,"Incinerate, Crunch, Flamethrower",,,909;910;911,909;910;911
+910,Crocalor,Fuecoco,FALSE,383,464,646,,0/11/15,0/15/15,15/15/15,,10,29.5,50,,499,1494,2189,,"Bite, Crunch, Disarming Voice","Incinerate, Crunch, Flamethrower","Incinerate, Crunch, Disarming Voice",,909;910;911,910;911
+911,Skeledirge,Fuecoco,FALSE,486,283,82,90,0/10/13,1/15/2014,0/14/12,15/15/15,6.5,18.5,32.5,50,500,1500,2500,3422,"Bite, Blast Burn, Crunch","Incinerate, Torch Song, Shadow Ball","Incinerate, Torch Song, Shadow Ball","Incinerate, Torch Song, Shadow Ball",909;910;911,911
+913,Quaxwell,Quaxly,FALSE,528,636,,,0/12/11,0/15/12,,,11,35,,,499,1500,,,"Water Gun, Aerial Ace, Aqua Jet","Water Gun, Aqua Jet, Aerial Ace",,,912;913;914,913;914
+914,Quaquaval,Quaxly,FALSE,467,635,591,296,0/13/8,0/15/15,1/15/2014,15/15/15,6.5,18.5,31.5,50,500,1499,2494,3411,"Water Gun, Aerial Ace, Aqua Jet","Wing Attack, Close Combat, Hydro Cannon","Wing Attack, Close Combat, Hydro Cannon","Wing Attack, Close Combat, Hydro Cannon",912;913;914,914
+921,Pawmi,Pawmi,FALSE,1102,,,,1/15/2015,,,,33,,,,500,,,,"Charge Beam, Discharge, Thunderbolt",,,,921;922;923,921;922;923
+922,Pawmo,Pawmi,FALSE,1020,553,,,0/13/14,15/15/14,,,15,50,,,500,1468,,,"Charge Beam, Discharge, Thunderbolt","Thunder Shock, Wild Charge, Thunder Punch",,,921;922;923,922;923
+923,Pawmot,Pawmi,FALSE,1110,269,182,,8/15/2015,2/15/2015,0/15/15,,7,21,40.5,,500,1500,2500,,"Charge Beam, Brick Break, Close Combat","Thunder Shock, Brick Break, Wild Charge","Thunder Shock, Brick Break, Wild Charge",,921;922;923,923
