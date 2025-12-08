@@ -43,8 +43,8 @@ def initialize_session_state():
     if 'top_num' not in st.session_state:
         st.session_state['top_num'] = 50
         try:
-            if st.query_params["comm"] == "True":
-                st.session_state['comm'] = "True"
+            if st.query_params["comm"] == "true":
+                st.session_state['comm'] = "true"
                 st.session_state['top_num'] = 2000
         except:
             pass
