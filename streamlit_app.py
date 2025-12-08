@@ -84,7 +84,7 @@ else:
     df = pd.read_csv('pvp_data.csv')
 
 try:
-	if st.session_state["comm"] == "True":
+	if st.session_state["comm"] == "true":
 		df = pd.read_csv("comm_day.csv")
 except:
 	pass
@@ -232,7 +232,7 @@ with cols[1]:
         st.subheader("PVP Poké Search Strings")
         
 
-        if st.session_state["comm"] == "True":
+        if st.session_state["comm"] == "true":
             top_nbox = st.number_input(
             label = 'Showing Top:',
             value=st.session_state.top_num,
