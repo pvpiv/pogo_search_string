@@ -83,6 +83,12 @@ else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data.csv')
 
+try:
+	if st.query_params["comm"] == "True":
+		df = pd.read_csv("comm_day.csv")
+except:
+	pass
+
 if st.session_state.show_shadow:
      df = df[df['Shadow']]
 	
