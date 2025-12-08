@@ -232,7 +232,7 @@ with cols[1]:
         st.subheader("PVP Poké Search Strings")
         
 
-        if st.query_params["comm"] == "True":
+        if st.session_state["comm"] == "True":
             top_nbox = st.number_input(
             label = 'Showing Top:',
             value=st.session_state.top_num,
