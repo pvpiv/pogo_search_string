@@ -38,6 +38,8 @@ def initialize_session_state():
         st.session_state['last_sel'] = None
     if 'last_n' not in st.session_state:
         st.session_state['last_n'] = 0
+    if 'comm' not in st.session_state:
+        st.session_state['comm'] = False
     if 'top_num' not in st.session_state:
         st.session_state['top_num'] = 50
         try:
