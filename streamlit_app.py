@@ -231,16 +231,26 @@ with cols[1]:
     elif st.session_state['table_string_butt']:
         st.subheader("PVP Poké Search Strings")
         
-        top_nbox = st.number_input(
-            label = 'Showing Top:',
-            value=st.session_state.top_num,
-            key='top_no',
-            on_change=update_top_num,
-            min_value=5,
-            max_value=250,
-            step=5
-        )
-    
+
+		if st.query_params["comm"] == "True":
+			top_nbox = st.number_input(
+			label = 'Showing Top:',
+			value=st.session_state.top_num,
+			key='top_no',
+			on_change=update_top_num,
+			min_value=5,
+			max_value=2000,
+			step=5)
+		else:
+			top_nbox = st.number_input(
+			label = 'Showing Top:',
+			value=st.session_state.top_num,
+			key='top_no',
+			on_change=update_top_num,
+			min_value=5,
+			max_value=250,
+			step=5
+			)
         # Check if we're in terminal mode
         is_terminal_mode = st.query_params.get('terminal', 'false').lower() == 'true'
         
