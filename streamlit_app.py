@@ -507,12 +507,12 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom2']: 
-            lab_gre = "Show Great LAICS2025 Cup Table"
-            st.write(f'Great LAIC2025 Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show Great Scroll Cup Table"
+            st.write(f'Great Scroll Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great LAIC2025 Cup Table"
+                lab_gre  = "Hide Great Scroll Cup Table"
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
