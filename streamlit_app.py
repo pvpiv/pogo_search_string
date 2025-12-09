@@ -68,7 +68,7 @@ days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
 
 if  st.session_state['show_custom2']:
-    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_scroll.csv'
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_scroll.csv'
 	df = pd.read_csv('pvp_data_scroll.csv')
 elif  st.session_state['show_custom1']:
 	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
