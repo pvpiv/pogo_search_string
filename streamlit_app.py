@@ -147,7 +147,7 @@ with cols[0]:
         on_change = upd_tab_str
     )
     #show_custom_boxz2 =  
-    show_seas_boxz = st.checkbox('holiday Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+    show_seas_boxz = st.checkbox('Holiday Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -507,12 +507,12 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom2']: 
-            lab_gre = "Show Great holiday Cup Table"
-            st.write(f'Great holiday Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show Great Holiday Cup Table"
+            st.write(f'Great Holiday Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great holiday Cup Table"
+                lab_gre  = "Hide Great Holiday Cup Table"
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
