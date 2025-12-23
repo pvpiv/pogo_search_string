@@ -507,13 +507,13 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom2']: 
-            lab_gre = "Show Ultra Holiday Cup Table"
+            lab_ult = "Show Ultra Holiday Cup Table"
             st.write(f'Ultra Holiday Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['ultra_clicked']:
-                lab_gre  = "Hide Ultra Holiday Cup Table"
-                st.button(lab_gre,on_click = ultra_but)
+                lab_ult  = "Hide Ultra Holiday Cup Table"
+                st.button(lab_ult,on_click = ultra_but)
                 family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
                 df_display_Ultra = pd.DataFrame(family_data_Ultra)
                 df_display_Ultra.set_index(['#'])
