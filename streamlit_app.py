@@ -507,19 +507,19 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom2']: 
-            lab_gre = "Show Great Holiday Cup Table"
-            st.write(f'Great Holiday Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+            lab_gre = "Show Ultra Holiday Cup Table"
+            st.write(f'Ultra Holiday Cup Top {st.session_state.top_num} Search String:')
+            st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
-            if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great Holiday Cup Table"
-                st.button(lab_gre,on_click = great_but)
-                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
-                df_display_Great = pd.DataFrame(family_data_Great)
-                df_display_Great.set_index(['#'])
-                st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+            if st.session_state['ultra_clicked']:
+                lab_gre  = "Hide Ultra Holiday Cup Table"
+                st.button(lab_gre,on_click = ultra_but)
+                family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
+                df_display_Ultra = pd.DataFrame(family_data_Ultra)
+                df_display_Ultra.set_index(['#'])
+                st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
             else:
-                st.button(lab_gre,on_click = great_but)
+                st.button(lab_ult,on_click = ultra_but)
  
 	     
         elif st.session_state['show_custom1']: 
