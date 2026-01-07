@@ -68,8 +68,8 @@ days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
 
 if  st.session_state['show_custom2']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_holiday.csv'
-	df = pd.read_csv('pvp_data_holiday.csv')
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_sunshine.csv'
+	df = pd.read_csv('pvp_data_sunshine.csv')
 elif  st.session_state['show_custom1']:
 	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
 	df = pd.read_csv('pvp_data_mega.csv')
@@ -147,7 +147,7 @@ with cols[0]:
         on_change = upd_tab_str
     )
     #show_custom_boxz2 =  
-    show_seas_boxz = st.checkbox('Holiday Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+    show_seas_boxz = st.checkbox('Sunshine Cup', value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -507,19 +507,19 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom2']: 
-            lab_ult = "Show Ultra Holiday Cup Table"
-            st.write(f'Ultra Holiday Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+            lab_gre = "Show Great Sunshine Cup Table"
+            st.write(f'Great Sunshine Cup Top {st.session_state.top_num} Search String:')
+            st.code(make_search_string(df, "Great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
-            if st.session_state['ultra_clicked']:
-                lab_ult  = "Hide Ultra Holiday Cup Table"
-                st.button(lab_ult,on_click = ultra_but)
-                family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
-                df_display_Ultra = pd.DataFrame(family_data_Ultra)
-                df_display_Ultra.set_index(['#'])
-                st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+            if st.session_state['great_clicked']:
+                lab_gre  = "Hide Great Sunshine Cup Table"
+                st.button(lab_gre,on_click = great_but)
+                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                df_display_Great = pd.DataFrame(family_data_Great)
+                df_display_Great.set_index(['#'])
+                st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
             else:
-                st.button(lab_ult,on_click = ultra_but)
+                st.button(lab_gre,on_click = great_but)
  
 	     
         elif st.session_state['show_custom1']: 
