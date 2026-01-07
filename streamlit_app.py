@@ -514,7 +514,7 @@ with cols[1]:
             if st.session_state['great_clicked']:
                 lab_gre  = "Hide Great Sunshine Cup Table"
                 st.button(lab_gre,on_click = great_but)
-                family_data_Great = format_data_top(df, 'great', st.session_state.top_num,show_xl_boxz)
+                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
                 df_display_Great.set_index(['#'])
                 st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
