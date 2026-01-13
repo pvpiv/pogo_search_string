@@ -13,7 +13,7 @@
 "373","Salamence","Bagon","FALSE",,"30",,,,"15/15/15",,,,"50",,,,"4239",,,,"Dragon Tail, Fly, Outrage[etm]",,,"371;372;373","373"
 "373","Salamence (Shadow)","Bagon","TRUE",,"24",,,,"15/15/15",,,,"50",,,,"4239",,,,"Dragon Tail, Fly, Outrage[etm]",,,"371;372;373","373"
 "376","Metagross","Beldum","FALSE",,"2",,,,"15/15/15",,,,"50",,,,"4286",,,,"Shadow Claw[etm], Meteor Mash[etm], Earthquake",,,"374;375;376","376"
-"376","Metagross (Shadow)","Beldum","TRUE",,"3",,,,"15/15/15",,,,"50",,,,"4286",,,,"Bullet Punch, Meteor Mash[etm], Earthquake",,,"374;375;376","376"
+"376","Metagross (Shadow)","Beldum","TRUE",,"3",,,,"15/15/15",,,,"50",,,,"4286",,,,"Shadow Claw[etm], Meteor Mash[etm], Earthquake",,,"374;375;376","376"
 "389","Torterra (Shadow)","Turtwig","TRUE",,"52",,,,"15/15/15",,,,"50",,,,"3318",,,,"Razor Leaf, Frenzy Plant[etm], Stone Edge",,,"387;388;389","389"
 "395","Empoleon (Shadow)","Piplup","TRUE",,"25",,,,"15/15/15",,,,"50",,,,"3279",,,,"Metal Claw, Hydro Cannon[etm], Drill Peck",,,"393;394;395","395"
 "445","Garchomp","Gible","FALSE",,"22",,,,"15/15/15",,,,"50",,,,"4479",,,,"Mud Shot, Outrage, Earth Power[etm]",,,"443;444;445","445"
@@ -57,3 +57,4 @@
 "1111","Select a Pokemon","Select a Pokemon","TRUE","","","","","","","","","","","","","","","","","","","","","1111","1111"
 "1112","Select a Shadow Pokemon","Select a Shadow Pokemon","FALSE","","","","","","","","","","","","","","","","","","","","","1112","1112"
 "1112","Select a Shadow Pokemon","Select a Shadow Pokemon","TRUE","","","","","","","","","","","","","","","","","","","","","1112","1112"
+
