@@ -71,8 +71,8 @@ if  st.session_state['show_custom2']:
 	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_retro.csv'
 	df = pd.read_csv('pvp_data_retro.csv')
 elif  st.session_state['show_custom1']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
-	df = pd.read_csv('pvp_data_mega.csv')
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_premier.csv'
+	df = pd.read_csv('pvp_data_premier.csv')
 
 #elif  st.session_state['show_custom3']:
  # GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Fossil.csv'
@@ -148,6 +148,7 @@ with cols[0]:
     )
     #show_custom_boxz2 =  
     show_seas_boxz = st.checkbox('retro Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+	show_mast_boxz = st.checkbox('Master Premier Cup'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -522,11 +523,11 @@ with cols[1]:
  
 	     
         elif st.session_state['show_custom1']: 
-            st.write(f'Master Mega Top {st.session_state.top_num} Search String:')
+            st.write(f'Master Premier Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-            lab_mast = "Show Master Mega Table".title()
+            lab_mast = "Show Master Premier Table".title()
             if st.session_state['master_clicked']:
-                lab_mast  = "Hide Master Mega Table".title()
+                lab_mast  = "Hide Master Premier Table".title()
                 family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                 df_display_master = pd.DataFrame(family_data_master)
                 df_display_master.set_index(['#'])
