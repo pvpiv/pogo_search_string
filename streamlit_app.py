@@ -360,9 +360,9 @@ with cols[1]:
                 	st.code(age_string + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
                     st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_gre = "Show Great Table"
+                lab_gre = "Show Great Table".title()
                 if st.session_state['great_clicked']:
-                    lab_gre  = "Hide Great Table"
+                    lab_gre  = "Hide Great Table".title()
                     st.button(lab_gre,on_click = great_but)
                     family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
@@ -381,9 +381,9 @@ with cols[1]:
                     st.code(age_string + make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
                    st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_ult = "Show Ultra Table"
+                lab_ult = "Show Ultra Table".title()
                 if st.session_state['ultra_clicked']:
-                    lab_ult  = "Hide Ultra Table"
+                    lab_ult  = "Hide Ultra Table".title()
                     family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
                     df_display_Ultra = pd.DataFrame(family_data_Ultra)
                     df_display_Ultra.set_index(['#'])
@@ -401,9 +401,9 @@ with cols[1]:
                     st.code(age_string + make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
                     st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_mast = "Show Master Table"
+                lab_mast = "Show Master Table".title()
                 if st.session_state['master_clicked']:
-                    lab_mast  = "Hide Master Table"
+                    lab_mast  = "Hide Master Table".title()
                     family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                     df_display_master = pd.DataFrame(family_data_master)
                     df_display_master.set_index(['#'])
@@ -420,9 +420,9 @@ with cols[1]:
                     st.code(age_string + make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
                     st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_lit = "Show Little Table"
+                lab_lit = "Show Little Table".title()
                 if st.session_state['little_clicked']:
-                    lab_lit = "Hide Little Table"
+                    lab_lit = "Hide Little Table".title()
                     st.button(lab_lit,on_click = little_but)
                     family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
                     df_display_Little = pd.DataFrame(family_data_Little)
@@ -459,9 +459,9 @@ with cols[1]:
             try:
                 st.write(f'Attackers Search String:')
                 st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_att = "Show Attackers Table"
+                lab_att = "Show Attackers Table".title()
                 if st.session_state['ultra_clicked']:
-                    lab_att = "Hide Attackers Table"
+                    lab_att = "Hide Attackers Table".title()
                     st.button(lab_att,on_click = ultra_but)
                     family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz)
                     df_display_att = pd.DataFrame(family_data_att)
@@ -473,12 +473,11 @@ with cols[1]:
                 pass
         elif st.session_state['show_custom3']:
             try:
-                lab_ult = "Show Ultra Fantasy Cup Table"
                 st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_ult = "Show Ultra Table"
+                lab_ult = "Show Ultra Table".title()
                 if st.session_state['ultra_clicked']:
-                    lab_ult  = "Hide Ultra Table"
+                    lab_ult  = "Hide Ultra Table".title()
                     family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
                     df_display_Ultra = pd.DataFrame(family_data_Ultra)
                     df_display_Ultra.set_index(['#'])
@@ -493,9 +492,9 @@ with cols[1]:
             try:
                 st.write(f'Little League Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_lit = "Show Great Fossil Table"
+                lab_lit = "Show Great Fossil Table".title()
                 if st.session_state['little_clicked']:
-                    lab_lit = "Hide Great Fossil Table"
+                    lab_lit = "Hide Great Fossil Table".title()
                     st.button(lab_lit,on_click = little_but)
                     family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
                     df_display_Little = pd.DataFrame(family_data_Little)
@@ -507,12 +506,12 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom2']: 
-            lab_gre = "Show Great retro Cup Table"
+            lab_gre = "Show Great retro Cup Table".title()
             st.write(f'Great retro Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great retro Cup Table"
+                lab_gre  = "Hide Great retro Cup Table".title()
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
@@ -525,9 +524,9 @@ with cols[1]:
         elif st.session_state['show_custom1']: 
             st.write(f'Master Mega Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-            lab_mast = "Show Master Mega Table"
+            lab_mast = "Show Master Mega Table".title()
             if st.session_state['master_clicked']:
-                lab_mast  = "Hide Master Mega Table"
+                lab_mast  = "Hide Master Mega Table".title()
                 family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
                 df_display_master = pd.DataFrame(family_data_master)
                 df_display_master.set_index(['#'])
@@ -538,12 +537,12 @@ with cols[1]:
 		    
         elif st.session_state['show_custom3']: 
 
-            lab_ult = "Show Ultra Fantasy Cup Table"
+            lab_ult = "Show Ultra Fantasy Cup Table".title()
             st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             lab_ult = "Show Ultra Table"
             if st.session_state['ultra_clicked']:
-                lab_ult  = "Hide Ultra Table"
+                lab_ult  = "Hide Ultra Table".title()
                 family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
                 df_display_Ultra = pd.DataFrame(family_data_Ultra)
                 df_display_Ultra.set_index(['#'])
