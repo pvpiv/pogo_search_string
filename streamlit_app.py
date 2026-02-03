@@ -69,7 +69,7 @@ age_string = f"age0-{days_since_date}&"
 
 if  st.session_state['show_custom2']:
 	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_euic2026.csv'
-	df = pd.read_csv('pvp_data_retro.csv')
+	df = pd.read_csv('pvp_data_euic2026.csv')
 elif  st.session_state['show_custom3']:
 	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_premier_ult.csv'
 	df = pd.read_csv('pvp_data_premier_ult.csv')
