@@ -508,7 +508,7 @@ with cols[1]:
                 pass
         elif st.session_state['show_custom2']: 
             lab_gre = "Show Great Championship Cup Table".title()
-            st.write(f'Great retro Cup Top {st.session_state.top_num} Search String:')
+            st.write(f'Great Championship Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
