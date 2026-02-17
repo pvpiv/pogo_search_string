@@ -68,8 +68,8 @@ days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
 
 if  st.session_state['show_custom2']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_euic2026.csv'
-	df = pd.read_csv('pvp_data_euic2026.csv')
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_love.csv'
+	df = pd.read_csv('pvp_data_love.csv')
 elif  st.session_state['show_custom3']:
 	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_premier_ult.csv'
 	df = pd.read_csv('pvp_data_premier_ult.csv')
@@ -148,7 +148,7 @@ with cols[0]:
     )
     #show_custom_boxz2 =  
  #   show_seas_boxz = st.checkbox('retro Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-    show_mast_boxz = st.checkbox('Great Championship Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+    show_mast_boxz = st.checkbox('Love Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -507,12 +507,12 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom2']: 
-            lab_gre = "Show Great Championship Cup Table".title()
-            st.write(f'Great Championship Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show Love Cup Table".title()
+            st.write(f'Love Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great Championship Cup Table".title()
+                lab_gre  = "Hide Love Cup Table".title()
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
