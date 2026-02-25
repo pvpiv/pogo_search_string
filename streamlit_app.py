@@ -70,9 +70,9 @@ age_string = f"age0-{days_since_date}&"
 if  st.session_state['show_custom2']:
 	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
 	df = pd.read_csv('pvp_data_mega.csv')
-elif  st.session_state['show_custom3']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_premier_ult.csv'
-	df = pd.read_csv('pvp_data_premier_ult.csv')
+elif  st.session_state['get_season']:
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
+	df = pd.read_csv('pvp_data_seas.csv')
 
 #elif  st.session_state['show_custom3']:
  # GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Fossil.csv'
@@ -149,7 +149,7 @@ with cols[0]:
     #show_custom_boxz2 =  
  #   show_seas_boxz = st.checkbox('retro Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
     show_mast_boxz = st.checkbox('Mega Master Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-    #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
+    show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
         st.selectbox(
