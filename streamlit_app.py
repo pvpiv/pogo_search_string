@@ -524,6 +524,9 @@ with cols[1]:
 	     
         elif st.session_state['show_custom2']: 
             lab_gre = "Show Great Kanto Table".title()
+            st.write(f'Great Kanto Top {st.session_state.top_num} Search String:')
+            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+            
             if st.session_state['great_clicked']:
                 lab_gre  = "Hide Great Kanto Table".title()
                 st.button(lab_gre,on_click = great_but)
