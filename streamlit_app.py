@@ -562,7 +562,7 @@ with cols[1]:
             topstrin = str(st.session_state.top_num)
             if st.session_state['show_custom']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Mega Master Cup into PokeGO {st.session_state['language']}*'
-            if st.session_state['show_custom2']:
+            elif st.session_state['show_custom2']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great spring Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom3']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Fossil Cup into PokeGO {st.session_state['language']}*'
