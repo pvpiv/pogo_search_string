@@ -255,16 +255,17 @@ def format_data_top(df, league, num_rank,xl_var,only_xl_var):
     formatted_data = []
     attributes = ['Rank', 'IVs', 'CP', 'Level','MoveSet']
       
-    if not xl_var:
-        df_all = family_data[family_data[f'{league.capitalize()}_Level'] <= 40]
-        df_filtered = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
-    if not xl_var and only_xl_var:
-        df_all = family_data[family_data[f'{league.capitalize()}_Level'] >= 40]
-        df_filtered = df_all[df_all[f'{league.capitalize()}_Level'] >= 40]
-    family_data = df_filtered.sort_values(by=rank_column).drop_duplicates(subset=['ID'])
-
     for _, row in family_data.iterrows():
-    
+        level_val = row.get(f'{league}_Level', 0)
+        
+        # Apply XL filtering logic
+        if not xl_var and only_xl_var:
+            if pd.isna(level_val) or level_val < 40:
+                continue
+        elif not xl_var:
+            if pd.isna(level_val) or level_val > 40:
+                continue
+                
         rank_value = (
             row[f'{league}_Rank']
             if pd.notna(row[f'{league}_Rank']) and isinstance(row[f'{league}_Rank'], (int, float))
