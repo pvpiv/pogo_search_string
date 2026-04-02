@@ -159,8 +159,8 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
         df_all = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
         df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] <= 40]
     if not xl_var and xl_only:
-        df_all = df_all[df_all[f'{league.capitalize()}_Level'] >= 40]
-        df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] >= 40]
+        df_all = df_all[df_all[f'{league.capitalize()}_Level'] > 40]
+        df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] > 40]
     top_df = df_filtered.sort_values(by=rank_column).drop_duplicates(subset=['ID'])
 
     if fam:
@@ -250,40 +250,47 @@ def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_
                 + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
             )
 
-def format_data_top(df, league, num_rank,xl_var,only_xl_var):
-    family_data = df.sort_values(by=[f'{league}_Rank'])
-    formatted_data = []
-    attributes = ['Rank', 'IVs', 'CP', 'Level','MoveSet']
-      
-    for _, row in family_data.iterrows():
-        level_val = row.get(f'{league}_Level', 0)
+def format_data_top(df, league, num_rank, xl_var, only_xl_var):
+    rank_column = f'{league}_Rank'
+    
+    # Filter by rank first, just like get_top_50_ids
+    df_filtered = df.dropna(subset=[rank_column])
+    df_filtered = df_filtered[df_filtered[rank_column] <= num_rank]
+    
+    # Then apply XL filtering
+    level_col = f'{league.capitalize()}_Level'
+    if level_col not in df_filtered.columns:
+        level_col = f'{league}_Level'
         
-        # Apply XL filtering logic
-        if not xl_var and only_xl_var:
-            if pd.isna(level_val) or level_val < 40:
-                continue
-        elif not xl_var:
-            if pd.isna(level_val) or level_val > 40:
-                continue
-                
-        rank_value = (
-            row[f'{league}_Rank']
-            if pd.notna(row[f'{league}_Rank']) and isinstance(row[f'{league}_Rank'], (int, float))
-            else row[f'{league}_Rank']
-            if pd.notna(row[f'{league}_Rank'])
-            else 251
-        )
-        if num_rank >= int(rank_value):
-            entry = {'Pokemon': row['Pokemon']}
-            for attr in attributes:
-                value = row[f'{league}_{attr}']
-                attr = attr.replace("Level","Lvl")
-                attr = attr.replace("MoveSet","Moves")
-                attr = attr.replace("Rank","#")
-                entry[attr] = (
-                    f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value  if pd.notna(value) else ''
-                )
-            formatted_data.append(entry)
+    if not xl_var:
+        # Convert to numeric just in case to avoid TypeErrors
+        df_filtered[level_col] = pd.to_numeric(df_filtered[level_col], errors='coerce')
+        df_filtered = df_filtered[df_filtered[level_col] <= 40]
+    if not xl_var and only_xl_var:
+        df_filtered[level_col] = pd.to_numeric(df_filtered[level_col], errors='coerce')
+        df_filtered = df_filtered[df_filtered[level_col] > 40]
+        
+    # Drop duplicates by ID, just like get_top_50_ids
+    if 'ID' in df_filtered.columns:
+        family_data = df_filtered.sort_values(by=rank_column).drop_duplicates(subset=['ID'])
+    else:
+        family_data = df_filtered.sort_values(by=rank_column)
+        
+    formatted_data = []
+    attributes = ['Rank', 'IVs', 'CP', 'Level', 'MoveSet']
+    
+    for _, row in family_data.iterrows():
+        entry = {'Pokemon': row['Pokemon']}
+        for attr in attributes:
+            value = row.get(f'{league}_{attr}')
+            attr = attr.replace("Level", "Lvl")
+            attr = attr.replace("MoveSet", "Moves")
+            attr = attr.replace("Rank", "#")
+            entry[attr] = (
+                f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value if pd.notna(value) else ''
+            )
+        formatted_data.append(entry)
+        
     return formatted_data
 
 def calculate_days_since(xDate):
