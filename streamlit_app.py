@@ -32,6 +32,7 @@ from session_state_manager import (
     upd_shadow,
     upd_tab_str,
     upd_xl,
+    upd_only_xl,
     upd_seas,
     upd_cust,
     upd_cust1,
@@ -50,7 +51,6 @@ from session_state_manager import (
 
 # Initialize session state
 initialize_session_state()
-
 
 
 query_params = st.query_params  #st.experimental_get_query_params()
