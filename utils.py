@@ -150,7 +150,7 @@ def filter_ids(row):
 
     return list(filtered_list)
 
-def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var=True, all=False,shad_only=False, language='English'):
+def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_var=True,xl_only=False, all=False,shad_only=False, language='English'):
     df_all = df.sort_values(by=rank_column)
     df_filtered = df.dropna(subset=[rank_column])
     df_filtered = df_filtered[df_filtered[rank_column] <= top_n]
@@ -158,7 +158,9 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
     if not xl_var:
         df_all = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
         df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] <= 40]
-
+     if not xl_var and xl_only:
+        df_all = df_all[df_all[f'{league.capitalize()}_Level'] >= 40]
+        df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] >= 40]
     top_df = df_filtered.sort_values(by=rank_column).drop_duplicates(subset=['ID'])
 
     if fam:
@@ -217,33 +219,33 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
     return translate_search_string(final_string, language)
 
 
-def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val, all_pre=False,shad_only=False, language='English'):
+def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre=False,shad_only=False, language='English'):
     if league == 'little':
-        return get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+        return get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl,sho_only_xl, all_pre,shad_only, language)
     elif league == 'great':
-        return get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+        return get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
     elif league == 'ultra':
-        return get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only ,language)
+        return get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only ,language)
     elif league == 'master':
         return get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
     elif league == 'all':
         if not inv_b:
             return (
-                get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
                 + ','
-                + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
                 + ','
-                + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
                 + ','
                 + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
             )
         else:
             return (
-                get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
                 + '&'
-                + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
                 + '&'
-                + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val, all_pre,shad_only, language)
+                + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
                 + '&'
                 + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
             )
