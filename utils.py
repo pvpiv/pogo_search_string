@@ -155,12 +155,12 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
     df_filtered = df.dropna(subset=[rank_column])
     df_filtered = df_filtered[df_filtered[rank_column] <= top_n]
 
-    if not xl_var:
-        df_all = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
-        df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] <= 40]
     if not xl_var and xl_only:
         df_all = df_all[df_all[f'{league.capitalize()}_Level'] > 40]
         df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] > 40]
+    elif not xl_var:
+        df_all = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
+        df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] <= 40]
     top_df = df_filtered.sort_values(by=rank_column).drop_duplicates(subset=['ID'])
 
     if fam:
@@ -262,13 +262,13 @@ def format_data_top(df, league, num_rank, xl_var, only_xl_var):
     if level_col not in df_filtered.columns:
         level_col = f'{league}_Level'
         
-    if not xl_var:
-        # Convert to numeric just in case to avoid TypeErrors
-        df_filtered[level_col] = pd.to_numeric(df_filtered[level_col], errors='coerce')
-        df_filtered = df_filtered[df_filtered[level_col] <= 40]
     if not xl_var and only_xl_var:
         df_filtered[level_col] = pd.to_numeric(df_filtered[level_col], errors='coerce')
         df_filtered = df_filtered[df_filtered[level_col] > 40]
+    elif not xl_var:
+        # Convert to numeric just in case to avoid TypeErrors
+        df_filtered[level_col] = pd.to_numeric(df_filtered[level_col], errors='coerce')
+        df_filtered = df_filtered[df_filtered[level_col] <= 40]
         
     # Drop duplicates by ID, just like get_top_50_ids
     if 'ID' in df_filtered.columns:
