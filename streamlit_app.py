@@ -406,7 +406,7 @@ with cols[1]:
                 lab_mast = "Show Master Table".title()
                 if st.session_state['master_clicked']:
                     lab_mast  = "Hide Master Table".title()
-                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True)
+                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True,True)
                     df_display_master = pd.DataFrame(family_data_master)
                     df_display_master.set_index(['#'])
                     st.button(lab_mast, on_click = master_but)
