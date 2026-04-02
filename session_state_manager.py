@@ -107,8 +107,15 @@ def upd_shadow():
 
 def upd_xl():
     st.session_state.show_xl = st.session_state.sho_xl
+    if st.session_state.sho_xl:
+        st.session_state.show_only_xl = False
+        st.session_state.sho_only_xl = False
+
 def upd_only_xl():
     st.session_state.show_only_xl = st.session_state.sho_only_xl
+    if st.session_state.sho_only_xl:
+        st.session_state.show_xl = False
+        st.session_state.sho_xl = False
 
 def upd_seas():
     st.session_state.get_season = st.session_state.sho_seas
