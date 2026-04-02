@@ -366,7 +366,7 @@ with cols[1]:
                 if st.session_state['great_clicked']:
                     lab_gre  = "Hide Great Table".title()
                     st.button(lab_gre,on_click = great_but)
-                    family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                    family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
                     df_display_Great.set_index(['#'])#, inplace=True)
                     st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
@@ -386,7 +386,7 @@ with cols[1]:
                 lab_ult = "Show Ultra Table".title()
                 if st.session_state['ultra_clicked']:
                     lab_ult  = "Hide Ultra Table".title()
-                    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
+                    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                     df_display_Ultra = pd.DataFrame(family_data_Ultra)
                     df_display_Ultra.set_index(['#'])
                     st.button(lab_ult,on_click = ultra_but)
@@ -426,7 +426,7 @@ with cols[1]:
                 if st.session_state['little_clicked']:
                     lab_lit = "Hide Little Table".title()
                     st.button(lab_lit,on_click = little_but)
-                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
+                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                     df_display_Little = pd.DataFrame(family_data_Little)
                     df_display_Little.set_index(['#'])
                     st.markdown(swap_columns(df_display_Little,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)  
@@ -450,7 +450,7 @@ with cols[1]:
                 if st.session_state['master_clicked']:
                     lab_def = "Hide Defenders Table"
                     st.button(lab_def,on_click = master_but)
-                    family_data_def = format_data_top(defenders, 'Master', st.session_state.top_num,show_xl_boxz)
+                    family_data_def = format_data_top(defenders, 'Master', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                     df_display_def = pd.DataFrame(family_data_def)
                     df_display_def.set_index(['#'])
                     st.markdown(swap_columns(df_display_def,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
@@ -465,7 +465,7 @@ with cols[1]:
                 if st.session_state['ultra_clicked']:
                     lab_att = "Hide Attackers Table".title()
                     st.button(lab_att,on_click = ultra_but)
-                    family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz)
+                    family_data_att = format_data_top(attackers, 'Master', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                     df_display_att = pd.DataFrame(family_data_att)
                     df_display_att.set_index(['#'])
                     st.markdown(swap_columns(df_display_att,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
@@ -480,7 +480,7 @@ with cols[1]:
                 lab_ult = "Show Ultra Premier Table".title()
                 if st.session_state['ultra_clicked']:
                     lab_ult  = "Hide Ultra Premier Table".title()
-                    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
+                    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                     df_display_Ultra = pd.DataFrame(family_data_Ultra)
                     df_display_Ultra.set_index(['#'])
                     st.button(lab_ult,on_click = ultra_but)
@@ -498,7 +498,7 @@ with cols[1]:
                 if st.session_state['little_clicked']:
                     lab_lit = "Hide Great Fossil Table".title()
                     st.button(lab_lit,on_click = little_but)
-                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz)
+                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                     df_display_Little = pd.DataFrame(family_data_Little)
                     df_display_Little.set_index(['#'])
                     st.markdown(swap_columns(df_display_Little,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)  
@@ -515,7 +515,7 @@ with cols[1]:
             if st.session_state['great_clicked']:
                 lab_gre  = "Hide Love Cup Table".title()
                 st.button(lab_gre,on_click = great_but)
-                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
                 df_display_Great.set_index(['#'])
                 st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
@@ -531,7 +531,7 @@ with cols[1]:
             if st.session_state['great_clicked']:
                 lab_gre  = "Hide Great Electric Table".title()
                 st.button(lab_gre,on_click = great_but)
-                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz)
+                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
                 df_display_Great.set_index(['#'])#, inplace=True)
                 st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
@@ -547,7 +547,7 @@ with cols[1]:
             lab_ult = "Show Ultra Table"
             if st.session_state['ultra_clicked']:
                 lab_ult  = "Hide Ultra Table".title()
-                family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz)
+                family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                 df_display_Ultra = pd.DataFrame(family_data_Ultra)
                 df_display_Ultra.set_index(['#'])
                 st.button(lab_ult,on_click = ultra_but)
