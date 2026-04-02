@@ -255,8 +255,6 @@ def format_data_top(df, league, num_rank,xl_var,only_xl_var):
     formatted_data = []
     attributes = ['Rank', 'IVs', 'CP', 'Level','MoveSet']
       
-    family_data = family_data[family_data[rank_column] <= top_n]
-
     if not xl_var:
         df_all = family_data[family_data[f'{league.capitalize()}_Level'] <= 40]
         df_filtered = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
