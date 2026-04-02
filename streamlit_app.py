@@ -133,11 +133,11 @@ with cols[0]:
                 popover.divider()
                
                 fam_box = popover.checkbox('Include pre-evolutions', value=True)
-                show_xl_boxz = popover.checkbox('Include XL Pokémon \n\n(XL Candy needed)', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
+                show_xl_boxz = popover.checkbox('Include Candy XL Pokémon', on_change=upd_xl, key='sho_xl', value=st.session_state['show_xl'])
                 iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
                 inv_box = popover.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')# tables_pop = st.popover("League Tables")
                 shad_box = popover.checkbox('Shadow Only', value=st.session_state.show_shadow, key='sho_shad', on_change=upd_shad_only)
-                show_only_xl_boxz =popover.checkbox('XL Candy only)', on_change=upd_only_xl, key='sho_only_xl', value=st.session_state['show_only_xl'])
+                show_only_xl_boxz =popover.checkbox('Candy XL Pokémon only', on_change=upd_only_xl, key='sho_only_xl', value=st.session_state['show_only_xl'])
 
 
         
@@ -263,8 +263,8 @@ with cols[1]:
                 all_data = []
                 
                 # Function to get table data for a league
-                def get_league_data(league_name, df, top_n, show_xl):
-                    data = format_data_top(df, league_name, top_n, show_xl)
+                def get_league_data(league_name, df, top_n, show_xl,show_only_xl):
+                    data = format_data_top(df, league_name, top_n, show_xl,show_only_xl)
                     for row in data:
                         row['League'] = league_name
                         # Split IVs into separate columns
@@ -279,7 +279,7 @@ with cols[1]:
                 # Get data for each league
                 leagues = ['Great', 'Ultra', 'Master', 'Little']
                 for league in leagues:
-                    league_data = get_league_data(league, df, st.session_state.top_num, show_xl_boxz)
+                    league_data = get_league_data(league, df, st.session_state.top_num, show_xl_boxz,show_only_xl_boxz)
                     all_data.extend(league_data)
                 
                 # Convert to DataFrame
