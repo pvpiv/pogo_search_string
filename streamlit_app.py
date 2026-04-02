@@ -32,7 +32,6 @@ from session_state_manager import (
     upd_shadow,
     upd_tab_str,
     upd_xl,
-    upd_only_xl,
     upd_seas,
     upd_cust,
     upd_cust1,
@@ -138,6 +137,7 @@ with cols[0]:
                 iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
                 inv_box = popover.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')# tables_pop = st.popover("League Tables")
                 shad_box = popover.checkbox('Shadow Only', value=st.session_state.show_shadow, key='sho_shad', on_change=upd_shad_only)
+				show_only_xl_boxz =popover.checkbox('XL Candy only)', on_change=upd_only_xl, key='sho_only_xl', value=st.session_state['show_only_xl'])
 
 
         
@@ -328,7 +328,7 @@ with cols[1]:
                     ]
                     
                     for league in leagues:
-                        base_string = make_search_string(df, league, st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False, shad_only=shad_box, language=st.session_state['language'])
+                        base_string = make_search_string(df, league, st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, show_only_xl_boxz, False, shad_only=shad_box, language=st.session_state['language'])
                         # Remove any existing IV filters
                         base_string = base_string.split('&0-1attack')[0] if '&0-1attack' in base_string else base_string
                         
@@ -359,9 +359,9 @@ with cols[1]:
             try:
                 st.write(f'Great League Top {st.session_state.top_num} Search String:')
                 if st.session_state['show_custom3']:
-                	st.code(age_string + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                	st.code(age_string + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
-                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_gre = "Show Great Table".title()
                 if st.session_state['great_clicked']:
                     lab_gre  = "Hide Great Table".title()
@@ -380,9 +380,9 @@ with cols[1]:
             try:
                 st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
                 if st.session_state['show_custom1']:
-                    st.code(age_string + make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    st.code(age_string + make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
-                   st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                   st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_ult = "Show Ultra Table".title()
                 if st.session_state['ultra_clicked']:
                     lab_ult  = "Hide Ultra Table".title()
@@ -400,9 +400,9 @@ with cols[1]:
             try:
                 st.write(f'Master League Top {st.session_state.top_num} Search String:')
                 if st.session_state['show_custom1']:
-                    st.code(age_string + make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    st.code(age_string + make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
-                    st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_mast = "Show Master Table".title()
                 if st.session_state['master_clicked']:
                     lab_mast  = "Hide Master Table".title()
@@ -419,9 +419,9 @@ with cols[1]:
             try:
                 st.write(f'Little League Top {st.session_state.top_num} Search String:')
                 if st.session_state['show_custom1']:
-                    st.code(age_string + make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    st.code(age_string + make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
-                    st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                    st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_lit = "Show Little Table".title()
                 if st.session_state['little_clicked']:
                     lab_lit = "Hide Little Table".title()
@@ -437,7 +437,7 @@ with cols[1]:
                 pass
             try:
                 st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, True,shad_only=shad_box, language = st.session_state['language']))
+                st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, show_only_xl_boxz, True,shad_only=shad_box, language = st.session_state['language']))
             except:
                 pass
         elif st.session_state['gym_bool']: 
@@ -445,7 +445,7 @@ with cols[1]:
             defenders = pd.read_csv('defenders.csv')
             try:
                 st.write(f'Defenders Search String:')
-                st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                st.code(make_search_string(defenders, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_def = "Show Defenders Table"
                 if st.session_state['master_clicked']:
                     lab_def = "Hide Defenders Table"
@@ -460,7 +460,7 @@ with cols[1]:
                 pass
             try:
                 st.write(f'Attackers Search String:')
-                st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                st.code(make_search_string(attackers, "master", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_att = "Show Attackers Table".title()
                 if st.session_state['ultra_clicked']:
                     lab_att = "Hide Attackers Table".title()
@@ -476,7 +476,7 @@ with cols[1]:
         elif st.session_state['show_custom3']:
             try:
                 st.write(f'Ultra Premier Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_ult = "Show Ultra Premier Table".title()
                 if st.session_state['ultra_clicked']:
                     lab_ult  = "Hide Ultra Premier Table".title()
@@ -493,7 +493,7 @@ with cols[1]:
         elif st.session_state['show_custom3']: 
             try:
                 st.write(f'Little League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_lit = "Show Great Fossil Table".title()
                 if st.session_state['little_clicked']:
                     lab_lit = "Hide Great Fossil Table".title()
@@ -510,7 +510,7 @@ with cols[1]:
         elif st.session_state['show_custom1']: 
             lab_gre = "Show Love Cup Table".title()
             st.write(f'Love Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
                 lab_gre  = "Hide Love Cup Table".title()
@@ -526,7 +526,7 @@ with cols[1]:
         elif st.session_state['show_custom2']: 
             lab_gre = "Show Great Electric Table".title()
             st.write(f'Great Electric Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
                 lab_gre  = "Hide Great Electric Table".title()
@@ -543,7 +543,7 @@ with cols[1]:
 
             lab_ult = "Show Ultra Fantasy Cup Table".title()
             st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+            st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             lab_ult = "Show Ultra Table"
             if st.session_state['ultra_clicked']:
                 lab_ult  = "Hide Ultra Table".title()
