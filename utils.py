@@ -158,7 +158,7 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
     if not xl_var:
         df_all = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
         df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] <= 40]
-    if not xl_var and xl_only:
+     if not xl_var and xl_only:
         df_all = df_all[df_all[f'{league.capitalize()}_Level'] >= 40]
         df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] >= 40]
     top_df = df_filtered.sort_values(by=rank_column).drop_duplicates(subset=['ID'])
@@ -250,31 +250,41 @@ def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_
                 + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
             )
 
-def format_data_top(df, league, num_rank,xl_var):
+def format_data_top(df, league, num_rank,xl_var,only_xl_var):
     family_data = df.sort_values(by=[f'{league}_Rank'])
     formatted_data = []
     attributes = ['Rank', 'IVs', 'CP', 'Level','MoveSet']
+      
+    family_data = family_data[family_data[rank_column] <= top_n]
+
+    if not xl_var:
+        df_all = family_data[family_data[f'{league.capitalize()}_Level'] <= 40]
+        df_filtered = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
+     if not xl_var and xl_only:
+        df_all = family_data[family_data[f'{league.capitalize()}_Level'] >= 40]
+        df_filtered = df_all[df_all[f'{league.capitalize()}_Level'] >= 40]
+    family_data = df_filtered.sort_values(by=rank_column).drop_duplicates(subset=['ID'])
 
     for _, row in family_data.iterrows():
-        if (not xl_var and row[f'{league}_Level'] <= 40) or xl_var:
-            rank_value = (
-                row[f'{league}_Rank']
-                if pd.notna(row[f'{league}_Rank']) and isinstance(row[f'{league}_Rank'], (int, float))
-                else row[f'{league}_Rank']
-                if pd.notna(row[f'{league}_Rank'])
-                else 251
-            )
-            if num_rank >= int(rank_value):
-                entry = {'Pokemon': row['Pokemon']}
-                for attr in attributes:
-                    value = row[f'{league}_{attr}']
-                    attr = attr.replace("Level","Lvl")
-                    attr = attr.replace("MoveSet","Moves")
-                    attr = attr.replace("Rank","#")
-                    entry[attr] = (
-                        f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value  if pd.notna(value) else ''
-                    )
-                formatted_data.append(entry)
+    
+        rank_value = (
+            row[f'{league}_Rank']
+            if pd.notna(row[f'{league}_Rank']) and isinstance(row[f'{league}_Rank'], (int, float))
+            else row[f'{league}_Rank']
+            if pd.notna(row[f'{league}_Rank'])
+            else 251
+        )
+        if num_rank >= int(rank_value):
+            entry = {'Pokemon': row['Pokemon']}
+            for attr in attributes:
+                value = row[f'{league}_{attr}']
+                attr = attr.replace("Level","Lvl")
+                attr = attr.replace("MoveSet","Moves")
+                attr = attr.replace("Rank","#")
+                entry[attr] = (
+                    f'{int(value):,}' if pd.notna(value) and isinstance(value, (int, float)) else value  if pd.notna(value) else ''
+                )
+            formatted_data.append(entry)
     return formatted_data
 
 def calculate_days_since(xDate):
