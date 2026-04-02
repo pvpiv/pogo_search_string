@@ -32,6 +32,8 @@ def initialize_session_state():
         st.session_state['show_shadow'] = False
     if 'show_xl' not in st.session_state:
         st.session_state['show_xl'] = True
+    if 'show_only_xl' not in st.session_state:
+        st.session_state['show_only_xl'] = True
     if 'get_season' not in st.session_state:
         st.session_state['get_season'] = False
     if 'last_sel' not in st.session_state:
@@ -105,6 +107,8 @@ def upd_shadow():
 
 def upd_xl():
     st.session_state.show_xl = st.session_state.sho_xl
+def upd_only_xl():
+    st.session_state.show_only_xl = st.session_state.sho_only_xl
 
 def upd_seas():
     st.session_state.get_season = st.session_state.sho_seas
