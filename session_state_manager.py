@@ -33,7 +33,7 @@ def initialize_session_state():
     if 'show_xl' not in st.session_state:
         st.session_state['show_xl'] = True
     if 'show_only_xl' not in st.session_state:
-        st.session_state['show_only_xl'] = True
+        st.session_state['show_only_xl'] = False
     if 'get_season' not in st.session_state:
         st.session_state['get_season'] = False
     if 'last_sel' not in st.session_state:
