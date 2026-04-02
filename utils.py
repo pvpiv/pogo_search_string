@@ -158,7 +158,7 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
     if not xl_var:
         df_all = df_all[df_all[f'{league.capitalize()}_Level'] <= 40]
         df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] <= 40]
-     if not xl_var and xl_only:
+    if not xl_var and xl_only:
         df_all = df_all[df_all[f'{league.capitalize()}_Level'] >= 40]
         df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] >= 40]
     top_df = df_filtered.sort_values(by=rank_column).drop_duplicates(subset=['ID'])
