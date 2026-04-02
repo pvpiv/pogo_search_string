@@ -137,7 +137,7 @@ with cols[0]:
                 iv_box = popover.checkbox('Include IV Filter \n\n(Works for Non XL Pokémon)', value=True)
                 inv_box = popover.checkbox('Invert strings', value=st.session_state.show_inverse, key='show_inv')# tables_pop = st.popover("League Tables")
                 shad_box = popover.checkbox('Shadow Only', value=st.session_state.show_shadow, key='sho_shad', on_change=upd_shad_only)
-				show_only_xl_boxz =popover.checkbox('XL Candy only)', on_change=upd_only_xl, key='sho_only_xl', value=st.session_state['show_only_xl'])
+                show_only_xl_boxz =popover.checkbox('XL Candy only)', on_change=upd_only_xl, key='sho_only_xl', value=st.session_state['show_only_xl'])
 
 
         
