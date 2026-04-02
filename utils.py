@@ -155,7 +155,7 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
     df_filtered = df.dropna(subset=[rank_column])
     df_filtered = df_filtered[df_filtered[rank_column] <= top_n]
 
-    if not xl_var and xl_only:
+    if xl_only:
         df_all = df_all[df_all[f'{league.capitalize()}_Level'] > 40]
         df_filtered = df_filtered[df_filtered[f'{league.capitalize()}_Level'] > 40]
     elif not xl_var:
@@ -262,7 +262,7 @@ def format_data_top(df, league, num_rank, xl_var, only_xl_var):
     if level_col not in df_filtered.columns:
         level_col = f'{league}_Level'
         
-    if not xl_var and only_xl_var:
+    if only_xl_var:
         df_filtered[level_col] = pd.to_numeric(df_filtered[level_col], errors='coerce')
         df_filtered = df_filtered[df_filtered[level_col] > 40]
     elif not xl_var:
