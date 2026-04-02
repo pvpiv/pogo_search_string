@@ -221,7 +221,7 @@ def get_top_50_ids(df, rank_column, league, top_n, fam, iv_bool, inv_bool, xl_va
 
 def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre=False,shad_only=False, language='English'):
     if league == 'little':
-        return get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl,sho_only_xl, all_pre,shad_only, language)
+        return get_top_50_ids(df, 'Little_Rank', 'little', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
     elif league == 'great':
         return get_top_50_ids(df, 'Great_Rank', 'great', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
     elif league == 'ultra':
