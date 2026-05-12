@@ -62,7 +62,7 @@ try:
 except:
 	pass
 	
-season_start = date(2025, 9, 3)
+season_start = date(2026, 3, 3)
 # Set GitHub API URL based on 'show_custom' flag
 days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
