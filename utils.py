@@ -227,7 +227,7 @@ def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_
     elif league == 'ultra':
         return get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only ,language)
     elif league == 'master':
-        return get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
+        return get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, sho_only_xl, all_pre,shad_only, language)
     elif league == 'all':
         if not inv_b:
             return (
@@ -237,7 +237,7 @@ def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_
                 + ','
                 + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
                 + ','
-                + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
+                + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, sho_only_xl, all_pre,shad_only, language)
             )
         else:
             return (
@@ -247,7 +247,7 @@ def make_search_string(df, league, top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_
                 + '&'
                 + get_top_50_ids(df, 'Ultra_Rank', 'ultra', top_n, fam, iv_b, inv_b, sho_xl_val,sho_only_xl, all_pre,shad_only, language)
                 + '&'
-                + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, all_pre,shad_only, language)
+                + get_top_50_ids(df, 'Master_Rank', 'master', top_n, fam, iv_b, inv_b, True, sho_only_xl, all_pre,shad_only, language)
             )
 
 def format_data_top(df, league, num_rank, xl_var, only_xl_var):
