@@ -67,12 +67,12 @@ season_start = date(2026, 3, 3)
 days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
 
-if  st.session_state['show_custom3']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
-	df = pd.read_csv('pvp_data.csv')
-elif  st.session_state['get_season']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
-	df = pd.read_csv('pvp_data_seas.csv')
+if  st.session_state['show_custom2']:
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_naic2026.csv'
+	df = pd.read_csv('pvp_data_naic2026.csv')
+#elif  st.session_state['get_season']:
+#	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
+#	df = pd.read_csv('pvp_data_seas.csv')
 
 #elif  st.session_state['show_custom3']:
  # GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_Fossil.csv'
@@ -148,9 +148,9 @@ with cols[0]:
         on_change = upd_tab_str
     )
     #show_custom_boxz2 =  
- #   show_seas_boxz = st.checkbox('retro Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+    show_seas_boxz = st.checkbox('NAIC 2026 Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
     #show_mast_boxz = st.checkbox('Next Season Preview'.title(), value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
-    show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
+    #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
         st.selectbox(
@@ -524,12 +524,12 @@ with cols[1]:
  
 	     
         elif st.session_state['show_custom2']: 
-            lab_gre = "Show Great Catch Table".title()
+            lab_gre = "Show Great NAIC 2026 Table".title()
             st.write(f'Great Catch Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great Catch Table".title()
+                lab_gre  = "Hide Great NAIC 2026 Table".title()
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
