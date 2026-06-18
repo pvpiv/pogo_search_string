@@ -493,20 +493,20 @@ with cols[1]:
                 pass
         elif st.session_state['show_custom3']: 
             try:
-				lab_gre = "Show Great Sunshine Cup Table".title()
-				st.write(f'Great Sunshine Top {st.session_state.top_num} Search String:')
-				st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-				
-				if st.session_state['great_clicked']:
-					lab_gre  = "Hide Great Sunshine Table".title()
-					st.button(lab_gre,on_click = great_but)
-					family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
-					df_display_Great = pd.DataFrame(family_data_Great)
-					df_display_Great.set_index(['#'])
-					st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-				else:
-					st.button(lab_gre,on_click = great_but)
-                
+                lab_gre = "Show Great Sunshine Cup Table".title()
+                st.write(f'Great Sunshine Top {st.session_state.top_num} Search String:')
+                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+
+                if st.session_state['great_clicked']:
+                    lab_gre  = "Hide Great Sunshine Table".title()
+                    st.button(lab_gre,on_click = great_but)
+                    family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
+                    df_display_Great = pd.DataFrame(family_data_Great)
+                    df_display_Great.set_index(['#'])
+                    st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                else:
+                    st.button(lab_gre,on_click = great_but)
+
             except:
                 pass
         elif st.session_state['show_custom1']: 
