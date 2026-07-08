@@ -75,8 +75,8 @@ if  st.session_state['show_custom2']:
 #	df = pd.read_csv('pvp_data_seas.csv')
 
 elif  st.session_state['show_custom3']:
-  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_summer.csv'
-  df = pd.read_csv('pvp_data_summer.csv')	
+  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_fantasy.csv'
+  df = pd.read_csv('pvp_data_fantasy.csv')	
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data.csv')
@@ -150,7 +150,7 @@ with cols[0]:
     #show_custom_boxz2 =  
   #  show_seas_boxz = st.checkbox('Mega Master Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
 	
-    show_mast_boxz = st.checkbox('Great summer Cup'.title(), value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
+    show_mast_boxz = st.checkbox('Ultra Fantasy Cup'.title(), value=st.session_state['show_custom3'], on_change=upd_cust3, key='sho_cust3')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -494,19 +494,19 @@ with cols[1]:
                 pass
         elif st.session_state['show_custom3']: 
             try:
-                lab_gre = "Show Great summer Cup Table".title()
-                st.write(f'Great summer Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                lab_ult= "Show Ultra Fantasy Cup Table".title()
+                st.write(f'Ultra Fantasy Top {st.session_state.top_num} Search String:')
+                st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
 
-                if st.session_state['great_clicked']:
-                    lab_gre  = "Hide Great summer Table".title()
-                    st.button(lab_gre,on_click = great_but)
-                    family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
-                    df_display_Great = pd.DataFrame(family_data_Great)
-                    df_display_Great.set_index(['#'])
-                    st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                if st.session_state['ultra_clicked']:
+                    lab_ult = "Hide Ultra Fantasy Table".title()
+                    st.button(lab_ult,on_click = ultra_but)
+                    family_data_Ultra = format_data_top(df, 'Ultra', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
+                    df_display_Ultra = pd.DataFrame(family_data_Ultra)
+                    df_display_Ultra.set_index(['#'])
+                    st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                 else:
-                    st.button(lab_gre,on_click = great_but)
+                    st.button(lab_ult,on_click = ultra_but)
 
             except:
                 pass
