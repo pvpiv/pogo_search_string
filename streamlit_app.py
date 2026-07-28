@@ -68,8 +68,8 @@ days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
 
 if  st.session_state['show_custom2']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
-	df = pd.read_csv('pvp_data_mega.csv')
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_premier.csv'
+	df = pd.read_csv('pvp_data_premier.csv')
 #elif  st.session_state['get_season']:
 #	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
 #	df = pd.read_csv('pvp_data_seas.csv')
@@ -118,7 +118,7 @@ with cols[0]:
               #  show_custom_boxz = popover.checkbox('Great Fossil Cup', on_change=upd_cust1, key='sho_cust2')
 
                # show_custom_boxz1 = popover.checkbox('Great LAIS2025 Cup', value=st.session_state['show_custom1'], on_change=upd_cust2, key='sho_cust1')
-                #show_custom_boxz2 = popover.checkbox('Mega Master Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
+                #show_custom_boxz2 = popover.checkbox('Master Premier  Cup' , value=st.session_state['show_custom2']  , on_change=upd_cust2, key='sho_cust2')
                 #show_custom_boxz2 =  popover.checkbox('Catch Cup', value=st.session_state['show_custom2'], on_change=upd_cust3, key='sho_cust2')
                 show_shadow_boxz = popover.checkbox('Include Shadow Pokémon', on_change=upd_shadow, key='sho_shad', value=st.session_state['get_shadow'])
                 
@@ -148,9 +148,9 @@ with cols[0]:
         on_change = upd_tab_str
     )
     #show_custom_boxz2 =  
-  #  show_seas_boxz = st.checkbox('Mega Master Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+  #  show_seas_boxz = st.checkbox('Master Premier  Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
 	
-    show_mast_boxz = st.checkbox('Great Retro Cup'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+    show_mast_boxz = st.checkbox('Master Premier Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust1, key='sho_cust2')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -528,14 +528,14 @@ with cols[1]:
 	     
         elif st.session_state['show_custom2']: 
             try:
-                st.write(f'Mega Master League Top {st.session_state.top_num} Search String:')
+                st.write(f'Master Premier League Top {st.session_state.top_num} Search String:')
                 if st.session_state['show_custom1']:
                     st.code(age_string + make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 else:
                     st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_mast = "Show Mega Master Table".title()
+                lab_mast = "Show Master Premier Table".title()
                 if st.session_state['master_clicked']:
-                    lab_mast  = "Hide Mega Master Table".title()
+                    lab_mast  = "Hide Master Premier Table".title()
                     family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True,True)
                     df_display_master = pd.DataFrame(family_data_master)
                     df_display_master.set_index(['#'])
@@ -570,7 +570,7 @@ with cols[1]:
         
             topstrin = str(st.session_state.top_num)
             if st.session_state['show_custom']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Mega Master Cup into PokeGO {st.session_state['language']}*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom2']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Catch Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom3']:
