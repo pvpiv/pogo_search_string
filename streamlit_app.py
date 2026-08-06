@@ -75,8 +75,8 @@ if  st.session_state['show_custom2']:
 #	df = pd.read_csv('pvp_data_seas.csv')
 
 elif  st.session_state['show_custom1']:
-  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_retro.csv'
-  df = pd.read_csv('pvp_data_retro.csv')	
+  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_weather.csv'
+  df = pd.read_csv('pvp_data_weather.csv')	
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data.csv')
@@ -150,7 +150,7 @@ with cols[0]:
     #show_custom_boxz2 =  
   #  show_seas_boxz = st.checkbox('Master Premier  Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
 	
-    show_mast_boxz = st.checkbox('Master Premier Cup'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
+    show_mast_boxz = st.checkbox('Great Weather Cup'.title(), value=st.session_state['show_custom1'], on_change=upd_cust2, key='sho_cust1')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -511,12 +511,12 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom1']: 
-            lab_gre = "Show Retro Cup Table".title()
-            st.write(f'Retro Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show weather Cup Table".title()
+            st.write(f'weather Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Retro Cup Table".title()
+                lab_gre  = "Hide weather Cup Table".title()
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
