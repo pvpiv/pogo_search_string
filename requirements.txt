@@ -1,4 +1,4 @@
-streamlit
+streamlit==1.56.0
 streamlit_analytics2
 firebase_admin
 google.cloud
