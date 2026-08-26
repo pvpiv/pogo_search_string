@@ -17,6 +17,7 @@ from utils import (
     save_to_firestore,
     format_data,
     filter_ids,
+	bump_visit,
     get_top_50_ids,
     make_search_string,
     format_data_top,
@@ -48,20 +49,9 @@ from session_state_manager import (
     update_language,
     AVAILABLE_LANGUAGES
 )
-def bump_pageview():
-    key = f"pageviews_{date.today().isoformat()}"
-    if st.session_state.get("_counted"):
-        return
-    st.session_state["_counted"] = True
-    col = firestore_client.collection(st.secrets["fb_col"]).document("pageviews")
-    snap = col.get()
-    data = snap.to_dict() or {}
-    data[key] = int(data.get(key, 0)) + 1
-    col.set(data)
-bump_pageview()
 # Initialize session state
 initialize_session_state()
-
+bump_visit()
 
 query_params = st.query_params  #st.experimental_get_query_params()
 
