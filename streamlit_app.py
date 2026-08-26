@@ -17,7 +17,7 @@ from utils import (
     save_to_firestore,
     format_data,
     filter_ids,
-	bump_visit,
+    bump_visit,
     get_top_50_ids,
     make_search_string,
     format_data_top,
