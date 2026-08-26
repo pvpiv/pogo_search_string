@@ -104,7 +104,23 @@ def save_to_firestore(counts, collection_name):
     db = firestore.Client(credentials=creds, project="pvpogo")
     col = db.collection(collection_name)
     col.document(st.secrets["fb_col"]).set(counts)
-
+    
+def bump_visit():
+    """One visit per browser session. Stored in Firestore doc 'visits', not pageviews."""
+    if st.session_state.get("_visit_counted"):
+        return
+    st.session_state["_visit_counted"] = True
+    try:
+        key_dict = json.loads(st.secrets["textkey"])
+        creds = service_account.Credentials.from_service_account_info(key_dict)
+        db = firestore.Client(credentials=creds, project="pvpogo")
+        day = date.today().isoformat()
+        db.collection(st.secrets["fb_col"]).document("visits").set(
+            {day: firestore.Increment(1)},
+            merge=True,
+        )
+    except Exception:
+        pass
 def st_normal():
     _, col, _ = st.columns([1, 8, 1])
     return col
