@@ -25,7 +25,10 @@ from utils import (
     get_last_updated_date,
     swap_columns,
     get_translation,
-    TRANSLATIONS_DF
+    TRANSLATIONS_DF,
+    WCS_LEGACY_SEARCH_STRING,
+    WCS_LEGACY_MOVES,
+    is_wcs_legacy_visible,
 )
 from session_state_manager import (
     initialize_session_state,
@@ -45,6 +48,7 @@ from session_state_manager import (
     great_but,
     ultra_but,
     master_but,
+    wcs_but,
     upd_shad_only,
     update_language,
     AVAILABLE_LANGUAGES
@@ -353,6 +357,19 @@ with cols[1]:
                         "text/csv",
                         key='download-terminal-csv'
                     )
+
+        if is_wcs_legacy_visible():
+            st.write('WCS Legacy Move Evolutions Search String:')
+            st.code(WCS_LEGACY_SEARCH_STRING)
+            lab_wcs = "Hide WCS Table".title() if st.session_state['wcs_clicked'] else "Show WCS Table".title()
+            st.button(lab_wcs, on_click=wcs_but)
+            if st.session_state['wcs_clicked']:
+                st.dataframe(pd.DataFrame(WCS_LEGACY_MOVES), use_container_width=True, hide_index=True)
+                st.caption(
+                    "Caught or evolved during "
+                    "[PokémonXP & 2026 Worlds](https://leekduck.com/events/pokemon-xp-2026-worlds/#moves). "
+                    "Hides after Aug 31 00:00 Hawaii time. `&evolve` + no Frustration; Alolan Sandshrew and Johto Wooper only."
+                )
 
         if not (st.session_state['show_custom'] or st.session_state['show_custom2'] or  st.session_state['gym_bool']):
             
