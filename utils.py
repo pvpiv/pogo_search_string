@@ -323,3 +323,40 @@ def get_last_updated_date(GITHUB_API_URL):
         est_time = datetime.strptime(commit_date, "%Y-%m-%dT%H:%M:%SZ")
         est_time = est_time.astimezone(pytz.timezone('America/New_York'))
         return est_time
+
+WCS_LEGACY_SEARCH_STRING = (
+    "27,56,108,158-159,175-176,194,280-281,363-364,374-375,"
+    "633-634,656-657,722-723,725-726,816-817,821-822"
+    "&evolve&!@Frustration&!27,Ice&!194,!Poison"
+)
+WCS_LEGACY_EXPIRE_NAIVE = datetime(2026, 8, 31, 0, 0, 0)
+WCS_LEGACY_MOVES = [
+    {"Dex": "27", "Evolve these": "Alolan Sandshrew", "To get": "Alolan Sandslash", "Featured Attack": "Shadow Claw (Fast)", "Notes": "Kanto Sandshrew excluded (!27,Ice)"},
+    {"Dex": "56", "Evolve these": "Mankey", "To get": "Primeape, Annihilape", "Featured Attack": "Rage Fist (Charged)", "Notes": ""},
+    {"Dex": "108", "Evolve these": "Lickitung", "To get": "Lickilicky", "Featured Attack": "Body Slam (Charged)", "Notes": "Lickitung also learns it when caught"},
+    {"Dex": "158–159", "Evolve these": "Totodile, Croconaw", "To get": "Feraligatr", "Featured Attack": "Hydro Cannon (Charged)", "Notes": ""},
+    {"Dex": "175–176", "Evolve these": "Togepi, Togetic", "To get": "Togekiss", "Featured Attack": "Aura Sphere (Charged)", "Notes": ""},
+    {"Dex": "194", "Evolve these": "Wooper (Johto)", "To get": "Quagsire", "Featured Attack": "Aqua Tail (Charged)", "Notes": "Paldean Wooper excluded (!194,!Poison)"},
+    {"Dex": "280–281", "Evolve these": "Ralts, Kirlia", "To get": "Gardevoir, Gallade", "Featured Attack": "Synchronoise (Charged)", "Notes": ""},
+    {"Dex": "363–364", "Evolve these": "Spheal, Sealeo", "To get": "Walrein", "Featured Attack": "Powder Snow (Fast), Icicle Spear (Charged)", "Notes": ""},
+    {"Dex": "374–375", "Evolve these": "Beldum, Metang", "To get": "Metagross", "Featured Attack": "Meteor Mash (Charged)", "Notes": ""},
+    {"Dex": "633–634", "Evolve these": "Deino, Zweilous", "To get": "Hydreigon", "Featured Attack": "Brutal Swing (Charged)", "Notes": ""},
+    {"Dex": "656–657", "Evolve these": "Froakie, Frogadier", "To get": "Greninja", "Featured Attack": "Hydro Cannon (Charged)", "Notes": ""},
+    {"Dex": "722–723", "Evolve these": "Rowlet, Dartrix", "To get": "Decidueye", "Featured Attack": "Frenzy Plant (Charged)", "Notes": ""},
+    {"Dex": "725–726", "Evolve these": "Litten, Torracat", "To get": "Incineroar", "Featured Attack": "Blast Burn (Charged)", "Notes": ""},
+    {"Dex": "816–817", "Evolve these": "Sobble, Drizzile", "To get": "Inteleon", "Featured Attack": "Hydro Cannon (Charged)", "Notes": ""},
+    {"Dex": "821–822", "Evolve these": "Rookidee, Corvisquire", "To get": "Corviknight", "Featured Attack": "Air Cutter (Charged)", "Notes": ""},
+]
+
+
+def is_wcs_legacy_visible(now=None):
+    """True until 2026-08-31 00:00 Hawaii time (Pacific/Honolulu)."""
+    hawaii = pytz.timezone("Pacific/Honolulu")
+    expire = hawaii.localize(WCS_LEGACY_EXPIRE_NAIVE)
+    if now is None:
+        now = datetime.now(hawaii)
+    elif now.tzinfo is None:
+        now = hawaii.localize(now)
+    else:
+        now = now.astimezone(hawaii)
+    return now < expire
