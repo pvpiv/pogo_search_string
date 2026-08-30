@@ -325,14 +325,14 @@ def get_last_updated_date(GITHUB_API_URL):
         return est_time
 
 WCS_LEGACY_SEARCH_STRING = (
-    "27,56,108,158-159,175-176,194,280-281,363-364,374-375,"
+    "27,56-57,108,158-159,175-176,194,280-281,363-364,374-375,"
     "633-634,656-657,722-723,725-726,816-817,821-822"
     "&evolve&!@Frustration&!27,Ice&!194,!Poison"
 )
 WCS_LEGACY_EXPIRE_NAIVE = datetime(2026, 8, 31, 0, 0, 0)
 WCS_LEGACY_MOVES = [
     {"Dex": "27", "Evolve these": "Alolan Sandshrew", "To get": "Alolan Sandslash", "Featured Attack": "Shadow Claw (Fast)"},
-    {"Dex": "56", "Evolve these": "Mankey", "To get": "Primeape, Annihilape", "Featured Attack": "Rage Fist (Charged)"},
+    {"Dex": "56–57", "Evolve these": "Mankey, Primeape", "To get": "Primeape, Annihilape", "Featured Attack": "Rage Fist (Charged)"},
     {"Dex": "108", "Evolve these": "Lickitung", "To get": "Lickilicky", "Featured Attack": "Body Slam (Charged)"},
     {"Dex": "158–159", "Evolve these": "Totodile, Croconaw", "To get": "Feraligatr", "Featured Attack": "Hydro Cannon (Charged)"},
     {"Dex": "175–176", "Evolve these": "Togepi, Togetic", "To get": "Togekiss", "Featured Attack": "Aura Sphere (Charged)"},
