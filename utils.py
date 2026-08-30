@@ -331,21 +331,21 @@ WCS_LEGACY_SEARCH_STRING = (
 )
 WCS_LEGACY_EXPIRE_NAIVE = datetime(2026, 8, 31, 0, 0, 0)
 WCS_LEGACY_MOVES = [
-    {"Dex": "27", "Evolve these": "Alolan Sandshrew", "To get": "Alolan Sandslash", "Featured Attack": "Shadow Claw (Fast)", "Notes": "Kanto Sandshrew excluded (!27,Ice)"},
-    {"Dex": "56", "Evolve these": "Mankey", "To get": "Primeape, Annihilape", "Featured Attack": "Rage Fist (Charged)", "Notes": ""},
-    {"Dex": "108", "Evolve these": "Lickitung", "To get": "Lickilicky", "Featured Attack": "Body Slam (Charged)", "Notes": "Lickitung also learns it when caught"},
-    {"Dex": "158–159", "Evolve these": "Totodile, Croconaw", "To get": "Feraligatr", "Featured Attack": "Hydro Cannon (Charged)", "Notes": ""},
-    {"Dex": "175–176", "Evolve these": "Togepi, Togetic", "To get": "Togekiss", "Featured Attack": "Aura Sphere (Charged)", "Notes": ""},
-    {"Dex": "194", "Evolve these": "Wooper (Johto)", "To get": "Quagsire", "Featured Attack": "Aqua Tail (Charged)", "Notes": "Paldean Wooper excluded (!194,!Poison)"},
-    {"Dex": "280–281", "Evolve these": "Ralts, Kirlia", "To get": "Gardevoir, Gallade", "Featured Attack": "Synchronoise (Charged)", "Notes": ""},
-    {"Dex": "363–364", "Evolve these": "Spheal, Sealeo", "To get": "Walrein", "Featured Attack": "Powder Snow (Fast), Icicle Spear (Charged)", "Notes": ""},
-    {"Dex": "374–375", "Evolve these": "Beldum, Metang", "To get": "Metagross", "Featured Attack": "Meteor Mash (Charged)", "Notes": ""},
-    {"Dex": "633–634", "Evolve these": "Deino, Zweilous", "To get": "Hydreigon", "Featured Attack": "Brutal Swing (Charged)", "Notes": ""},
-    {"Dex": "656–657", "Evolve these": "Froakie, Frogadier", "To get": "Greninja", "Featured Attack": "Hydro Cannon (Charged)", "Notes": ""},
-    {"Dex": "722–723", "Evolve these": "Rowlet, Dartrix", "To get": "Decidueye", "Featured Attack": "Frenzy Plant (Charged)", "Notes": ""},
-    {"Dex": "725–726", "Evolve these": "Litten, Torracat", "To get": "Incineroar", "Featured Attack": "Blast Burn (Charged)", "Notes": ""},
-    {"Dex": "816–817", "Evolve these": "Sobble, Drizzile", "To get": "Inteleon", "Featured Attack": "Hydro Cannon (Charged)", "Notes": ""},
-    {"Dex": "821–822", "Evolve these": "Rookidee, Corvisquire", "To get": "Corviknight", "Featured Attack": "Air Cutter (Charged)", "Notes": ""},
+    {"Dex": "27", "Evolve these": "Alolan Sandshrew", "To get": "Alolan Sandslash", "Featured Attack": "Shadow Claw (Fast)"},
+    {"Dex": "56", "Evolve these": "Mankey", "To get": "Primeape, Annihilape", "Featured Attack": "Rage Fist (Charged)"},
+    {"Dex": "108", "Evolve these": "Lickitung", "To get": "Lickilicky", "Featured Attack": "Body Slam (Charged)"},
+    {"Dex": "158–159", "Evolve these": "Totodile, Croconaw", "To get": "Feraligatr", "Featured Attack": "Hydro Cannon (Charged)"},
+    {"Dex": "175–176", "Evolve these": "Togepi, Togetic", "To get": "Togekiss", "Featured Attack": "Aura Sphere (Charged)"},
+    {"Dex": "194", "Evolve these": "Wooper (Johto)", "To get": "Quagsire", "Featured Attack": "Aqua Tail (Charged)"},
+    {"Dex": "280–281", "Evolve these": "Ralts, Kirlia", "To get": "Gardevoir, Gallade", "Featured Attack": "Synchronoise (Charged)"},
+    {"Dex": "363–364", "Evolve these": "Spheal, Sealeo", "To get": "Walrein", "Featured Attack": "Powder Snow (Fast), Icicle Spear (Charged)"},
+    {"Dex": "374–375", "Evolve these": "Beldum, Metang", "To get": "Metagross", "Featured Attack": "Meteor Mash (Charged)"},
+    {"Dex": "633–634", "Evolve these": "Deino, Zweilous", "To get": "Hydreigon", "Featured Attack": "Brutal Swing (Charged)"},
+    {"Dex": "656–657", "Evolve these": "Froakie, Frogadier", "To get": "Greninja", "Featured Attack": "Hydro Cannon (Charged)"},
+    {"Dex": "722–723", "Evolve these": "Rowlet, Dartrix", "To get": "Decidueye", "Featured Attack": "Frenzy Plant (Charged)"},
+    {"Dex": "725–726", "Evolve these": "Litten, Torracat", "To get": "Incineroar", "Featured Attack": "Blast Burn (Charged)"},
+    {"Dex": "816–817", "Evolve these": "Sobble, Drizzile", "To get": "Inteleon", "Featured Attack": "Hydro Cannon (Charged)"},
+    {"Dex": "821–822", "Evolve these": "Rookidee, Corvisquire", "To get": "Corviknight", "Featured Attack": "Air Cutter (Charged)"},
 ]
 
 
