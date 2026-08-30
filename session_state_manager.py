@@ -70,6 +70,8 @@ def initialize_session_state():
         st.session_state['ultra_clicked'] = False
     if 'master_clicked' not in st.session_state:
         st.session_state['master_clicked'] = False
+    if 'wcs_clicked' not in st.session_state:
+        st.session_state['wcs_clicked'] = False
     if 'table_gen' not in st.session_state:
         st.session_state['table_gen'] = ''
     if 'table_string_butt' not in st.session_state:
@@ -155,3 +157,6 @@ def ultra_but():
 
 def master_but():
     st.session_state['master_clicked'] = not st.session_state['master_clicked']
+
+def wcs_but():
+    st.session_state['wcs_clicked'] = not st.session_state['wcs_clicked']
