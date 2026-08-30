@@ -365,11 +365,6 @@ with cols[1]:
             st.button(lab_wcs, on_click=wcs_but)
             if st.session_state['wcs_clicked']:
                 st.dataframe(pd.DataFrame(WCS_LEGACY_MOVES), use_container_width=True, hide_index=True)
-                st.caption(
-                    "Caught or evolved during "
-                    "[PokémonXP & 2026 Worlds](https://leekduck.com/events/pokemon-xp-2026-worlds/#moves). "
-                    "Hides after Aug 31 00:00 Hawaii time. `&evolve` + no Frustration; Alolan Sandshrew and Johto Wooper only."
-                )
 
         if not (st.session_state['show_custom'] or st.session_state['show_custom2'] or  st.session_state['gym_bool']):
             
