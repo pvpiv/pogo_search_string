@@ -78,12 +78,9 @@ if  st.session_state['show_custom2']:
 #	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
 #	df = pd.read_csv('pvp_data_seas.csv')
 
-elif  st.session_state['show_custom1']:
-  GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
-  df = pd.read_csv('pvp_data_seas.csv')	
 else:
-    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
-    df = pd.read_csv('pvp_data.csv')
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
+    df = pd.read_csv('pvp_data_seas.csv')
 
 try:
 	if st.session_state["comm"] == "true":
@@ -152,7 +149,7 @@ with cols[0]:
         on_change = upd_tab_str
     )
     #show_custom_boxz2 =  
-    show_seas_boxz = st.checkbox('Next Season Rankings'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+    #show_seas_boxz = st.checkbox('Next Season Rankings'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
 	
     show_mast_boxz = st.checkbox('Mega Cups'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
