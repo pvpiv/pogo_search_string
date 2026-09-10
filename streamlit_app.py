@@ -79,8 +79,8 @@ if  st.session_state['show_custom2']:
 #	df = pd.read_csv('pvp_data_seas.csv')
 
 else:
-    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
-    df = pd.read_csv('pvp_data_seas.csv')
+    GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
+    df = pd.read_csv('pvp_data.csv')
 
 try:
 	if st.session_state["comm"] == "true":
