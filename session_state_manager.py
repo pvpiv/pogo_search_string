@@ -130,9 +130,17 @@ def upd_cust():
 
 def upd_cust1():
     st.session_state.show_custom1 = st.session_state.sho_cust1
+    if st.session_state.sho_cust1:
+        st.session_state.show_custom2 = False
+        if 'sho_cust2' in st.session_state:
+            st.session_state.sho_cust2 = False
 
 def upd_cust2():
     st.session_state.show_custom2 = st.session_state.sho_cust2
+    if st.session_state.sho_cust2:
+        st.session_state.show_custom1 = False
+        if 'sho_cust1' in st.session_state:
+            st.session_state.sho_cust1 = False
 
 def upd_cust3():
     st.session_state.show_custom3 = st.session_state.sho_cust3
