@@ -382,6 +382,22 @@ with cols[1]:
 
         if not (st.session_state['show_custom'] or st.session_state['gym_bool'] or st.session_state['show_custom3'] or st.session_state['show_custom1'] or st.session_state['show_custom2']):
             try:
+                st.write(f'Great League Top {st.session_state.top_num} Search String:')
+                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                lab_gre = "Show Great Table".title()
+                if st.session_state['great_clicked']:
+                    lab_gre  = "Hide Great Table".title()
+                    st.button(lab_gre,on_click = great_but)
+                    family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
+                    df_display_Great = pd.DataFrame(family_data_Great)
+                    df_display_Great.set_index(['#'])
+                    st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                else:
+                    st.button(lab_gre,on_click = great_but)
+            except:
+                pass
+
+            try:
                 st.write(f'Ultra League Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "ultra", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_ult = "Show Ultra Table".title()
@@ -394,6 +410,44 @@ with cols[1]:
                     st.markdown(swap_columns(df_display_Ultra,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
                 else:
                     st.button(lab_ult,on_click = ultra_but)
+            except:
+                pass
+
+            try:
+                st.write(f'Master League Top {st.session_state.top_num} Search String:')
+                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                lab_mast = "Show Master Table".title()
+                if st.session_state['master_clicked']:
+                    lab_mast  = "Hide Master Table".title()
+                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True,True)
+                    df_display_master = pd.DataFrame(family_data_master)
+                    df_display_master.set_index(['#'])
+                    st.button(lab_mast, on_click = master_but)
+                    st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                else:
+                    st.button(lab_mast,on_click = master_but)
+            except:
+                pass
+
+            try:
+                st.write(f'Little League Top {st.session_state.top_num} Search String:')
+                st.code(make_search_string(df, "little", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                lab_lit = "Show Little Table".title()
+                if st.session_state['little_clicked']:
+                    lab_lit = "Hide Little Table".title()
+                    st.button(lab_lit,on_click = little_but)
+                    family_data_Little = format_data_top(df, 'Little', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
+                    df_display_Little = pd.DataFrame(family_data_Little)
+                    df_display_Little.set_index(['#'])
+                    st.markdown(swap_columns(df_display_Little,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
+                else:
+                    st.button(lab_lit,on_click = little_but)
+            except:
+                pass
+
+            try:
+                st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
+                st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, show_only_xl_boxz, True,shad_only=shad_box, language = st.session_state['language']))
             except:
                 pass
         elif st.session_state['show_custom2']:
@@ -548,7 +602,7 @@ with cols[1]:
             elif st.session_state['show_custom3']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Fossil Cup into PokeGO {st.session_state['language']}*'
             else:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Ultra League into PokeGO {st.session_state['language']}*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} into PokeGO {st.session_state['language']}*'
             st.text_input(
                 label=today.strftime("%m/%d/%y"),
                 value= copy_val,
