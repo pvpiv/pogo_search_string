@@ -71,16 +71,9 @@ season_start = date(2026, 3, 3)
 days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
 
-if  st.session_state['show_custom2']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
-	df = pd.read_csv('pvp_data_mega.csv')
-elif st.session_state['show_custom1']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_retro.csv'
-	df = pd.read_csv('pvp_data_retro.csv')
-#elif  st.session_state['get_season']:
-#	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_seas.csv'
-#	df = pd.read_csv('pvp_data_seas.csv')
-
+if st.session_state['show_custom1']:
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_colormega.csv'
+	df = pd.read_csv('pvp_data_colormega.csv')
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data.csv')
@@ -154,8 +147,7 @@ with cols[0]:
     #show_custom_boxz2 =  
     #show_seas_boxz = st.checkbox('Next Season Rankings'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
 	
-    show_mast_boxz = st.checkbox('Mega Master'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
-    show_retro_boxz = st.checkbox('Retro Cup'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+    show_colormega_boxz = st.checkbox('Great Mega Color Cup'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -180,11 +172,8 @@ with cols[1]:
 
     if not st.session_state['table_string_butt']:
         if pokemon_list:
-            if st.session_state['show_custom2']:
-                poke_label = 'Mega Master Rankings, IVs, & Moves Table'
-                active_leagues = ['Master']
-            elif st.session_state['show_custom1']:
-                poke_label = 'Retro Cup Rankings, IVs, & Moves Table'
+            if st.session_state['show_custom1']:
+                poke_label = 'Great Mega Color Cup Rankings, IVs, & Moves Table'
                 active_leagues = ['Great']
             elif st.session_state['show_custom'] or st.session_state['show_custom3']:
                 poke_label = 'Custom Cup Rankings, IVs, & Moves Table'
@@ -535,12 +524,12 @@ with cols[1]:
             except:
                 pass
         elif st.session_state['show_custom1']: 
-            lab_gre = "Show Retro Cup Table".title()
-            st.write(f'Retro Cup Top {st.session_state.top_num} Search String:')
+            lab_gre = "Show Great Mega Color Cup Table".title()
+            st.write(f'Great Mega Color Cup Top {st.session_state.top_num} Search String:')
             st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
             
             if st.session_state['great_clicked']:
-                lab_gre  = "Hide Retro Cup Table".title()
+                lab_gre  = "Hide Great Mega Color Cup Table".title()
                 st.button(lab_gre,on_click = great_but)
                 family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                 df_display_Great = pd.DataFrame(family_data_Great)
@@ -596,9 +585,7 @@ with cols[1]:
             if st.session_state['show_custom']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom1']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Retro Cup into PokeGO {st.session_state['language']}*'
-            elif st.session_state['show_custom2']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Mega Master into PokeGO {st.session_state['language']}*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Mega Color Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom3']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Fossil Cup into PokeGO {st.session_state['language']}*'
             else:
