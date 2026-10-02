@@ -179,8 +179,11 @@ with cols[1]:
                 poke_label = 'Custom Cup Rankings, IVs, & Moves Table'
                 active_leagues = None
             else:
-                poke_label = 'Ultra League Rankings, IVs, & Moves Table'
-                active_leagues = ['Ultra']
+                active_leagues = [lg for lg in ['Little', 'Great', 'Ultra', 'Master'] if f'{lg}_Rank' in df.columns]
+                if len(active_leagues) == 1:
+                    poke_label = f'{active_leagues[0]} League Rankings, IVs, & Moves Table'
+                else:
+                    poke_label = 'Rankings, IVs, & Moves Table'
             st.subheader(poke_label)
             pokemon_choice = st.selectbox(
                 "",
