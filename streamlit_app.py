@@ -71,9 +71,9 @@ season_start = date(2026, 3, 3)
 days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
 
-if st.session_state['show_custom1']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_colormega.csv'
-	df = pd.read_csv('pvp_data_colormega.csv')
+if st.session_state['show_custom2']:
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
+	df = pd.read_csv('pvp_data_mega.csv')
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data.csv')
@@ -147,7 +147,7 @@ with cols[0]:
     #show_custom_boxz2 =  
     #show_seas_boxz = st.checkbox('Next Season Rankings'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
 	
-    show_colormega_boxz = st.checkbox('Great Mega Color Cup'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+    show_mega_cups_boxz = st.checkbox('Mega Cups'.title(), value=st.session_state['show_custom2'], on_change=upd_cust2, key='sho_cust2')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -172,10 +172,7 @@ with cols[1]:
 
     if not st.session_state['table_string_butt']:
         if pokemon_list:
-            if st.session_state['show_custom1']:
-                poke_label = 'Great Mega Color Cup Rankings, IVs, & Moves Table'
-                active_leagues = ['Great']
-            elif st.session_state['show_custom'] or st.session_state['show_custom3']:
+            if st.session_state['show_custom'] or st.session_state['show_custom3']:
                 poke_label = 'Custom Cup Rankings, IVs, & Moves Table'
                 active_leagues = None
             else:
@@ -372,7 +369,7 @@ with cols[1]:
             if st.session_state['wcs_clicked']:
                 st.dataframe(pd.DataFrame(WCS_LEGACY_MOVES), use_container_width=True, hide_index=True)
 
-        if not (st.session_state['show_custom'] or st.session_state['gym_bool'] or st.session_state['show_custom3'] or st.session_state['show_custom1'] or st.session_state['show_custom2']):
+        if st.session_state['show_custom2'] or not (st.session_state['show_custom'] or st.session_state['gym_bool'] or st.session_state['show_custom3']):
             try:
                 st.write(f'Great League Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
@@ -440,22 +437,6 @@ with cols[1]:
             try:
                 st.write(f'All Leagues Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "all", st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, show_only_xl_boxz, True,shad_only=shad_box, language = st.session_state['language']))
-            except:
-                pass
-        elif st.session_state['show_custom2']:
-            try:
-                st.write(f'Mega Master Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_mast = "Show Mega Master Table".title()
-                if st.session_state['master_clicked']:
-                    lab_mast  = "Hide Mega Master Table".title()
-                    family_data_master = format_data_top(df, 'Master', st.session_state.top_num,True,True)
-                    df_display_master = pd.DataFrame(family_data_master)
-                    df_display_master.set_index(['#'])
-                    st.button(lab_mast, on_click = master_but)
-                    st.markdown(swap_columns(df_display_master,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-                else:
-                    st.button(lab_mast,on_click = master_but)
             except:
                 pass
         elif st.session_state['gym_bool']: 
@@ -526,29 +507,10 @@ with cols[1]:
 
             except:
                 pass
-        elif st.session_state['show_custom1']: 
-            lab_gre = "Show Great Mega Color Cup Table".title()
-            st.write(f'Great Mega Color Cup Top {st.session_state.top_num} Search String:')
-            st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-            
-            if st.session_state['great_clicked']:
-                lab_gre  = "Hide Great Mega Color Cup Table".title()
-                st.button(lab_gre,on_click = great_but)
-                family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
-                df_display_Great = pd.DataFrame(family_data_Great)
-                df_display_Great.set_index(['#'])
-                st.markdown(swap_columns(df_display_Great,"Pokemon","#").style.hide(axis="index").to_html(escape=False), unsafe_allow_html=True)
-            else:
-                st.button(lab_gre,on_click = great_but)
- 
-	     
         elif st.session_state['show_custom3']: 
             try:
                 st.write(f'Master Premier League Top {st.session_state.top_num} Search String:')
-                if st.session_state['show_custom1']:
-                    st.code(age_string + make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                else:
-                    st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                st.code(make_search_string(df, "master", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_mast = "Show Master Premier Table".title()
                 if st.session_state['master_clicked']:
                     lab_mast  = "Hide Master Premier Table".title()
@@ -587,8 +549,6 @@ with cols[1]:
             topstrin = str(st.session_state.top_num)
             if st.session_state['show_custom']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO {st.session_state['language']}*'
-            elif st.session_state['show_custom1']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Mega Color Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom3']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Fossil Cup into PokeGO {st.session_state['language']}*'
             else:
