@@ -147,7 +147,7 @@ with cols[0]:
     #show_custom_boxz2 =  
     #show_seas_boxz = st.checkbox('Next Season Rankings'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
 	
-    show_data_halloweenmega_boxz = st.checkbox('Great data_halloweenmega Cup (Mega Edition)', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+    show_data_halloweenmega_boxz = st.checkbox('Great Halloween Cup (Mega Edition)', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
