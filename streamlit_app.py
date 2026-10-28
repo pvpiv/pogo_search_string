@@ -72,8 +72,8 @@ days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
 
 if st.session_state['show_custom1']:
-	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_halloween.csv'
-	df = pd.read_csv('pvp_halloween.csv')
+	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_halloweenmega.csv'
+	df = pd.read_csv('pvp_halloweenmega.csv')
 else:
     GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data.csv'
     df = pd.read_csv('pvp_data.csv')
@@ -147,7 +147,7 @@ with cols[0]:
     #show_custom_boxz2 =  
     #show_seas_boxz = st.checkbox('Next Season Rankings'.title(), value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
 	
-    show_halloween_boxz = st.checkbox('Great Halloween Cup (Mega Edition)', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
+    show_halloweenmega_boxz = st.checkbox('Great halloweenmega Cup (Mega Edition)', value=st.session_state['show_custom1'], on_change=upd_cust1, key='sho_cust1')
     #show_seas_boxz = st.checkbox('Next Season Rankings', on_change=upd_seas, key='sho_seas', value=st.session_state['get_season'])
 
     with lang_col:
@@ -173,7 +173,7 @@ with cols[1]:
     if not st.session_state['table_string_butt']:
         if pokemon_list:
             if st.session_state['show_custom1']:
-                poke_label = 'Great Halloween Cup (Mega Edition) Rankings, IVs, & Moves Table'
+                poke_label = 'Great halloweenmega Cup (Mega Edition) Rankings, IVs, & Moves Table'
                 active_leagues = ['Great']
             elif st.session_state['show_custom'] or st.session_state['show_custom3']:
                 poke_label = 'Custom Cup Rankings, IVs, & Moves Table'
@@ -444,11 +444,11 @@ with cols[1]:
                 pass
         elif st.session_state['show_custom1']:
             try:
-                st.write(f'Great Halloween Cup (Mega Edition) Top {st.session_state.top_num} Search String:')
+                st.write(f'Great halloweenmega Cup (Mega Edition) Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
-                lab_gre = "Show Great Halloween Table".title()
+                lab_gre = "Show Great halloweenmega Table".title()
                 if st.session_state['great_clicked']:
-                    lab_gre  = "Hide Great Halloween Table".title()
+                    lab_gre  = "Hide Great halloweenmega Table".title()
                     st.button(lab_gre,on_click = great_but)
                     family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
@@ -569,7 +569,7 @@ with cols[1]:
             if st.session_state['show_custom']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Master Premier Cup into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom1']:
-                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Halloween Cup (Mega Edition) into PokeGO {st.session_state['language']}*'
+                copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great halloweenmega Cup (Mega Edition) into PokeGO {st.session_state['language']}*'
             elif st.session_state['show_custom3']:
                 copy_val = f'*Click string to show Copy button and Paste Top {topstrin} Great Fossil Cup into PokeGO {st.session_state['language']}*'
             else:
