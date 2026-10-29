@@ -444,11 +444,11 @@ with cols[1]:
                 pass
         elif st.session_state['show_custom1']:
             try:
-                st.write(f'Great data_halloweenmega Cup (Mega Edition) Top {st.session_state.top_num} Search String:')
+                st.write(f'Great Halloween Mega Top {st.session_state.top_num} Search String:')
                 st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_gre = "Show Great Halloween Mega Table".title()
                 if st.session_state['great_clicked']:
-                    lab_gre  = "Hide Great data_halloweenmega Table".title()
+                    lab_gre  = "Hide Great Halloween Mega Table".title()
                     st.button(lab_gre,on_click = great_but)
                     family_data_Great = format_data_top(df, 'Great', st.session_state.top_num,show_xl_boxz,show_only_xl_boxz)
                     df_display_Great = pd.DataFrame(family_data_Great)
