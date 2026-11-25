@@ -71,6 +71,17 @@ season_start = date(2026, 9, 3)
 days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
 
+# Mega Great Catch Cup: prepend age to Great strings only while mega mode is on, until new season.
+# Remove MEGA_GREAT_CATCH_CUP_AGE_UNTIL and mega_great_catch_age_prefix after 2026-12-02.
+MEGA_GREAT_CATCH_CUP_AGE_UNTIL = date(2026, 12, 2)
+
+
+def mega_great_catch_age_prefix(*, mega_mode: bool, on_date: date) -> str:
+    if not mega_mode or on_date >= MEGA_GREAT_CATCH_CUP_AGE_UNTIL:
+        return ""
+    return age_string
+
+
 if st.session_state['show_custom2']:
 	GITHUB_API_URL = 'https://api.github.com/repos/pvpiv/pogo_search_string/commits?path=pvp_data_mega.csv'
 	df = pd.read_csv('pvp_data_mega.csv')
@@ -340,6 +351,11 @@ with cols[1]:
                     
                     for league in leagues:
                         base_string = make_search_string(df, league, st.session_state.top_num, fam_box, False, inv_box, show_xl_boxz, show_only_xl_boxz, False, shad_only=shad_box, language=st.session_state['language'])
+                        if league == "great":
+                            base_string = mega_great_catch_age_prefix(
+                                mega_mode=st.session_state["show_custom2"],
+                                on_date=today,
+                            ) + base_string
                         # Remove any existing IV filters
                         base_string = base_string.split('&0-1attack')[0] if '&0-1attack' in base_string else base_string
                         
@@ -375,10 +391,18 @@ with cols[1]:
         if not (st.session_state['show_custom'] or st.session_state['gym_bool'] or st.session_state['show_custom3']):
             try:
                 st.write(f'Great League Top {st.session_state.top_num} Search String:')
-				astr = ''
-				if (st.session_state['show_custom2']:
-					astr = age_string
-                st.code(astr + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+                great_string = make_search_string(
+                    df, "great", st.session_state.top_num, fam_box, iv_box, inv_box,
+                    show_xl_boxz, show_only_xl_boxz, False, shad_only=shad_box,
+                    language=st.session_state['language'],
+                )
+                st.code(
+                    mega_great_catch_age_prefix(
+                        mega_mode=st.session_state["show_custom2"],
+                        on_date=today,
+                    )
+                    + great_string
+                )
                 lab_gre = "Show Great Table".title()
                 if st.session_state['great_clicked']:
                     lab_gre  = "Hide Great Table".title()
