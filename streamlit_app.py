@@ -66,7 +66,7 @@ try:
 except:
 	pass
 	
-season_start = date(2026, 3, 3)
+season_start = date(2026, 9, 3)
 # Set GitHub API URL based on 'show_custom' flag
 days_since_date = calculate_days_since(season_start)
 age_string = f"age0-{days_since_date}&"
@@ -375,7 +375,10 @@ with cols[1]:
         if not (st.session_state['show_custom'] or st.session_state['gym_bool'] or st.session_state['show_custom3']):
             try:
                 st.write(f'Great League Top {st.session_state.top_num} Search String:')
-                st.code(make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
+				astr = ''
+				if (st.session_state['show_custom2']:
+					astr = age_string
+                st.code(astr + make_search_string(df, "great", st.session_state.top_num, fam_box, iv_box, inv_box, show_xl_boxz, show_only_xl_boxz, False,shad_only=shad_box, language = st.session_state['language']))
                 lab_gre = "Show Great Table".title()
                 if st.session_state['great_clicked']:
                     lab_gre  = "Hide Great Table".title()
